@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The RRSP Meltdown Strategy: Retire Smarter in 2026 | NorthCalc</title>
+  <meta name="description" content="A comprehensive guide to the RRSP meltdown strategy. Learn how to withdraw registered funds early to save thousands in lifetime taxes and avoid OAS clawbacks.">
+  <style>
+    /* NorthCalc Global Styles */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    .post-body{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .post-body h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    .post-body h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    .post-body p{margin-bottom:.9rem;font-size:.94rem}
+    .post-body ul{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    .post-body li{margin-bottom:.4rem}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1.25rem;margin:1.5rem 0;font-size:.9rem;color:#7f1d1d}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta"><span>📅 April 2026</span><span>⏱ 14 min read</span><span>🍁 Retirement</span></div>
+      <h1>The RRSP Meltdown Strategy: Defusing the Retirement "Tax Bomb"</h1>
+      <p class="lead">Waiting until age 72 to withdraw from your RRSP is the default advice, but for many Canadians, it’s a massive mistake. Here is how a strategic "meltdown" can save your estate thousands.</p>
+    </div>
+  </div>
+
+  <main class="post-wrap">
+    <article class="post-body">
+      <h2>The Problem with Waiting Until Age 72</h2>
+      <p>By law, you must convert your RRSP into a Registered Retirement Income Fund (RRIF) by the end of the year you turn 71. Starting at age 72, the government forces you to withdraw a minimum percentage of your account every year—a rate that rises as you age. If you have a large RRSP balance, these mandatory withdrawals can push you into a higher tax bracket and trigger a clawback of your Old Age Security (OAS) benefits.</p>
+      <p>Furthermore, if you pass away with a large balance in your RRSP or RRIF, the entire remaining amount is treated as income in the year of death. For a sizable estate, this can lead to a "tax hit" of up to **54%**, effectively giving over half of your hard-earned savings to the CRA instead of your heirs.</p>
+
+      <h2>What is an RRSP Meltdown?</h2>
+      <p>An RRSP meltdown is a proactive strategy to withdraw funds from your registered accounts earlier—often between the ages of 60 and 70—to "smooth out" your lifetime taxation. The goal is to draw down the account while you are in a lower tax bracket, shifting those assets into tax-efficient non-registered accounts or a TFSA.</p>
+
+      <h3>Key Benefits of the Meltdown Strategy:</h3>
+      <ul>
+        <li><strong>OAS Protection:</strong> By reducing the size of your RRIF before age 72, you lower your future mandatory income, keeping you below the OAS clawback threshold (approximately $91,000 in 2026).</li>
+        <li><strong>Estate Preservation:</strong> Drawing down the account over 10–15 years reduces the massive lump-sum tax bill that would otherwise occur at death.</li>
+        <li><strong>Pension Income Credit:</strong> Starting a RRIF at age 65 allows you to take advantage of the **$2,000 pension income tax credit**, effectively making the first $2,000 of withdrawals tax-free each year.</li>
+      </ul>
+
+      <h2>Advanced Strategy: The Leveraged Meltdown</h2>
+      <p>For some Canadians, an advanced approach involves using an investment loan to offset the tax on RRSP withdrawals.</p>
+      <ul>
+        <li><strong>How it works:</strong> You take out an investment loan (ideally a secured line of credit) and invest the funds in non-registered, income-producing assets.</li>
+        <li><strong>The Tax Offset:</strong> The interest paid on the investment loan is generally tax-deductible. You withdraw enough from your RRSP/RRIF each year to cover the interest payments.</li>
+        <li><strong>The Result:</strong> The tax deduction from the loan interest cancels out the taxable income from the RRSP withdrawal, allowing you to "melt down" the account on a largely tax-neutral basis while building a non-registered portfolio.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Risk Warning:</strong> Borrowing to invest magnifies both gains and losses. This strategy is high-risk and only suitable for investors with a long time horizon, strong cash flow, and high risk tolerance.
+      </div>
+
+      <h2>Strategic Synergy with CPP and OAS Deferral</h2>
+      <p>A successful meltdown often involves deferring your CPP and OAS payments until age 70. By doing this, you create an "income gap" in your 60s. You fill this gap with larger RRSP withdrawals, drawing down the account at a lower marginal tax rate while your government pensions grow by 36% to 42% for the future.</p>
+
+      <div class="tip">
+        <strong>The Spousal Strategy:</strong> If your spouse has a lower RRSP balance, you can withdraw from yours and contribute to a **Spousal RRSP** (if you have room) to equalize the accounts and lower the couple's total future tax bill.
+      </div>
+
+      <div class="cta-box">
+        <h3>Model Your Retirement</h3>
+        <p>Use our RRSP Calculator to see how your savings will grow and plan your withdrawal strategy.</p>
+        <a href="/rrsp-calculator.html" class="cta-btn">RRSP Calculator</a>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong>Disclaimer:</strong> The RRSP Meltdown is an advanced tax-planning strategy. Early withdrawals permanently eliminate your RRSP contribution room. Always consult a certified financial planner or tax accountant to simulate these scenarios before taking action.
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner"><div class="footer-brand">🍁 North<em>Calc</em></div></div>
+    <div class="footer-copy">© 2026 NorthCalc.com — For educational purposes only.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+  </script>
+</body>
+</html>
