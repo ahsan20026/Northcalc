@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income Tax Calculator 2026 | NorthCalc — Canadian Financial Calculators</title>
+<meta name="description" content="Free Canadian income tax calculator for 2026. Calculate federal and provincial income tax for all provinces and territories. Includes CPP, EI, and net take-home pay. Shows marginal and effective tax rates.">
+<meta name="keywords" content="Canadian income tax calculator, income tax Canada 2026, federal tax, provincial tax, CPP, EI, marginal tax rate, effective tax rate, Canada tax calculator">
+<link rel="canonical" href="https://northcalc.com/canadian-income-tax-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+tr:hover td{background:#fafafa}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link active">📊 Income Tax</a>
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian Income Tax Calculator 2026</h1>
+    <p>Calculate your federal + provincial income tax, CPP, EI, and net take-home pay for any province or territory.</p>
+  </div>
+</div>
+
+<main>
+  <div class="content-wrap">
+
+    <div class="calc-section">
+      <h2>Calculate Your Taxes</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Annual Employment Income</label>
+          <div style="position:relative">
+            <span style="position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none">$</span>
+            <input type="number" id="income" placeholder="85,000" min="0" step="1000" style="width:100%;padding:.65rem .875rem .65rem 1.85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Province / Territory</label>
+          <select id="province" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+            <option value="ON">Ontario</option>
+            <option value="BC">British Columbia</option>
+            <option value="AB">Alberta</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="MB">Manitoba</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NB">New Brunswick</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="NL">Newfoundland &amp; Labrador</option>
+            <option value="YT">Yukon</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NU">Nunavut</option>
+          </select>
+        </div>
+      </div>
+      <button style="width:100%;padding:.85rem;background:var(--red);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s" onclick="calculate()">Calculate My Taxes</button>
+      <div style="font-size:.75rem;color:var(--muted);margin-top:1rem">Uses 2026 federal &amp; provincial rates. Assumes basic personal amount credit only. Does not include RRSP deductions, credits, or other adjustments.</div>
+    </div>
+
+    <div id="results" style="display:none">
+      <div class="content-section" style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-color:#bbf7d0">
+        <div style="text-align:center">
+          <div style="font-size:.78rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Estimated Net Annual Income (Take-Home)</div>
+          <div style="font-size:2.5rem;font-weight:800;color:#065f46;line-height:1;margin-bottom:.25rem" id="netVal">$0</div>
+          <div style="font-size:.9rem;color:#166534" id="netSub"></div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Tax Breakdown</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem" id="bdGrid"></div>
+
+        <h3>Where Your Income Goes</h3>
+        <div id="barSection" style="margin-bottom:1.5rem"></div>
+        <div id="sumRows" style="margin-bottom:1.5rem"></div>
+        <div id="rateBadges" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Understanding Canada's Tax System</h2>
+      <p>Canada uses a progressive tax system where both <strong>federal and provincial tax apply to the same income</strong>. Here are the key concepts:</p>
+
+      <h3>Basic Personal Amount (BPA)</h3>
+      <p>Both federal and provincial governments give you a personal amount that is not taxed. For 2026, the federal BPA is approximately $15,705, and provincial BPAs range from $11,865 (Ontario) to $21,003 (Alberta). These reduce your taxable income dollar-for-dollar.</p>
+
+      <h3>Combined Tax Brackets</h3>
+      <p>Your marginal tax rate (the rate on your next dollar of income) is the <strong>sum of federal and provincial rates</strong>. In high-income provinces, combined marginal rates can exceed 50%. For example, in British Columbia at $350,000 income, the combined rate is approximately 56.2%.</p>
+
+      <h3>CPP and EI Contributions</h3>
+      <p>In addition to income tax, employees contribute to the Canada Pension Plan (CPP) at 5.95% on earnings between $3,500 and $68,500, plus an additional top-up contribution (CPP2). Employment Insurance (EI) is deducted at 1.66% on insurable earnings up to the annual maximum.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Canadian Example (2026)</h2>
+      <div class="example-box">
+        <strong>Scenario: $85,000 annual salary, Ontario resident</strong><br>
+        Federal tax: ~$13,600 (after basic personal amount of $15,705)<br>
+        Ontario provincial tax: ~$5,800 (after provincial BPA of $11,865)<br>
+        CPP contribution: ~$3,867<br>
+        EI premium: ~$1,049<br>
+        <strong style="display:block;margin-top:.5rem">Net take-home: ~$60,684/yr (~$5,057/mo)</strong><br>
+        Effective tax rate: ~28.6%<br>
+        Marginal tax rate: ~43.4% (combined federal + provincial)
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What Your Results Mean</h2>
+
+      <h3>Effective Tax Rate vs Marginal Tax Rate</h3>
+      <p><strong>Effective tax rate</strong> is all your taxes divided by your gross income—it's what you actually pay as a percentage. <strong>Marginal tax rate</strong> is the tax rate on your next dollar earned. The marginal rate is always higher because Canada's system is progressive. Understanding this matters for decisions about RRSP contributions or side income.</p>
+
+      <h3>Monthly vs Bi-Weekly Paycheques</h3>
+      <p>Your net annual income divided by 12 gives your monthly take-home. Most Canadian employers run payroll bi-weekly (26 pay periods per year), so divide by 26 for your typical paycheque amount. Tax deductions and CPP/EI contributions are usually deducted from each paycheque.</p>
+
+      <h3>RRSP Contributions Reduce Taxable Income</h3>
+      <p>Any amount you contribute to a Registered Retirement Savings Plan (RRSP) reduces your taxable income. This means if you earn $85,000 and contribute $10,000 to an RRSP, you pay tax on only $75,000. At a 43.4% marginal rate, that saves you $4,340 in taxes. This "tax refund" is a powerful reason to max out your RRSP room.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>What is the difference between marginal and effective tax rate?</summary>
+        <div class="faq-body">
+          <strong>Effective tax rate</strong> is the total tax you pay divided by your total income. For example, if you earn $85,000 and pay $24,316 in total taxes (federal, provincial, CPP, EI), your effective rate is 28.6%.<br><br>
+          <strong>Marginal tax rate</strong> is the tax on your next dollar earned. In Ontario at $85,000 income, the marginal rate is 43.4% (15% federal + 9.15% provincial). If you earn one more dollar, you keep approximately 56.6¢ after tax.<br><br>
+          Marginal rate is more relevant for decisions about additional income (bonuses, freelance work, RRSP contributions) because it shows what you actually keep.
+        </div>
+      </details>
+
+      <details>
+        <summary>How do RRSP contributions reduce my taxes?</summary>
+        <div class="faq-body">
+          RRSP (Registered Retirement Savings Plan) contributions are tax-deductible. You reduce your taxable income dollar-for-dollar by any amount you contribute. If your marginal tax rate is 43.4% and you contribute $10,000 to an RRSP, you get an immediate tax refund of $4,340. The money grows tax-free inside the RRSP until withdrawal (when it becomes income and is taxed). This "tax-deferred growth" is the main advantage of RRSPs versus Tax-Free Savings Accounts (TFSAs).
+        </div>
+      </details>
+
+      <details>
+        <summary>Which province has the highest income taxes in Canada?</summary>
+        <div class="faq-body">
+          At the top income bracket (over $220,000), combined federal + provincial rates range from 53% to 56.2%. British Columbia has the highest top combined rate at 56.2%, followed by Quebec at 54.75% and Nova Scotia at 54%. Alberta has the lowest combined top rate at 48%, followed by Saskatchewan at 48%.<br><br>
+          However, at mid-range incomes ($100,000), the differences are smaller. For high earners, provincial choice matters significantly for tax planning.
+        </div>
+      </details>
+
+      <details>
+        <summary>What is the basic personal amount for 2026?</summary>
+        <div class="faq-body">
+          <strong>Federal basic personal amount (BPA):</strong> approximately $15,705 for 2026. This is indexed annually to inflation.<br><br>
+          <strong>Provincial BPAs vary:</strong><br>
+          • Alberta: $21,003 (highest)<br>
+          • Ontario: $11,865<br>
+          • British Columbia: $11,981<br>
+          • Quebec: $17,183<br>
+          • Newfoundland &amp; Labrador: $10,820 (lowest)<br><br>
+          Higher BPAs mean less tax for low-income earners. The BPA essentially creates a tax-free threshold: the first $15,705 (federal) + your provincial amount of income is not taxed.
+        </div>
+      </details>
+
+      <details>
+        <summary>How are CPP and EI calculated?</summary>
+        <div class="faq-body">
+          <strong>CPP (Canada Pension Plan):</strong> Employees contribute 5.95% of earnings between $3,500 and $68,500 per year. An additional CPP2 top-up of 4% applies on earnings between $68,500 and $73,200. Self-employed individuals pay both employee and employer portions (11.9% + 8% top-up).<br><br>
+          <strong>EI (Employment Insurance):</strong> Employees contribute 1.66% of insurable earnings up to the annual maximum (approximately $63,200 in 2024). The employer pays a matching premium (1.66% × 1.6 = 2.66% in most provinces).<br><br>
+          Both are deducted from paycheques automatically and are not optional.
+        </div>
+      </details>
+
+      <details>
+        <summary>Do I owe taxes if my employer already deducts them?</summary>
+        <div class="faq-body">
+          Usually no—employers deduct taxes, CPP, and EI based on your personal tax return information. However, you may owe additional tax if:<br>
+          • You have multiple jobs (incorrect total deductions)<br>
+          • You earned capital gains or investment income<br>
+          • You have business income or rental income<br>
+          • You claimed too many exemptions<br><br>
+          Conversely, you may be <strong>owed a refund</strong> if:<br>
+          • You contributed to an RRSP (reduces taxable income)<br>
+          • You qualify for tax credits (medical expenses, donations, tuition)<br>
+          • Your employer over-withheld<br><br>
+          Always file your annual tax return with the CRA (Canada Revenue Agency) to settle your exact tax liability.
+        </div>
+      </details>
+    </div>
+
+    <div class="content-section">
+      <h2>Tax Tips to Maximise Your Take-Home</h2>
+      <div class="tip-box">
+        <strong>Maximise your RRSP contributions</strong><br>
+        If you're in a high tax bracket (above 40%), prioritise RRSP contributions over TFSA. The immediate tax refund is substantial and can be reinvested.
+      </div>
+      <div class="tip-box">
+        <strong>Claim all eligible deductions</strong><br>
+        Don't miss deductions for union dues, professional fees, moving expenses, or home office setup costs. Keep receipts and file them with your tax return.
+      </div>
+      <div class="tip-box">
+        <strong>Consider spousal RRSP for income splitting</strong><br>
+        If you earn significantly more than your spouse, contribute to a spousal RRSP. Both get the same tax deduction, but the lower-income spouse withdraws at retirement and pays less tax.
+      </div>
+      <div class="tip-box">
+        <strong>Remember: capital gains and dividends are taxed differently</strong><br>
+        Only 50% of capital gains are taxable (dividends vary by type). Employment income is fully taxable, making capital gains more tax-efficient for investing.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <p>Once you know your tax situation, explore these related calculators:</p>
+      <div class="related-tools">
+        <a href="/rrsp-calculator.html" class="tool-chip">📈 RRSP Calculator</a>
+        <a href="/tfsa-room-calculator.html" class="tool-chip">💰 TFSA Room</a>
+        <a href="/cpp-oas-estimator.html" class="tool-chip">👴 CPP &amp; OAS</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator is for educational and estimation purposes only. Actual tax liability depends on your complete income picture, deductions, credits, and provincial rules. Always file your tax return with the CRA and consult a licensed tax professional for specific advice. Rates and amounts are based on 2026 published rates and are subject to change.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+const FED = {
+  brackets:[[0,55867,.15],[55867,111733,.205],[111733,154906,.26],[154906,220000,.29],[220000,1e9,.33]],
+  bpa:15705
+};
+
+const PROV = {
+  ON:{name:'Ontario',       brackets:[[0,51446,.0505],[51446,102894,.0915],[102894,150000,.1116],[150000,220000,.1216],[220000,1e9,.1316]],bpa:11865},
+  BC:{name:'British Columbia',brackets:[[0,45654,.0506],[45654,91310,.077],[91310,104835,.105],[104835,127299,.1229],[127299,172602,.147],[172602,240716,.168],[240716,1e9,.205]],bpa:11981},
+  AB:{name:'Alberta',       brackets:[[0,148269,.10],[148269,177922,.12],[177922,237230,.13],[237230,355845,.14],[355845,1e9,.15]],bpa:21003},
+  QC:{name:'Quebec',        brackets:[[0,51780,.14],[51780,103545,.19],[103545,126000,.24],[126000,1e9,.2575]],bpa:17183,qc:true},
+  SK:{name:'Saskatchewan',  brackets:[[0,46773,.105],[46773,133638,.125],[133638,1e9,.145]],bpa:17661},
+  MB:{name:'Manitoba',      brackets:[[0,36842,.108],[36842,79625,.1275],[79625,1e9,.174]],bpa:15780},
+  NS:{name:'Nova Scotia',   brackets:[[0,29590,.0879],[29590,59180,.1495],[59180,93000,.1667],[93000,150000,.175],[150000,1e9,.21]],bpa:8481},
+  NB:{name:'New Brunswick', brackets:[[0,47715,.094],[47715,95431,.14],[95431,176756,.16],[176756,1e9,.195]],bpa:12458},
+  PE:{name:'PEI',           brackets:[[0,32656,.0965],[32656,64313,.1363],[64313,105000,.1665],[105000,140000,.18],[140000,1e9,.1875]],bpa:12000},
+  NL:{name:'Newfoundland',  brackets:[[0,43198,.087],[43198,86395,.145],[86395,154244,.158],[154244,215943,.178],[215943,275870,.198],[275870,551739,.208],[551739,1e9,.213]],bpa:10820},
+  YT:{name:'Yukon',         brackets:[[0,55867,.064],[55867,111733,.09],[111733,154906,.109],[154906,500000,.128],[500000,1e9,.15]],bpa:15705},
+  NT:{name:'N.W.T.',        brackets:[[0,50597,.059],[50597,101198,.086],[101198,164525,.122],[164525,1e9,.1405]],bpa:16593},
+  NU:{name:'Nunavut',       brackets:[[0,53268,.04],[53268,106537,.07],[106537,173205,.09],[173205,1e9,.115]],bpa:17925}
+};
+
+const CPP_RATE=0.0595, CPP_EXEMPTION=3500, CPP_MAX_EARNINGS=68500;
+const CPP2_RATE=0.04,  CPP2_LOW=68500, CPP2_HIGH=73200;
+const EI_RATE=0.0166, EI_MAX=63200;
+
+function calcTax(income, brackets, bpa){
+  let tax = 0;
+  for(const [low,high,rate] of brackets){
+    if(income <= low) break;
+    const chunk = Math.min(income, high) - low;
+    tax += chunk * rate;
+  }
+  const bpaCredit = bpa * brackets[0][2];
+  return Math.max(0, tax - bpaCredit);
+}
+
+function getMarginalRate(income, fedBrackets, provBrackets){
+  let fedRate = fedBrackets[0][2];
+  for(const [l,h,r] of fedBrackets){ if(income > l) fedRate = r; }
+  let provRate = provBrackets[0][2];
+  for(const [l,h,r] of provBrackets){ if(income > l) provRate = r; }
+  return fedRate + provRate;
+}
+
+const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+const fmtPct = n => (n*100).toFixed(1)+'%';
+
+function calculate(){
+  const income = parseFloat(document.getElementById('income').value);
+  if(!income || income < 0){ alert('Please enter a valid income.'); return; }
+  const provKey = document.getElementById('province').value;
+  const prov = PROV[provKey];
+
+  const fedTax  = calcTax(income, FED.brackets, FED.bpa);
+  let provTax = calcTax(income, prov.brackets, prov.bpa);
+
+  const cppBase = Math.min(Math.max(0, income - CPP_EXEMPTION), CPP_MAX_EARNINGS - CPP_EXEMPTION) * CPP_RATE;
+  const cppExtra = Math.min(Math.max(0, income - CPP2_LOW), CPP2_HIGH - CPP2_LOW) * CPP2_RATE;
+  const cpp = cppBase + cppExtra;
+
+  const ei = Math.min(income, EI_MAX) * EI_RATE;
+
+  const totalDeductions = fedTax + provTax + cpp + ei;
+  const netIncome = income - totalDeductions;
+  const effectiveRate = totalDeductions / income;
+  const marginalRate = getMarginalRate(income, FED.brackets, prov.brackets);
+
+  document.getElementById('netVal').textContent = fmt(netIncome);
+  document.getElementById('netSub').textContent = `${fmt(income)} gross − ${fmt(totalDeductions)} total deductions`;
+
+  document.getElementById('bdGrid').innerHTML = `
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid var(--red)"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">Federal Income Tax</div><div style="font-size:1.3rem;font-weight:800;color:var(--navy)">${fmt(fedTax)}</div><div style="font-size:.72rem;color:var(--muted);margin-top:.2rem">${fmtPct(fedTax/income)} of income</div></div>
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid #1d4ed8"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">${prov.name} Tax</div><div style="font-size:1.3rem;font-weight:800;color:var(--navy)">${fmt(provTax)}</div><div style="font-size:.72rem;color:var(--muted);margin-top:.2rem">${fmtPct(provTax/income)} of income</div></div>
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid #d97706"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">CPP Contributions</div><div style="font-size:1.3rem;font-weight:800;color:var(--navy)">${fmt(cpp)}</div><div style="font-size:.72rem;color:var(--muted);margin-top:.2rem">5.95% + CPP2 top-up</div></div>
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid #7c3aed"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">EI Premiums</div><div style="font-size:1.3rem;font-weight:800;color:var(--navy)">${fmt(ei)}</div><div style="font-size:.72rem;color:var(--muted);margin-top:.2rem">1.66% of insurable earnings</div></div>
+  `;
+
+  const items = [
+    {label:'Federal Tax',  val:fedTax,   color:'#C41E3A'},
+    {label:`${prov.name} Tax`, val:provTax, color:'#1d4ed8'},
+    {label:'CPP',          val:cpp,      color:'#d97706'},
+    {label:'EI',           val:ei,       color:'#7c3aed'},
+    {label:'Take-Home',    val:netIncome,color:'#059669'}
+  ];
+  let barHtml = '';
+  items.forEach(item => {
+    const pct = item.val / income;
+    barHtml += `<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;font-size:.83rem">
+      <div style="width:140px;text-align:right;color:var(--muted);font-weight:500;flex-shrink:0">${item.label}</div>
+      <div style="flex:1;background:#e5e7eb;border-radius:4px;height:10px;overflow:hidden"><div style="height:100%;border-radius:4px;width:${Math.round(pct*100)}%;background:${item.color}"></div></div>
+      <div style="width:100px;text-align:right;font-weight:700;color:var(--navy);flex-shrink:0">${fmt(item.val)}</div>
+    </div>`;
+  });
+  document.getElementById('barSection').innerHTML = barHtml;
+
+  document.getElementById('sumRows').innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem"><span style="color:var(--muted)">Gross Income</span><span style="font-weight:600;color:var(--navy)">${fmt(income)}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem"><span style="color:var(--muted)">Federal Income Tax</span><span style="font-weight:600;color:var(--navy)">− ${fmt(fedTax)}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem"><span style="color:var(--muted)">${prov.name} Provincial Tax</span><span style="font-weight:600;color:var(--navy)">− ${fmt(provTax)}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem"><span style="color:var(--muted)">CPP Contributions</span><span style="font-weight:600;color:var(--navy)">− ${fmt(cpp)}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem"><span style="color:var(--muted)">EI Premiums</span><span style="font-weight:600;color:var(--navy)">− ${fmt(ei)}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;font-size:.875rem;font-weight:800;color:var(--red)"><span>Net Annual Income</span><span>${fmt(netIncome)}</span></div>
+  `;
+
+  document.getElementById('rateBadges').innerHTML = `
+    <div style="text-align:center"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem">Effective Tax Rate</div><div style="font-size:1.35rem;font-weight:800;color:var(--navy)">${fmtPct(effectiveRate)}</div><div style="font-size:.72rem;color:var(--muted)">All taxes ÷ gross income</div></div>
+    <div style="text-align:center"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem">Marginal Tax Rate</div><div style="font-size:1.35rem;font-weight:800;color:var(--navy)">${fmtPct(marginalRate)}</div><div style="font-size:.72rem;color:var(--muted)">Fed + prov on next dollar</div></div>
+    <div style="text-align:center"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem">Monthly Take-Home</div><div style="font-size:1.35rem;font-weight:800;color:var(--navy)">${fmt(netIncome/12)}</div><div style="font-size:.72rem;color:var(--muted)">Net ÷ 12 months</div></div>
+    <div style="text-align:center"><div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem">Bi-Weekly Pay</div><div style="font-size:1.35rem;font-weight:800;color:var(--navy)">${fmt(netIncome/26)}</div><div style="font-size:.72rem;color:var(--muted)">Net ÷ 26 periods</div></div>
+  `;
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>

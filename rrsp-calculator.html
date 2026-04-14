@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RRSP Calculator 2026 | NorthCalc — Canadian Financial Calculators</title>
+<meta name="description" content="Calculate your 2026 RRSP contribution limit, tax refund, and projected retirement value with compound growth. Shows year-by-year growth projections and tax savings.">
+<meta name="keywords" content="RRSP calculator Canada 2026, RRSP contribution limit, RRSP tax savings, retirement savings calculator, registered retirement savings plan Canada">
+<link rel="canonical" href="https://northcalc.com/rrsp-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+td{padding:.5rem .75rem;border-bottom:1px solid var(--border);text-align:right}
+tr:hover td{background:#fafafa}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link active">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>RRSP Calculator Canada 2026</h1>
+    <p>Calculate your RRSP contribution limit, estimated tax refund, and projected retirement value with compound growth.</p>
+  </div>
+</div>
+
+<main>
+  <div class="content-wrap">
+
+    <div class="calc-section">
+      <h2>Calculate Your RRSP Growth & Tax Refund</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Annual Income (Previous Year)</label>
+          <div style="position:relative">
+            <span style="position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none">$</span>
+            <input type="number" id="income" placeholder="85,000" min="0" step="1000" style="width:100%;padding:.65rem .875rem .65rem 1.85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">2026 RRSP room = 18% of earned income, max $31,560</div>
+        </div>
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Your RRSP Contribution</label>
+          <div style="position:relative">
+            <span style="position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none">$</span>
+            <input type="number" id="contribution" placeholder="10,000" min="0" step="500" style="width:100%;padding:.65rem .875rem .65rem 1.85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">Amount you plan to contribute this year</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Years to Grow</label>
+          <div style="position:relative">
+            <input type="number" id="years" value="20" min="1" max="45" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+            <span style="position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none">yr</span>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Annual Return</label>
+          <div style="position:relative">
+            <input type="number" id="growthRate" value="6" min="1" max="15" step="0.5" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+            <span style="position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none">%</span>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Retirement Tax Rate</label>
+          <div style="position:relative">
+            <input type="number" id="retireRate" value="26" min="0" max="55" step="1" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+            <span style="position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none">%</span>
+          </div>
+        </div>
+      </div>
+      <button style="width:100%;padding:.85rem;background:var(--red);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s" onclick="calculate()">Calculate RRSP Growth</button>
+    </div>
+
+    <div id="results" style="display:none">
+      <div class="content-section">
+        <h2>Your RRSP Results</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem">
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid #059669;text-align:center">
+            <div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">Tax Refund This Year</div>
+            <div style="font-size:1.3rem;font-weight:800;color:#059669" id="refundVal">—</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.2rem" id="refundSub"></div>
+          </div>
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid #1d4ed8;text-align:center">
+            <div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">RRSP Limit Used</div>
+            <div style="font-size:1.3rem;font-weight:800;color:#1d4ed8" id="limitUsed">—</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.2rem">of available room</div>
+          </div>
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border-top:3px solid var(--red);text-align:center">
+            <div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem">Effective Cost</div>
+            <div style="font-size:1.3rem;font-weight:800;color:var(--red)" id="effectiveCost">—</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.2rem">after tax refund</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section" style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5)">
+        <div style="text-align:center">
+          <div style="font-size:.78rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">RRSP Value at Retirement</div>
+          <div style="font-size:2.5rem;font-weight:800;color:#065f46;line-height:1;margin-bottom:.25rem" id="growthVal">$0</div>
+          <div style="font-size:.9rem;color:#166534" id="growthSub"></div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Retirement Withdrawal Analysis</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center">
+            <div style="font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Future Value (pre-tax)</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--navy)" id="fvPreTax">—</div>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center">
+            <div style="font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Withdrawal Tax Est.</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--navy)" id="fvTax">—</div>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center">
+            <div style="font-size:.75rem;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Net After-Tax Value</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--green)" id="fvNet">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Year-by-Year Growth Projection</h2>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Annual Contribution</th>
+                <th>Growth Earned</th>
+                <th>Portfolio Value</th>
+              </tr>
+            </thead>
+            <tbody id="growthBody" style="text-align:right"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Understanding RRSPs</h2>
+      <p>A Registered Retirement Savings Plan (RRSP) is a tax-deferred savings account where contributions reduce your taxable income in the year they're made. Unlike TFSAs, growth inside an RRSP is tax-sheltered but withdrawals are taxed as income. RRSPs are designed to reward savers who have higher income now but expect lower income in retirement.</p>
+
+      <h3>How Your RRSP Contribution Reduces Tax</h3>
+      <p>When you contribute to an RRSP, that amount is <strong>tax-deductible</strong>. If you earn $95,000 and contribute $10,000 to an RRSP, you report only $85,000 as taxable income. At a marginal tax rate of 43.4%, you immediately save $4,340 in taxes. This is the famous "tax refund" that makes RRSPs powerful: you reduce your taxes <em>and</em> grow your retirement savings simultaneously.</p>
+
+      <h3>2026 RRSP Contribution Limit</h3>
+      <p>Your RRSP room is calculated as <strong>18% of your previous year's earned income, up to a maximum of $31,560</strong> for 2026. The "earned income" includes employment income, self-employment income, and rental income, but not investment income or pension income. Unused room carries forward indefinitely, so you can catch up in future years.</p>
+
+      <h3>Tax-Deferred Growth</h3>
+      <p>Money inside your RRSP grows tax-free. Whether you invest in stocks that appreciate, bonds that pay interest, or GICs that compound, <strong>you pay no tax on the growth</strong> until you withdraw. This allows decades of compound growth without annual tax drag—a major advantage over non-registered accounts.</p>
+
+      <h3>RRIF Conversion at Age 71</h3>
+      <p>By 31 December of the year you turn 71, you must convert your RRSP to a Registered Retirement Income Fund (RRIF) or purchase an annuity. A RRIF requires you to withdraw a minimum percentage each year (starting at 5.40% of the portfolio, increasing as you age). These withdrawals are taxed as income.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Canadian Example (2026)</h2>
+      <div class="example-box">
+        <strong>Scenario: $95,000 annual salary, Ontario resident</strong><br>
+        RRSP limit: 18% of $95,000 = $17,100 (below the $31,560 ceiling)<br>
+        Contributing: $12,000<br>
+        Marginal tax rate (Ontario): ~43.4%<br>
+        Tax refund estimate: ~$5,208 (43.4% of $12,000)<br>
+        <strong style="display:block;margin-top:.5rem">At 6%/year return over 25 years: $12,000 grows to ~$51,500</strong><br>
+        After-tax value at retirement (assuming 26% withdrawal tax rate): ~$38,000<br>
+        Net gain: ~$26,000 after accounting for taxes and your original contribution
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>The RRSP Advantage: "Tax Refund Trick"</h2>
+      <p>Many Canadian financial advisors suggest the "tax refund reinvestment trick": after contributing to an RRSP and receiving your tax refund from the CRA, reinvest that refund <em>back into your RRSP</em>. Here's how it works:</p>
+      <ol>
+        <li>Contribute $10,000 to your RRSP (reduces your taxable income)</li>
+        <li>File your tax return and receive a $4,340 refund (at 43.4% marginal rate)</li>
+        <li>Immediately contribute that $4,340 back to your RRSP</li>
+        <li>Your total RRSP contribution is now $14,340 with the same effective cost</li>
+      </ol>
+      <p>This dramatically accelerates your RRSP growth without requiring additional money out of pocket.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>What is the 2026 RRSP contribution limit?</summary>
+        <div class="faq-body">
+          Your 2026 RRSP limit is <strong>18% of your 2025 earned income, up to a maximum of $31,560</strong>. Earned income includes employment income, self-employment income, and rental income. The CRA notifies you of your exact room on your Notice of Assessment or through My CRA Account. Unused room carries forward indefinitely, allowing you to catch up in future years.
+        </div>
+      </details>
+
+      <details>
+        <summary>How much of a tax refund will my RRSP contribution give me?</summary>
+        <div class="faq-body">
+          Your tax refund equals your contribution multiplied by your marginal tax rate. If your marginal rate is 43.4% and you contribute $10,000, you get a $4,340 refund. Higher earners in provinces like British Columbia (top rate 56.2%) get even larger refunds. Use the calculator above to estimate your specific refund based on your income and province.
+        </div>
+      </details>
+
+      <details>
+        <summary>What is the RRSP deadline for the 2025 tax year?</summary>
+        <div class="faq-body">
+          To claim an RRSP contribution on your 2025 tax return, you must make the contribution by <strong>2 June 2026</strong>. The CRA allows 60 days after the end of the calendar year (January is not a complete month, so the deadline is in early June). This gives you several months into the next year to make last-minute contributions if you want the tax deduction for the prior year.
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I carry forward unused RRSP room?</summary>
+        <div class="faq-body">
+          Yes, absolutely. Unused RRSP room accumulates indefinitely. If you have $50,000 in room but only contribute $10,000, the remaining $40,000 stays on your account forever. You can catch up in future years without losing it. This is a major advantage—you can build up room over decades and then maximize contributions when you have large one-time income or bonuses.
+        </div>
+      </details>
+
+      <details>
+        <summary>What is an RRIF and when do I need to convert?</summary>
+        <div class="faq-body">
+          A Registered Retirement Income Fund (RRIF) is the withdrawal account you must convert to from your RRSP by 31 December of the year you turn 71. At that point, you're required to withdraw a minimum percentage annually (starting at 5.40%), which becomes income and is taxed. You can keep your RRSP longer by working, but conversion is mandatory at age 71. A RRIF allows your remaining balance to continue growing tax-sheltered while you withdraw.
+        </div>
+      </details>
+
+      <details>
+        <summary>Should I use the First Home Buyer's Plan (HBP) with my RRSP?</summary>
+        <div class="faq-body">
+          The Home Buyers' Plan (HBP) allows you to withdraw up to $35,000 from your RRSP (within the past 4 years) to purchase your first home, <strong>without paying tax</strong> on the withdrawal. However, you must repay the amount over 15 years. The HBP makes sense if: (1) you're a first-time homebuyer, (2) you have RRSP room available, and (3) you can repay the amount over 15 years. If you don't repay as required, the unreplayed amount becomes taxable income. It's powerful but requires discipline to repay.
+        </div>
+      </details>
+    </div>
+
+    <div class="content-section">
+      <h2>Tips to Maximise Your RRSP</h2>
+      <div class="tip-box">
+        <strong>Contribute early in the year, not at the deadline</strong><br>
+        Contributions made on 1 January have 12 months to compound versus contributions made in May. Even a few months of extra growth adds up over decades. Set up automatic monthly contributions for discipline.
+      </div>
+      <div class="tip-box">
+        <strong>Reinvest your tax refund back into your RRSP</strong><br>
+        Use the "tax refund trick": when you get your refund from the CRA, immediately contribute it back to your RRSP. This amplifies your contributions without additional out-of-pocket cost.
+      </div>
+      <div class="tip-box">
+        <strong>Consider spousal RRSP for income splitting</strong><br>
+        If you earn significantly more than your spouse, contribute to a spousal RRSP. You get the full tax deduction, but your spouse owns the account and will pay tax on withdrawals at their (likely lower) rate in retirement. This reduces your combined tax liability.
+      </div>
+      <div class="tip-box">
+        <strong>Use RRSP before TFSA if you're in a high bracket</strong><br>
+        If your marginal tax rate is above 40%, prioritise RRSP contributions first. The immediate tax refund is substantial. Use TFSA for additional savings after maxing your RRSP room.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <p>Once you understand your RRSP strategy, explore these related calculators:</p>
+      <div class="related-tools">
+        <a href="/tfsa-room-calculator.html" class="tool-chip">💰 TFSA Room</a>
+        <a href="/canadian-income-tax-calculator.html" class="tool-chip">📊 Income Tax</a>
+        <a href="/cpp-oas-estimator.html" class="tool-chip">👴 CPP &amp; OAS</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator is for educational purposes. Projections assume consistent annual returns and contributions; actual results vary. Your exact RRSP limit is shown on your Notice of Assessment from the CRA. Tax refund amounts depend on your complete income picture and province. This information is not financial or tax advice. Consult a tax professional or financial adviser for your specific situation.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+const RRSP_MAX_2026 = 31560;
+const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+const fmtPct = n => n.toFixed(1) + '%';
+
+function calculate(){
+  const income = parseFloat(document.getElementById('income').value);
+  const contrib = parseFloat(document.getElementById('contribution').value);
+  const years = parseInt(document.getElementById('years').value);
+  const growthRate = parseFloat(document.getElementById('growthRate').value) / 100;
+  const retireRate = parseFloat(document.getElementById('retireRate').value) / 100;
+
+  if(!income || !contrib || !years){ alert('Please fill in all fields.'); return; }
+
+  const limit = Math.min(income * 0.18, RRSP_MAX_2026);
+  const marginalRate = 0.434; // Simplified: average marginal rate across provinces
+  const refund = contrib * marginalRate;
+  const effectiveCost = contrib - refund;
+
+  document.getElementById('refundVal').textContent = fmt(refund);
+  document.getElementById('refundSub').textContent = `At ${fmtPct(marginalRate*100)} marginal rate`;
+  document.getElementById('limitUsed').textContent = fmtPct(contrib / limit * 100);
+  document.getElementById('effectiveCost').textContent = fmt(effectiveCost);
+
+  let balance = 0;
+  let rows = '';
+  let showInterval = years <= 20 ? 1 : years <= 35 ? 5 : 10;
+
+  for(let yr = 1; yr <= years; yr++){
+    balance += contrib;
+    const growth = balance * growthRate;
+    balance += growth;
+
+    if(yr % showInterval === 0 || yr === 1 || yr === years){
+      rows += `<tr>
+        <td style="text-align:left;font-weight:700;color:var(--navy)">Year ${yr}</td>
+        <td>${fmt(contrib)}</td>
+        <td>${fmt(balance * growthRate / (1 + growthRate))}</td>
+        <td>${fmt(balance)}</td>
+      </tr>`;
+    }
+  }
+
+  const withdrawalTax = balance * retireRate;
+  const netAfterTax = balance - withdrawalTax;
+
+  document.getElementById('growthVal').textContent = fmt(balance);
+  document.getElementById('growthSub').textContent = `${years} years at ${fmtPct(growthRate*100)} annual return · ${fmt(contrib)}/yr contribution`;
+  document.getElementById('fvPreTax').textContent = fmt(balance);
+  document.getElementById('fvTax').textContent = fmt(withdrawalTax);
+  document.getElementById('fvNet').textContent = fmt(netAfterTax);
+  document.getElementById('growthBody').innerHTML = rows;
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>

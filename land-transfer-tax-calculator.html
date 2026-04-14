@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Land Transfer Tax Calculator Canada 2026 — NorthCalc</title>
+<meta name="description" content="Calculate land transfer tax for Ontario, BC, Quebec and every province — including first-time buyer rebates and Toronto municipal tax.">
+<link rel="canonical" href="https://northcalc.com/land-transfer-tax-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09);--green:#059669;--green-light:#ecfdf5;--blue-light:#eff6ff}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.example-box table{width:100%;margin:.5rem 0;font-size:.85rem}
+.example-box th,.example-box td{padding:.4rem;text-align:left;border-bottom:1px solid #bae6fd}
+.example-box th{font-weight:700;background:#dbeafe;color:#075985}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.tip-box strong{display:block;margin-bottom:.35rem}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.25rem}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.field{margin-bottom:1.1rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input,select{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+.checkbox-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;padding:.75rem;background:var(--bg);border-radius:8px;border:1px solid var(--border);cursor:pointer}
+.checkbox-row input[type=checkbox]{width:auto;border:none;box-shadow:none;cursor:pointer;accent-color:var(--red);width:16px;height:16px}
+.checkbox-row label{margin:0;text-transform:none;letter-spacing:0;font-size:.875rem;cursor:pointer;font-weight:500}
+.hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem 1.5rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.75rem;transition:background .15s,transform .1s}
+.btn:hover{background:var(--red-dark)}
+.btn:active{transform:scale(.99)}
+#results{display:none}
+.hero-result{background:var(--green-light);border:2px solid #6ee7b7;border-radius:var(--radius);padding:1.75rem;text-align:center;margin-bottom:1.25rem}
+.hr-label{font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.hr-value{font-size:2.75rem;font-weight:800;color:#065f46;line-height:1;margin-bottom:.3rem}
+.hr-sub{font-size:.85rem;color:var(--green)}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem}
+.rc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center}
+.rc.rebate{border-top:3px solid var(--green)}
+.rc.total{border-top:3px solid var(--red)}
+.rc.muni{border-top:3px solid #7c3aed}
+.rc-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.rc-value{font-size:1.3rem;font-weight:800;color:var(--navy)}
+.rc.rebate .rc-value{color:var(--green)}
+.rc.total .rc-value{color:var(--red)}
+.rc.muni .rc-value{color:#7c3aed}
+.bracket-table{width:100%;border-collapse:collapse;font-size:.83rem}
+.bracket-table th{background:var(--bg);padding:.6rem 1rem;text-align:right;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+.bracket-table th:first-child{text-align:left}
+.bracket-table td{padding:.5rem 1rem;border-bottom:1px solid var(--border);text-align:right}
+.bracket-table td:first-child{text-align:left;color:var(--muted)}
+.bracket-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--navy);background:var(--bg)}
+.no-ltt{background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:1rem 1.25rem;font-size:.83rem;color:#1e40af;margin-bottom:1.25rem}
+.no-ltt strong{display:block;margin-bottom:.25rem}
+@media(max-width:600px){.result-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link active">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Land Transfer Tax Calculator</h1>
+    <p>Calculate land transfer tax for Ontario, BC, Quebec and every province — including first-time buyer rebates and Toronto municipal tax.</p>
+  </div>
+</div>
+
+<main class="content-wrap">
+  <div class="content-section">
+    <h2>What Is Land Transfer Tax?</h2>
+    <p>Land transfer tax (LTT) is a provincial tax paid by the buyer when purchasing property. It's typically calculated as a percentage of the purchase price and varies widely by province. The buyer usually pays this at closing through their lawyer. In Ontario and Toronto, the tax is progressive (higher rates on higher price ranges), while other provinces use flat rates or simpler brackets.</p>
+    <p>Most Canadian provinces charge LTT, but notably <strong>Alberta, Saskatchewan, Yukon, Northwest Territories, and Nunavut have no land transfer tax at all</strong>—a significant financial advantage for homebuyers in those regions. Ontario charges both a provincial LTT and an additional municipal LTT in Toronto, making it one of the highest-cost jurisdictions for buyers.</p>
+    <p>First-time home buyers qualify for rebates in most provinces. These can substantially reduce or even eliminate the tax if the home is under a certain price threshold. Always verify your eligibility with a real estate lawyer.</p>
+  </div>
+
+  <div class="calc-section">
+    <div class="card">
+      <div class="card-title">🏛 Property Details</div>
+      <div class="field">
+        <label for="price">Purchase Price</label>
+        <div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="price" placeholder="700,000" min="50000" step="1000"></div>
+      </div>
+      <div class="field">
+        <label for="province">Province</label>
+        <select id="province" onchange="onProvinceChange()">
+          <option value="ON">Ontario</option>
+          <option value="BC">British Columbia</option>
+          <option value="QC">Quebec</option>
+          <option value="MB">Manitoba</option>
+          <option value="NS">Nova Scotia</option>
+          <option value="NB">New Brunswick</option>
+          <option value="PE">Prince Edward Island</option>
+          <option value="NL">Newfoundland & Labrador</option>
+          <option value="AB">Alberta (no LTT)</option>
+          <option value="SK">Saskatchewan (no LTT)</option>
+          <option value="YT">Yukon (no LTT)</option>
+          <option value="NT">Northwest Territories (no LTT)</option>
+          <option value="NU">Nunavut (no LTT)</option>
+        </select>
+      </div>
+      <div class="checkbox-row" id="ftbRow">
+        <input type="checkbox" id="ftb" checked>
+        <label for="ftb">I am a first-time home buyer (may qualify for rebate)</label>
+      </div>
+      <div class="checkbox-row" id="torontoRow" style="display:none">
+        <input type="checkbox" id="toronto">
+        <label for="toronto">Property is within the City of Toronto (additional municipal LTT applies)</label>
+      </div>
+      <button class="btn" onclick="calculate()">Calculate Land Transfer Tax</button>
+    </div>
+
+    <div id="results">
+      <div class="hero-result">
+        <div class="hr-label">Net Land Transfer Tax Payable</div>
+        <div class="hr-value" id="heroVal">$0</div>
+        <div class="hr-sub" id="heroSub"></div>
+      </div>
+      <div class="result-grid" id="rGrid"></div>
+      <div class="card">
+        <div class="card-title">📊 Tax Bracket Breakdown</div>
+        <div style="overflow-x:auto"><table class="bracket-table" id="bTable"><thead><tr><th>Bracket</th><th>Amount in Bracket</th><th>Rate</th><th>Tax</th></tr></thead><tbody id="bBody"></tbody></table></div>
+      </div>
+      <div id="torontoSection"></div>
+      <div id="noteSection"></div>
+    </div>
+    <div id="noLTT" style="display:none">
+      <div class="no-ltt"><strong>✅ No Provincial Land Transfer Tax</strong>This province does not have a provincial land transfer tax. You will only pay nominal land title registration fees (typically $100–$500 depending on property value). Consult a real estate lawyer for exact fees in your area.</div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Select your province</strong> from the dropdown. Tax rates and rebates vary significantly by jurisdiction.</li>
+      <li><strong>Enter your purchase price.</strong> This is the agreed-upon sale price of the property.</li>
+      <li><strong>Indicate if you're a first-time buyer.</strong> Most provinces offer significant rebates for first-time home buyers, especially on homes under a certain price.</li>
+      <li><strong>For Ontario properties, specify Toronto.</strong> Toronto charges an additional municipal LTT on top of the provincial tax, effectively doubling the rate in some brackets.</li>
+      <li><strong>See the breakdown.</strong> You'll see gross tax, your rebate, and your net tax payable at closing.</li>
+    </ol>
+  </div>
+
+  <div class="content-section">
+    <h2>Canadian Example (2026)</h2>
+    <div class="example-box">
+      <strong>Comparing LTT across Canada: $850,000 home purchase</strong>
+      <table>
+        <tr><th>Province</th><th>LTT Rate Type</th><th>Gross Tax</th><th>FTB Rebate</th><th>Net Tax Payable</th></tr>
+        <tr><td>Toronto, Ontario</td><td>Progressive + Municipal</td><td>$32,950</td><td>$8,475</td><td>$24,475</td></tr>
+        <tr><td>Vancouver, BC</td><td>Progressive (PTT)</td><td>$17,000</td><td>$0</td><td>$17,000</td></tr>
+        <tr><td>Montreal, Quebec</td><td>Progressive</td><td>$21,250</td><td>$0</td><td>$21,250</td></tr>
+        <tr><td>Calgary, Alberta</td><td>None</td><td>$0</td><td>N/A</td><td>$0</td></tr>
+      </table>
+      <strong>Key takeaway:</strong> The same $850,000 home costs $24,475 in Toronto but $0 in Calgary—a difference of $24,475 that doesn't build equity!
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>What Your Results Mean</h2>
+    <h3>Gross Tax vs Net Tax</h3>
+    <p>Gross tax is what you'd owe without any rebates. Net tax is what you actually pay after first-time buyer rebates. Many provinces offer rebates only up to a certain price threshold; if your home exceeds it, you lose the rebate.</p>
+    <h3>Bracket System</h3>
+    <p>Ontario and several other provinces use progressive brackets, similar to income tax. Each band of the purchase price is taxed at a different rate. For example, in Ontario, the first $55,000 is taxed at 0.5%, the next $195,000 at 1.25%, and so on. You don't jump to a higher rate for your entire purchase; only the portion in each bracket is taxed at that rate.</p>
+    <h3>First-Time Buyer Rebate</h3>
+    <p>Ontario offers up to $4,000; Toronto offers up to $4,475 in municipal rebates. BC fully exempts homes under $500,000 for first-time buyers. Manitoba and other provinces have similar programs. Rebates are sometimes capped at a maximum price (e.g., Ontario's rebate maxes out on homes over ~$368,000).</p>
+    <h3>Timing and Payment</h3>
+    <p>Land transfer tax is paid at closing, typically through your lawyer. It's a non-negotiable cost and cannot be rolled into your mortgage in Canada (unlike some US states).</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>What is land transfer tax and when do I pay it?</summary>
+      <div class="faq-body">
+        Land transfer tax is a provincial (and sometimes municipal) tax on the purchase of property. You pay it at closing, typically via your lawyer. It's calculated as a percentage of the purchase price and ranges from 0% (Alberta, Saskatchewan) to 15% (Nova Scotia, parts of Ontario).
+      </div>
+    </details>
+    <details>
+      <summary>Which provinces have no land transfer tax?</summary>
+      <div class="faq-body">
+        Alberta, Saskatchewan, Yukon, Northwest Territories, and Nunavut have no land transfer tax. This is a significant advantage for homebuyers in these regions. However, these provinces may have other closing costs (legal fees, title insurance, inspections).
+      </div>
+    </details>
+    <details>
+      <summary>How does the first-time buyer rebate work?</summary>
+      <div class="faq-body">
+        First-time buyer rebates reduce or eliminate LTT for eligible buyers purchasing their first home. Ontario offers up to $4,000; BC fully exempts homes under $500,000; Manitoba offers up to $4,500. Rebates are usually capped at a maximum purchase price. You must be a Canadian citizen or permanent resident and have not owned property in Canada in the past 4 years to qualify.
+      </div>
+    </details>
+    <details>
+      <summary>Does Toronto really charge extra land transfer tax?</summary>
+      <div class="faq-body">
+        Yes. Toronto charges a municipal land transfer tax on top of Ontario's provincial tax. The municipal tax uses the same brackets as the provincial tax, effectively doubling your LTT burden in Toronto. A $750,000 home in Toronto could cost $40,000+ in combined provincial and municipal LTT, whereas outside Toronto (but in Ontario) it would cost roughly half that.
+      </div>
+    </details>
+    <details>
+      <summary>Is land transfer tax tax-deductible?</summary>
+      <div class="faq-body">
+        No. Land transfer tax is not deductible from your taxable income. It is a closing cost that you must pay out of pocket. It does not reduce your adjusted cost base for capital gains purposes if you eventually sell the property.
+      </div>
+    </details>
+    <details>
+      <summary>What other closing costs should I budget for in Canada?</summary>
+      <div class="faq-body">
+        Beyond land transfer tax, budget for: legal fees ($1,500–$2,500), home inspection ($400–$600), title insurance ($200–$400), property appraisal (if required, $300–$500), and municipal/property transfer fee registration ($50–$200). Total closing costs typically run 1.5–4% of the purchase price.
+      </div>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>5 Tips to Budget for Closing Costs</h2>
+    <div class="tip-box">
+      <strong>1. Budget 1.5–4% of purchase price for total closing costs</strong>
+      Land transfer tax is the largest component, but add lawyer fees, inspections, insurance, and registration. For a $750,000 home, budget $11,000–$30,000 in total closing costs.
+    </div>
+    <div class="tip-box">
+      <strong>2. Confirm your first-time buyer status early</strong>
+      You may qualify for significant rebates. Verify with your lawyer or the provincial government before making an offer, as eligibility criteria vary.
+    </div>
+    <div class="tip-box">
+      <strong>3. Avoid Toronto if LTT is a factor</strong>
+      If you're looking in the GTA but not specifically in Toronto, you'll save substantial LTT by purchasing just outside city limits. Compare Mississauga or Markham prices and tax implications before committing.
+    </div>
+    <div class="tip-box">
+      <strong>4. Allocate separate funds for closing costs</strong>
+      Land transfer tax and closing costs cannot be included in your mortgage (in most cases). Ensure your down payment budget includes an additional 2–4% for these costs.
+    </div>
+    <div class="tip-box">
+      <strong>5. Get a closing cost estimate from your lawyer early</strong>
+      Your real estate lawyer can provide a detailed breakdown weeks before closing. This prevents surprises and lets you plan your finances accordingly.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <div class="related-tools">
+      <a href="/canadian-mortgage-calculator.html" class="tool-chip">🏠 Mortgage Calculator</a>
+      <a href="/rent-vs-buy-calculator.html" class="tool-chip">🔑 Rent vs Buy</a>
+      <a href="/hst-gst-calculator.html" class="tool-chip">🧾 HST / GST</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> This calculator is for educational and informational purposes only. Land transfer tax rates, rebates, and exemptions change periodically. Always consult your real estate lawyer or provincial government for the most current rates and eligibility criteria. This calculator does not replace professional legal or tax advice.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+const fmtD = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+
+const PROV_DATA = {
+  ON: {
+    name:'Ontario', hasLTT:true,
+    brackets:[[0,55000,.005],[55000,250000,.01],[250000,400000,.015],[400000,2000000,.02],[2000000,Infinity,.025]],
+    ftbRebate:4000, ftbMaxPrice:368000,
+    note:'Ontario first-time buyers receive a rebate of up to $4,000, effectively eliminating LTT on homes up to ~$368,000.'
+  },
+  BC: {
+    name:'British Columbia', hasLTT:true, taxName:'Property Transfer Tax (PTT)',
+    brackets:[[0,200000,.01],[200000,2000000,.02],[2000000,3000000,.03],[3000000,Infinity,.05]],
+    ftbExemptMax:500000, ftbPartialMax:525000,
+    note:'BC first-time buyers are fully exempt from PTT on homes ≤ $500,000, and partially exempt on homes up to $525,000.'
+  },
+  QC: {
+    name:'Quebec', hasLTT:true, taxName:'Welcome Tax (Taxe de Bienvenue)',
+    brackets:[[0,50000,.005],[50000,250000,.01],[250000,500000,.015],[500000,1000000,.02],[1000000,Infinity,.025]],
+    ftbRebate:0,
+    note:'Quebec\'s "Welcome Tax" has no provincial first-time buyer rebate. Montreal may charge additional surcharge on properties over $500,000.'
+  },
+  MB: {
+    name:'Manitoba', hasLTT:true,
+    brackets:[[0,30000,0],[30000,90000,.005],[90000,150000,.01],[150000,200000,.015],[200000,Infinity,.02]],
+    ftbRebate:4500,
+    note:'Manitoba first-time buyers may receive a rebate of up to $4,500 on the land transfer tax.'
+  },
+  NS: {
+    name:'Nova Scotia', hasLTT:true, taxName:'Deed Transfer Tax',
+    flatRate:.015,
+    note:'Nova Scotia charges a 1.5% provincial deed transfer tax. Municipalities may charge additional amounts. Halifax charges 1.5% municipal, making the total up to 3%.'
+  },
+  NB: {
+    name:'New Brunswick', hasLTT:true, taxName:'Land Transfer Tax',
+    flatRate:.01,
+    note:'New Brunswick charges a flat 1% land transfer tax on the purchase price.'
+  },
+  PE: {
+    name:'Prince Edward Island', hasLTT:true, taxName:'Real Property Transfer Tax',
+    flatRate:.01,
+    note:'PEI charges 1% on the greater of purchase price or assessed value. First-time buyers may be exempt on homes up to $100,000.'
+  },
+  NL: {
+    name:'Newfoundland & Labrador', hasLTT:true, taxName:'Registration Fee',
+    flatRate:.004,
+    note:'NL has a nominal land registration fee (approx. 0.4%). This is significantly lower than most provinces.'
+  },
+  AB:{name:'Alberta',hasLTT:false},
+  SK:{name:'Saskatchewan',hasLTT:false},
+  YT:{name:'Yukon',hasLTT:false},
+  NT:{name:'Northwest Territories',hasLTT:false},
+  NU:{name:'Nunavut',hasLTT:false}
+};
+
+const TORONTO_BRACKETS = [[0,55000,.005],[55000,250000,.01],[250000,400000,.015],[400000,2000000,.02],[2000000,Infinity,.025]];
+const TORONTO_REBATE = 4475;
+
+function onProvinceChange(){
+  const pv = document.getElementById('province').value;
+  document.getElementById('torontoRow').style.display = pv === 'ON' ? 'flex' : 'none';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('noLTT').style.display = 'none';
+}
+
+function calcBrackets(price, brackets){
+  let tax = 0, rows = [];
+  for(const [low, high, rate] of brackets){
+    if(price <= low) break;
+    const amt = Math.min(price, high) - low;
+    const t = amt * rate;
+    tax += t;
+    rows.push({range:`$${low.toLocaleString()} – ${high===Infinity?'above':'$'+high.toLocaleString()}`, amt, rate, tax:t});
+  }
+  return {tax, rows};
+}
+
+function renderBracketTable(rows, tBody){
+  let html = '', total = 0;
+  rows.forEach(r => {
+    total += r.tax;
+    html += `<tr><td>${r.range}</td><td>${fmt(r.amt)}</td><td>${(r.rate*100).toFixed(2)}%</td><td>${fmtD(r.tax)}</td></tr>`;
+  });
+  html += `<tr><td colspan="3">Total</td><td>${fmtD(total)}</td></tr>`;
+  document.getElementById(tBody).innerHTML = html;
+}
+
+function calculate(){
+  const price = parseFloat(document.getElementById('price').value);
+  if(!price || price < 1) { alert('Please enter a valid purchase price.'); return; }
+  const provKey = document.getElementById('province').value;
+  const prov = PROV_DATA[provKey];
+  const isFTB = document.getElementById('ftb').checked;
+  const isToronto = provKey==='ON' && document.getElementById('toronto').checked;
+
+  if(!prov.hasLTT){
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('noLTT').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('noLTT').style.display = 'none';
+
+  let grossLTT = 0, rows = [];
+  if(prov.brackets){
+    const r = calcBrackets(price, prov.brackets);
+    grossLTT = r.tax; rows = r.rows;
+    renderBracketTable(rows, 'bBody');
+    document.getElementById('bTable').style.display = 'table';
+  } else if(prov.flatRate){
+    grossLTT = price * prov.flatRate;
+    document.getElementById('bBody').innerHTML = `<tr><td>Flat rate</td><td>${fmt(price)}</td><td>${(prov.flatRate*100).toFixed(2)}%</td><td>${fmtD(grossLTT)}</td></tr><tr><td colspan="3">Total</td><td>${fmtD(grossLTT)}</td></tr>`;
+    document.getElementById('bTable').style.display = 'table';
+  }
+
+  let rebate = 0;
+  if(isFTB && prov.ftbRebate) rebate = Math.min(grossLTT, prov.ftbRebate);
+  if(isFTB && prov.ftbExemptMax){
+    if(price <= prov.ftbExemptMax) rebate = grossLTT;
+    else if(price <= prov.ftbPartialMax) rebate = grossLTT * (prov.ftbPartialMax - price) / (prov.ftbPartialMax - prov.ftbExemptMax);
+  }
+  const netLTT = Math.max(0, grossLTT - rebate);
+
+  let torontoGross = 0, torontoRebate = 0, torontoNet = 0;
+  if(isToronto){
+    const tr = calcBrackets(price, TORONTO_BRACKETS);
+    torontoGross = tr.tax;
+    if(isFTB) torontoRebate = Math.min(torontoGross, TORONTO_REBATE);
+    torontoNet = Math.max(0, torontoGross - torontoRebate);
+  }
+
+  const grandTotal = netLTT + torontoNet;
+
+  document.getElementById('heroVal').textContent = fmt(grandTotal);
+  document.getElementById('heroSub').textContent = `${prov.name}${isToronto?' + Toronto municipal LTT':''} — ${fmt(price)} purchase price`;
+
+  document.getElementById('rGrid').innerHTML = `
+    <div class="rc"><div class="rc-label">Gross LTT</div><div class="rc-value">${fmtD(grossLTT)}</div></div>
+    <div class="rc rebate"><div class="rc-label">FTB Rebate</div><div class="rc-value">${rebate>0?fmtD(rebate):'N/A'}</div></div>
+    <div class="rc total"><div class="rc-label">Net Provincial LTT</div><div class="rc-value">${fmtD(netLTT)}</div></div>
+  `;
+
+  if(isToronto){
+    document.getElementById('torontoSection').innerHTML = `
+      <div class="card" style="border-top:3px solid #7c3aed">
+        <div class="card-title">🏙 Toronto Municipal LTT</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem">
+          <div class="rc"><div class="rc-label">Gross Municipal LTT</div><div class="rc-value">${fmtD(torontoGross)}</div></div>
+          <div class="rc rebate"><div class="rc-label">FTB Rebate</div><div class="rc-value">${torontoRebate>0?fmtD(torontoRebate):'N/A'}</div></div>
+          <div class="rc muni"><div class="rc-label">Net Municipal LTT</div><div class="rc-value">${fmtD(torontoNet)}</div></div>
+        </div>
+      </div>`;
+  } else { document.getElementById('torontoSection').innerHTML = ''; }
+
+  document.getElementById('noteSection').innerHTML = prov.note ? `<div style="background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:1rem 1.25rem;font-size:.82rem;color:#1e40af"><strong>ℹ️ ${prov.name} Notes</strong> ${prov.note}</div>` : '';
+
+  document.getElementById('results').style.display = 'block';
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

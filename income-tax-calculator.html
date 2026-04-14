@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canadian Income Tax Calculator 2024 — All Provinces — NorthCalc</title>
+<meta name="description" content="Free Canadian income tax calculator for 2024. Calculate federal and provincial income tax for all 13 provinces and territories. Shows CPP and EI deductions, effective tax rate, marginal rate, and net income.">
+<meta name="keywords" content="Canadian income tax calculator, 2024 income tax Canada, Ontario income tax calculator, Alberta tax calculator, Quebec income tax, federal income tax Canada, marginal tax rate Canada, effective tax rate calculator">
+<link rel="canonical" href="https://northcalc.ca/income-tax-calculator">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--green:#059669;--green-light:#ecfdf5;--blue-light:#eff6ff;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:195px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block;animation:df .15s ease}
+@keyframes df{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 3rem;width:100%}
+h1{font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-bottom:.35rem}
+.subtitle{color:var(--muted);font-size:.9rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{display:inline-flex;font-size:.75rem;font-weight:600;background:var(--red-light);color:var(--red);padding:.2rem .6rem;border-radius:20px}
+.layout{display:grid;grid-template-columns:320px 1fr;gap:1.5rem;align-items:start}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.25rem}
+.card:last-child{margin-bottom:0}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.field{margin-bottom:1.1rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input,select{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit;margin-top:.5rem}
+.btn:hover{background:var(--red-dark)}
+#results{display:none}
+/* Donut / summary */
+.net-hero{background:var(--green-light);border:2px solid #6ee7b7;border-radius:var(--radius);padding:1.5rem;text-align:center;margin-bottom:1.25rem}
+.net-label{font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.net-value{font-size:2.75rem;font-weight:800;color:#065f46;line-height:1;margin-bottom:.25rem}
+.net-sub{font-size:.85rem;color:var(--green)}
+.breakdown-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.25rem}
+.bc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+.bc.fed{border-top:3px solid var(--red)}
+.bc.prov{border-top:3px solid #1d4ed8}
+.bc.cpp{border-top:3px solid #d97706}
+.bc.ei{border-top:3px solid #7c3aed}
+.bc.total{border-top:3px solid #dc2626;grid-column:span 2;text-align:center}
+.bc-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.bc-value{font-size:1.3rem;font-weight:800;color:var(--navy)}
+.bc-sub{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+/* Income bar */
+.income-bar-section{margin-bottom:1.25rem}
+.bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;font-size:.83rem}
+.bar-row .bl{width:140px;text-align:right;color:var(--muted);font-weight:500;flex-shrink:0}
+.bar-row .bv{width:100px;text-align:right;font-weight:700;color:var(--navy);flex-shrink:0}
+.bar-outer{flex:1;background:#e5e7eb;border-radius:4px;height:10px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+/* Summary rows */
+.sum-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.sum-row:last-child{border-bottom:none;font-weight:800;color:var(--red)}
+.sum-row .sl{color:var(--muted)}
+.sum-row .sv{font-weight:600;color:var(--navy)}
+.sum-row.total .sv{color:var(--red)}
+/* Rate badges */
+.rate-badges{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.rate-badge{text-align:center;flex:1;min-width:90px}
+.rb-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem}
+.rb-value{font-size:1.35rem;font-weight:800;color:var(--navy)}
+.rb-sub{font-size:.72rem;color:var(--muted)}
+footer{background:var(--white);border-top:1px solid var(--border);text-align:center;padding:1.75rem 1.5rem;color:var(--muted);font-size:.85rem;margin-top:auto}
+footer strong{color:var(--red);font-weight:700}
+footer p+p{margin-top:.35rem;font-size:.78rem;color:#9ca3af}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+@media(max-width:600px){h1{font-size:1.4rem}.breakdown-grid{grid-template-columns:1fr}.bc.total{grid-column:span 1}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="income-tax-calculator.html" class="dd-link active">📊 Income Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="tfsa-calculator.html" class="dd-link">💰 TFSA Room</a><a href="rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="cpp-calculator.html" class="dd-link">👴 CPP / OAS Estimator</a></div></div>
+    </nav>
+  </div>
+</header>
+<main>
+  <h1>Canadian Income Tax Calculator</h1>
+  <div class="subtitle"><span class="tag">🇨🇦 2024 tax rates</span><span class="tag">All 13 provinces &amp; territories</span><span class="tag">CPP + EI included</span></div>
+  <div class="layout">
+    <div>
+      <div class="card">
+        <div class="card-title">📊 Your Income Details</div>
+        <div class="field">
+          <label for="income">Annual Employment Income</label>
+          <div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="income" placeholder="85,000" min="0" step="1000"></div>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label for="province">Province / Territory</label>
+          <select id="province">
+            <option value="ON">Ontario</option>
+            <option value="BC">British Columbia</option>
+            <option value="AB">Alberta</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="MB">Manitoba</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NB">New Brunswick</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="NL">Newfoundland &amp; Labrador</option>
+            <option value="YT">Yukon</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NU">Nunavut</option>
+          </select>
+        </div>
+        <button class="btn" style="margin-top:1.25rem" onclick="calculate()">Calculate My Taxes</button>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:.75rem;line-height:1.5">Uses 2024 federal &amp; provincial rates. Assumes basic personal amount credit only. Does not include RRSP deductions, credits, or other adjustments.</div>
+      </div>
+    </div>
+    <div>
+      <div id="results">
+        <div class="net-hero">
+          <div class="net-label">Estimated Net Annual Income (Take-Home)</div>
+          <div class="net-value" id="netVal">$0</div>
+          <div class="net-sub" id="netSub"></div>
+        </div>
+        <div class="breakdown-grid" id="bdGrid"></div>
+        <!-- Income bar -->
+        <div class="card">
+          <div class="card-title">📊 Where Your Income Goes</div>
+          <div class="income-bar-section" id="barSection"></div>
+          <div id="sumRows"></div>
+          <div class="rate-badges" id="rateBadges"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><p>🍁 <strong>NorthCalc</strong> — Made for Canadians</p><p>Estimates based on 2024 published rates. Does not account for RRSP deductions, tax credits, self-employment income, or other adjustments. Always file with the CRA for your actual tax liability.</p></footer>
+<script>
+// ── Tax Data ──
+const FED = {
+  brackets:[[0,55867,.15],[55867,111733,.205],[111733,154906,.26],[154906,220000,.29],[220000,1e9,.33]],
+  bpa:15705
+};
+
+const PROV = {
+  ON:{name:'Ontario',       brackets:[[0,51446,.0505],[51446,102894,.0915],[102894,150000,.1116],[150000,220000,.1216],[220000,1e9,.1316]],bpa:11865},
+  BC:{name:'British Columbia',brackets:[[0,45654,.0506],[45654,91310,.077],[91310,104835,.105],[104835,127299,.1229],[127299,172602,.147],[172602,240716,.168],[240716,1e9,.205]],bpa:11981},
+  AB:{name:'Alberta',       brackets:[[0,148269,.10],[148269,177922,.12],[177922,237230,.13],[237230,355845,.14],[355845,1e9,.15]],bpa:21003},
+  QC:{name:'Quebec',        brackets:[[0,51780,.14],[51780,103545,.19],[103545,126000,.24],[126000,1e9,.2575]],bpa:17183,qc:true},
+  SK:{name:'Saskatchewan',  brackets:[[0,46773,.105],[46773,133638,.125],[133638,1e9,.145]],bpa:17661},
+  MB:{name:'Manitoba',      brackets:[[0,36842,.108],[36842,79625,.1275],[79625,1e9,.174]],bpa:15780},
+  NS:{name:'Nova Scotia',   brackets:[[0,29590,.0879],[29590,59180,.1495],[59180,93000,.1667],[93000,150000,.175],[150000,1e9,.21]],bpa:8481},
+  NB:{name:'New Brunswick', brackets:[[0,47715,.094],[47715,95431,.14],[95431,176756,.16],[176756,1e9,.195]],bpa:12458},
+  PE:{name:'PEI',           brackets:[[0,32656,.0965],[32656,64313,.1363],[64313,105000,.1665],[105000,140000,.18],[140000,1e9,.1875]],bpa:12000},
+  NL:{name:'Newfoundland',  brackets:[[0,43198,.087],[43198,86395,.145],[86395,154244,.158],[154244,215943,.178],[215943,275870,.198],[275870,551739,.208],[551739,1e9,.213]],bpa:10820},
+  YT:{name:'Yukon',         brackets:[[0,55867,.064],[55867,111733,.09],[111733,154906,.109],[154906,500000,.128],[500000,1e9,.15]],bpa:15705},
+  NT:{name:'N.W.T.',        brackets:[[0,50597,.059],[50597,101198,.086],[101198,164525,.122],[164525,1e9,.1405]],bpa:16593},
+  NU:{name:'Nunavut',       brackets:[[0,53268,.04],[53268,106537,.07],[106537,173205,.09],[173205,1e9,.115]],bpa:17925}
+};
+
+// CPP 2024
+const CPP_RATE=0.0595, CPP_EXEMPTION=3500, CPP_MAX_EARNINGS=68500;
+const CPP2_RATE=0.04,  CPP2_LOW=68500, CPP2_HIGH=73200;
+// EI 2024
+const EI_RATE=0.0166, EI_MAX=63200;
+
+function calcTax(income, brackets, bpa){
+  const taxable = Math.max(0, income - bpa * brackets.reduce((s,[l,h,r])=>{
+    // BPA credit at lowest rate — simplified: just subtract BPA at 15% federal / lowest prov rate
+    return s; // will apply credit separately
+  }, 0));
+  // Just compute tax on income, then subtract BPA credit
+  let tax = 0;
+  let prev = 0;
+  for(const [low,high,rate] of brackets){
+    if(income <= low) break;
+    const chunk = Math.min(income, high) - low;
+    tax += chunk * rate;
+  }
+  const bpaCredit = bpa * brackets[0][2]; // credit at lowest bracket rate
+  return Math.max(0, tax - bpaCredit);
+}
+
+function getMarginalRate(income, fedBrackets, provBrackets){
+  let fedRate = fedBrackets[0][2];
+  for(const [l,h,r] of fedBrackets){ if(income > l) fedRate = r; }
+  let provRate = provBrackets[0][2];
+  for(const [l,h,r] of provBrackets){ if(income > l) provRate = r; }
+  return fedRate + provRate;
+}
+
+const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+const fmtD = n => '$' + n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const fmtPct = n => (n*100).toFixed(1)+'%';
+
+function calculate(){
+  const income = parseFloat(document.getElementById('income').value);
+  if(!income || income < 0){ alert('Please enter a valid income.'); return; }
+  const provKey = document.getElementById('province').value;
+  const prov = PROV[provKey];
+
+  const fedTax  = calcTax(income, FED.brackets, FED.bpa);
+  let provTax = calcTax(income, prov.brackets, prov.bpa);
+  // Quebec: federal abatement of 16.5% on basic federal tax
+  if(prov.qc) { /* Quebec already has high prov tax, federal abatement is complex—simplified */ }
+
+  // CPP
+  const cppBase = Math.min(Math.max(0, income - CPP_EXEMPTION), CPP_MAX_EARNINGS - CPP_EXEMPTION) * CPP_RATE;
+  const cppExtra = Math.min(Math.max(0, income - CPP2_LOW), CPP2_HIGH - CPP2_LOW) * CPP2_RATE;
+  const cpp = cppBase + cppExtra;
+
+  // EI
+  const ei = Math.min(income, EI_MAX) * EI_RATE;
+
+  const totalDeductions = fedTax + provTax + cpp + ei;
+  const netIncome = income - totalDeductions;
+  const effectiveRate = totalDeductions / income;
+  const marginalRate = getMarginalRate(income, FED.brackets, prov.brackets);
+
+  document.getElementById('netVal').textContent = fmt(netIncome);
+  document.getElementById('netSub').textContent = `${fmt(income)} gross − ${fmt(totalDeductions)} total deductions`;
+
+  document.getElementById('bdGrid').innerHTML = `
+    <div class="bc fed"><div class="bc-label">Federal Income Tax</div><div class="bc-value">${fmt(fedTax)}</div><div class="bc-sub">${fmtPct(fedTax/income)} of income</div></div>
+    <div class="bc prov"><div class="bc-label">${prov.name} Tax</div><div class="bc-value">${fmt(provTax)}</div><div class="bc-sub">${fmtPct(provTax/income)} of income</div></div>
+    <div class="bc cpp"><div class="bc-label">CPP Contributions</div><div class="bc-value">${fmt(cpp)}</div><div class="bc-sub">5.95% + CPP2 top-up</div></div>
+    <div class="bc ei"><div class="bc-label">EI Premiums</div><div class="bc-value">${fmt(ei)}</div><div class="bc-sub">1.66% of insurable earnings</div></div>
+    <div class="bc total"><div class="bc-label">Total Deductions</div><div class="bc-value" style="color:var(--red)">${fmt(totalDeductions)}</div><div class="bc-sub">${fmtPct(effectiveRate)} effective rate</div></div>
+  `;
+
+  const barColors = ['#C41E3A','#1d4ed8','#d97706','#7c3aed','#059669'];
+  const items = [
+    {label:'Federal Tax',  val:fedTax,   color:barColors[0]},
+    {label:`${prov.name} Tax`, val:provTax, color:barColors[1]},
+    {label:'CPP',          val:cpp,      color:barColors[2]},
+    {label:'EI',           val:ei,       color:barColors[3]},
+    {label:'Take-Home',    val:netIncome,color:barColors[4]}
+  ];
+  let barHtml = '';
+  items.forEach(item => {
+    const pct = item.val / income;
+    barHtml += `<div class="bar-row">
+      <div class="bl">${item.label}</div>
+      <div class="bar-outer"><div class="bar-fill" style="width:${Math.round(pct*100)}%;background:${item.color}"></div></div>
+      <div class="bv">${fmt(item.val)}</div>
+    </div>`;
+  });
+  document.getElementById('barSection').innerHTML = barHtml;
+
+  document.getElementById('sumRows').innerHTML = `
+    <div class="sum-row"><span class="sl">Gross Income</span><span class="sv">${fmt(income)}</span></div>
+    <div class="sum-row"><span class="sl">Federal Income Tax</span><span class="sv">− ${fmt(fedTax)}</span></div>
+    <div class="sum-row"><span class="sl">${prov.name} Provincial Tax</span><span class="sv">− ${fmt(provTax)}</span></div>
+    <div class="sum-row"><span class="sl">CPP Contributions</span><span class="sv">− ${fmt(cpp)}</span></div>
+    <div class="sum-row"><span class="sl">EI Premiums</span><span class="sv">− ${fmt(ei)}</span></div>
+    <div class="sum-row total"><span class="sl">Net Annual Income</span><span class="sv">${fmt(netIncome)}</span></div>
+  `;
+
+  document.getElementById('rateBadges').innerHTML = `
+    <div class="rate-badge"><div class="rb-label">Effective Tax Rate</div><div class="rb-value">${fmtPct(effectiveRate)}</div><div class="rb-sub">All taxes ÷ gross income</div></div>
+    <div class="rate-badge"><div class="rb-label">Marginal Tax Rate</div><div class="rb-value">${fmtPct(marginalRate)}</div><div class="rb-sub">Fed + prov on next dollar</div></div>
+    <div class="rate-badge"><div class="rb-label">Monthly Take-Home</div><div class="rb-value">${fmt(netIncome/12)}</div><div class="rb-sub">Net ÷ 12 months</div></div>
+    <div class="rate-badge"><div class="rb-label">Bi-Weekly Pay</div><div class="rb-value">${fmt(netIncome/26)}</div><div class="rb-sub">Net ÷ 26 periods</div></div>
+  `;
+
+  document.getElementById('results').style.display = 'block';
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPP &amp; OAS Benefits Estimator 2025 — NorthCalc</title>
+<meta name="description" content="Free Canadian CPP and OAS benefits estimator for 2025. Calculate your estimated Canada Pension Plan monthly benefit at age 60, 65, or 70. Includes OAS estimate and early/late takeup comparison.">
+<meta name="keywords" content="CPP calculator Canada, CPP benefits estimator, Canada Pension Plan calculator, OAS calculator, Old Age Security estimate, when to take CPP Canada, CPP at 60 vs 65 vs 70">
+<link rel="canonical" href="https://northcalc.ca/cpp-calculator">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--green:#059669;--green-light:#ecfdf5;--blue-light:#eff6ff;--amber:#d97706;--amber-light:#fffbeb;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:195px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block;animation:df .15s ease}
+@keyframes df{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1;max-width:1060px;margin:0 auto;padding:2rem 1.5rem 3rem;width:100%}
+h1{font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-bottom:.35rem}
+.subtitle{color:var(--muted);font-size:.9rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{display:inline-flex;font-size:.75rem;font-weight:600;background:var(--red-light);color:var(--red);padding:.2rem .6rem;border-radius:20px}
+.layout{display:grid;grid-template-columns:340px 1fr;gap:1.5rem;align-items:start}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.25rem}
+.card:last-child{margin-bottom:0}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.field{margin-bottom:1.1rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+.sfx{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+.has-sfx input{padding-right:2.2rem}
+input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+.hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit;margin-top:.75rem}
+.btn:hover{background:var(--red-dark)}
+.info-box{background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:1rem 1.25rem;font-size:.82rem;color:#1e40af;margin-top:1rem;line-height:1.55}
+.info-box strong{display:block;margin-bottom:.25rem}
+#results{display:none}
+/* CPP scenarios */
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem}
+.scenario{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow);text-align:center}
+.scenario.best{border-color:var(--green);background:var(--green-light)}
+.sc-age{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem}
+.sc-label{font-size:.82rem;color:var(--muted);margin-bottom:.5rem}
+.sc-value{font-size:1.5rem;font-weight:800;color:var(--navy)}
+.scenario.best .sc-value{color:var(--green)}
+.sc-annual{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.sc-adj{font-size:.72rem;font-weight:600;margin-top:.4rem;padding:.2rem .5rem;border-radius:20px;display:inline-block}
+.sc-adj.up{background:#d1fae5;color:#065f46}
+.sc-adj.down{background:#fee2e2;color:#991b1b}
+/* OAS */
+.oas-card{background:linear-gradient(135deg,#1e3a5f,#1d4ed8);color:white;border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem}
+.oas-title{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.8;margin-bottom:.4rem}
+.oas-value{font-size:2rem;font-weight:800;line-height:1;margin-bottom:.25rem}
+.oas-sub{font-size:.82rem;opacity:.8}
+/* Breakeven table */
+.table-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:var(--bg);padding:.6rem 1rem;text-align:right;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+thead th:first-child{text-align:left}
+tbody td{padding:.5rem 1rem;border-bottom:1px solid var(--border);text-align:right;color:var(--text)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--navy)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg)}
+.breakeven{background:var(--green-light)!important;font-weight:700}
+.breakeven td{color:#065f46!important}
+footer{background:var(--white);border-top:1px solid var(--border);text-align:center;padding:1.75rem 1.5rem;color:var(--muted);font-size:.85rem;margin-top:auto}
+footer strong{color:var(--red);font-weight:700}
+footer p+p{margin-top:.35rem;font-size:.78rem;color:#9ca3af}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+@media(max-width:600px){h1{font-size:1.4rem}.scenario-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="income-tax-calculator.html" class="dd-link">📊 Income Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="tfsa-calculator.html" class="dd-link">💰 TFSA Room</a><a href="rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="cpp-calculator.html" class="dd-link active">👴 CPP / OAS Estimator</a></div></div>
+    </nav>
+  </div>
+</header>
+<main>
+  <h1>CPP &amp; OAS Benefits Estimator</h1>
+  <div class="subtitle"><span class="tag">👴 2025 rates</span><span class="tag">Early vs late takeup comparison</span><span class="tag">OAS included</span></div>
+  <div class="layout">
+    <div>
+      <div class="card">
+        <div class="card-title">👴 Your Work History</div>
+        <div class="field">
+          <label for="currentAge">Current Age</label>
+          <div class="input-wrap has-sfx"><input type="number" id="currentAge" placeholder="45" min="18" max="70"><span class="sfx">yr</span></div>
+        </div>
+        <div class="field">
+          <label for="startAge">Age You Started Working</label>
+          <div class="input-wrap has-sfx"><input type="number" id="startAge" placeholder="22" min="18" max="65" value="22"><span class="sfx">yr</span></div>
+          <div class="hint">When you first made CPP contributions</div>
+        </div>
+        <div class="field">
+          <label for="avgIncome">Average Annual Employment Income</label>
+          <div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="avgIncome" placeholder="65,000" min="0" step="1000"></div>
+          <div class="hint">2025 maximum pensionable earnings: $71,300</div>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label for="residencyYears">Years as Canadian Resident (for OAS)</label>
+          <div class="input-wrap has-sfx"><input type="number" id="residencyYears" placeholder="40" min="1" max="60" value="40"><span class="sfx">yr</span></div>
+          <div class="hint">Full OAS requires 40 years of Canadian residency after age 18</div>
+        </div>
+        <button class="btn" onclick="calculate()">Estimate My Benefits</button>
+        <div class="info-box"><strong>⚠️ This is an estimate only</strong>The real CPP benefit is calculated by Service Canada using your complete earnings history. For your actual projected amount, log in to <a href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-statement-contributions.html" target="_blank" style="color:#1d4ed8;font-weight:600">My Service Canada Account</a>.</div>
+      </div>
+    </div>
+    <div>
+      <div id="results">
+        <!-- OAS Card -->
+        <div class="oas-card">
+          <div class="oas-title">🇨🇦 Old Age Security (OAS) at 65</div>
+          <div class="oas-value" id="oasValue">$0/mo</div>
+          <div class="oas-sub" id="oasSub"></div>
+        </div>
+        <!-- CPP Scenarios -->
+        <div class="card" style="margin-bottom:1.25rem">
+          <div class="card-title">📊 CPP Monthly Benefit — When Should You Take It?</div>
+          <div class="scenario-grid" id="scenarioGrid"></div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">💡 <strong>Early (60):</strong> Reduced by 0.6%/month before 65 (max 36% reduction). <strong>Late (70):</strong> Increased by 0.7%/month after 65 (max 42% increase). Breakeven age for deferring: typically 82–84.</div>
+        </div>
+        <!-- CPP + OAS Combined -->
+        <div class="card" style="margin-bottom:1.25rem">
+          <div class="card-title">💰 Combined Monthly Income at Different Ages</div>
+          <div id="combinedGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem"></div>
+        </div>
+        <!-- Breakeven table -->
+        <div class="card">
+          <div class="card-title">📅 Cumulative CPP Received by Age (60 vs 65 vs 70)</div>
+          <div class="table-wrap">
+            <table><thead><tr><th>Age</th><th>Start at 60 (cumul.)</th><th>Start at 65 (cumul.)</th><th>Start at 70 (cumul.)</th></tr></thead>
+            <tbody id="breakevenBody"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><p>🍁 <strong>NorthCalc</strong> — Made for Canadians</p><p>CPP and OAS estimates are approximations only. Actual benefits depend on your full contribution history. OAS is subject to clawback above $90,997 (2025). Always verify with Service Canada.</p></footer>
+<script>
+const CPP_MAX_2025 = 1364.60; // max monthly CPP at 65
+const CPP_MAX_EARNINGS_2025 = 71300;
+const OAS_FULL_2025 = 698.60; // per month at 65, full (40yr)
+const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const fmtK = n => '$' + Math.round(n).toLocaleString('en-CA');
+
+function calcCPP(currentAge, startAge, avgIncome){
+  const retireAge = 65;
+  const yearsWorked = Math.max(0, retireAge - startAge); // years until 65
+  const contributingYears = Math.min(yearsWorked, 39); // CPP uses up to 39 best years
+  const earningsRatio = Math.min(avgIncome, CPP_MAX_EARNINGS_2025) / CPP_MAX_EARNINGS_2025;
+  const baseCPP = earningsRatio * (contributingYears / 39) * CPP_MAX_2025;
+  return baseCPP;
+}
+
+function calculate(){
+  const currentAge = parseInt(document.getElementById('currentAge').value);
+  const startAge = parseInt(document.getElementById('startAge').value);
+  const avgIncome = parseFloat(document.getElementById('avgIncome').value);
+  const residencyYears = parseInt(document.getElementById('residencyYears').value);
+
+  if(!currentAge || !avgIncome){ alert('Please fill in all fields.'); return; }
+
+  const cppAt65 = calcCPP(currentAge, startAge, avgIncome);
+
+  // Early/late adjustments
+  const monthsBefore65_at60 = 60; // 5 years × 12
+  const monthsAfter65_at70  = 60; // 5 years × 12
+  const cppAt60 = cppAt65 * (1 - 0.006 * monthsBefore65_at60);
+  const cppAt70 = cppAt65 * (1 + 0.007 * monthsAfter65_at70);
+
+  // OAS
+  const residenceFactor = Math.min(residencyYears, 40) / 40;
+  const oasMonthly = OAS_FULL_2025 * residenceFactor;
+
+  document.getElementById('oasValue').textContent = fmt(oasMonthly) + '/mo';
+  document.getElementById('oasSub').textContent = residencyYears >= 40
+    ? `Full OAS — ${residencyYears}+ years of Canadian residency (max 40 years credited)`
+    : `Partial OAS — ${residencyYears}/40 years = ${(residenceFactor*100).toFixed(1)}% of ${fmt(OAS_FULL_2025)} full rate`;
+
+  const scenarios = [
+    {age:60, cpp:cppAt60, adj:'−36%', adjClass:'down', label:'Early takeup'},
+    {age:65, cpp:cppAt65, adj:'Baseline', adjClass:'', label:'Standard age', best:true},
+    {age:70, cpp:cppAt70, adj:'+42%', adjClass:'up', label:'Deferred max'}
+  ];
+
+  document.getElementById('scenarioGrid').innerHTML = scenarios.map(s => `
+    <div class="scenario ${s.best?'best':''}">
+      <div class="sc-age">Start at Age ${s.age}</div>
+      <div class="sc-label">${s.label}</div>
+      <div class="sc-value">${fmt(s.cpp)}<span style="font-size:.85rem;font-weight:500">/mo</span></div>
+      <div class="sc-annual">${fmtK(s.cpp*12)}/year</div>
+      ${s.adj!=='Baseline'?`<div class="sc-adj ${s.adjClass}">${s.adj} vs age 65</div>`:'<div class="sc-adj" style="background:var(--red-light);color:var(--red)">Reference point</div>'}
+    </div>`).join('');
+
+  document.getElementById('combinedGrid').innerHTML = scenarios.map(s => `
+    <div class="scenario ${s.best?'best':''}">
+      <div class="sc-age">CPP + OAS at ${s.age}</div>
+      <div class="sc-value">${fmt(s.cpp + (s.age >= 65 ? oasMonthly : 0))}<span style="font-size:.85rem;font-weight:500">/mo</span></div>
+      <div class="sc-annual">${s.age < 65 ? 'OAS not yet available' : `CPP ${fmt(s.cpp)} + OAS ${fmt(oasMonthly)}`}</div>
+    </div>`).join('');
+
+  // Breakeven table: cumulative received at each age from 60 to 85
+  let rows = '';
+  let cum60 = 0, cum65 = 0, cum70 = 0;
+
+  for(let age = 60; age <= 85; age++){
+    if(age >= 60) cum60 += cppAt60 * 12;
+    if(age >= 65) cum65 += cppAt65 * 12;
+    if(age >= 70) cum70 += cppAt70 * 12;
+
+    // Detect breakeven crossovers
+    const be6065 = cum60 > 0 && cum65 > 0 && Math.abs(cum60 - cum65) < cppAt65 * 12;
+    const be6570 = cum65 > 0 && cum70 > 0 && Math.abs(cum65 - cum70) < cppAt70 * 12;
+
+    rows += `<tr class="${be6065||be6570?'breakeven':''}">
+      <td>${age}</td>
+      <td>${fmtK(cum60)}</td>
+      <td>${age < 65 ? '—' : fmtK(cum65)}</td>
+      <td>${age < 70 ? '—' : fmtK(cum70)}</td>
+    </tr>`;
+  }
+  document.getElementById('breakevenBody').innerHTML = rows;
+  document.getElementById('results').style.display = 'block';
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canadian Mortgage Calculator 2025 — NorthCalc</title>
+<meta name="description" content="Canadian mortgage calculator with proper semi-annual compounding, CMHC insurance premiums, stress test qualifying rate, and a full amortization schedule. Accurate for all Canadian provinces.">
+<meta name="keywords" content="Canadian mortgage calculator, CMHC insurance calculator, mortgage stress test Canada, semi-annual compounding mortgage, amortization schedule Canada, mortgage calculator Ontario BC Alberta Quebec">
+<link rel="canonical" href="https://northcalc.ca/mortgage-calculator">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--green:#059669;--green-light:#ecfdf5;--blue-light:#eff6ff;--amber-light:#fffbeb;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:195px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block;animation:df .15s ease}
+@keyframes df{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1;max-width:1140px;margin:0 auto;padding:2rem 1.5rem 3rem;width:100%}
+h1{font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-bottom:.35rem}
+.subtitle{color:var(--muted);font-size:.9rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{display:inline-flex;font-size:.75rem;font-weight:600;background:var(--red-light);color:var(--red);padding:.2rem .6rem;border-radius:20px}
+.layout{display:grid;grid-template-columns:390px 1fr;gap:1.5rem;align-items:start}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.25rem}
+.card:last-child{margin-bottom:0}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.field{margin-bottom:1.1rem}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.1rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+.sfx{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input,select{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+.has-sfx input{padding-right:2rem}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+input::placeholder{color:#c4c9d4}
+.hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.dp-hint{font-size:.78rem;color:var(--muted);margin-top:.3rem;min-height:1.2em}
+.dp-warn{color:#d97706}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem 1.5rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.75rem;transition:background .15s,transform .1s;font-family:inherit}
+.btn:hover{background:var(--red-dark)}
+.btn:active{transform:scale(.99)}
+.divider{border:none;border-top:1px solid var(--border);margin:1.25rem 0}
+.can-note{background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1.1rem;font-size:.8rem;color:#1e40af;margin-top:1rem;line-height:1.5}
+.can-note strong{display:block;margin-bottom:.2rem}
+#results{display:none}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.25rem}
+.rc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;box-shadow:var(--shadow)}
+.rc.primary{border-color:var(--red);background:var(--red-light)}
+.rc.stress{border-color:#f59e0b;background:var(--amber-light)}
+.rc.cmhc{border-color:#a78bfa;background:#f5f3ff}
+.rc-label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.rc-value{font-size:1.5rem;font-weight:800;color:var(--navy);line-height:1.1}
+.rc.primary .rc-value{color:var(--red)}
+.rc.stress .rc-value{color:#d97706}
+.rc.cmhc .rc-value{color:#7c3aed}
+.rc-note{font-size:.72rem;color:var(--muted);margin-top:.25rem}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.summary-row:last-child{border-bottom:none}
+.summary-row .s-label{color:var(--muted)}
+.summary-row .s-value{font-weight:600;color:var(--navy)}
+.summary-row.total .s-label{font-weight:700;color:var(--text)}
+.summary-row.total .s-value{font-weight:800;color:var(--red)}
+.stress-box{border:1px solid #fde68a;background:var(--amber-light);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:.83rem;color:#78350f}
+.stress-box strong{color:#92400e}
+.section-title{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.85rem;display:flex;align-items:center;justify-content:space-between}
+.section-title span{font-size:.75rem;font-weight:500;color:var(--muted)}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:var(--bg);padding:.65rem 1rem;text-align:right;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:.55rem 1rem;border-bottom:1px solid var(--border);text-align:right;color:var(--text)}
+tbody td:first-child{text-align:left;font-weight:700;color:var(--navy)}
+tbody tr:last-child td{border-bottom:none;font-weight:700;background:var(--bg)}
+tbody tr:hover td{background:var(--bg)}
+footer{background:var(--white);border-top:1px solid var(--border);text-align:center;padding:1.75rem 1.5rem;color:var(--muted);font-size:.85rem;margin-top:auto}
+footer strong{color:var(--red);font-weight:700}
+footer p+p{margin-top:.35rem;font-size:.78rem;color:#9ca3af}
+@media(max-width:960px){.layout{grid-template-columns:1fr}}
+@media(max-width:600px){h1{font-size:1.4rem}.result-grid{grid-template-columns:1fr 1fr}.rc-value{font-size:1.25rem}.field-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="mortgage-calculator.html" class="dd-link active">🏠 Mortgage Calculator</a><a href="land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="income-tax-calculator.html" class="dd-link">📊 Income Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="tfsa-calculator.html" class="dd-link">💰 TFSA Room</a><a href="rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="cpp-calculator.html" class="dd-link">👴 CPP / OAS Estimator</a></div></div>
+    </nav>
+  </div>
+</header>
+<main>
+  <h1>Canadian Mortgage Calculator</h1>
+  <div class="subtitle"><span class="tag">🇨🇦 Semi-annual compounding</span><span class="tag">CMHC insurance</span><span class="tag">Stress test</span></div>
+  <div class="layout">
+    <div>
+      <div class="card">
+        <div class="card-title">🏠 Mortgage Details</div>
+        <div class="field"><label for="homePrice">Home Price</label><div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="homePrice" placeholder="500,000" min="50000" step="1000" oninput="onHomePriceChange()"></div></div>
+        <div class="field"><label for="downPayment">Down Payment</label><div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="downPayment" placeholder="100,000" min="0" step="1000" oninput="onDownPaymentChange()"></div><div class="dp-hint" id="dpHint">Enter a home price first</div></div>
+        <div class="field-row">
+          <div class="field" style="margin-bottom:0"><label for="amortization">Amortization</label><div class="input-wrap has-sfx"><input type="number" id="amortization" placeholder="25" min="5" max="30" value="25"><span class="sfx">yr</span></div><div class="hint">5–30 years</div></div>
+          <div class="field" style="margin-bottom:0"><label for="rate">Interest Rate</label><div class="input-wrap has-sfx"><input type="number" id="rate" placeholder="5.49" min="0.1" max="25" step="0.01"><span class="sfx">%</span></div><div class="hint">Annual nominal rate</div></div>
+        </div>
+        <hr class="divider">
+        <div class="field" style="margin-bottom:0"><label for="province">Province / Territory</label>
+          <select id="province"><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="AB">Alberta</option><option value="QC">Quebec</option><option value="NS">Nova Scotia</option><option value="NB">New Brunswick</option><option value="MB">Manitoba</option><option value="SK">Saskatchewan</option><option value="NL">Newfoundland &amp; Labrador</option><option value="PE">Prince Edward Island</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="YT">Yukon</option></select>
+        </div>
+        <button class="btn" onclick="calculate()">Calculate Mortgage</button>
+        <div class="can-note"><strong>🇨🇦 Canadian Semi-Annual Compounding</strong>Canadian mortgages compound semi-annually per the <em>Interest Act of Canada</em>. Monthly rate = (1 + r/2)<sup>1/6</sup> − 1. This gives lower payments than US-style monthly compounding.</div>
+      </div>
+    </div>
+    <div id="results">
+      <div class="card" style="margin-bottom:1.25rem">
+        <div class="card-title">📊 Your Results</div>
+        <div class="result-grid" id="resultGrid"></div>
+        <div id="summaryRows"></div>
+      </div>
+      <div class="stress-box" id="stressBox"></div>
+      <div id="cmhcBox"></div>
+      <div class="card">
+        <div class="section-title">📅 Amortization Schedule <span id="amortLabel"></span></div>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Principal Paid</th><th>Interest Paid</th><th>Total Paid</th><th>Balance Remaining</th></tr></thead><tbody id="amortBody"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><p>🍁 <strong>NorthCalc</strong> — Made for Canadians</p><p>Estimates only. Does not constitute financial advice. Consult a licensed mortgage professional.</p></footer>
+<script>
+const fmt = (n,d=0) => '$' + n.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const fmtN = n => n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+
+function onHomePriceChange(){ updateDpHint(parseFloat(document.getElementById('homePrice').value)||0, parseFloat(document.getElementById('downPayment').value)||0); }
+function onDownPaymentChange(){ updateDpHint(parseFloat(document.getElementById('homePrice').value)||0, parseFloat(document.getElementById('downPayment').value)||0); }
+function updateDpHint(hp,dp){
+  const hint=document.getElementById('dpHint');
+  if(!hp){hint.textContent='Enter a home price first';hint.className='dp-hint';return;}
+  const pct=(dp/hp*100);
+  let msg=pct.toFixed(1)+'% down',cls='dp-hint';
+  if(hp<=500000&&pct<5){msg+=' — minimum is 5%';cls+=' dp-warn';}
+  else if(hp>1500000&&pct<20){msg+=' — homes over $1.5M require 20% down';cls+=' dp-warn';}
+  if(pct>=5&&pct<20) msg+=' · CMHC insurance applies';
+  if(pct>=20) msg+=' · No CMHC insurance required';
+  hint.textContent=msg;hint.className=cls;
+}
+function monthlyRate(r){ return Math.pow(1+(r/100)/2,1/6)-1; }
+function calcPayment(P,r,n){ return r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); }
+function cmhcPrem(mtg,pct){ if(pct>=20)return 0; if(pct>=15)return mtg*0.028; if(pct>=10)return mtg*0.031; return mtg*0.04; }
+
+function calculate(){
+  const hp=parseFloat(document.getElementById('homePrice').value);
+  const dp=parseFloat(document.getElementById('downPayment').value);
+  const amort=parseInt(document.getElementById('amortization').value);
+  const rate=parseFloat(document.getElementById('rate').value);
+  if(!hp||!dp||!amort||!rate){alert('Please fill in all fields.');return;}
+  if(amort<5||amort>30){alert('Amortization must be 5–30 years.');return;}
+  if(dp>=hp){alert('Down payment must be less than home price.');return;}
+
+  const dpPct=dp/hp*100, baseMtg=hp-dp;
+  const cmhc=cmhcPrem(baseMtg,dpPct), principal=baseMtg+cmhc;
+  const mr=monthlyRate(rate), n=amort*12;
+  const pmt=calcPayment(principal,mr,n);
+  const totalPaid=pmt*n, totalInterest=totalPaid-principal;
+  const stressRate=Math.max(5.25,rate+2);
+  const smr=monthlyRate(stressRate), spmt=calcPayment(principal,smr,n);
+
+  document.getElementById('resultGrid').innerHTML=`
+    <div class="rc primary"><div class="rc-label">Monthly Payment</div><div class="rc-value">${fmt(pmt)}</div><div class="rc-note">At ${rate.toFixed(2)}% nominal rate</div></div>
+    <div class="rc stress"><div class="rc-label">Stress Test Payment</div><div class="rc-value">${fmt(spmt)}</div><div class="rc-note">Qualifying at ${stressRate.toFixed(2)}%</div></div>
+    <div class="rc"><div class="rc-label">Total Interest</div><div class="rc-value">${fmt(totalInterest)}</div><div class="rc-note">Over ${amort}-year amortization</div></div>
+    <div class="rc ${cmhc>0?'cmhc':''}"><div class="rc-label">CMHC Premium</div><div class="rc-value">${cmhc>0?fmt(cmhc):'None'}</div><div class="rc-note">${cmhc>0?dpPct.toFixed(1)+'% down payment':'Down payment ≥ 20%'}</div></div>`;
+
+  document.getElementById('summaryRows').innerHTML=`
+    <div class="summary-row"><span class="s-label">Home Price</span><span class="s-value">${fmt(hp)}</span></div>
+    <div class="summary-row"><span class="s-label">Down Payment (${dpPct.toFixed(1)}%)</span><span class="s-value">${fmt(dp)}</span></div>
+    <div class="summary-row"><span class="s-label">Base Mortgage</span><span class="s-value">${fmt(baseMtg)}</span></div>
+    ${cmhc>0?`<div class="summary-row"><span class="s-label">CMHC Premium</span><span class="s-value">${fmt(cmhc)}</span></div>`:''}
+    <div class="summary-row"><span class="s-label">Total Principal</span><span class="s-value">${fmt(principal)}</span></div>
+    <div class="summary-row"><span class="s-label">Total Interest</span><span class="s-value">${fmt(totalInterest)}</span></div>
+    <div class="summary-row total"><span class="s-label">Total Cost of Mortgage</span><span class="s-value">${fmt(totalPaid)}</span></div>`;
+
+  document.getElementById('stressBox').innerHTML=`<strong>⚠️ Stress Test (OSFI B-20):</strong> You must qualify at <strong>max(5.25%, rate+2%) = ${stressRate.toFixed(2)}%</strong>. Stress test payment: <strong>${fmt(spmt)}/mo</strong> (${fmt(spmt-pmt)} more than your actual payment).`;
+
+  if(cmhc>0){
+    const cmhcRate=dpPct>=15?'2.80%':dpPct>=10?'3.10%':'4.00%';
+    document.getElementById('cmhcBox').innerHTML=`<div class="can-note" style="background:#f5f3ff;border-color:#c4b5fd;color:#5b21b6;margin-bottom:1.25rem"><strong>💜 CMHC Insurance: ${cmhcRate} × ${fmt(baseMtg)} = ${fmt(cmhc)}</strong>Required for down payments under 20%. Added to your mortgage principal.</div>`;
+  } else document.getElementById('cmhcBox').innerHTML='';
+
+  document.getElementById('amortLabel').textContent=`${amort} years · ${fmtN(n)} payments`;
+
+  let bal=principal, rows='', totP=0, totI=0;
+  for(let yr=1;yr<=amort;yr++){
+    let yP=0,yI=0;
+    for(let m=0;m<12;m++){
+      const ip=bal*mr, pp=Math.min(pmt-ip,bal);
+      yI+=ip; yP+=pp; bal-=pp; if(bal<0.005)bal=0;
+    }
+    totP+=yP; totI+=yI;
+    rows+=`<tr><td>${yr}</td><td>${fmt(yP)}</td><td>${fmt(yI)}</td><td>${fmt(yP+yI)}</td><td>${fmt(Math.max(0,bal))}</td></tr>`;
+  }
+  rows+=`<tr><td>Total</td><td>${fmt(totP)}</td><td>${fmt(totI)}</td><td>${fmt(totP+totI)}</td><td>—</td></tr>`;
+  document.getElementById('amortBody').innerHTML=rows;
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

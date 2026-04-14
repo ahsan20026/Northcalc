@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPP & OAS Guide 2026: Maximise Your Canadian Government Retirement Benefits | NorthCalc</title>
+  <meta name="description" content="Everything Canadians need to know about CPP and OAS in 2026 — amounts, start age, clawbacks, and the breakeven analysis that could be worth $100,000.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100%+8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    article{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    article h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    article h2:first-child{margin-top:0}
+    article h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    article p{margin-bottom:.9rem;font-size:.94rem}
+    article ul,article ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    article li{margin-bottom:.4rem}
+    article a{color:var(--red);text-decoration:underline}
+    article strong{font-weight:700}
+    article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    article th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    article td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    article tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .tip strong{display:block;margin-bottom:.3rem}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta">Published February 2026 · 9 min read</div>
+      <h1>The Complete Canadian Guide to CPP & OAS in 2026</h1>
+      <p class="lead">For most Canadian retirees, CPP and OAS together provide $1,500 to $2,500 per month in retirement income before tax. That's up to $30,000 per year — not enough to live on alone, but a rock-solid inflation-indexed foundation. The question isn't whether to take them — it's when.</p>
+    </div>
+  </div>
+
+  <div class="post-wrap">
+    <article>
+      <h2>CPP at a Glance (2026 Numbers)</h2>
+
+      <p>The Canada Pension Plan is a mandatory contribution program that most working Canadians pay into throughout their careers. Here's what you need to know about the money waiting for you at retirement:</p>
+
+      <ul>
+        <li><strong>Maximum CPP at 65:</strong> $1,364.60 per month ($16,375 annually)</li>
+        <li><strong>Average CPP at 65:</strong> Approximately $750 per month — most people don't reach the maximum</li>
+        <li><strong>Maximum CPP at 70 (delayed):</strong> Approximately $1,937 per month (42% higher than age 65)</li>
+        <li><strong>Maximum CPP at 60 (early):</strong> Approximately $874 per month (36% lower than age 65)</li>
+        <li><strong>Automatic annual increase:</strong> CPP is indexed to inflation (Consumer Price Index), so your benefit grows each January</li>
+        <li><strong>How it's funded:</strong> 5.95% of employment income (you pay half, your employer matches)</li>
+      </ul>
+
+      <p>Only your last 40 years of earnings count toward CPP. If you have low-income years or years of unemployment, they drag down your average — but the program drops your five lowest-earning years. This provides flexibility if you had years of illness, education, or career changes.</p>
+
+      <h2>OAS at a Glance (2026 Numbers)</h2>
+
+      <p>Old Age Security is Canada's universal, publicly-funded retirement income program. Unlike CPP, OAS is not based on your contributions. It's based on Canadian residency.</p>
+
+      <ul>
+        <li><strong>OAS at 65:</strong> $698.60 per month ($8,383 annually) for the full benefit</li>
+        <li><strong>OAS at 75 and older:</strong> $727.67 per month — an automatic 10% increase at age 75</li>
+        <li><strong>Eligibility:</strong> You need 40 years of Canadian residency for the full benefit; partial benefits begin after 10 years</li>
+        <li><strong>Annual adjustment:</strong> OAS is indexed to inflation quarterly, not just once annually like CPP</li>
+        <li><strong>Age to start:</strong> You can begin OAS at 65 (or delay for an enhancement)</li>
+        <li><strong>Clawback threshold:</strong> Above approximately $90,997 in annual income, OAS is reduced by 15¢ per dollar earned</li>
+        <li><strong>Full clawback:</strong> OAS is completely clawed back at approximately $148,000 in annual income</li>
+      </ul>
+
+      <div class="callout">
+        <strong>OAS is means-tested:</strong> Unlike CPP, which is yours regardless of income, OAS can be partially or fully clawed back if you have high retirement income. This is a critical factor for higher-income retirees.
+      </div>
+
+      <h2>The Crucial Decision — When to Start CPP</h2>
+
+      <p>You can start CPP anywhere between age 60 and age 70. Here's how the amount changes based on when you start:</p>
+
+      <ul>
+        <li>For every month before 65 you take CPP: your benefit is reduced by 0.6% (36% total reduction at age 60)</li>
+        <li>For every month after 65 you delay: your benefit increases by 0.7% (42% total increase at age 70)</li>
+      </ul>
+
+      <p>Here's what this means for someone with a $1,050 base CPP benefit at age 65 (a typical mid-career earner):</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Start Age</th>
+            <th>Adjustment</th>
+            <th>Monthly Amount</th>
+            <th>Annual Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>60</td>
+            <td>-36%</td>
+            <td>$672</td>
+            <td>$8,064</td>
+          </tr>
+          <tr>
+            <td>62</td>
+            <td>-21.6%</td>
+            <td>$823</td>
+            <td>$9,878</td>
+          </tr>
+          <tr>
+            <td>65</td>
+            <td>None</td>
+            <td>$1,050</td>
+            <td>$12,600</td>
+          </tr>
+          <tr>
+            <td>67</td>
+            <td>+16.8%</td>
+            <td>$1,227</td>
+            <td>$14,718</td>
+          </tr>
+          <tr>
+            <td>70</td>
+            <td>+42%</td>
+            <td>$1,491</td>
+            <td>$17,892</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>The Breakeven Analysis</h2>
+
+      <p>Taking CPP at 70 versus 65 seems like you're "losing" five years of payments. But that's not quite right. If you take CPP at 60, you receive more total cheques, but each is smaller. If you delay to 70, each cheque is 42% larger. The two strategies "break even" at a specific age.</p>
+
+      <p>For someone delaying CPP from 65 to 70, the breakeven occurs at approximately age 83. If you live past 83, delaying CPP to 70 pays off in larger cumulative lifetime benefits. If you don't expect to live past 83, taking CPP earlier maximises your total payments.</p>
+
+      <p><strong>Canadian life expectancy:</strong> Men average approximately 84 years; women approximately 87 years. This means most Canadians statistically benefit from delaying CPP.</p>
+
+      <div class="tip">
+        <strong>If you're healthy at 65 with other income to live on, delaying CPP to 70 is the closest thing to free money in Canadian retirement planning.</strong> The Canada Pension Plan is fully indexed to inflation, so that larger payment grows forever, protecting you against inflation in your 80s and 90s when you're most vulnerable.
+      </div>
+
+      <h2>When Taking CPP Early Makes Sense</h2>
+
+      <ul>
+        <li><strong>Poor health or shortened life expectancy</strong> — if you have a serious condition limiting your lifespan, taking CPP at 60 captures maximum lifetime payments</li>
+        <li><strong>Desperate need for income at 60</strong> — if you're forced to retire early and have no other income, the $672/month is better than nothing</li>
+        <li><strong>No other income sources during your 60s</strong> — if you can't access other savings or investments until later</li>
+        <li><strong>Concern about CPP sustainability</strong> — this is unfounded. The CPP Investment Board manages the fund and it's projected to be well-capitalised through 2075+. The program will never disappear</li>
+      </ul>
+
+      <h2>OAS — Less Flexibility, Still Important</h2>
+
+      <p>Unlike CPP, you cannot start OAS before age 65. You <strong>can</strong> delay OAS to age 70, and doing so increases your benefit by +0.6% per month (36% total by age 70).</p>
+
+      <p>At age 75, OAS automatically increases an additional 10%, whether you delayed or started at 65. This makes age 75+ particularly valuable for OAS recipients — another reason to expect government support in your later years.</p>
+
+      <p>You must apply 6 months before you want to start receiving OAS — so if you want it at 65, apply at 64.5. If you procrastinate, your payments will be delayed.</p>
+
+      <p>If your retirement income is below approximately $22,000, check your eligibility for GIS (Guaranteed Income Supplement), which can provide up to $1,086 per month <strong>in addition to OAS</strong>. This is crucial for lower-income seniors.</p>
+
+      <h2>Tax Strategy for CPP and OAS</h2>
+
+      <p>Both CPP and OAS are taxable as income, but they receive preferential treatment. Unlike employment income, CPP and OAS do not trigger CPP/EI contributions (you don't pay 5.95% CPP or 1.5% EI on this income).</p>
+
+      <p>If you're married, you can split CPP with your spouse — up to 50% of your CPP benefit can be reassigned to your spouse. This is <strong>extremely valuable</strong> if one spouse has a significantly higher CPP benefit. Income splitting reduces your household's total tax burden.</p>
+
+      <p>For OAS clawback planning: consider taking RRSP withdrawals in your early retirement years (age 65–71) to push income below the OAS clawback threshold (~$91,000). This is called "income splitting through RRSP withdrawals" and can save thousands in clawed-back OAS.</p>
+
+      <h2>Practical Timeline</h2>
+
+      <ul>
+        <li><strong>Age 60:</strong> You can begin taking early CPP if you need it</li>
+        <li><strong>Age 64:</strong> Apply for CPP if you want it to start at 65 (6-month processing)</li>
+        <li><strong>Age 64.5:</strong> Apply for OAS if you want it to start at 65</li>
+        <li><strong>Age 65:</strong> OAS begins (if you applied); confirm GIS eligibility if income is low</li>
+        <li><strong>Age 70:</strong> Maximum delayed CPP and OAS both begin; no benefit to waiting further</li>
+        <li><strong>Age 71:</strong> Your RRSP <strong>must</strong> be converted to a Registered Retirement Income Fund (RRIF); you begin mandatory annual withdrawals</li>
+        <li><strong>Age 75:</strong> Automatic 10% increase to OAS; continue strategic planning around income to manage tax efficiency</li>
+      </ul>
+
+      <div class="cta-box">
+        <h3>Calculate Your CPP & OAS Benefits</h3>
+        <p>Use our CPP & OAS estimator to see your projected benefits at different start ages and model your retirement income strategy.</p>
+        <a href="/cpp-oas-estimator.html" class="cta-btn">CPP & OAS Estimator</a>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute financial, tax, or retirement advice. CPP and OAS benefit amounts, clawback thresholds, and program rules change periodically. Consult with a qualified retirement advisor, tax professional, or Service Canada directly for personalised advice on your specific situation. The examples provided are simplified estimates based on 2026 amounts and may not reflect your actual benefits.
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+  </script>
+</body>
+</html>

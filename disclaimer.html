@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer | NorthCalc</title>
+  <meta name="description" content="NorthCalc disclaimer. Our calculators are estimates only. We are not financial advisors. Always seek professional advice for your specific situation.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.6rem}
+    .page-hero p{font-size:.98rem;opacity:.85;max-width:580px}
+    .content-wrap{max-width:860px;margin:2rem auto;padding:0 1.5rem}
+    .prose{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .prose h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.5rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    .prose h2:first-child{margin-top:0}
+    .prose h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:1rem 0 .35rem}
+    .prose p{margin-bottom:.8rem;font-size:.93rem}
+    .prose ul,.prose ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .prose li{margin-bottom:.35rem}
+    .prose a{color:var(--red);text-decoration:underline}
+    .prose strong{font-weight:700}
+    .highlight-box{background:var(--red-light);border:1px solid #f5c6cc;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#7f1d1d}
+    .info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#075985}
+    .cta-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin:2rem 0 0;box-shadow:var(--shadow);text-align:center}
+    .cta-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+    .cta-links{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .cta-links a{color:var(--red);text-decoration:underline;font-weight:600}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <h1>Disclaimer</h1>
+        <p>Please read before relying on any NorthCalc results.</p>
+      </div>
+    </div>
+
+    <div class="content-wrap">
+      <article class="prose">
+        <h2>Not Financial Advice</h2>
+        <p>NorthCalc provides informational tools and educational resources, not professional financial, tax, investment, or legal advice. The team behind NorthCalc are developers and finance enthusiasts, not licensed financial advisors, tax accountants, lawyers, or investment professionals. If you need personalised guidance specific to your situation, consult with a qualified professional.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Estimates Only</h2>
+        <p>All calculator results are estimates based on the information you enter and the formulas we've programmed. Actual results from your lender, the Canada Revenue Agency (CRA), your employer, insurance company, or government benefits administrator may differ significantly. Differences can result from rounding, additional fees, policy terms, or information not included in the calculator.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Rates and Limits Change Frequently</h2>
+        <p>Tax brackets, TFSA and RRSP contribution limits, CPP and OAS benefit amounts, mortgage interest rates, government incentives, and tax rules change regularly. We update NorthCalc frequently, but we cannot guarantee that all rates, limits, and rules reflect the most current figures at the exact moment you use a calculator. Always verify current rules with the CRA, your provincial government, or your financial institution.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Provincial Differences</h2>
+        <p>Canadian tax rules and regulations vary significantly by province and territory. Our income tax calculator, land transfer tax calculator, HST/GST calculator, and other tools attempt to account for provincial differences, but they may not capture every nuance, recent legislative change, or special circumstance. Always confirm with your provincial tax authority or a local professional.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Mortgage Calculations</h2>
+        <p>Canadian mortgage payment calculations use semi-annual compounding as required by the Interest Act. However, actual payments from your lender may differ based on payment frequency (monthly, semi-monthly, weekly, accelerated), prepayment options, mortgage insurance fees (CMHC, Sagen, Canada Mortgage Bond), the timing of rate changes, or other terms in your mortgage agreement. Always confirm your actual payment amount with your lender.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Seek Professional Advice</h2>
+        <p>Before making any major financial decision — buying or selling a home, taking out a mortgage, increasing RRSP or TFSA contributions, changing your tax strategy, retiring, investing, or claiming government benefits — consult with a licensed professional appropriate to your situation:</p>
+        <ul>
+          <li><strong>Financial planning:</strong> Certified Financial Planner (CFP)</li>
+          <li><strong>Tax or accounting:</strong> Chartered Professional Accountant (CPA)</li>
+          <li><strong>Legal issues:</strong> Lawyer or notary</li>
+          <li><strong>Investments:</strong> Registered Investment Advisor or broker</li>
+          <li><strong>Insurance:</strong> Licensed insurance broker</li>
+        </ul>
+      </article>
+
+      <article class="prose">
+        <h2>No Liability</h2>
+        <p>To the fullest extent permitted by law, NorthCalc and its team are not responsible for any financial, tax, investment, or personal outcomes resulting from your use of our calculators. By using this site, you accept this disclaimer and agree that you use all tools and information entirely at your own risk.</p>
+      </article>
+
+      <div class="highlight-box">
+        <strong>Bottom Line:</strong> NorthCalc calculators are helpful tools for rough estimates and learning. They are not substitutes for professional advice. Always verify results independently and consult a qualified professional before making financial decisions.
+      </div>
+
+      <div class="cta-section">
+        <h3>Ready to explore our calculators?</h3>
+        <div class="cta-links">
+          <a href="/canadian-mortgage-calculator.html">🏠 Mortgage Calculator</a>
+          <a href="/canadian-income-tax-calculator.html">📊 Income Tax Calculator</a>
+          <a href="/tfsa-room-calculator.html">💰 TFSA Room Calculator</a>
+          <p style="margin-top:.5rem;font-size:.85rem;color:var(--muted)">Or <a href="/about.html">learn more about NorthCalc</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+  </script>
+</body>
+</html>

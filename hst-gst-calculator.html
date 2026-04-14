@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canadian HST / GST Calculator 2026 — NorthCalc</title>
+<meta name="description" content="Calculate HST, GST, and sales tax for all 13 Canadian provinces and territories. Add tax or remove tax. Ontario 13%, Alberta 5%, Quebec 14.975%. Current 2026 rates.">
+<link rel="canonical" href="https://northcalc.com/hst-gst-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09);--green:#059669;--green-light:#ecfdf5;--blue-light:#eff6ff}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.example-box table{width:100%;margin:.5rem 0;font-size:.85rem;border-collapse:collapse}
+.example-box th,.example-box td{padding:.4rem;text-align:left;border-bottom:1px solid #bae6fd}
+.example-box th{font-weight:700;background:#dbeafe;color:#075985}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.tip-box strong{display:block;margin-bottom:.35rem}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.25rem}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.mode-toggle{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:3px;margin-bottom:1.5rem;gap:3px}
+.mode-btn{padding:.6rem 1rem;border:none;border-radius:6px;font-size:.875rem;font-weight:600;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.mode-btn.active{background:var(--white);color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input,select{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+.hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.rate-info{background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:1rem 1.25rem;font-size:.82rem;color:#1e40af;margin:1rem 0}
+.rate-info strong{display:block;margin-bottom:.3rem}
+.rate-detail{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.rate-pill{background:#dbeafe;color:#1e40af;border-radius:20px;padding:.2rem .65rem;font-size:.75rem;font-weight:600}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit}
+.btn:hover{background:var(--red-dark)}
+#results{display:none}
+.result-big{text-align:center;padding:2rem;background:var(--green-light);border:2px solid #6ee7b7;border-radius:var(--radius);margin-bottom:1.25rem}
+.rb-label{font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+.rb-value{font-size:2.75rem;font-weight:800;color:#065f46;line-height:1}
+.rb-sub{font-size:.85rem;color:var(--green);margin-top:.4rem}
+.breakdown-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem}
+.bc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;box-shadow:var(--shadow);text-align:center}
+.bc.fed{border-top:3px solid #C41E3A}
+.bc.prov{border-top:3px solid #1d4ed8}
+.bc.pretax{border-top:3px solid var(--green)}
+.bc-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.bc-value{font-size:1.35rem;font-weight:800;color:var(--navy)}
+.bc-rate{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+.rates-toggle{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between}
+.rates-toggle::after{content:'▸';font-size:.8rem;color:var(--muted);transition:transform .2s}
+.card.open .rates-toggle::after{transform:rotate(90deg)}
+#ratesTable{display:none;margin-top:1.25rem}
+.card.open #ratesTable{display:block}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:var(--bg);padding:.6rem 1rem;text-align:left;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+thead th:not(:first-child){text-align:right}
+tbody td{padding:.55rem 1rem;border-bottom:1px solid var(--border);color:var(--text)}
+tbody td:not(:first-child){text-align:right}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg)}
+.hst-b{display:inline-flex;font-size:.68rem;font-weight:600;padding:.15rem .45rem;border-radius:10px;margin-left:.3rem}
+.hst-b.hst{background:#fce8ec;color:#C41E3A}
+.hst-b.gst{background:#ecfdf5;color:#059669}
+.hst-b.mix{background:#eff6ff;color:#1d4ed8}
+.tb{font-weight:700;color:var(--navy)}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}.breakdown-grid{grid-template-columns:1fr}.rb-value{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link active">🧾 HST / GST</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian HST / GST Calculator</h1>
+    <p>Add or remove HST, GST, and PST for all 13 provinces and territories — with correct 2026 rates and federal + provincial breakdown.</p>
+  </div>
+</div>
+
+<main class="content-wrap">
+  <div class="content-section">
+    <h2>Three Tax Systems in Canada</h2>
+    <p>Canada has three distinct sales tax systems, and it's crucial to understand which applies where. The <strong>GST (Goods and Services Tax)</strong> is the federal component at 5%, applied everywhere. On top of that, provinces apply their own sales taxes—either as HST (Harmonised Sales Tax), PST (Provincial Sales Tax), or QST (Quebec Sales Tax). This means the total sales tax you pay ranges from 5% in no-tax provinces (Alberta) to 15% in Atlantic provinces.</p>
+    <p><strong>HST provinces</strong> (Ontario, Nova Scotia, New Brunswick, Newfoundland & Labrador, Prince Edward Island) combine federal and provincial tax into a single 13–15% rate. <strong>GST+PST provinces</strong> (BC, Saskatchewan, Manitoba) apply the 5% federal GST plus a separate provincial tax (6–7%). <strong>Quebec</strong> uses GST+QST (Quebec Sales Tax) at 9.975%, totalling 14.975%. And <strong>Alberta, Yukon, Northwest Territories, and Nunavut</strong> have no provincial tax—just the 5% federal GST.</p>
+    <p>The difference is substantial. A $1,000 item costs $1,000 in Alberta but $1,150 in Nova Scotia—a $150 difference just from sales tax!</p>
+  </div>
+
+  <div class="calc-section">
+    <div class="card">
+      <div class="card-title">🧾 Sales Tax Calculator</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="modeAdd" onclick="setMode('add')">➕ Add Tax — I have a pre-tax amount</button>
+        <button class="mode-btn" id="modeRemove" onclick="setMode('remove')">➖ Remove Tax — I have a total with tax</button>
+      </div>
+      <div class="form-grid">
+        <div class="field" style="margin-bottom:0"><label for="amount" id="amountLabel">Pre-Tax Amount</label><div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="amount" placeholder="100.00" min="0" step="0.01"></div><div class="hint" id="amountHint">Enter the amount before tax</div></div>
+        <div class="field" style="margin-bottom:0"><label for="province">Province / Territory</label>
+          <select id="province" onchange="updateRateInfo()"><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="AB">Alberta</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="MB">Manitoba</option><option value="NS">Nova Scotia</option><option value="NB">New Brunswick</option><option value="NL">Newfoundland & Labrador</option><option value="PE">Prince Edward Island</option><option value="YT">Yukon</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option></select>
+        </div>
+      </div>
+      <div class="rate-info" id="rateInfo"></div>
+      <button class="btn" onclick="calculate()">Calculate Tax</button>
+    </div>
+
+    <div id="results">
+      <div class="result-big"><div class="rb-label" id="resultLabel">Total Amount (with tax)</div><div class="rb-value" id="resultValue">$0.00</div><div class="rb-sub" id="resultSub"></div></div>
+      <div class="breakdown-grid">
+        <div class="bc pretax"><div class="bc-label">Pre-Tax Amount</div><div class="bc-value" id="pretaxValue">—</div><div class="bc-rate" id="pretaxSub"></div></div>
+        <div class="bc fed"><div class="bc-label">Federal Tax (GST)</div><div class="bc-value" id="fedValue">—</div><div class="bc-rate" id="fedRate">5.00%</div></div>
+        <div class="bc prov"><div class="bc-label" id="provLabel">Provincial Tax</div><div class="bc-value" id="provValue">—</div><div class="bc-rate" id="provRate">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Choose your mode.</strong> "Add Tax" calculates the total price from a pre-tax amount. "Remove Tax" backs out the tax from a receipt total (useful when you see a price tag and want to know the pre-tax cost).</li>
+      <li><strong>Select your province or territory.</strong> The calculator automatically applies that region's rates.</li>
+      <li><strong>Enter your amount.</strong> For "Add Tax," enter the price before tax. For "Remove Tax," enter the total you're paying at the register.</li>
+      <li><strong>Review the breakdown.</strong> You'll see the federal portion (5% GST everywhere), the provincial portion (varies), and the total tax.</li>
+    </ol>
+  </div>
+
+  <div class="content-section">
+    <h2>Canadian Example (2026)</h2>
+    <div class="example-box">
+      <strong>Same $1,000 item across Canada</strong>
+      <table>
+        <tr><th>Province</th><th>System</th><th>Rate</th><th>Tax on $1,000</th><th>Total Price</th></tr>
+        <tr><td>Ontario</td><td>HST</td><td>13%</td><td>$130</td><td>$1,130</td></tr>
+        <tr><td>Alberta</td><td>GST only</td><td>5%</td><td>$50</td><td>$1,050</td></tr>
+        <tr><td>Quebec</td><td>GST + QST</td><td>14.975%</td><td>$150</td><td>$1,150</td></tr>
+        <tr><td>Nova Scotia</td><td>HST</td><td>15%</td><td>$150</td><td>$1,150</td></tr>
+        <tr><td>BC</td><td>GST + PST</td><td>12%</td><td>$120</td><td>$1,120</td></tr>
+      </table>
+      <strong>The difference:</strong> Same item, $100 more expensive in Nova Scotia than Alberta, purely due to tax!
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>What Your Results Mean</h2>
+    <h3>Federal vs Provincial Tax</h3>
+    <p>The 5% GST goes to the federal government (except Quebec, which collects GST through the CRA and uses it for federal programs). The provincial portion varies: BC's PST at 7% goes to BC, Ontario's 8% HST portion goes to Ontario, etc. Businesses and accountants need to track these separately for remittance.</p>
+    <h3>Adding vs Removing Tax</h3>
+    <p>"Add Tax" is straightforward: multiply your pre-tax cost by (1 + tax rate). "Remove Tax" is trickier. If you see $1,130 on a receipt in Ontario and want the pre-tax amount, you must divide by 1.13, not subtract 13%. The calculator does this correctly automatically.</p>
+    <h3>No Provincial Tax Provinces</h3>
+    <p>In Alberta, Yukon, Northwest Territories, and Nunavut, there's only the 5% federal GST—no provincial layer. This makes them attractive for certain purchases (especially vehicles and fuel), though other costs (housing, labour) may differ regionally.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>What's the difference between GST, HST, and PST?</summary>
+      <div class="faq-body">
+        GST (5%) is the federal goods and services tax applied everywhere in Canada. HST combines the federal and provincial portions into a single tax (13%, 14%, or 15% depending on province). PST is a separate provincial sales tax (6–7%) applied alongside the GST in provinces like BC and Saskatchewan. Quebec uses QST instead of PST. The net effect is that HST provinces have simpler tax codes but higher total rates in some cases.
+      </div>
+    </details>
+    <details>
+      <summary>How do I calculate GST/HST from a receipt total?</summary>
+      <div class="faq-body">
+        Use the "Remove Tax" mode. If a receipt shows $1,130 in Ontario (13% HST), the pre-tax cost is $1,130 ÷ 1.13 = $1,000. The tax is $130. This calculator handles the math for you—just enter the total and it backs out the tax automatically.
+      </div>
+    </details>
+    <details>
+      <summary>Does Quebec have HST?</summary>
+      <div class="faq-body">
+        No. Quebec uses GST (5%) + QST (Quebec Sales Tax at 9.975%) for a combined rate of 14.975%. The two are tracked separately on invoices and receipts. QST is Quebec's equivalent to other provinces' PST, but the rate is higher.
+      </div>
+    </details>
+    <details>
+      <summary>Which province has the lowest sales tax?</summary>
+      <div class="faq-body">
+        Alberta, Yukon, Northwest Territories, and Nunavut have the lowest rate at 5% (federal GST only, no provincial tax). This makes Alberta particularly attractive for big-ticket purchases like vehicles and fuel.
+      </div>
+    </details>
+    <details>
+      <summary>Are there exemptions to GST/HST in Canada?</summary>
+      <div class="faq-body">
+        Yes. Basic groceries (bread, milk, eggs), prescription drugs, medical devices, and certain health services are exempt or zero-rated. Restaurant meals, prepared foods, and most other items are fully taxable. The CRA maintains a detailed exemption list. Provinces may have additional exemptions for PST/QST.
+      </div>
+    </details>
+    <details>
+      <summary>How do I calculate tax for a business invoice?</summary>
+      <div class="faq-body">
+        For a B2B invoice in Canada, you add GST/HST/PST to your pre-tax price, just like this calculator does. However, if both parties are registered for GST (or HST), the purchaser can claim an "input tax credit" and recover the tax. This is tracked separately on HST/GST registration forms. For B2C sales (business to consumer), you simply add the tax to the price as shown on the receipt.
+      </div>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>5 Tips on Canadian Sales Tax</h2>
+    <div class="tip-box">
+      <strong>1. Note GST exemptions: basic groceries, prescription drugs, and medical devices</strong>
+      If you're buying bread, milk, or eggs—no GST/HST. Same for prescription medications. But prepared food, restaurant meals, and vitamins are fully taxed. Read the fine print on receipts to understand what's exempt.
+    </div>
+    <div class="tip-box">
+      <strong>2. Input tax credits exist for registered businesses</strong>
+      If you're a GST/HST-registered business, you can claim back the tax you pay on business purchases. This is tracked on your monthly or quarterly GST return with the CRA. Keep invoices carefully—CRA audits this regularly.
+    </div>
+    <div class="tip-box">
+      <strong>3. Big purchases in low-tax provinces can save thousands</strong>
+      Buying a car in Alberta (5% GST) vs Ontario (13% HST) saves 8% of the purchase price. On a $50,000 vehicle, that's $4,000. It's why some Canadians cross provincial borders for major purchases.
+    </div>
+    <div class="tip-box">
+      <strong>4. PST/QST exemptions vary by province—check your local rules</strong>
+      BC PST is exempt on some items Ontario HST covers, and vice versa. When moving provinces, review what taxes apply to your regular purchases. Some provinces exempt children's clothing; others don't.
+    </div>
+    <div class="tip-box">
+      <strong>5. Online purchases from outside Canada may have different tax rules</strong>
+      As of July 2021, Canadian sales tax must be collected on items imported from the US and other countries, even if the vendor is foreign. Check CRA guidelines on cross-border purchases to avoid surprises at the border.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>2026 Tax Rates by Province</h2>
+    <div class="card" id="ratesCard" onclick="document.getElementById('ratesCard').classList.toggle('open')">
+      <div class="card-title rates-toggle">📋 All Canadian Tax Rates (2025)</div>
+      <div id="ratesTable"><table><thead><tr><th>Province / Territory</th><th>Type</th><th>Federal</th><th>Provincial</th><th>Total</th></tr></thead><tbody>
+        <tr><td>Ontario <span class="hst-b hst">HST</span></td><td>HST</td><td>5.00%</td><td>8.00%</td><td class="tb">13.00%</td></tr>
+        <tr><td>British Columbia <span class="hst-b mix">GST+PST</span></td><td>GST+PST</td><td>5.00%</td><td>7.00%</td><td class="tb">12.00%</td></tr>
+        <tr><td>Alberta <span class="hst-b gst">GST only</span></td><td>GST</td><td>5.00%</td><td>—</td><td class="tb">5.00%</td></tr>
+        <tr><td>Quebec <span class="hst-b mix">GST+QST</span></td><td>GST+QST</td><td>5.00%</td><td>9.975%</td><td class="tb">14.975%</td></tr>
+        <tr><td>Saskatchewan <span class="hst-b mix">GST+PST</span></td><td>GST+PST</td><td>5.00%</td><td>6.00%</td><td class="tb">11.00%</td></tr>
+        <tr><td>Manitoba <span class="hst-b mix">GST+RST</span></td><td>GST+RST</td><td>5.00%</td><td>7.00%</td><td class="tb">12.00%</td></tr>
+        <tr><td>Nova Scotia <span class="hst-b hst">HST</span></td><td>HST</td><td>5.00%</td><td>10.00%</td><td class="tb">15.00%</td></tr>
+        <tr><td>New Brunswick <span class="hst-b hst">HST</span></td><td>HST</td><td>5.00%</td><td>10.00%</td><td class="tb">15.00%</td></tr>
+        <tr><td>Newfoundland & Labrador <span class="hst-b hst">HST</span></td><td>HST</td><td>5.00%</td><td>10.00%</td><td class="tb">15.00%</td></tr>
+        <tr><td>Prince Edward Island <span class="hst-b hst">HST</span></td><td>HST</td><td>5.00%</td><td>10.00%</td><td class="tb">15.00%</td></tr>
+        <tr><td>Yukon <span class="hst-b gst">GST only</span></td><td>GST</td><td>5.00%</td><td>—</td><td class="tb">5.00%</td></tr>
+        <tr><td>Northwest Territories <span class="hst-b gst">GST only</span></td><td>GST</td><td>5.00%</td><td>—</td><td class="tb">5.00%</td></tr>
+        <tr><td>Nunavut <span class="hst-b gst">GST only</span></td><td>GST</td><td>5.00%</td><td>—</td><td class="tb">5.00%</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <div class="related-tools">
+      <a href="/canadian-mortgage-calculator.html" class="tool-chip">🏠 Mortgage Calculator</a>
+      <a href="/land-transfer-tax-calculator.html" class="tool-chip">🏛 Land Transfer Tax</a>
+      <a href="/rent-vs-buy-calculator.html" class="tool-chip">🔑 Rent vs Buy</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> GST/HST/PST rates and exemptions are subject to change and vary by item type and province. This calculator applies the standard rates to all items. Exempt items (basic groceries, prescription medications) may not be taxable, and some provinces have additional exemptions. Always verify with the CRA (Canada Revenue Agency) or your provincial tax authority for specific items and situations. This is not official tax advice.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+const PROV={ON:{name:'Ontario',fed:5,prov:8,type:'HST',pl:'Provincial (HST)'},BC:{name:'British Columbia',fed:5,prov:7,type:'GST+PST',pl:'PST'},AB:{name:'Alberta',fed:5,prov:0,type:'GST',pl:'No Provincial Tax'},QC:{name:'Quebec',fed:5,prov:9.975,type:'GST+QST',pl:'QST'},SK:{name:'Saskatchewan',fed:5,prov:6,type:'GST+PST',pl:'PST'},MB:{name:'Manitoba',fed:5,prov:7,type:'GST+RST',pl:'RST'},NS:{name:'Nova Scotia',fed:5,prov:10,type:'HST',pl:'Provincial (HST)'},NB:{name:'New Brunswick',fed:5,prov:10,type:'HST',pl:'Provincial (HST)'},NL:{name:'Newfoundland',fed:5,prov:10,type:'HST',pl:'Provincial (HST)'},PE:{name:'PEI',fed:5,prov:10,type:'HST',pl:'Provincial (HST)'},YT:{name:'Yukon',fed:5,prov:0,type:'GST',pl:'No Provincial Tax'},NT:{name:'NWT',fed:5,prov:0,type:'GST',pl:'No Provincial Tax'},NU:{name:'Nunavut',fed:5,prov:0,type:'GST',pl:'No Provincial Tax'}};
+let mode='add';
+function setMode(m){mode=m;document.getElementById('modeAdd').classList.toggle('active',m==='add');document.getElementById('modeRemove').classList.toggle('active',m==='remove');document.getElementById('amountLabel').textContent=m==='add'?'Pre-Tax Amount':'Tax-Inclusive Total';document.getElementById('amountHint').textContent=m==='add'?'Enter amount before tax':'Enter total including tax';document.getElementById('results').style.display='none';}
+function updateRateInfo(){const p=PROV[document.getElementById('province').value];const t=p.fed+p.prov;document.getElementById('rateInfo').innerHTML=`<strong>${p.name} — ${p.type} @ ${t.toFixed(3).replace(/\.?0+$/,'')}% total</strong><div class="rate-detail"><span class="rate-pill">🇨🇦 GST ${p.fed.toFixed(2)}%</span>${p.prov>0?`<span class="rate-pill" style="background:#dbeafe">${p.pl} ${p.prov.toFixed(3).replace(/\.?0+$/,'')}%</span>`:'<span class="rate-pill" style="background:#f0fdf4;color:#166534">No provincial tax</span>'}<span class="rate-pill" style="background:#e0e7ff;color:#3730a3">Total ${t.toFixed(3).replace(/\.?0+$/,'')}%</span></div>`;}
+function calculate(){const raw=parseFloat(document.getElementById('amount').value);if(!raw||raw<=0){alert('Please enter a valid amount.');return;}const p=PROV[document.getElementById('province').value];const fr=p.fed/100,pr=p.prov/100,tr=fr+pr;let pre,fed,prov,total;if(mode==='add'){pre=raw;fed=pre*fr;prov=pre*pr;total=pre+fed+prov;}else{total=raw;pre=total/(1+tr);fed=pre*fr;prov=pre*pr;}const fmt=n=>'$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');document.getElementById('resultLabel').textContent=mode==='add'?'Total Amount (with tax)':'Pre-Tax Amount';document.getElementById('resultValue').textContent=fmt(mode==='add'?total:pre);document.getElementById('resultSub').textContent=mode==='add'?`${fmt(raw)} + ${fmt(fed+prov)} tax = ${fmt(total)}`:`${fmt(total)} ÷ (1 + ${(p.fed+p.prov).toFixed(3)}%) = ${fmt(pre)}`;document.getElementById('pretaxValue').textContent=fmt(pre);document.getElementById('fedValue').textContent=fmt(fed);document.getElementById('fedRate').textContent=`${p.fed.toFixed(2)}% GST (federal)`;document.getElementById('provLabel').textContent=p.prov>0?p.pl:'No Provincial Tax';document.getElementById('provValue').textContent=p.prov>0?fmt(prov):'$0.00';document.getElementById('provRate').textContent=p.prov>0?`${p.prov.toFixed(3).replace(/\.?0+$/,'')}%`:'N/A';document.getElementById('results').style.display='block';}
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger')&&!e.target.closest('#ratesCard'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+updateRateInfo();
+</script>
+</body>
+</html>

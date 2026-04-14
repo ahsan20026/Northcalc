@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact NorthCalc | Get in Touch</title>
+  <meta name="description" content="Contact the NorthCalc team. Report a calculation error, suggest a new tool, or ask a question about our Canadian financial calculators.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.6rem}
+    .page-hero p{font-size:.98rem;opacity:.85;max-width:580px}
+    .content-wrap{max-width:860px;margin:2rem auto;padding:0 1.5rem}
+    .prose{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .prose h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.5rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    .prose h2:first-child{margin-top:0}
+    .prose h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:1rem 0 .35rem}
+    .prose p{margin-bottom:.8rem;font-size:.93rem}
+    .prose ul,.prose ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .prose li{margin-bottom:.35rem}
+    .prose a{color:var(--red);text-decoration:underline}
+    .prose strong{font-weight:700}
+    .info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#075985}
+    .contact-form{display:grid;gap:1rem}
+    .form-field{display:grid;gap:.35rem}
+    .form-field label{font-size:.82rem;font-weight:600;color:var(--text)}
+    .form-field input,.form-field textarea,.form-field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;color:var(--text);background:var(--white);transition:border-color .15s}
+    .form-field input:focus,.form-field textarea:focus,.form-field select:focus{outline:none;border-color:var(--red)}
+    .form-field textarea{min-height:140px;resize:vertical}
+    .btn-primary{padding:.75rem 1.5rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .btn-primary:hover{background:var(--red-dark)}
+    .form-note{font-size:.82rem;color:var(--muted);margin-top:1rem;padding:1rem;background:#fafafa;border-radius:8px;border-left:3px solid var(--red)}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <h1>Contact Us</h1>
+        <p>Found an error? Have a suggestion? We'd love to hear from you.</p>
+      </div>
+    </div>
+
+    <div class="content-wrap">
+      <article class="prose">
+        <h2>When to Contact Us</h2>
+        <ul>
+          <li><strong>Report a calculation error</strong> — We verify formulas carefully, but mistakes happen. Tell us and we'll fix it within 24 hours.</li>
+          <li><strong>Suggest a new calculator tool</strong> — Missing a Canadian financial calculator you'd like to see?</li>
+          <li><strong>Request an update to a tax rate or limit</strong> — Noticed a 2026 rate or contribution limit that needs updating?</li>
+          <li><strong>Media inquiries</strong> — Interview requests, press coverage, or feature opportunities</li>
+          <li><strong>General feedback</strong> — What's working well? What could we improve?</li>
+        </ul>
+      </article>
+
+      <article class="prose">
+        <h2>Send Us a Message</h2>
+        <form class="contact-form" method="post" action="mailto:hello@northcalc.com">
+          <div class="form-field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a topic</option>
+              <option value="Report an Error">Report an Error</option>
+              <option value="Suggest a Tool">Suggest a Tool</option>
+              <option value="Update Request">Update Request</option>
+              <option value="Media Inquiry">Media Inquiry</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+
+        <div class="form-note">
+          <strong>Demo Note:</strong> This form will open your email client. For fastest responses on urgent corrections, email directly: <a href="mailto:hello@northcalc.com">hello@northcalc.com</a>. We aim to respond within 2 business days.
+        </div>
+      </article>
+
+      <article class="prose">
+        <h2>What We Don't Do</h2>
+        <ul>
+          <li>We can't provide personalised financial advice or recommendations specific to your situation</li>
+          <li>We can't help with Canada Revenue Agency (CRA) account issues or appeals</li>
+          <li>We can't recommend specific financial products, mutual funds, or investment advisors</li>
+          <li>We're not lawyers and can't provide legal advice</li>
+        </ul>
+        <p>For these matters, please consult with a licensed financial advisor, tax accountant, or lawyer.</p>
+      </article>
+
+      <div class="info-box">
+        <strong>Other ways to reach us:</strong><br>
+        General enquiries: <a href="mailto:hello@northcalc.com">hello@northcalc.com</a><br>
+        Privacy concerns: <a href="mailto:privacy@northcalc.com">privacy@northcalc.com</a><br>
+        Legal matters: <a href="mailto:legal@northcalc.com">legal@northcalc.com</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+  </script>
+</body>
+</html>

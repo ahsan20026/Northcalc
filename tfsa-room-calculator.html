@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TFSA Room Calculator 2026 | NorthCalc — Canadian Financial Calculators</title>
+<meta name="description" content="Calculate your exact TFSA contribution room for 2026. Enter your birth year and Canadian residency year to see your total Tax-Free Savings Account room with year-by-year breakdown.">
+<meta name="keywords" content="TFSA room calculator 2026, TFSA contribution room, tax-free savings account Canada, TFSA limit 2026, TFSA room by year">
+<link rel="canonical" href="https://northcalc.com/tfsa-room-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+tr:hover td{background:#fafafa}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+          <a href="/tfsa-room-calculator.html" class="dd-link active">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>TFSA Room Calculator 2026</h1>
+    <p>Find your exact Tax-Free Savings Account contribution room — personalised by your birth year and Canadian residency year.</p>
+  </div>
+</div>
+
+<main>
+  <div class="content-wrap">
+
+    <div class="calc-section">
+      <h2>Calculate Your TFSA Room</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Year of Birth</label>
+          <input type="number" id="birthYear" value="1990" min="1900" max="2007" placeholder="e.g. 1990" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">You must be 18+ to contribute. If born after 1991, you may not have had access since 2009.</div>
+        </div>
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Year Became Canadian Resident</label>
+          <input type="number" id="residencyYear" value="2009" min="2009" max="2026" placeholder="e.g. 2009" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">TFSA room only accumulates during years you were a Canadian resident aged 18+.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Total Lifetime TFSA Withdrawals ($)</label>
+          <input type="number" id="withdrawn" value="0" min="0" placeholder="0" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">Withdrawals are re-added to your room in the following 1 January.</div>
+        </div>
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:.5rem">Total Lifetime TFSA Contributions ($)</label>
+          <input type="number" id="contributed" value="0" min="0" placeholder="0" style="width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem">
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">Enter the total you've contributed across all TFSA accounts ever.</div>
+        </div>
+      </div>
+      <button style="width:100%;padding:.85rem;background:var(--red);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s" onclick="calculate()">Calculate My TFSA Room</button>
+    </div>
+
+    <div id="results" style="display:none">
+      <div class="content-section" style="background:white">
+        <h2>Your TFSA Room Summary</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center">
+            <div style="font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Total Room Accumulated</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--navy)" id="totalRoom">—</div>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center">
+            <div style="font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Contributions Made</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--navy)" id="totalContrib">—</div>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center">
+            <div style="font-size:.75rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Available Room Now</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--red)" id="availRoom">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Year-by-Year TFSA Room Breakdown</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Annual Limit</th>
+              <th>Eligible?</th>
+              <th>Room Added</th>
+              <th>Cumulative Room</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem">* This calculator provides an estimate. Verify your exact room at <strong>My CRA Account</strong> (canada.ca).</p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Understanding Your TFSA Room</h2>
+      <p>A Tax-Free Savings Account (TFSA) is a registered account where your money grows <strong>tax-free</strong>. Unlike RRSPs, withdrawals are not taxed, and you can withdraw anytime without penalty. Room accumulates every year on 1 January if you're a Canadian resident aged 18+.</p>
+
+      <h3>How TFSA Room Accumulates</h3>
+      <p>Each year on 1 January, if you meet these three conditions, your TFSA room increases by that year's annual limit:</p>
+      <ol>
+        <li>You are a Canadian resident for tax purposes</li>
+        <li>You are at least 18 years old</li>
+        <li>You have a valid Social Insurance Number (SIN)</li>
+      </ol>
+      <p>Unused room carries forward indefinitely. If you don't contribute $7,000 in 2026, you still have that $7,000 plus the next year's limit available in 2027.</p>
+
+      <h3>2026 TFSA Annual Limits</h3>
+      <p>The annual TFSA contribution limit for 2026 is <strong>$7,000</strong>. This limit has increased several times since 2009:</p>
+      <ul>
+        <li>2009–2012: $5,000/year</li>
+        <li>2013–2014: $5,500/year</li>
+        <li>2015: $10,000/year (temporarily increased)</li>
+        <li>2016–2018: $5,500/year</li>
+        <li>2019–2022: $6,000/year</li>
+        <li>2023–2025: $6,500/year</li>
+        <li>2026+: $7,000/year</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Canadian Example (2026)</h2>
+      <div class="example-box">
+        <strong>Scenario: Born 1988, Canadian resident since 2009</strong><br>
+        Eligible since 2009 (was 21 that year)<br>
+        Full room accumulated 2009–2026: $95,000<br>
+        Withdrawals made: $15,000 (room re-added in January 2025)<br>
+        Contributions made: $60,000<br>
+        <strong style="display:block;margin-top:.5rem">Available TFSA room: $50,000</strong>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Important TFSA Rules</h2>
+
+      <h3>Over-Contribution Penalties</h3>
+      <p>If you contribute more than your available room, the Canada Revenue Agency (CRA) charges a penalty of <strong>1% per month</strong> on the excess amount. This can add up quickly. For example, a $1,000 over-contribution held for 6 months costs $60 in penalties.</p>
+
+      <div class="disclaimer-box">
+        <strong>Always verify your exact room on My CRA Account (canada.ca) before contributing.</strong> This calculator provides an estimate, but CRA has the final authority on your room.
+      </div>
+
+      <h3>Withdrawals and Re-Contribution</h3>
+      <p>When you withdraw from a TFSA, that amount becomes available to contribute again, but not until 1 January of the following year. For example, if you withdraw $5,000 in June 2026, that $5,000 becomes available again on 1 January 2027, in addition to that year's new $7,000 limit.</p>
+
+      <h3>Investments You Can Hold</h3>
+      <p>TFSAs can hold virtually any investment: stocks, bonds, ETFs, GICs, mutual funds, cryptocurrency, or even cash. The tax-free growth applies regardless of what you invest in. However, frequent trading may trigger CRA's "business" designation, which disqualifies the account from TFSA status.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>How much TFSA room do I have in 2026?</summary>
+        <div class="faq-body">
+          Your TFSA room depends on three factors: (1) your birth year (you need to be 18+), (2) when you became a Canadian resident, and (3) whether you've made any contributions or withdrawals. Use the calculator above to get your personalised estimate. For your exact room, log into My CRA Account at canada.ca and select "Tax returns and accounts."
+        </div>
+      </details>
+
+      <details>
+        <summary>What happens if I over-contribute to my TFSA?</summary>
+        <div class="faq-body">
+          The CRA charges 1% per month on any amount you contribute above your available room. The penalty is levied until you withdraw the excess. For example, a $2,000 over-contribution held for 3 months costs $60 in penalties (1% × $2,000 × 3 months). To avoid this, always verify your room on My CRA Account before contributing.
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I re-contribute money I withdrew from my TFSA?</summary>
+        <div class="faq-body">
+          Yes, but not immediately. Withdrawals are added back to your available room on 1 January of the following year. For example, if you withdraw $10,000 in August 2026, that $10,000 becomes available to contribute again on 1 January 2027, in addition to that year's new $7,000 limit. This flexibility is a major advantage of TFSAs over RRSPs.
+        </div>
+      </details>
+
+      <details>
+        <summary>Does TFSA room accumulate while living outside Canada?</summary>
+        <div class="faq-body">
+          No. You only earn TFSA room during years you are a Canadian resident. If you move abroad, your room stops accumulating. However, room you've already earned doesn't disappear—it remains available if you return to Canada. For instance, if you lived in Canada from 2009–2019 (10 years) and accumulated $70,000 in room, then moved to the US for 5 years, that $70,000 is still yours when you return to Canada.
+        </div>
+      </details>
+
+      <details>
+        <summary>What investments can I hold inside a TFSA?</summary>
+        <div class="faq-body">
+          TFSAs are flexible—you can hold almost any investment: stocks, bonds, ETFs, GICs, mutual funds, precious metals, cryptocurrency, or even cash. The tax-free growth applies to all of these. However, be aware that frequent trading (buying and selling) may trigger CRA's "business activity" rules, which could disqualify the account. The CRA's position is that TFSAs should be for personal savings and investing, not active trading.
+        </div>
+      </details>
+
+      <details>
+        <summary>TFSA vs RRSP — which should I contribute to first?</summary>
+        <div class="faq-body">
+          The answer depends on your tax bracket:<br><br>
+          <strong>Prioritise TFSA if:</strong><br>
+          • You're in a low tax bracket (under 30%)<br>
+          • You expect your income to increase significantly<br>
+          • You need flexibility—you can withdraw anytime without tax<br><br>
+          <strong>Prioritise RRSP if:</strong><br>
+          • You're in a high tax bracket (above 40%)<br>
+          • You want a large tax refund this year<br>
+          • You expect your income to be lower in retirement<br><br>
+          Many financial advisors suggest filling both: TFSA for flexibility and tax-free withdrawals, RRSP for the immediate tax deduction and decades of tax-sheltered growth.
+        </div>
+      </details>
+    </div>
+
+    <div class="content-section">
+      <h2>Tips to Maximise Your TFSA</h2>
+      <div class="tip-box">
+        <strong>Use TFSA as your emergency fund first</strong><br>
+        Keep 3–6 months of living expenses in a TFSA savings account or short-term GIC. Unlike RRSPs, you can withdraw anytime without tax or penalty, and the growth is tax-free.
+      </div>
+      <div class="tip-box">
+        <strong>Avoid frequent trading in a TFSA</strong><br>
+        If the CRA deems your TFSA activity to be "business" (frequent buying and selling), they can strip the account's tax-exempt status. Use a TFSA for long-term investing or passive ETFs.
+      </div>
+      <div class="tip-box">
+        <strong>Check My CRA Account before each contribution</strong><br>
+        Your actual room may differ from this calculator due to CRA adjustments, prior assessments, or clerical errors. Verify before contributing to avoid costly over-contribution penalties.
+      </div>
+      <div class="tip-box">
+        <strong>Consider opening a TFSA early if eligible</strong><br>
+        If you've been a Canadian resident since 2009 but never opened a TFSA, you have over $95,000 in cumulative room (assuming you've contributed nothing). Start contributing as soon as possible to benefit from tax-free growth.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <p>Once you know your TFSA room, explore these related calculators:</p>
+      <div class="related-tools">
+        <a href="/rrsp-calculator.html" class="tool-chip">📈 RRSP Calculator</a>
+        <a href="/canadian-income-tax-calculator.html" class="tool-chip">📊 Income Tax</a>
+        <a href="/cpp-oas-estimator.html" class="tool-chip">👴 CPP &amp; OAS</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator is for educational and estimation purposes only. Your exact TFSA room is determined by the CRA and available on My CRA Account. Over-contributions incur a 1% monthly penalty. This information does not constitute tax or financial advice. Consult the CRA or a tax professional for your specific situation.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+const TFSA_LIMITS = {
+  2009:5000,2010:5000,2011:5000,2012:5000,
+  2013:5500,2014:5500,
+  2015:10000,
+  2016:5500,2017:5500,2018:5500,
+  2019:6000,2020:6000,2021:6000,2022:6000,
+  2023:6500,2024:6500,2025:6500,2026:7000
+};
+const TFSA_START = 2009;
+const CURRENT_YEAR = 2026;
+
+const fmt = n => '$'+Math.round(n).toLocaleString('en-CA');
+
+function calculate(){
+  const birthYear = parseInt(document.getElementById('birthYear').value)||1990;
+  const residencyYear = parseInt(document.getElementById('residencyYear').value)||2009;
+  const withdrawn = parseFloat(document.getElementById('withdrawn').value)||0;
+  const contributed = parseFloat(document.getElementById('contributed').value)||0;
+
+  const eligYear = Math.max(TFSA_START, birthYear + 18, Math.max(TFSA_START, residencyYear));
+
+  let cumulative = 0;
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+
+  for(let yr = TFSA_START; yr <= CURRENT_YEAR; yr++){
+    const limit = TFSA_LIMITS[yr];
+    const eligible = yr >= eligYear;
+    const added = eligible ? limit : 0;
+    cumulative += added;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${yr}</td>
+      <td>${fmt(limit)}</td>
+      <td style="text-align:center">${eligible ? '✅' : '❌'}</td>
+      <td>${eligible ? fmt(added) : '—'}</td>
+      <td>${eligible ? fmt(cumulative) : '—'}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  const totalAccumulated = cumulative;
+  const availableRoom = Math.max(0, totalAccumulated + withdrawn - contributed);
+
+  document.getElementById('totalRoom').textContent = fmt(totalAccumulated);
+  document.getElementById('totalContrib').textContent = fmt(contributed);
+  document.getElementById('availRoom').textContent = fmt(availableRoom);
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>

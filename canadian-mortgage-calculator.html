@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canadian Mortgage Calculator 2026 — NorthCalc</title>
+<meta name="description" content="Calculate your exact monthly Canadian mortgage payment using semi-annual compounding, CMHC insurance, and OSFI B-20 stress test. Full amortization schedule. All provinces.">
+<link rel="canonical" href="https://northcalc.com/canadian-mortgage-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.tip-box strong{display:block;margin-bottom:.35rem}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.25rem}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.field{margin-bottom:1.1rem}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.1rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+.sfx{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input,select{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+.has-sfx input{padding-right:2rem}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+input::placeholder{color:#c4c9d4}
+.hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.dp-hint{font-size:.78rem;color:var(--muted);margin-top:.3rem;min-height:1.2em}
+.dp-warn{color:#d97706}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem 1.5rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.75rem;transition:background .15s,transform .1s}
+.btn:hover{background:var(--red-dark)}
+.btn:active{transform:scale(.99)}
+.divider{border:none;border-top:1px solid var(--border);margin:1.25rem 0}
+.can-note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1.1rem;font-size:.8rem;color:#1e40af;margin-top:1rem;line-height:1.5}
+.can-note strong{display:block;margin-bottom:.2rem}
+#results{display:none}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.25rem}
+.rc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;box-shadow:var(--shadow)}
+.rc.primary{border-color:var(--red);background:var(--red-light)}
+.rc.stress{border-color:#f59e0b;background:#fffbeb}
+.rc.cmhc{border-color:#a78bfa;background:#f5f3ff}
+.rc-label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.rc-value{font-size:1.5rem;font-weight:800;color:var(--navy);line-height:1.1}
+.rc.primary .rc-value{color:var(--red)}
+.rc.stress .rc-value{color:#d97706}
+.rc.cmhc .rc-value{color:#7c3aed}
+.rc-note{font-size:.72rem;color:var(--muted);margin-top:.25rem}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.summary-row:last-child{border-bottom:none}
+.summary-row .s-label{color:var(--muted)}
+.summary-row .s-value{font-weight:600;color:var(--navy)}
+.summary-row.total .s-label{font-weight:700;color:var(--text)}
+.summary-row.total .s-value{font-weight:800;color:var(--red)}
+.stress-box{border:1px solid #fde68a;background:#fffbeb;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:.83rem;color:#78350f}
+.stress-box strong{color:#92400e}
+.section-title{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.85rem;display:flex;align-items:center;justify-content:space-between}
+.section-title span{font-size:.75rem;font-weight:500;color:var(--muted)}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:var(--bg);padding:.65rem 1rem;text-align:right;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:.55rem 1rem;border-bottom:1px solid var(--border);text-align:right;color:var(--text)}
+tbody td:first-child{text-align:left;font-weight:700;color:var(--navy)}
+tbody tr:last-child td{border-bottom:none;font-weight:700;background:var(--bg)}
+tbody tr:hover td{background:var(--bg)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link active">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian Mortgage Calculator</h1>
+    <p>Calculate your exact monthly payment using Canada's semi-annual compounding rules — with CMHC insurance and stress test built in.</p>
+  </div>
+</div>
+
+<main class="content-wrap">
+  <div class="content-section">
+    <h2>How Canadian Mortgages Work</h2>
+    <p>Unlike the United States, Canada's <em>Interest Act</em> requires mortgages to compound semi-annually, not monthly. This means your actual interest charge is slightly lower than if compounded monthly. The semi-annual compounding formula gives Canadian borrowers a small advantage: your monthly payment is roughly 0.2–0.3% lower than equivalent US mortgages at the same rate.</p>
+    <p>If you need to insure your mortgage because your down payment is less than 20%, the CMHC (Canada Mortgage and Housing Corporation) premium gets added to your principal. This insurance is mandatory for down payments under 20% and protects the lender if you default.</p>
+    <p>The OSFI B-20 stress test (in place since 2018) requires that you qualify for your mortgage at a higher rate: the <strong>maximum of 5.25% or your contract rate + 2%</strong>, whichever is higher. This stress-tested payment is what determines your borrowing limit, not your actual payment.</p>
+  </div>
+
+  <div class="calc-section">
+    <div class="card">
+      <div class="card-title">🏠 Mortgage Details</div>
+      <div class="field"><label for="homePrice">Home Price</label><div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="homePrice" placeholder="500,000" min="50000" step="1000" oninput="onHomePriceChange()"></div></div>
+      <div class="field"><label for="downPayment">Down Payment</label><div class="input-wrap has-pfx"><span class="pfx">$</span><input type="number" id="downPayment" placeholder="100,000" min="0" step="1000" oninput="onDownPaymentChange()"></div><div class="dp-hint" id="dpHint">Enter a home price first</div></div>
+      <div class="field-row">
+        <div class="field" style="margin-bottom:0"><label for="amortization">Amortization</label><div class="input-wrap has-sfx"><input type="number" id="amortization" placeholder="25" min="5" max="30" value="25"><span class="sfx">yr</span></div><div class="hint">5–30 years</div></div>
+        <div class="field" style="margin-bottom:0"><label for="rate">Interest Rate</label><div class="input-wrap has-sfx"><input type="number" id="rate" placeholder="5.49" min="0.1" max="25" step="0.01"><span class="sfx">%</span></div><div class="hint">Annual nominal rate</div></div>
+      </div>
+      <hr class="divider">
+      <div class="field" style="margin-bottom:0"><label for="province">Province / Territory</label>
+        <select id="province"><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="AB">Alberta</option><option value="QC">Quebec</option><option value="NS">Nova Scotia</option><option value="NB">New Brunswick</option><option value="MB">Manitoba</option><option value="SK">Saskatchewan</option><option value="NL">Newfoundland & Labrador</option><option value="PE">Prince Edward Island</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="YT">Yukon</option></select>
+      </div>
+      <button class="btn" onclick="calculate()">Calculate Mortgage</button>
+      <div class="can-note"><strong>🇨🇦 Canadian Semi-Annual Compounding</strong>Canadian mortgages compound semi-annually per the <em>Interest Act of Canada</em>. Monthly rate = (1 + r/2)<sup>1/6</sup> − 1. This gives lower payments than US-style monthly compounding.</div>
+    </div>
+
+    <div id="results">
+      <div class="card" style="margin-bottom:1.25rem">
+        <div class="card-title">📊 Your Results</div>
+        <div class="result-grid" id="resultGrid"></div>
+        <div id="summaryRows"></div>
+      </div>
+      <div class="stress-box" id="stressBox"></div>
+      <div id="cmhcBox"></div>
+      <div class="card">
+        <div class="section-title">📅 Amortisation Schedule <span id="amortLabel"></span></div>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Principal Paid</th><th>Interest Paid</th><th>Total Paid</th><th>Balance Remaining</th></tr></thead><tbody id="amortBody"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Enter your home price and down payment.</strong> The calculator will tell you if CMHC insurance is required (less than 20% down).</li>
+      <li><strong>Choose your amortisation period.</strong> Insured mortgages max out at 25 years; uninsured can go to 30 years.</li>
+      <li><strong>Enter your mortgage rate.</strong> Check your lender's current offer or a rate comparison site like Ratehub.ca.</li>
+      <li><strong>See your monthly payment and total cost.</strong> You'll also see your stress-test qualifying payment for reference.</li>
+      <li><strong>Review the amortisation schedule.</strong> This shows year-by-year how much goes to principal versus interest.</li>
+    </ol>
+  </div>
+
+  <div class="content-section">
+    <h2>Canadian Example (2026)</h2>
+    <div class="example-box">
+      <strong>Ontario detached home, Greater Toronto Area</strong>
+      <ul style="margin-bottom:.5rem">
+        <li>Home price: $750,000</li>
+        <li>Down payment: $75,000 (10%)</li>
+        <li>Mortgage rate: 4.89% (current renewal rate, 2026)</li>
+        <li>Amortisation: 25 years</li>
+      </ul>
+      <strong>Results:</strong>
+      <ul>
+        <li>CMHC premium: $20,925 (2.79% of insured amount = $675,000)</li>
+        <li>Total mortgage principal: $695,925</li>
+        <li><strong>Monthly payment: ~$4,280</strong></li>
+        <li>Stress-test qualifying payment at 6.89%: ~$5,050</li>
+        <li>Total interest over 25 years: ~$509,000</li>
+        <li>Total cost of mortgage: ~$1,204,925</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>What Your Results Mean</h2>
+    <h3>Monthly Payment</h3>
+    <p>This is the principal + interest you pay each month. Your lender may also require you to pay property tax and home insurance in a single "all-inclusive" payment called PITI (Principal, Interest, Taxes, Insurance) in the US, or often as separate payments in Canada.</p>
+    <h3>Stress Test Payment</h3>
+    <p>This is what you <em>must</em> qualify for to get approved for the mortgage. Lenders use this higher rate to ensure you can afford the mortgage even if rates rise. Most borrowers pay the actual payment (at the contract rate), not the stress-test rate.</p>
+    <h3>Total Interest</h3>
+    <p>This is the lender's cost. On a $695,000 mortgage at 4.89% over 25 years, you'll pay roughly $509,000 in interest alone. This is why making extra payments or accelerating your amortisation can save tens of thousands.</p>
+    <h3>CMHC Premium</h3>
+    <p>Required if your down payment is less than 20%. The premium is a percentage of the base mortgage amount: roughly 2.8% at 15–20% down, 3.1% at 10–15% down, and 4% below 10%.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>What is semi-annual compounding and why does Canada use it?</summary>
+      <div class="faq-body">
+        Semi-annual compounding means interest is calculated and added to your balance twice a year, not monthly. The <em>Interest Act of Canada</em> (dating back to 1869) requires this for mortgages. The effect is that your monthly payment is roughly 0.2–0.3% lower than it would be if compounded monthly at the same rate. This is a small but real advantage for Canadian borrowers compared to US-style mortgages.
+      </div>
+    </details>
+    <details>
+      <summary>How does CMHC insurance work and who pays it?</summary>
+      <div class="faq-body">
+        CMHC insurance protects the lender if you default. You (the borrower) pay for it via a premium added to your mortgage. It's mandatory if your down payment is less than 20%. The premium depends on your loan-to-value ratio: roughly 2.8% for 15–20% down, 3.1% for 10–15% down, and 4% for less than 10%. This means your actual mortgage balance is higher than your down payment shortfall. You cannot avoid CMHC insurance by paying it separately—it must be rolled into your mortgage, and you'll pay interest on it for 25 years.
+      </div>
+    </details>
+    <details>
+      <summary>What is the mortgage stress test in 2026?</summary>
+      <div class="faq-body">
+        The OSFI B-20 stress test, active since January 2018, requires that you qualify at the maximum of 5.25% or your contract rate plus 2%, whichever is higher. For example, if your rate is 4.89%, you must qualify at 6.89%. If rates are low (say 3%), the stress rate would be 5.25%. This protects lenders and borrowers alike if rates rise sharply.
+      </div>
+    </details>
+    <details>
+      <summary>What's the maximum amortisation period in Canada?</summary>
+      <div class="faq-body">
+        The standard maximum is 25 years for insured mortgages (less than 20% down) and 30 years for uninsured mortgages (20% or more down). Longer amortisations lower your monthly payment but increase total interest. A 30-year mortgage at 5% will cost significantly more in total interest than a 25-year at the same rate.
+      </div>
+    </details>
+    <details>
+      <summary>Should I choose a fixed or variable rate mortgage?</summary>
+      <div class="faq-body">
+        Fixed-rate mortgages lock in your rate for the term (typically 3–5 years); your payment never changes. Variable-rate mortgages track the prime rate, so your payment (or the interest-only portion) fluctuates. Fixed rates are predictable and currently competitive. Variable rates can save money if rates fall, but you're exposed to rate risk. Consider your comfort with payment changes and your time horizon.
+      </div>
+    </details>
+    <details>
+      <summary>How do I reduce my total mortgage interest?</summary>
+      <div class="faq-body">
+        Make lump-sum payments (many mortgages allow 15–20% annual prepayments), switch to bi-weekly payments instead of monthly, or increase your regular payment amount. Shortening your amortisation from 25 to 20 years can save tens of thousands in interest. Even small increases compound dramatically over decades.
+      </div>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>5 Practical Canadian Mortgage Tips</h2>
+    <div class="tip-box">
+      <strong>1. Use bi-weekly payments instead of monthly</strong>
+      If you're paid bi-weekly, ask your lender for bi-weekly mortgage payments. You'll make 26 payments per year instead of 12, effectively doubling your principal reduction and shaving years off your amortisation.
+    </div>
+    <div class="tip-box">
+      <strong>2. Make a lump-sum payment every year</strong>
+      Most Canadian mortgages allow you to prepay up to 15–20% of the principal annually without penalty. Putting your tax refund or bonus directly to your mortgage can save tens of thousands in interest over time.
+    </div>
+    <div class="tip-box">
+      <strong>3. Shop for the best rate before signing</strong>
+      Mortgage rates vary significantly between lenders—sometimes by 0.5% or more. Even a 0.25% difference on a $600,000 mortgage costs or saves you $1,500 per year. Use aggregators like Ratehub.ca or Borrowell to compare before you commit.
+    </div>
+    <div class="tip-box">
+      <strong>4. Stress-test yourself before applying</strong>
+      Calculate whether you can afford the mortgage at the stress-test rate (5.25% or higher), not just your contract rate. This is how lenders assess your risk, and it's good practice for planning if rates rise.
+    </div>
+    <div class="tip-box">
+      <strong>5. Factor in closing costs and don't skimp on inspections</strong>
+      Land transfer tax, legal fees, inspections, and title insurance typically cost 1.5–4% of your purchase price. Don't try to save money by skipping a home inspection—catching structural issues before you buy is worth far more than the $400–600 inspection fee.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <div class="related-tools">
+      <a href="/land-transfer-tax-calculator.html" class="tool-chip">🏛 Land Transfer Tax</a>
+      <a href="/rent-vs-buy-calculator.html" class="tool-chip">🔑 Rent vs Buy</a>
+      <a href="/hst-gst-calculator.html" class="tool-chip">🧾 HST / GST</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> This calculator is for educational and informational purposes only. It does not constitute financial, mortgage, or legal advice. Actual mortgage payments depend on your lender, current rates, provincial taxes, closing costs, and other factors not captured in this simplified calculator. Always consult a mortgage broker or lender for exact payment quotes and pre-approval details.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+const fmt = (n,d=0) => '$' + n.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const fmtN = n => n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+
+function onHomePriceChange(){ updateDpHint(parseFloat(document.getElementById('homePrice').value)||0, parseFloat(document.getElementById('downPayment').value)||0); }
+function onDownPaymentChange(){ updateDpHint(parseFloat(document.getElementById('homePrice').value)||0, parseFloat(document.getElementById('downPayment').value)||0); }
+function updateDpHint(hp,dp){
+  const hint=document.getElementById('dpHint');
+  if(!hp){hint.textContent='Enter a home price first';hint.className='dp-hint';return;}
+  const pct=(dp/hp*100);
+  let msg=pct.toFixed(1)+'% down',cls='dp-hint';
+  if(hp<=500000&&pct<5){msg+=' — minimum is 5%';cls+=' dp-warn';}
+  else if(hp>1500000&&pct<20){msg+=' — homes over $1.5M require 20% down';cls+=' dp-warn';}
+  if(pct>=5&&pct<20) msg+=' · CMHC insurance applies';
+  if(pct>=20) msg+=' · No CMHC insurance required';
+  hint.textContent=msg;hint.className=cls;
+}
+function monthlyRate(r){ return Math.pow(1+(r/100)/2,1/6)-1; }
+function calcPayment(P,r,n){ return r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); }
+function cmhcPrem(mtg,pct){ if(pct>=20)return 0; if(pct>=15)return mtg*0.028; if(pct>=10)return mtg*0.031; return mtg*0.04; }
+
+function calculate(){
+  const hp=parseFloat(document.getElementById('homePrice').value);
+  const dp=parseFloat(document.getElementById('downPayment').value);
+  const amort=parseInt(document.getElementById('amortization').value);
+  const rate=parseFloat(document.getElementById('rate').value);
+  if(!hp||!dp||!amort||!rate){alert('Please fill in all fields.');return;}
+  if(amort<5||amort>30){alert('Amortisation must be 5–30 years.');return;}
+  if(dp>=hp){alert('Down payment must be less than home price.');return;}
+
+  const dpPct=dp/hp*100, baseMtg=hp-dp;
+  const cmhc=cmhcPrem(baseMtg,dpPct), principal=baseMtg+cmhc;
+  const mr=monthlyRate(rate), n=amort*12;
+  const pmt=calcPayment(principal,mr,n);
+  const totalPaid=pmt*n, totalInterest=totalPaid-principal;
+  const stressRate=Math.max(5.25,rate+2);
+  const smr=monthlyRate(stressRate), spmt=calcPayment(principal,smr,n);
+
+  document.getElementById('resultGrid').innerHTML=`
+    <div class="rc primary"><div class="rc-label">Monthly Payment</div><div class="rc-value">${fmt(pmt)}</div><div class="rc-note">At ${rate.toFixed(2)}% nominal rate</div></div>
+    <div class="rc stress"><div class="rc-label">Stress Test Payment</div><div class="rc-value">${fmt(spmt)}</div><div class="rc-note">Qualifying at ${stressRate.toFixed(2)}%</div></div>
+    <div class="rc"><div class="rc-label">Total Interest</div><div class="rc-value">${fmt(totalInterest)}</div><div class="rc-note">Over ${amort}-year amortisation</div></div>
+    <div class="rc ${cmhc>0?'cmhc':''}"><div class="rc-label">CMHC Premium</div><div class="rc-value">${cmhc>0?fmt(cmhc):'None'}</div><div class="rc-note">${cmhc>0?dpPct.toFixed(1)+'% down payment':'Down payment ≥ 20%'}</div></div>`;
+
+  document.getElementById('summaryRows').innerHTML=`
+    <div class="summary-row"><span class="s-label">Home Price</span><span class="s-value">${fmt(hp)}</span></div>
+    <div class="summary-row"><span class="s-label">Down Payment (${dpPct.toFixed(1)}%)</span><span class="s-value">${fmt(dp)}</span></div>
+    <div class="summary-row"><span class="s-label">Base Mortgage</span><span class="s-value">${fmt(baseMtg)}</span></div>
+    ${cmhc>0?`<div class="summary-row"><span class="s-label">CMHC Premium</span><span class="s-value">${fmt(cmhc)}</span></div>`:''}
+    <div class="summary-row"><span class="s-label">Total Principal</span><span class="s-value">${fmt(principal)}</span></div>
+    <div class="summary-row"><span class="s-label">Total Interest</span><span class="s-value">${fmt(totalInterest)}</span></div>
+    <div class="summary-row total"><span class="s-label">Total Cost of Mortgage</span><span class="s-value">${fmt(totalPaid)}</span></div>`;
+
+  document.getElementById('stressBox').innerHTML=`<strong>⚠️ Stress Test (OSFI B-20):</strong> You must qualify at <strong>max(5.25%, rate+2%) = ${stressRate.toFixed(2)}%</strong>. Stress test payment: <strong>${fmt(spmt)}/mo</strong> (${fmt(spmt-pmt)} more than your actual payment).`;
+
+  if(cmhc>0){
+    const cmhcRate=dpPct>=15?'2.80%':dpPct>=10?'3.10%':'4.00%';
+    document.getElementById('cmhcBox').innerHTML=`<div class="can-note" style="background:#f5f3ff;border-color:#c4b5fd;color:#5b21b6;margin-bottom:1.25rem"><strong>💜 CMHC Insurance: ${cmhcRate} × ${fmt(baseMtg)} = ${fmt(cmhc)}</strong>Required for down payments under 20%. Added to your mortgage principal.</div>`;
+  } else document.getElementById('cmhcBox').innerHTML='';
+
+  document.getElementById('amortLabel').textContent=`${amort} years · ${fmtN(n)} payments`;
+
+  let bal=principal, rows='', totP=0, totI=0;
+  for(let yr=1;yr<=amort;yr++){
+    let yP=0,yI=0;
+    for(let m=0;m<12;m++){
+      const ip=bal*mr, pp=Math.min(pmt-ip,bal);
+      yI+=ip; yP+=pp; bal-=pp; if(bal<0.005)bal=0;
+    }
+    totP+=yP; totI+=yI;
+    rows+=`<tr><td>${yr}</td><td>${fmt(yP)}</td><td>${fmt(yI)}</td><td>${fmt(yP+yI)}</td><td>${fmt(Math.max(0,bal))}</td></tr>`;
+  }
+  rows+=`<tr><td>Total</td><td>${fmt(totP)}</td><td>${fmt(totI)}</td><td>${fmt(totP+totI)}</td><td>—</td></tr>`;
+  document.getElementById('amortBody').innerHTML=rows;
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

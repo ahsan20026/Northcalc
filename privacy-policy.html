@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | NorthCalc</title>
+  <meta name="description" content="NorthCalc's privacy policy. We collect no personal data. Your calculator inputs stay in your browser. PIPEDA-compliant. Last updated January 2026.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.6rem}
+    .page-hero p{font-size:.98rem;opacity:.85;max-width:580px}
+    .content-wrap{max-width:860px;margin:2rem auto;padding:0 1.5rem}
+    .prose{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .prose h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.5rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    .prose h2:first-child{margin-top:0}
+    .prose h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:1rem 0 .35rem}
+    .prose p{margin-bottom:.8rem;font-size:.93rem}
+    .prose ul,.prose ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .prose li{margin-bottom:.35rem}
+    .prose a{color:var(--red);text-decoration:underline}
+    .prose strong{font-weight:700}
+    .info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#075985}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy matters. Here's exactly what we do — and don't — collect.</p>
+      </div>
+    </div>
+
+    <div class="content-wrap">
+      <article class="prose">
+        <h2>Overview</h2>
+        <p>NorthCalc is committed to protecting your privacy. This policy explains our data practices in plain language. <strong>Last updated: January 1, 2026.</strong></p>
+      </article>
+
+      <article class="prose">
+        <h2>Information We Do Not Collect</h2>
+        <ul>
+          <li><strong>No personal information</strong> — we don't ask for your name, email, address, social insurance number, income, or any other identifying data</li>
+          <li><strong>No financial data entered in calculators</strong> — all processing is done locally in your browser using JavaScript; your calculator inputs never leave your device and are not sent to our servers</li>
+          <li><strong>No account creation required</strong> — use all our tools instantly with zero sign-up, no login, no authentication</li>
+        </ul>
+      </article>
+
+      <article class="prose">
+        <h2>Information We May Collect Automatically</h2>
+        <p><strong>Basic server logs:</strong> Our web servers may record your IP address, browser type, operating system, pages visited, and timestamp for security and uptime monitoring only. These logs are retained for 30 days and never shared or sold.</p>
+        <p><strong>Privacy-friendly analytics:</strong> We may use privacy-respecting, GDPR-compliant analytics tools (such as aggregate page view counts and referral sources) that do not identify individual users or track your activity across sites.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Cookies</h2>
+        <p>NorthCalc does not use tracking cookies or advertising cookies. We do not integrate third-party ad networks or analytics that place persistent cookies on your device.</p>
+        <p>We may use a strictly-necessary, temporary session cookie to maintain basic site functionality (such as remembering your language preference or navigation state). You can safely disable cookies and NorthCalc will still function normally.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Third-Party Services</h2>
+        <p>We do not share your data with any third parties, and we do not sell your data under any circumstances.</p>
+        <p>If we display advertising in the future (for example, through Google AdSense or similar services), those third-party services may use cookies or pixels subject to their own privacy policies. In that case, we will update this privacy policy to disclose that clearly.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Your Rights Under PIPEDA</h2>
+        <p>Under the Personal Information Protection and Electronic Documents Act (PIPEDA), you have the right to:</p>
+        <ul>
+          <li>Access any personal information we hold about you (we hold none)</li>
+          <li>Request correction of any inaccurate information</li>
+          <li>Withdraw consent to collection and use of your information</li>
+          <li>Receive a copy of this privacy policy</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@northcalc.com">privacy@northcalc.com</a>.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Children's Privacy</h2>
+        <p>NorthCalc does not knowingly collect personal information from anyone under the age of 18. If we become aware that we have inadvertently collected information from a minor, we will delete it immediately.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time to reflect changes in our practices or applicable law. We will post any updates to this page with a new "Last Updated" date, and we encourage you to review it periodically.</p>
+      </article>
+
+      <article class="prose">
+        <h2>Contact Us</h2>
+        <p>If you have questions about this privacy policy, our data practices, or how we handle your information, please contact us at <a href="mailto:privacy@northcalc.com">privacy@northcalc.com</a>.</p>
+      </article>
+
+      <div class="info-box">
+        <strong>PIPEDA Commitment:</strong> NorthCalc is committed to compliance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and all applicable Canadian privacy legislation. Your data is your own. We don't collect it, we don't store it, and we don't sell it.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+  </script>
+</body>
+</html>

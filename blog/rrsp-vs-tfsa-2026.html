@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RRSP vs TFSA in 2026: Which Should You Contribute To First? | NorthCalc</title>
+  <meta name="description" content="RRSP or TFSA first? We break down the key differences, tax implications, and the simple rule that helps most Canadians decide in 2026.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100%+8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    article{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    article h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    article h2:first-child{margin-top:0}
+    article h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    article p{margin-bottom:.9rem;font-size:.94rem}
+    article ul,article ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    article li{margin-bottom:.4rem}
+    article a{color:var(--red);text-decoration:underline}
+    article strong{font-weight:700}
+    article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    article th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    article td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    article tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .tip strong{display:block;margin-bottom:.3rem}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s;margin:0 .5rem}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta">Published February 2026 · 8 min read</div>
+      <h1>RRSP vs TFSA in 2026: Which Account Should You Prioritise?</h1>
+      <p class="lead">Both the RRSP and TFSA are powerful tax-advantaged accounts available to Canadians — but they work in completely different ways. Choosing the wrong one for your situation could cost you thousands in unnecessary taxes over a lifetime. Here's how to decide.</p>
+    </div>
+  </div>
+
+  <div class="post-wrap">
+    <article>
+      <h2>The Fundamental Difference</h2>
+
+      <p>The RRSP and TFSA are often lumped together, but they couldn't be more different in how they treat your money. An RRSP reduces your taxable income today — you get an immediate tax deduction. But when you withdraw the money in retirement, you pay tax on every dollar. The TFSA is the opposite: you contribute after-tax dollars (no deduction), but your growth and all withdrawals are completely tax-free forever.</p>
+
+      <p>Think of an RRSP as "pay tax later" and a TFSA as "pay tax now, never again." Which one wins depends entirely on your tax bracket today versus your tax bracket in retirement.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>RRSP</th>
+            <th>TFSA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tax on contribution</td>
+            <td>Deductible (reduces income)</td>
+            <td>No deduction</td>
+          </tr>
+          <tr>
+            <td>Tax on growth</td>
+            <td>Tax-deferred</td>
+            <td>Tax-free</td>
+          </tr>
+          <tr>
+            <td>Tax on withdrawal</td>
+            <td>Taxed as income</td>
+            <td>No tax</td>
+          </tr>
+          <tr>
+            <td>Contribution room</td>
+            <td>18% of prior income, max $31,560</td>
+            <td>$7,000/yr (2026)</td>
+          </tr>
+          <tr>
+            <td>Room on withdrawal</td>
+            <td>Not restored</td>
+            <td>Restored next Jan 1</td>
+          </tr>
+          <tr>
+            <td>Age limit</td>
+            <td>Must convert to RRIF by 71</td>
+            <td>No age limit</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>High earners now, lower income in retirement</td>
+            <td>Lower earners or same bracket in retirement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>The Simple Rule That Works for Most Canadians</h2>
+
+      <p>Here's the rule that will guide most of your decisions: if your marginal tax rate in retirement will be <strong>lower than today</strong>, the RRSP has the edge. If it will be the <strong>same or higher</strong>, the TFSA usually wins.</p>
+
+      <p>For most employed Canadians in their 30s to 50s earning $70,000 or more, the RRSP does have an advantage — because your income will likely drop significantly when you retire and switch to CPP, OAS, and investment income. However, this advantage disappears if you have a strong pension, own rental properties, or expect investment income to keep your retirement bracket high.</p>
+
+      <p>For younger Canadians early in their careers earning under $50,000, the TFSA usually wins because the tax refund from an RRSP is modest, whereas keeping your account tax-free forever has enormous value.</p>
+
+      <h2>Concrete Example — Same $10,000, Two Accounts</h2>
+
+      <p>Let's say you earn $90,000 in Ontario, where your marginal tax rate is approximately 43.4%. You have $10,000 to invest.</p>
+
+      <p><strong>RRSP route:</strong> You contribute $10,000 and receive a $4,340 tax refund. Your net cost is $5,660. Assuming 6% annual growth over 25 years to retirement, your RRSP grows to around $42,918. When you withdraw it, 26% tax applies (lower retirement bracket), leaving you with approximately $31,759 after tax.</p>
+
+      <p><strong>TFSA route:</strong> You contribute $10,000 (no refund). Your net cost is $10,000. At 6% growth over 25 years, you have $42,918 — completely tax-free. No tax on withdrawal.</p>
+
+      <p>The TFSA looks better, right? But here's where most people miss the real power: if you reinvest that $4,340 RRSP refund back into your RRSP, you're now investing a total of $14,340 in the RRSP account. After 25 years at 6% growth, that becomes $60,087. Even after 26% tax, you keep about $44,464 — which beats the TFSA by $1,546.</p>
+
+      <div class="callout">
+        <strong>The RRSP's true power comes from reinvesting the tax refund.</strong> Without doing that, TFSA often wins. Too many Canadians claim their refund and spend it, negating the entire advantage of the account.
+      </div>
+
+      <h2>When the TFSA Wins Clearly</h2>
+
+      <ul>
+        <li><strong>You're in a low tax bracket now</strong> (under $55,000 income) — your RRSP tax refund is small, making the tax-free growth of a TFSA far more valuable</li>
+        <li><strong>You expect high retirement income</strong> from multiple sources: CPP, OAS, rental income, or a defined benefit pension — RRSP withdrawals could push you into a high tax bracket in retirement</li>
+        <li><strong>You need flexibility</strong> — TFSA withdrawals don't trigger OAS clawbacks or affect income-tested benefits, whereas RRSP withdrawals count as income and can reduce government support</li>
+        <li><strong>You're saving for a shorter-term goal</strong> (emergency fund, vacation home in 10 years) — TFSA is better because there's no age restriction or forced withdrawals</li>
+      </ul>
+
+      <h2>When the RRSP Wins Clearly</h2>
+
+      <ul>
+        <li><strong>You earn over $100,000</strong> — the immediate tax refund at a 46%+ marginal rate is substantial and worth capturing</li>
+        <li><strong>You have a defined benefit (DB) pension</strong> — your retirement income may actually be lower than today, making RRSP withdrawals cheap in the future</li>
+        <li><strong>You want to use the Home Buyers' Plan</strong> — you can withdraw up to $35,000 from your RRSP to buy your first home, tax-free</li>
+        <li><strong>You want to use the Lifelong Learning Plan</strong> — you can withdraw up to $10,000 per year from your RRSP for full-time education</li>
+      </ul>
+
+      <div class="tip">
+        <strong>A practical insight:</strong> Most Canadians benefit from a balanced approach. Your emergency fund belongs in a TFSA. Employer matching on an RRSP is "free money" — always take it. Then prioritise based on your income level and expected retirement situation.
+      </div>
+
+      <h2>The Practical 2026 Answer for Most Canadians</h2>
+
+      <p>If you're building a savings strategy right now, here's the priority order that works for most people:</p>
+
+      <ol>
+        <li><strong>Emergency fund:</strong> Save 3–6 months of expenses in a TFSA (liquid, no tax penalty, no age restrictions)</li>
+        <li><strong>RRSP if earning $75K+:</strong> Especially if you get employer matching — that's instant 50–100% return</li>
+        <li><strong>Remaining savings:</strong> Back to your TFSA up to the annual limit, then back to your RRSP</li>
+      </ol>
+
+      <p>Both accounts can hold the same types of investments — ETFs, GICs, stocks, mutual funds. The account type doesn't matter as much as the investments inside. Don't over-think it: a dollar in either account beats a dollar in a regular savings account earning 2%.</p>
+
+      <div class="cta-box">
+        <h3>Calculate Your Strategy</h3>
+        <p>Run your own numbers with our RRSP and TFSA calculators — see exactly how much each account grows based on your income, savings rate, and expected retirement income.</p>
+        <a href="/rrsp-calculator.html" class="cta-btn">RRSP Calculator</a>
+        <a href="/tfsa-room-calculator.html" class="cta-btn">TFSA Room Calculator</a>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute financial, tax, or legal advice. Consult with a qualified financial advisor or tax professional to discuss your specific situation. The examples provided are simplified estimates and may not reflect your actual tax rates or investment returns.
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+  </script>
+</body>
+</html>
