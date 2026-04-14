@@ -1,175 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NorthCalc — Free Canadian Financial Calculators</title>
-<meta name="description" content="Free, fast Canadian financial calculators. Mortgage, HST/GST, TFSA, RRSP, income tax, land transfer tax, CPP/OAS, and rent vs buy calculators — all built for Canadian rules.">
-<meta name="keywords" content="Canadian calculator, mortgage calculator Canada, HST GST calculator, TFSA room calculator, RRSP calculator, income tax Canada, land transfer tax, CPP OAS calculator, rent vs buy Canada">
-<link rel="canonical" href="https://northcalc.ca/">
-<meta name="google-site-verification" content="JO3DQE9C_h1n8Fi5rqlt0F9ee1nGLMTo35WKCA0EICg" />
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
-a{color:inherit;text-decoration:none}
-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
-.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
-.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
-.logo em{font-style:normal;color:var(--red)}
-.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
-nav{display:flex;gap:.1rem;align-items:center}
-.nav-drop{position:relative}
-.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
-.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
-.nav-chevron{transition:transform .2s}
-.nav-drop.open .nav-chevron{transform:rotate(180deg)}
-.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:200px;z-index:200;padding:4px}
-.nav-drop.open .dropdown{display:block;animation:df .15s ease}
-@keyframes df{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
-.dd-link:hover{background:var(--red-light);color:var(--red)}
-@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
-main{flex:1}
-.hero{text-align:center;padding:4rem 1.5rem 2.5rem;max-width:680px;margin:0 auto}
-.badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--red-light);color:var(--red);font-size:.8rem;font-weight:600;padding:.35rem .85rem;border-radius:20px;margin-bottom:1.5rem}
-.hero h1{font-size:2.4rem;font-weight:800;color:var(--navy);letter-spacing:-.04em;line-height:1.15;margin-bottom:1rem}
-.hero h1 em{font-style:normal;color:var(--red)}
-.hero p{font-size:1.05rem;color:var(--muted);max-width:480px;margin:0 auto 2rem}
-.section-label{text-align:center;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.25rem}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;max-width:1140px;margin:0 auto;padding:0 1.5rem 1.5rem}
-.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.5rem;box-shadow:var(--shadow);transition:all .2s;display:flex;flex-direction:column;cursor:pointer;position:relative;overflow:hidden}
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .2s}
-.tool-card:hover{box-shadow:var(--shadow-md);border-color:#d1d5db;transform:translateY(-2px)}
-.tool-card:hover::before{transform:scaleX(1)}
-.tool-icon{font-size:2rem;margin-bottom:.85rem}
-.tool-card h2{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
-.tool-card p{color:var(--muted);font-size:.84rem;line-height:1.6;flex:1;margin-bottom:1rem}
-.tool-cta{display:inline-flex;align-items:center;gap:.35rem;color:var(--red);font-weight:700;font-size:.84rem}
-.features{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:2rem 1.5rem 3.5rem;max-width:900px;margin:0 auto}
-.feature{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--muted);font-weight:500}
-footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
-.footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:start}
-.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
-.footer-brand em{font-style:normal;color:var(--red)}
-.footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
-.footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
-.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
-.footer-links a:hover{color:var(--white)}
-.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
-@media(max-width:600px){.hero h1{font-size:1.8rem}.tools-grid{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canadian Personal Finance Blog | NorthCalc</title>
+  <meta name="description" content="Practical Canadian personal finance guides — TFSA, RRSP, mortgages, taxes, and retirement — written for everyday Canadians in plain English.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100%+8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;max-width:1060px;margin:2rem auto;padding:0 1.5rem}
+    .blog-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);transition:box-shadow .2s;display:flex;flex-direction:column}
+    .blog-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1)}
+    .card-icon{font-size:1.8rem;margin-bottom:.75rem}
+    .card-title{font-size:1.05rem;font-weight:800;color:var(--navy);margin-bottom:.5rem;line-height:1.3}
+    .card-excerpt{font-size:.85rem;color:var(--muted);margin-bottom:.75rem;line-height:1.5;flex-grow:1}
+    .card-meta{font-size:.75rem;color:var(--muted);margin-bottom:.9rem}
+    .card-link{display:inline-block;font-size:.83rem;font-weight:700;color:var(--red);border:1.5px solid var(--red);padding:.35rem .85rem;border-radius:7px;transition:all .15s;text-align:center}
+    .card-link:hover{background:var(--red);color:var(--white)}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
-    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-    <nav id="mainNav">
-      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
-      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="income-tax-calculator.html" class="dd-link">📊 Income Tax</a></div></div>
-      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="tfsa-calculator.html" class="dd-link">💰 TFSA Room</a><a href="rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="cpp-calculator.html" class="dd-link">👴 CPP / OAS Estimator</a></div></div>
-      <a href="blog/index.html" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">Blog</a>
-      <a href="about.html" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">About Us</a>
-    </nav>
-  </div>
-</header>
-<main>
-  <div class="hero">
-    <div class="badge">🍁 Made for Canadians</div>
-    <h1>Free <em>Canadian</em><br>Financial Calculators</h1>
-    <p>8 accurate tools built specifically for Canadian tax rules, mortgage law, and savings accounts. No ads. No fluff.</p>
-  </div>
-
-  <div class="section-label">🏠 Property Calculators</div>
-  <div class="tools-grid" style="margin-bottom:2rem">
-    <a href="mortgage-calculator.html" class="tool-card">
-      <div class="tool-icon">🏠</div>
-      <h2>Canadian Mortgage Calculator</h2>
-      <p>Semi-annual compounding (Canadian law), CMHC insurance, stress test qualifying rate, and full amortization schedule.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-    <a href="land-transfer-tax-calculator.html" class="tool-card">
-      <div class="tool-icon">🏛</div>
-      <h2>Land Transfer Tax Calculator</h2>
-      <p>LTT for all provinces including Ontario, BC (PTT), Quebec (Welcome Tax), Manitoba. First-time buyer rebates and Toronto municipal LTT included.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-    <a href="rent-vs-buy-calculator.html" class="tool-card">
-      <div class="tool-icon">🔑</div>
-      <h2>Rent vs Buy Calculator</h2>
-      <p>Compare the true financial cost of renting vs buying a Canadian home, including opportunity cost of your down payment and property appreciation.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-  </div>
-
-  <div class="section-label">🧾 Tax Calculators</div>
-  <div class="tools-grid" style="margin-bottom:2rem">
-    <a href="hst-gst-calculator.html" class="tool-card">
-      <div class="tool-icon">🧾</div>
-      <h2>HST / GST Calculator</h2>
-      <p>Add or remove Canadian sales tax for all 13 provinces and territories. Correct 2025 rates with federal vs provincial breakdown.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-    <a href="income-tax-calculator.html" class="tool-card">
-      <div class="tool-icon">📊</div>
-      <h2>Income Tax Calculator</h2>
-      <p>2024 federal and provincial income tax for all 13 provinces. Includes CPP and EI deductions, effective rate, marginal rate, and net take-home pay.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-  </div>
-
-  <div class="section-label">💰 Savings & Retirement</div>
-  <div class="tools-grid" style="padding-bottom:2rem">
-    <a href="tfsa-calculator.html" class="tool-card">
-      <div class="tool-icon">💰</div>
-      <h2>TFSA Room Calculator</h2>
-      <p>Find your total TFSA contribution room since 2009, customized by your birth year and year you became a Canadian resident.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-    <a href="rrsp-calculator.html" class="tool-card">
-      <div class="tool-icon">📈</div>
-      <h2>RRSP Calculator</h2>
-      <p>Calculate your 2024 RRSP contribution limit, immediate tax refund by province, and compound growth projection at retirement.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-    <a href="cpp-calculator.html" class="tool-card">
-      <div class="tool-icon">👴</div>
-      <h2>CPP &amp; OAS Estimator</h2>
-      <p>Estimate your Canada Pension Plan monthly benefit at 60, 65, or 70 — and your Old Age Security amount. Includes breakeven age comparison.</p>
-      <span class="tool-cta">Calculate →</span>
-    </a>
-  </div>
-
-  <div class="features">
-    <div class="feature">⚡ Instant results</div>
-    <div class="feature">🔒 No data stored</div>
-    <div class="feature">📱 Mobile friendly</div>
-    <div class="feature">🇨🇦 Canadian rules only</div>
-    <div class="feature">🆓 Completely free</div>
-    <div class="feature">🚫 No ads</div>
-  </div>
-</main>
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">🍁 North<em>Calc</em></div>
-      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop">
+          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown">
+            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+          </div>
+        </div>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
     </div>
-    <div class="footer-links">
-      <a href="about.html">About Us</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
-      <a href="disclaimer.html">Disclaimer</a>
-      <a href="contact.html">Contact</a>
+  </header>
+
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <h1>Canadian Personal Finance Blog</h1>
+      <p class="lead">Practical guides on TFSA, RRSP, mortgages, taxes, and retirement — written for everyday Canadians in plain English.</p>
     </div>
   </div>
-  <div class="footer-copy">© 2026 NorthCalc.com — Calculations are estimates only and do not constitute financial, tax, or legal advice. Always consult a licensed professional.</div>
-</footer>
-<script>
-function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
-document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
-</script>
+
+  <main>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="card-icon">🔑</div>
+        <h2 class="card-title">The FHSA Guide 2026: Canada's Best Gift to Home Buyers</h2>
+        <p class="card-excerpt">Learn about the $8,000 annual limit and how to combine the FHSA with the HBP for a tax-free down payment milestone.</p>
+        <div class="card-meta">Apr 2026 · 12 min read</div>
+        <a href="/blog/fhsa-guide-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">📊</div>
+        <h2 class="card-title">2026 Canadian Income Tax Brackets: The Complete Breakdown</h2>
+        <p class="card-excerpt">A comprehensive guide to federal and provincial tax rates, marginal vs. effective rates, and the basic personal amount.</p>
+        <div class="card-meta">Apr 2026 · 14 min read</div>
+        <a href="/blog/income-tax-brackets-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">🏛</div>
+        <h2 class="card-title">The Hidden Costs of Buying a Home in 2026</h2>
+        <p class="card-excerpt">Budgeting for more than a down payment? Closing costs like Land Transfer Tax can add up to 4% to your purchase price.</p>
+        <div class="card-meta">Apr 2026 · 14 min read</div>
+        <a href="/blog/home-buying-costs-canada-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">🧾</div>
+        <h2 class="card-title">GST/HST Housing Rebates: How to Get Your Money Back</h2>
+        <p class="card-excerpt">Buying a new build or renovating? Learn how to recover tens of thousands of dollars in HST/GST rebates in 2026.</p>
+        <div class="card-meta">Apr 2026 · 12 min read</div>
+        <a href="/blog/gst-hst-rebate-guide-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">📈</div>
+        <h2 class="card-title">The RRSP Meltdown Strategy: Retire Smarter</h2>
+        <p class="card-excerpt">Avoid the retirement 'tax bomb' by drawing down your registered accounts strategically to save thousands in lifetime taxes.</p>
+        <div class="card-meta">Apr 2026 · 14 min read</div>
+        <a href="/blog/rrsp-meltdown-strategy-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">📊</div>
+        <h2 class="card-title">How to Maximise Your TFSA in 2026</h2>
+        <p class="card-excerpt">TFSA room hits $95,000 in 2026. Here's how to find your exact room and avoid costly mistakes.</p>
+        <div class="card-meta">Jan 2026 · 7 min read</div>
+        <a href="/blog/how-to-maximize-tfsa-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">🏡</div>
+        <h2 class="card-title">Renting vs Buying in Canada in 2026</h2>
+        <p class="card-excerpt">We crunch the real numbers including opportunity cost, carrying costs, and the time horizon that changes everything.</p>
+        <div class="card-meta">Jan 2026 · 8 min read</div>
+        <a href="/blog/rent-vs-buy-canada-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">🏦</div>
+        <h2 class="card-title">The Canadian Mortgage Stress Test in 2026</h2>
+        <p class="card-excerpt">Canada's stress test means you qualify at a higher rate than you'll pay. Here's what it means for your buying power.</p>
+        <div class="card-meta">Jan 2026 · 7 min read</div>
+        <a href="/blog/canadian-mortgage-stress-test-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">💰</div>
+        <h2 class="card-title">RRSP vs TFSA in 2026: Which Should You Choose?</h2>
+        <p class="card-excerpt">Both accounts are powerful, but the right choice depends on your tax bracket, timeline, and goals.</p>
+        <div class="card-meta">Feb 2026 · 8 min read</div>
+        <a href="/blog/rrsp-vs-tfsa-2026.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">🏛</div>
+        <h2 class="card-title">Land Transfer Tax: Ontario vs BC</h2>
+        <p class="card-excerpt">A head-to-head comparison of land transfer tax in Canada's two most expensive housing markets.</p>
+        <div class="card-meta">Feb 2026 · 6 min read</div>
+        <a href="/blog/land-transfer-tax-ontario-vs-bc.html" class="card-link">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="card-icon">👴</div>
+        <h2 class="card-title">CPP & OAS: The Complete Canadian Retirement Benefit Guide</h2>
+        <p class="card-excerpt">Everything you need to know about maximising your government retirement benefits in Canada.</p>
+        <div class="card-meta">Feb 2026 · 9 min read</div>
+        <a href="/blog/cpp-oas-estimator-guide-2026.html" class="card-link">Read More →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+
+  <script>
+    function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+    document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+  </script>
 </body>
 </html>
