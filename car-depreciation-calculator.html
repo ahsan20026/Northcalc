@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Depreciation Calculator Canada 2026 | NorthCalc</title>
+  <meta name="description" content="See how much your car loses in value each year. Calculate depreciation for any Canadian vehicle using real average depreciation rates by vehicle type.">
+  <link rel="canonical" href="https://northcalc.com/car-depreciation-calculator.html">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:210px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+    .dd-link.active{font-weight:700}
+    @media(max-width:760px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+    .page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+    .content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+    .card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .card h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+    .card h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+    .card p{margin-bottom:.8rem;font-size:.93rem}
+    .card ul,.card ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .card li{margin-bottom:.35rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
+    .field input,.field select{width:100%;padding:.62rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-size:.93rem;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .15s}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--red)}
+    .field .hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+    .inp-prefix{position:relative}.inp-prefix span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-prefix input{padding-left:1.75rem}
+    .inp-suffix{position:relative}.inp-suffix span{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-suffix input{padding-right:2.2rem}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
+    .btn{width:100%;padding:.8rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.5rem;transition:background .15s}
+    .btn:hover{background:var(--red-dark)}
+    .results{display:none}
+    .results.show{display:block}
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+    @media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:380px){.stat-row{grid-template-columns:1fr}}
+    .stat{background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center}
+    .stat-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .stat-value{font-size:1.35rem;font-weight:800;color:var(--navy)}
+    .stat-value.red{color:var(--red)}
+    .stat-value.green{color:#059669}
+    table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.75rem}
+    th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-weight:600;font-size:.78rem}
+    th:not(:first-child),td:not(:first-child){text-align:right}
+    td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#fafafa}
+    details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+    summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+    summary:hover{background:#fafafa}
+    summary::after{content:'＋';font-size:1.1rem;color:var(--muted)}
+    details[open] summary::after{content:'－'}
+    .faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+    .example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+    .tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+    .disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+    .related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.75rem;margin-top:1rem}
+    .tool-chip{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;background:var(--red-light);border-radius:8px;font-size:.82rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+    .tool-chip:hover{background:var(--red);color:var(--white)}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+    .table-wrap{overflow-x:auto}
+    .depr-bar-wrap{display:flex;align-items:center;gap:.5rem}
+    .depr-bar{height:10px;border-radius:5px;background:var(--red);transition:width .3s}
+    .highlight-row td{background:#fff3cd!important;font-weight:600}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a>
+          <a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a>
+          <a href="/car-depreciation-calculator.html" class="dd-link active">📉 Car Depreciation</a>
+          <a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>📉 Car Depreciation Calculator</h1>
+      <p>Find out how much your vehicle is worth now — and in the future — using real Canadian average depreciation curves.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- INTRO -->
+    <div class="card">
+      <h2>Why Depreciation Is the Biggest Cost of Car Ownership</h2>
+      <p>Most people think of fuel, insurance, and maintenance as the main costs of owning a vehicle. But depreciation — the loss in value your vehicle experiences over time — is almost always the single largest ownership cost. The average new car in Canada loses approximately 20% of its value in the first year alone, and nearly half its value within three years.</p>
+      <p>Understanding depreciation is critical whether you're buying, selling, leasing, or insuring a vehicle. It determines how much equity you hold in your car at any given moment, what a fair asking price is when selling privately, and whether you're overpaying on a used car. It's also the primary reason many financial advisers recommend buying a 2–3 year old used vehicle over a brand new one.</p>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div class="card">
+      <h2>📉 Car Depreciation Calculator</h2>
+      <div class="grid2">
+        <div class="field">
+          <label for="carValue">Current Vehicle Value</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="carValue" placeholder="45000" min="0" step="100"></div>
+          <div class="hint">Enter the purchase price (if new) or current estimated value (if used).</div>
+        </div>
+        <div class="field">
+          <label for="vehicleType">Vehicle Type</label>
+          <select id="vehicleType">
+            <option value="suv">SUV / Crossover</option>
+            <option value="sedan">Sedan / Compact Car</option>
+            <option value="truck">Truck / Pickup</option>
+            <option value="luxury">Luxury Car</option>
+            <option value="electric">Electric Vehicle (EV)</option>
+            <option value="minivan">Minivan</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="startAge">Vehicle Age When You Got It (years)</label>
+          <select id="startAge">
+            <option value="0">0 — Brand new</option>
+            <option value="1">1 year old</option>
+            <option value="2">2 years old</option>
+            <option value="3">3 years old</option>
+            <option value="4">4 years old</option>
+            <option value="5">5 years old</option>
+          </select>
+          <div class="hint">Used to position where on the depreciation curve you currently are.</div>
+        </div>
+        <div class="field">
+          <label for="projectYears">Years to Project Forward</label>
+          <select id="projectYears">
+            <option value="3">3 years</option>
+            <option value="5">5 years</option>
+            <option value="7" selected>7 years</option>
+            <option value="10">10 years</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" onclick="calcDepreciation()">Calculate Depreciation</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="results">
+      <div class="card">
+        <h2>Your Depreciation Results</h2>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-label">Current Value</div>
+            <div class="stat-value" id="resNow">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Value in 3 Years</div>
+            <div class="stat-value red" id="res3">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Value in 5 Years</div>
+            <div class="stat-value red" id="res5">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Value in 7 Years</div>
+            <div class="stat-value red" id="res7">—</div>
+          </div>
+        </div>
+        <div class="stat-row" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="stat">
+            <div class="stat-label">Total Depreciation</div>
+            <div class="stat-value red" id="resTotalDepr">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">% of Value Lost</div>
+            <div class="stat-value red" id="resPctLost">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Avg Annual Loss</div>
+            <div class="stat-value" id="resAvgAnnual">—</div>
+          </div>
+        </div>
+
+        <h3>Year-by-Year Depreciation Schedule</h3>
+        <div class="table-wrap">
+          <table id="deprTable">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Vehicle Age</th>
+                <th>Value (Start of Year)</th>
+                <th>Depreciation ($)</th>
+                <th>Depreciation (%)</th>
+                <th>Value (End of Year)</th>
+              </tr>
+            </thead>
+            <tbody id="deprBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="card">
+      <h2>How to Use This Calculator</h2>
+      <ol>
+        <li><strong>Enter your vehicle's current value</strong> — use the purchase price for a new vehicle, or an estimated current market value for a used one. You can check values on AutoTrader, CarGurus, or the Canadian Black Book.</li>
+        <li><strong>Select the vehicle type</strong> — different vehicle categories depreciate at different rates. Luxury vehicles depreciate fastest; trucks and popular SUVs depreciate slowest.</li>
+        <li><strong>Select the vehicle's age</strong> — if you're buying a 2-year-old used car, select "2 years old" to position the calculation correctly on the depreciation curve.</li>
+        <li><strong>Choose how many years to project</strong> — see the full year-by-year value table and key milestones at 3, 5, and 7 years.</li>
+      </ol>
+    </div>
+
+    <!-- EXAMPLE -->
+    <div class="card">
+      <h2>Canadian Example: 2026 Luxury SUV</h2>
+      <div class="example-box">
+        <strong>Scenario:</strong> You purchase a new 2026 luxury SUV for $75,000.<br><br>
+        <strong>Year 1:</strong> Loses 27% = $20,250 → worth approximately $54,750<br>
+        <strong>Year 2:</strong> Loses a further 19% → worth approximately $44,348<br>
+        <strong>Year 3:</strong> Loses a further 14% → worth approximately $38,139 (lost 49% of original value)<br>
+        <strong>Year 5:</strong> Worth approximately $27,700 (lost 63% of original value)<br>
+        <strong>Year 7:</strong> Worth approximately $18,100 (lost 76% of original value)<br><br>
+        <strong>Key insight:</strong> A 3-year-old version of this same vehicle is available on the used market for approximately $38,000 — saving you $37,000 compared to buying new, while the steepest depreciation cliff is already behind you. The 3-year-old version still has years of reliable service life remaining and typically retains manufacturer warranty overlap or extended warranty eligibility.
+      </div>
+    </div>
+
+    <!-- WHAT RESULTS MEAN -->
+    <div class="card">
+      <h2>What Your Results Mean</h2>
+      <h3>Cost Per Year of Ownership</h3>
+      <p>Divide your total depreciation by the number of years to get your annual depreciation cost. This is a real cost of ownership even though you never write a cheque for it — it's money leaving your pocket when you sell or trade in the vehicle. A $75,000 luxury car losing $45,000 over 5 years costs you $9,000 per year in depreciation alone, before fuel, insurance, or maintenance.</p>
+      <h3>The Sweet Spot: Buying Used (2–3 Years Old)</h3>
+      <p>The steepest depreciation occurs in years 1–2. A 2–3 year old vehicle has already absorbed this initial cliff, yet typically still has significant reliable service life ahead of it. Buying a 2-year-old vehicle instead of new can save 25–35% of the purchase price while getting a vehicle that may have only 30,000–40,000 km on it. This is the insight behind the common financial advice to "never buy new."</p>
+      <h3>How Depreciation Affects Insurance</h3>
+      <p>Standard auto insurance pays out based on the vehicle's Actual Cash Value (ACV) — its depreciated market value — not what you paid for it. This is why a new car financed with a long-term loan can leave you with negative equity if written off: insurance pays $42,000 ACV but you owe $47,000 on the loan. Gap insurance (often offered by dealers) covers this difference, though it adds to your costs.</p>
+    </div>
+
+    <!-- FAQs -->
+    <div class="card">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>What cars depreciate the fastest in Canada?</summary>
+        <div class="faq-body">Luxury vehicles — particularly luxury sedans and full-size luxury SUVs — depreciate the fastest, often losing 27–35% in the first year and 50–65% within three years. Among brands, certain German luxury makes (BMW, Mercedes-Benz, Audi, Jaguar, Land Rover) are historically among the fastest-depreciating. Large domestic sedans and vehicles from discontinued or struggling model lines also depreciate quickly. Electric vehicles have historically depreciated quickly, though this varies significantly by brand and model (Tesla holds value better than many legacy EV offerings).</div>
+      </details>
+
+      <details>
+        <summary>What cars hold their value best?</summary>
+        <div class="faq-body">In the Canadian market, trucks — particularly the Toyota Tacoma, Ford F-150, and RAM 1500 — consistently hold their value best, sometimes retaining 60–70% of their value after three years. Popular Japanese SUVs and crossovers (Toyota RAV4, Honda CR-V, Toyota Highlander) also retain value exceptionally well due to strong demand and reliability reputation. Toyota and Lexus brands generally outperform the market on residual values. High demand, proven reliability, low ownership costs, and scarcity all contribute to better value retention.</div>
+      </details>
+
+      <details>
+        <summary>How does depreciation affect my insurance?</summary>
+        <div class="faq-body">Most Canadian auto insurance policies pay out at Actual Cash Value (ACV) — the depreciated market value of your vehicle at the time of a total loss, not what you paid. This means that a car worth $50,000 when purchased might only trigger a $35,000 payout if written off 2 years later. If you financed the vehicle and your loan balance exceeds the ACV payout, you're responsible for the difference out of pocket unless you have Gap insurance. Some insurers offer "new car replacement" endorsements for vehicles typically in their first 1–2 years, which pays to replace the car with a new equivalent model rather than paying ACV.</div>
+      </details>
+
+      <details>
+        <summary>Is it better to buy a 2-year-old car than new?</summary>
+        <div class="faq-body">From a pure financial standpoint, yes — in most cases. A 2-year-old vehicle has already absorbed the steepest part of the depreciation curve, meaning the remaining value loss is much more gradual. You typically save 20–30% compared to buying the same model new. The trade-offs: no new car warranty (though many certified pre-owned programmes extend manufacturer warranty coverage), potentially higher interest rates on used vehicle financing, and the fact that any existing problems become yours. For most everyday vehicles, buying certified pre-owned (CPO) 2–3 years old from a reputable dealer is one of the best financial decisions a car buyer can make.</div>
+      </details>
+
+      <details>
+        <summary>Do electric vehicles depreciate faster than gas cars?</summary>
+        <div class="faq-body">Historically, many EVs (outside of Tesla) depreciated significantly faster than comparable gas vehicles — often 30–40% in year one. This was driven by rapid technology improvement, range anxiety concerns, and government incentive changes that affected resale values. As of 2026, the picture is mixed: Tesla models hold value relatively well, while some older EV models have depreciated very steeply. Battery replacement concerns (a major potential expense on older EVs) are a key driver of depreciation. As the EV market matures and battery technology stabilises, depreciation rates are expected to converge with ICE vehicles over time.</div>
+      </details>
+
+      <details>
+        <summary>How does mileage affect depreciation?</summary>
+        <div class="faq-body">Mileage is one of the most significant factors in vehicle depreciation alongside age and condition. Canadian industry benchmarks typically assume approximately 20,000 km per year as "average." Vehicles significantly above this (30,000+ km/year) depreciate faster and are worth notably less at resale. As a rough guide, every 10,000 km above the expected threshold reduces resale value by approximately 1–2% of the vehicle's current value, though this varies by model. Keeping annual mileage moderate — particularly in the first 3–4 years — preserves resale value significantly. This is one reason leases with strict kilometre limits help manufacturers and lessors protect residual values.</div>
+      </details>
+    </div>
+
+    <!-- TIPS -->
+    <div class="card">
+      <h2>5 Tips to Minimise Depreciation Impact</h2>
+      <div class="tip-box">
+        <strong>Tip 1: Buy 2–3 years used for best value.</strong> The original owner absorbs 25–35% of the vehicle's depreciation in years 1–2. You get a nearly new vehicle with most of its reliable service life ahead, at a 25–30% discount to new pricing. Look for certified pre-owned programmes with extended manufacturer warranty coverage.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 2: Avoid luxury brands as daily drivers.</strong> The prestige of a luxury badge comes with a steep financial penalty at resale. A three-year-old luxury sedan might sell for 40–45% of its original price. That same money spent on a well-regarded mainstream brand could buy a vehicle retaining 55–60%. The depreciation difference on a $75,000 luxury vehicle vs a $45,000 mainstream equivalent is tens of thousands of dollars over 5 years.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 3: In Canada, high-demand trucks hold value best.</strong> If you need a versatile vehicle and can use a truck practically, the Toyota Tacoma, Ford F-150, and similar models consistently deliver the best resale values in the Canadian market. Their combination of utility, reliability reputation, and sustained demand makes them among the most financially sound vehicle purchases.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 4: Keep mileage moderate in the early years.</strong> The difference between 15,000 km/year and 25,000 km/year over 3 years is 30,000 km — often worth $2,000–$5,000 at resale on a mid-range vehicle. If you have two vehicles, put more kilometres on the older one and less on the one you plan to sell.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 5: Maintain comprehensive service records.</strong> At private sale or trade-in, complete service records from a reputable shop dramatically improve buyer confidence and support asking price. A vehicle with full dealer service history consistently commands a premium over an identically specced vehicle without records. Keep every receipt, and if records are incomplete, request them from the dealership — they typically retain service history indefinitely.
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div class="card">
+      <h2>Related Calculators</h2>
+      <div class="related-tools">
+        <a href="/lease-vs-buy-calculator.html" class="tool-chip">🔄 Lease vs Buy</a>
+        <a href="/car-loan-calculator.html" class="tool-chip">🚗 Car Loan Calculator</a>
+        <a href="/car-affordability-calculator.html" class="tool-chip">💡 Car Affordability</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> Depreciation rates used in this calculator are averages based on general market data and are intended for estimation purposes only. Actual depreciation varies significantly by make, model, trim level, condition, mileage, regional market demand, and economic conditions. This calculator does not constitute financial, insurance, or legal advice. Always obtain a professional appraisal before making significant purchase or sale decisions.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+
+const DEPR = {
+  sedan:    [0.20, 0.15, 0.12, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05, 0.05],
+  suv:      [0.17, 0.14, 0.11, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05, 0.05],
+  truck:    [0.15, 0.13, 0.11, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05, 0.05],
+  luxury:   [0.27, 0.19, 0.14, 0.12, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05],
+  electric: [0.22, 0.18, 0.14, 0.11, 0.09, 0.08, 0.07, 0.06, 0.05, 0.05],
+  minivan:  [0.19, 0.15, 0.12, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05, 0.05]
+};
+
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-CA');}
+function pct(n){return n.toFixed(1)+'%';}
+
+function calcDepreciation(){
+  const carValue    = parseFloat(document.getElementById('carValue').value)||0;
+  const vehicleType = document.getElementById('vehicleType').value;
+  const startAge    = parseInt(document.getElementById('startAge').value)||0;
+  const projectYrs  = parseInt(document.getElementById('projectYears').value)||7;
+
+  if(carValue <= 0){alert('Please enter a vehicle value.');return;}
+
+  const rates = DEPR[vehicleType];
+  let value = carValue;
+  const schedule = [];
+
+  for(let y=1; y<=projectYrs; y++){
+    const age = startAge + y - 1;
+    const rateIdx = Math.min(age, rates.length - 1);
+    const rate = rates[rateIdx];
+    const loss = value * rate;
+    const endValue = value - loss;
+    schedule.push({year: y, vehicleAge: age + 1, startVal: value, loss, rate, endVal: endValue});
+    value = endValue;
+  }
+
+  const val3 = schedule.length >= 3 ? schedule[2].endVal : schedule[schedule.length-1].endVal;
+  const val5 = schedule.length >= 5 ? schedule[4].endVal : schedule[schedule.length-1].endVal;
+  const val7 = schedule.length >= 7 ? schedule[6].endVal : schedule[schedule.length-1].endVal;
+  const totalLoss = carValue - value;
+  const pctLost = (totalLoss / carValue) * 100;
+
+  document.getElementById('resNow').textContent = fmt(carValue);
+  document.getElementById('res3').textContent   = schedule.length >= 3 ? fmt(val3) : '—';
+  document.getElementById('res5').textContent   = schedule.length >= 5 ? fmt(val5) : '—';
+  document.getElementById('res7').textContent   = schedule.length >= 7 ? fmt(val7) : '—';
+  document.getElementById('resTotalDepr').textContent = fmt(totalLoss);
+  document.getElementById('resPctLost').textContent   = pct(pctLost);
+  document.getElementById('resAvgAnnual').textContent = fmt(totalLoss / projectYrs) + '/yr';
+
+  const tbody = document.getElementById('deprBody');
+  tbody.innerHTML = '';
+  schedule.forEach(row => {
+    const tr = document.createElement('tr');
+    const barWidth = Math.round(row.rate * 100 * 3);
+    tr.innerHTML = `
+      <td>Year ${row.year}</td>
+      <td>${row.vehicleAge} yr${row.vehicleAge !== 1 ? 's' : ''} old</td>
+      <td>${fmt(row.startVal)}</td>
+      <td style="color:var(--red)">${fmt(row.loss)}</td>
+      <td>
+        <div class="depr-bar-wrap">
+          <div class="depr-bar" style="width:${barWidth}px;min-width:4px"></div>
+          <span>${pct(row.rate * 100)}</span>
+        </div>
+      </td>
+      <td><strong>${fmt(row.endVal)}</strong></td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

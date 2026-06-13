@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Lease vs Buy Calculator Canada 2026 | NorthCalc</title>
+  <meta name="description" content="Should you lease or buy your next car in Canada? Compare the true total cost of leasing vs financing — including residual value, buyout options, and opportunity cost.">
+  <link rel="canonical" href="https://northcalc.com/lease-vs-buy-calculator.html">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:210px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+    .dd-link.active{font-weight:700}
+    @media(max-width:760px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+    .page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+    .content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+    .card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .card h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+    .card h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+    .card p{margin-bottom:.8rem;font-size:.93rem}
+    .card ul,.card ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .card li{margin-bottom:.35rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
+    .field input,.field select{width:100%;padding:.62rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-size:.93rem;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .15s}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--red)}
+    .field .hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+    .inp-prefix{position:relative}.inp-prefix span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-prefix input{padding-left:1.75rem}
+    .inp-suffix{position:relative}.inp-suffix span{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-suffix input{padding-right:2.2rem}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
+    .btn{width:100%;padding:.8rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.5rem;transition:background .15s}
+    .btn:hover{background:var(--red-dark)}
+    .results{display:none}
+    .results.show{display:block}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+    @media(max-width:540px){.stat-row{grid-template-columns:1fr}}
+    .stat{background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center}
+    .stat-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .stat-value{font-size:1.45rem;font-weight:800;color:var(--navy)}
+    .stat-value.red{color:var(--red)}
+    .stat-value.green{color:#059669}
+    table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.75rem}
+    th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-weight:600;font-size:.78rem}
+    th:not(:first-child),td:not(:first-child){text-align:right}
+    td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#fafafa}
+    details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+    summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+    summary:hover{background:#fafafa}
+    summary::after{content:'＋';font-size:1.1rem;color:var(--muted)}
+    details[open] summary::after{content:'－'}
+    .faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+    .example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+    .tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+    .disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+    .related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.75rem;margin-top:1rem}
+    .tool-chip{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;background:var(--red-light);border-radius:8px;font-size:.82rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+    .tool-chip:hover{background:var(--red);color:var(--white)}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+    @media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+    .compare-panel{border-radius:10px;padding:1.25rem;border:2px solid var(--border)}
+    .compare-panel.lease-panel{border-color:#bae6fd;background:#f0f9ff}
+    .compare-panel.buy-panel{border-color:#bbf7d0;background:#f0fdf4}
+    .compare-panel h3{font-size:1rem;font-weight:800;margin-bottom:.75rem}
+    .compare-panel.lease-panel h3{color:#0369a1}
+    .compare-panel.buy-panel h3{color:#166534}
+    .compare-row{display:flex;justify-content:space-between;font-size:.88rem;padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,.06)}
+    .compare-row:last-child{border-bottom:none;font-weight:700;margin-top:.4rem;padding-top:.4rem}
+    .winner-banner{border-radius:10px;padding:1.25rem 1.5rem;text-align:center;font-size:1.05rem;font-weight:700;margin-bottom:1rem}
+    .winner-banner.lease-wins{background:#dbeafe;color:#1d4ed8;border:2px solid #93c5fd}
+    .winner-banner.buy-wins{background:#d1fae5;color:#065f46;border:2px solid #6ee7b7}
+    .winner-banner.tie{background:#fef3c7;color:#92400e;border:2px solid #fcd34d}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a>
+          <a href="/lease-vs-buy-calculator.html" class="dd-link active">🔄 Lease vs Buy</a>
+          <a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a>
+          <a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>🔄 Car Lease vs Buy Calculator</h1>
+      <p>Compare the real total cost of leasing vs buying a vehicle in Canada — including taxes, fees, and what happens at the end of each term.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- INTRO -->
+    <div class="card">
+      <h2>Lease or Buy: What's Actually Cheaper?</h2>
+      <p>When you lease a vehicle, you are essentially paying for the depreciation that occurs during your lease term — the gap between the vehicle's current value and its residual (end-of-lease) value — plus a finance charge. You never own the car. When you buy, you're paying for the entire vehicle and building equity with every payment.</p>
+      <p>Neither option is universally better. Leasing typically offers lower monthly payments and the ability to drive a newer vehicle more often. Buying costs more month-to-month but results in an asset you own outright, with no mileage penalties and the freedom to modify, sell, or keep indefinitely. This calculator helps you see the true numbers side by side so you can decide based on your situation.</p>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div class="card">
+      <h2>🔄 Lease vs Buy Calculator</h2>
+
+      <div class="grid2" style="margin-bottom:1rem">
+        <div class="field">
+          <label for="msrp">Vehicle MSRP / Price</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="msrp" placeholder="42000" min="0" step="100" value="42000"></div>
+          <div class="hint">Manufacturer's suggested retail price. Both scenarios use this value.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:1rem;background:var(--bg);border-radius:10px;font-size:.85rem;color:var(--muted)">
+          Fill in both sections below, then click Compare.
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <div>
+          <h3 style="font-size:.95rem;font-weight:800;color:#0369a1;margin-bottom:.75rem">🔵 Lease Terms</h3>
+          <div class="field">
+            <label for="leaseCap">Cap Cost Reduction (Down Payment)</label>
+            <div class="inp-prefix"><span>$</span><input type="number" id="leaseCap" value="0" min="0" step="100"></div>
+            <div class="hint">Upfront payment to reduce monthly lease payment. Many advisers recommend $0 cap cost reduction.</div>
+          </div>
+          <div class="field">
+            <label for="leasePayment">Monthly Lease Payment</label>
+            <div class="inp-prefix"><span>$</span><input type="number" id="leasePayment" placeholder="649" min="0" step="1"></div>
+          </div>
+          <div class="field">
+            <label for="leaseTerm">Lease Term (months)</label>
+            <select id="leaseTerm">
+              <option value="24">24 months</option>
+              <option value="36">36 months</option>
+              <option value="48" selected>48 months</option>
+              <option value="60">60 months</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="residual">Residual Value (% of MSRP)</label>
+            <div class="inp-suffix"><span>%</span><input type="number" id="residual" value="52" min="1" max="99" step="1"></div>
+            <div class="hint">From your lease quote. Higher = lower payments. Typical range: 45–60%.</div>
+          </div>
+          <div class="field">
+            <label for="buyout">Plan to Buy Out at Lease End?</label>
+            <select id="buyout">
+              <option value="no">No — walk away</option>
+              <option value="yes">Yes — purchase at residual</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:.95rem;font-weight:800;color:#166534;margin-bottom:.75rem">🟢 Finance / Buy Terms</h3>
+          <div class="field">
+            <label for="buyDown">Down Payment</label>
+            <div class="inp-prefix"><span>$</span><input type="number" id="buyDown" value="5000" min="0" step="100"></div>
+          </div>
+          <div class="field">
+            <label for="buyTrade">Trade-In Value</label>
+            <div class="inp-prefix"><span>$</span><input type="number" id="buyTrade" value="0" min="0" step="100"></div>
+          </div>
+          <div class="field">
+            <label for="buyRate">Annual Interest Rate</label>
+            <div class="inp-suffix"><span>%</span><input type="number" id="buyRate" value="7.99" min="0" max="40" step="0.01"></div>
+          </div>
+          <div class="field">
+            <label for="buyTerm">Loan Term (months)</label>
+            <select id="buyTerm">
+              <option value="36">36 months</option>
+              <option value="48">48 months</option>
+              <option value="60" selected>60 months</option>
+              <option value="72">72 months</option>
+              <option value="84">84 months</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="keepYears">Years You Plan to Keep the Vehicle</label>
+            <select id="keepYears">
+              <option value="4">4 years</option>
+              <option value="5">5 years</option>
+              <option value="6">6 years</option>
+              <option value="7">7 years</option>
+              <option value="8" selected>8 years</option>
+              <option value="10">10 years</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button class="btn" onclick="calcLeaseBuy()">Compare Lease vs Buy</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="results">
+      <div class="card">
+        <h2>Your Comparison Results</h2>
+        <div id="winnerBanner" class="winner-banner tie">—</div>
+        <div class="compare-grid">
+          <div class="compare-panel lease-panel">
+            <h3>🔵 Lease</h3>
+            <div class="compare-row"><span>Monthly payment</span><span id="lMonthly">—</span></div>
+            <div class="compare-row"><span>Cap cost reduction</span><span id="lCap">—</span></div>
+            <div class="compare-row"><span>Total payments</span><span id="lPayments">—</span></div>
+            <div class="compare-row"><span>Buyout cost</span><span id="lBuyout">—</span></div>
+            <div class="compare-row"><span>Residual value</span><span id="lResidual">—</span></div>
+            <div class="compare-row"><span>Total out-of-pocket</span><span id="lTotal">—</span></div>
+          </div>
+          <div class="compare-panel buy-panel">
+            <h3>🟢 Finance / Buy</h3>
+            <div class="compare-row"><span>Monthly payment</span><span id="bMonthly">—</span></div>
+            <div class="compare-row"><span>Down payment</span><span id="bDown">—</span></div>
+            <div class="compare-row"><span>Total loan payments</span><span id="bPayments">—</span></div>
+            <div class="compare-row"><span>Total interest paid</span><span id="bInterest">—</span></div>
+            <div class="compare-row"><span>Est. vehicle value after <span id="bYears">—</span> yrs</span><span id="bValue">—</span></div>
+            <div class="compare-row"><span>Net cost (less equity)</span><span id="bNet">—</span></div>
+          </div>
+        </div>
+        <div class="stat-row" style="grid-template-columns:1fr 1fr">
+          <div class="stat">
+            <div class="stat-label">Lease Total Out-of-Pocket</div>
+            <div class="stat-value red" id="resLeaseCost">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Buy Net Cost (after equity)</div>
+            <div class="stat-value green" id="resBuyCost">—</div>
+          </div>
+        </div>
+        <p id="resNote" style="font-size:.88rem;color:var(--muted);text-align:center;margin-top:.5rem"></p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="card">
+      <h2>How to Use This Calculator</h2>
+      <ol>
+        <li><strong>Enter the vehicle MSRP</strong> — the sticker price. Both scenarios start with this number.</li>
+        <li><strong>Fill in your lease quote</strong> — monthly payment, cap cost reduction (upfront payment), term, and residual percentage. All of this should be on your dealer lease quote. Choose whether you plan to buy the car at lease-end.</li>
+        <li><strong>Fill in your financing terms</strong> — down payment, interest rate, loan term, and how long you realistically plan to keep the vehicle. The calculator uses average depreciation to estimate your vehicle's remaining value.</li>
+        <li><strong>Click Compare</strong> — see total out-of-pocket costs for each path, a net cost comparison after accounting for the equity you build when buying, and a clear recommendation.</li>
+      </ol>
+    </div>
+
+    <!-- EXAMPLE -->
+    <div class="card">
+      <h2>Canadian Example: 2026 Honda CR-V in Ontario</h2>
+      <div class="example-box">
+        <strong>Vehicle:</strong> 2026 Honda CR-V, MSRP $42,000<br><br>
+        <strong>Lease option:</strong> $0 cap cost reduction, $649/month × 48 months = $31,152 total payments. Residual value: 52% = $21,840. Walking away at end: total cost = <strong>$31,152</strong>.<br><br>
+        <strong>Finance option:</strong> $5,000 down, 7.99% interest, 60-month term. Monthly payment: approx. $720. Total payments: $43,200 + $5,000 down = $48,200 total outlay. Estimated vehicle value after 5 years: approx. $18,000. Net cost after equity: <strong>$30,200</strong>.<br><br>
+        <strong>Result:</strong> Financing wins by approximately $952 in net cost — but the buyer ends up with a $18,000 asset. The lessee paid less per month and had $119/month in extra cash flow over 4 years, but has nothing at the end.<br><br>
+        <em>The "right" answer depends on what you value more: lower monthly cash outflow or long-term asset building.</em>
+      </div>
+    </div>
+
+    <!-- WHAT RESULTS MEAN -->
+    <div class="card">
+      <h2>What Your Results Mean</h2>
+      <h3>Equity vs. No Equity</h3>
+      <p>When you buy, every payment builds equity — ownership of a tangible asset. After 5 years of payments, you own a vehicle worth roughly $15,000–$25,000 depending on the model, which can be used as a trade-in for your next purchase. Leasing builds zero equity. At lease-end you have nothing to show for your payments, unless you buy out the vehicle.</p>
+      <h3>Mileage Limits</h3>
+      <p>Most Canadian leases allow 20,000–24,000 km per year. Overages are typically charged at $0.10–$0.25 per kilometre. If you drive 30,000 km per year and your lease allows 20,000, you could owe $2,000–$5,000 at lease-end — significantly changing the true cost comparison.</p>
+      <h3>When Leasing Makes More Sense</h3>
+      <ul>
+        <li>You're self-employed and can deduct lease payments as a business expense (check with your accountant)</li>
+        <li>You always want a new vehicle every 3–4 years</li>
+        <li>You drive low kilometres annually (under 20,000)</li>
+        <li>You want lower monthly payments and prefer cash flow flexibility</li>
+        <li>You're leasing a vehicle that depreciates quickly — you avoid carrying the depreciation risk</li>
+      </ul>
+      <h3>When Buying Makes More Sense</h3>
+      <ul>
+        <li>You drive high kilometres annually</li>
+        <li>You want to modify, customise, or personalise the vehicle</li>
+        <li>You plan to keep the vehicle 6+ years</li>
+        <li>You want to build long-term equity and reduce future car costs</li>
+        <li>The vehicle you're considering holds its value exceptionally well (trucks, popular SUVs)</li>
+      </ul>
+    </div>
+
+    <!-- FAQs -->
+    <div class="card">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>Is it better to lease or buy a car in Canada?</summary>
+        <div class="faq-body">There is no universal answer. From a pure total-cost perspective, buying and holding a vehicle for 8–10 years is almost always cheaper than repeatedly leasing. However, leasing offers lower monthly payments, newer vehicles more often, and simplified ownership (no depreciation risk, warranty coverage throughout). For Canadians who use their vehicle for business and can deduct lease payments, leasing can offer meaningful tax advantages. Run both scenarios through this calculator with your specific numbers for a definitive comparison.</div>
+      </details>
+
+      <details>
+        <summary>What is residual value and why does it matter?</summary>
+        <div class="faq-body">Residual value is the estimated worth of the vehicle at the end of your lease term, expressed as a percentage of MSRP. It's set by the leasing company (not the dealer) and directly determines how much you pay. A higher residual means you're financing less depreciation, which means lower monthly payments. For example, a vehicle with a 55% residual after 48 months means you're paying for 45% of the MSRP (plus finance charges). A vehicle with a 40% residual means you're paying for 60% — much more expensive. Always compare residual values when choosing between lease offers on different models.</div>
+      </details>
+
+      <details>
+        <summary>Can I negotiate a car lease in Canada?</summary>
+        <div class="faq-body">Yes, and you should. The MSRP (capitalised cost) is negotiable just like a purchase price — negotiate it down before discussing lease terms. The residual value is set by the manufacturer's finance arm and is typically not negotiable. The money factor (the lease equivalent of an interest rate) can sometimes be negotiated, or you may be able to pay it down with a cap cost reduction. Also negotiate the kilometre allowance upfront if you're a higher-mileage driver — buying extra kilometres at signing is far cheaper than paying overage charges at lease-end.</div>
+      </details>
+
+      <details>
+        <summary>What happens at the end of a car lease?</summary>
+        <div class="faq-body">At lease-end in Canada, you have three options: (1) return the vehicle and walk away — you're charged for any excess mileage, excessive wear and tear, and any disposition fee; (2) purchase the vehicle at the pre-agreed residual value, which may be a good deal if the actual market value is higher than the residual; or (3) lease a new vehicle. If you're purchasing at lease-end, get an independent appraisal first — if the car is worth less than the residual, you're overpaying. If it's worth more, it could be a great deal or you can sell the buyout right to a dealer.</div>
+      </details>
+
+      <details>
+        <summary>Is leasing tax-deductible for business in Canada?</summary>
+        <div class="faq-body">Yes, for self-employed Canadians and businesses, lease payments on a vehicle used for business purposes are generally deductible against business income, subject to CRA limits. For 2026, the deductible lease limit for passenger vehicles is $1,050/month (plus applicable taxes), proportional to business use. This is a significant advantage over buying, where you're limited to Capital Cost Allowance (CCA) deductions on a maximum vehicle cost of $37,000 (Class 10.1). Always consult a tax professional for your specific situation.</div>
+      </details>
+
+      <details>
+        <summary>What are typical extra charges at lease-end?</summary>
+        <div class="faq-body">Common lease-end charges in Canada include: excess mileage fees ($0.10–$0.25/km over allowance), wear and tear beyond what's considered "normal" (scratches, dents, interior damage), a disposition fee ($300–$500 to cover the cost of preparing the vehicle for resale), and any outstanding maintenance the lease required you to perform. Do a pre-return inspection through the manufacturer's inspection service (many offer this for free 90 days before lease-end) to identify and address issues before formal return — dealer repairs are always cheaper than lease-end charges.</div>
+      </details>
+    </div>
+
+    <!-- TIPS -->
+    <div class="card">
+      <h2>5 Tips for Smarter Leasing in Canada</h2>
+      <div class="tip-box">
+        <strong>Tip 1: Always negotiate the MSRP before discussing lease terms.</strong> The capitalised cost (vehicle price) directly feeds into your monthly payment calculation. Reducing the MSRP by $1,000 saves you roughly $20–$25/month on a 48-month lease. Don't let the dealer start with "how much per month do you want to pay?" — negotiate total price first.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 2: Understand the money factor.</strong> The money factor is the lease equivalent of an interest rate. Multiply it by 2,400 to convert it to an approximate APR. If a dealer quotes a money factor of 0.00350, that's roughly 8.4% APR. Ask for the money factor explicitly — some dealers are reluctant to disclose it.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 3: Be cautious with low residual vehicles.</strong> Vehicles with residual values below 45% after 48 months are expensive to lease — you're paying for a lot of depreciation. Vehicles with high residuals (typically trucks, popular crossovers) cost less to lease relative to their purchase price. Compare residuals across models before choosing.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 4: Know your kilometres before you sign.</strong> Overages are always expensive. If you typically drive 25,000 km/year and the lease allows 20,000, buy extra kilometres at signing — you'll pay roughly $0.07–$0.10/km upfront versus $0.15–$0.25/km at return. Better yet, negotiate a higher annual kilometre cap in the lease terms.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 5: Consider a $0 cap cost reduction.</strong> Putting money down on a lease doesn't reduce your total cost significantly — it mainly lowers monthly payments. If the vehicle is written off or stolen, you lose that upfront payment (insurance pays out based on vehicle value, not your lease obligation). Keeping your cap cost reduction at $0 and investing the down payment elsewhere is often the wiser financial move.
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div class="card">
+      <h2>Related Calculators</h2>
+      <div class="related-tools">
+        <a href="/car-loan-calculator.html" class="tool-chip">🚗 Car Loan Calculator</a>
+        <a href="/car-depreciation-calculator.html" class="tool-chip">📉 Car Depreciation</a>
+        <a href="/car-affordability-calculator.html" class="tool-chip">💡 Car Affordability</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator provides estimates for informational purposes only. Depreciation estimates used for vehicle equity calculations are averages and will vary by make, model, condition, and market conditions. Tax treatment of leasing vs buying for business purposes is complex — consult a qualified tax professional. All figures are in Canadian dollars. This tool does not constitute financial or legal advice.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-CA');}
+function fmtD(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+
+// Average depreciation by year for a standard SUV/car
+const DEPR_RATES = [0.18, 0.15, 0.13, 0.11, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05];
+
+function estimateValue(msrp, years){
+  let val = msrp;
+  for(let i=0;i<Math.min(years,DEPR_RATES.length);i++){
+    val = val * (1 - DEPR_RATES[i]);
+  }
+  return val;
+}
+
+function pvFromPayment(pmt, r, n){
+  if(r === 0) return pmt * n;
+  return pmt * (1 - Math.pow(1+r, -n)) / r;
+}
+
+function monthlyPayment(pv, r, n){
+  if(r === 0) return pv / n;
+  return pv * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
+}
+
+function calcLeaseBuy(){
+  const msrp         = parseFloat(document.getElementById('msrp').value)||0;
+  const leaseCap     = parseFloat(document.getElementById('leaseCap').value)||0;
+  const leasePayment = parseFloat(document.getElementById('leasePayment').value)||0;
+  const leaseTerm    = parseInt(document.getElementById('leaseTerm').value)||48;
+  const residualPct  = parseFloat(document.getElementById('residual').value)||52;
+  const buyoutChoice = document.getElementById('buyout').value;
+  const buyDown      = parseFloat(document.getElementById('buyDown').value)||0;
+  const buyTrade     = parseFloat(document.getElementById('buyTrade').value)||0;
+  const buyRate      = parseFloat(document.getElementById('buyRate').value)||0;
+  const buyTermMo    = parseInt(document.getElementById('buyTerm').value)||60;
+  const keepYears    = parseInt(document.getElementById('keepYears').value)||8;
+
+  if(msrp <= 0){alert('Please enter a vehicle MSRP.');return;}
+  if(leasePayment <= 0){alert('Please enter a monthly lease payment.');return;}
+
+  const residualValue  = msrp * (residualPct / 100);
+  const leasePayments  = leasePayment * leaseTerm;
+  const buyoutCost     = buyoutChoice === 'yes' ? residualValue : 0;
+  const leaseTotalCost = leaseCap + leasePayments + buyoutCost;
+
+  // Finance
+  const financed = Math.max(0, msrp - buyDown - buyTrade);
+  const r = buyRate / 12 / 100;
+  const bMonthly = monthlyPayment(financed, r, buyTermMo);
+  const totalLoanPayments = bMonthly * buyTermMo;
+  const totalInterest = totalLoanPayments - financed;
+  const buyTotalOutlay = buyDown + totalLoanPayments;
+
+  // Estimate vehicle value at end of keep period
+  const vehicleValueAtEnd = estimateValue(msrp, keepYears);
+  const buyNetCost = buyTotalOutlay - vehicleValueAtEnd;
+
+  // Set fields
+  document.getElementById('lMonthly').textContent   = fmtD(leasePayment);
+  document.getElementById('lCap').textContent       = fmt(leaseCap);
+  document.getElementById('lPayments').textContent  = fmt(leasePayments);
+  document.getElementById('lBuyout').textContent    = buyoutChoice === 'yes' ? fmt(buyoutCost) : 'None';
+  document.getElementById('lResidual').textContent  = residualPct + '% = ' + fmt(residualValue);
+  document.getElementById('lTotal').textContent     = fmt(leaseTotalCost);
+  document.getElementById('bMonthly').textContent   = fmtD(bMonthly);
+  document.getElementById('bDown').textContent      = fmt(buyDown);
+  document.getElementById('bPayments').textContent  = fmt(totalLoanPayments);
+  document.getElementById('bInterest').textContent  = fmt(totalInterest);
+  document.getElementById('bYears').textContent     = keepYears;
+  document.getElementById('bValue').textContent     = fmt(vehicleValueAtEnd);
+  document.getElementById('bNet').textContent       = fmt(Math.max(0,buyNetCost));
+  document.getElementById('resLeaseCost').textContent = fmt(leaseTotalCost);
+  document.getElementById('resBuyCost').textContent   = fmt(Math.max(0,buyNetCost));
+
+  // Winner
+  const banner = document.getElementById('winnerBanner');
+  const diff = Math.abs(leaseTotalCost - buyNetCost);
+  let winnerMsg, winnerClass;
+  if(Math.abs(leaseTotalCost - buyNetCost) < 500){
+    winnerMsg = 'Very close — both options cost about the same. Consider lifestyle factors.';
+    winnerClass = 'tie';
+  } else if(leaseTotalCost < buyNetCost){
+    winnerMsg = '🔵 Leasing is cheaper by ' + fmt(diff) + ' over your comparison period.';
+    winnerClass = 'lease-wins';
+  } else {
+    winnerMsg = '🟢 Buying is cheaper by ' + fmt(diff) + ' in net cost after equity.';
+    winnerClass = 'buy-wins';
+  }
+  banner.textContent = winnerMsg;
+  banner.className = 'winner-banner ' + winnerClass;
+  document.getElementById('resNote').textContent = 'Note: Buy net cost accounts for the estimated vehicle equity of ' + fmt(vehicleValueAtEnd) + ' after ' + keepYears + ' years. Lease total assumes ' + (buyoutChoice === 'yes' ? 'you buy out the vehicle at end of lease.' : 'you return the vehicle at lease end.');
+  document.getElementById('bYears').textContent = keepYears;
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

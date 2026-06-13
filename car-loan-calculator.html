@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canadian Car Loan Calculator 2026 | NorthCalc</title>
+  <meta name="description" content="Calculate your monthly car loan payment, total interest, and full amortisation schedule. Includes HST/GST on vehicle purchase and Canadian loan terms.">
+  <link rel="canonical" href="https://northcalc.com/car-loan-calculator.html">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:210px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+    .dd-link.active{font-weight:700}
+    @media(max-width:760px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+    .page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+    .content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+    .card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .card h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+    .card h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+    .card p{margin-bottom:.8rem;font-size:.93rem}
+    .card ul,.card ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .card li{margin-bottom:.35rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
+    .field input,.field select{width:100%;padding:.62rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-size:.93rem;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .15s}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--red)}
+    .field .hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+    .inp-prefix{position:relative}.inp-prefix span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-prefix input{padding-left:1.75rem}
+    .inp-suffix{position:relative}.inp-suffix span{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-suffix input{padding-right:2.2rem}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
+    .btn{width:100%;padding:.8rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.5rem;transition:background .15s}
+    .btn:hover{background:var(--red-dark)}
+    .results{display:none}
+    .results.show{display:block}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+    @media(max-width:540px){.stat-row{grid-template-columns:1fr}}
+    .stat{background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center}
+    .stat-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .stat-value{font-size:1.45rem;font-weight:800;color:var(--navy)}
+    .stat-value.red{color:var(--red)}
+    .stat-value.green{color:#059669}
+    table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.75rem}
+    th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-weight:600;font-size:.78rem}
+    th:not(:first-child),td:not(:first-child){text-align:right}
+    td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#fafafa}
+    details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+    summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+    summary:hover{background:#fafafa}
+    summary::after{content:'＋';font-size:1.1rem;color:var(--muted)}
+    details[open] summary::after{content:'－'}
+    .faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+    .example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+    .tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+    .disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+    .related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.75rem;margin-top:1rem}
+    .tool-chip{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;background:var(--red-light);border-radius:8px;font-size:.82rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+    .tool-chip:hover{background:var(--red);color:var(--white)}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+    .table-wrap{overflow-x:auto}
+    .tax-note{font-size:.82rem;color:var(--muted);margin-top:.4rem;font-style:italic}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/car-loan-calculator.html" class="dd-link active">🚗 Car Loan Calculator</a>
+          <a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a>
+          <a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a>
+          <a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>🚗 Car Loan Calculator</h1>
+      <p>Calculate your exact monthly payment, total interest, and full payment schedule for any Canadian auto loan.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- INTRO -->
+    <div class="card">
+      <h2>How Canadian Auto Loans Work</h2>
+      <p>When you finance a vehicle in Canada, you're borrowing money to pay for the car and repaying it — with interest — over an agreed term. The lender could be the dealership (dealer financing, often arranged through a captive finance arm like Toyota Financial Services or GM Financial), your bank, or a credit union.</p>
+      <p>Your interest rate depends primarily on your credit score, the loan term, and the age of the vehicle. New cars typically attract lower rates than used. Longer terms reduce your monthly payment but can dramatically increase total interest paid — a 84-month loan at 8% on $35,000 costs over $12,000 in interest alone compared to roughly $7,500 on a 60-month loan.</p>
+      <p>One thing many buyers overlook: provincial sales tax (HST or GST/PST) is applied to the purchase price of the vehicle and typically rolled into the financed amount. This calculator handles that automatically based on your province.</p>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div class="card">
+      <h2>🚗 Car Loan Calculator</h2>
+      <div class="grid2">
+        <div class="field">
+          <label for="vehiclePrice">Vehicle Price</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="vehiclePrice" placeholder="42500" min="0" step="100"></div>
+        </div>
+        <div class="field">
+          <label for="province">Province / Territory</label>
+          <select id="province">
+            <option value="ON">Ontario (HST 13%)</option>
+            <option value="BC">British Columbia (12%)</option>
+            <option value="AB">Alberta (GST 5%)</option>
+            <option value="QC">Québec (14.975%)</option>
+            <option value="NS">Nova Scotia (HST 15%)</option>
+            <option value="NB">New Brunswick (HST 15%)</option>
+            <option value="MB">Manitoba (12%)</option>
+            <option value="SK">Saskatchewan (11%)</option>
+            <option value="NL">Newfoundland &amp; Labrador (HST 15%)</option>
+            <option value="PE">Prince Edward Island (HST 15%)</option>
+            <option value="YT">Yukon (GST 5%)</option>
+            <option value="NT">Northwest Territories (GST 5%)</option>
+            <option value="NU">Nunavut (GST 5%)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="downPayment">Down Payment</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="downPayment" placeholder="5000" min="0" step="100" value="5000"></div>
+        </div>
+        <div class="field">
+          <label for="tradeIn">Trade-In Value</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="tradeIn" placeholder="0" min="0" step="100" value="0"></div>
+          <div class="hint">Trade-in value reduces the taxable purchase price in most provinces.</div>
+        </div>
+        <div class="field">
+          <label for="interestRate">Annual Interest Rate</label>
+          <div class="inp-suffix"><span>%</span><input type="number" id="interestRate" value="7.99" min="0" max="40" step="0.01"></div>
+        </div>
+        <div class="field">
+          <label for="loanTerm">Loan Term</label>
+          <select id="loanTerm">
+            <option value="24">24 months (2 years)</option>
+            <option value="36">36 months (3 years)</option>
+            <option value="48">48 months (4 years)</option>
+            <option value="60" selected>60 months (5 years)</option>
+            <option value="72">72 months (6 years)</option>
+            <option value="84">84 months (7 years)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" onclick="calcLoan()">Calculate My Car Loan</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="results">
+      <div class="card">
+        <h2>Your Loan Results</h2>
+        <div id="taxNote" class="tax-note" style="margin-bottom:1rem"></div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-label">Monthly Payment</div>
+            <div class="stat-value red" id="resMonthly">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Total Interest Paid</div>
+            <div class="stat-value red" id="resInterest">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Total Cost of Loan</div>
+            <div class="stat-value" id="resTotal">—</div>
+          </div>
+        </div>
+        <div class="stat-row" style="grid-template-columns:repeat(3,1fr)">
+          <div class="stat">
+            <div class="stat-label">Amount Financed</div>
+            <div class="stat-value" id="resFinanced">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Tax Applied</div>
+            <div class="stat-value" id="resTax">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Loan Term</div>
+            <div class="stat-value" id="resTerm">—</div>
+          </div>
+        </div>
+        <h3>Amortisation Schedule</h3>
+        <div class="table-wrap">
+          <table id="amortTable">
+            <thead>
+              <tr>
+                <th>Payment #</th>
+                <th>Payment</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="amortBody"></tbody>
+          </table>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:.6rem" id="amortNote"></p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="card">
+      <h2>How to Use This Calculator</h2>
+      <ol>
+        <li><strong>Enter the vehicle price</strong> — use the out-the-door price before taxes, or the negotiated price from the dealer quote.</li>
+        <li><strong>Select your province</strong> — the calculator automatically applies the correct HST, GST, or combined GST/PST rate for your province. Note: Québec applies GST + QST (14.975% combined). Trade-in value is deducted from the taxable amount before tax is calculated.</li>
+        <li><strong>Enter your down payment and trade-in</strong> — a higher down payment reduces the amount you finance, slashing both your monthly payment and total interest.</li>
+        <li><strong>Set your interest rate and term</strong> — your bank or credit union will give you a pre-approved rate. Dealer financing rates vary widely. The default 7.99% is a typical rate for a buyer with good credit in 2026.</li>
+        <li><strong>Click Calculate</strong> — see your exact monthly payment, total interest, and a full year-by-year amortisation schedule showing exactly how each payment is split between principal and interest.</li>
+      </ol>
+    </div>
+
+    <!-- EXAMPLE -->
+    <div class="card">
+      <h2>Canadian Example: 2024 Toyota RAV4 in Ontario</h2>
+      <div class="example-box">
+        <strong>Scenario:</strong> You purchase a 2024 Toyota RAV4 priced at $42,500 in Ontario. You have a $5,000 trade-in vehicle and $8,000 cash down.<br><br>
+        <strong>Tax calculation:</strong> Taxable amount = $42,500 − $5,000 trade-in = $37,500 × 13% HST = $4,875 tax<br>
+        <strong>Amount financed:</strong> $42,500 + $4,875 tax − $8,000 down − $5,000 trade-in = $34,375<br>
+        <strong>Loan terms:</strong> $34,375 at 7.99% over 60 months<br>
+        <strong>Monthly payment:</strong> approximately $697/month<br>
+        <strong>Total interest paid:</strong> approximately $7,445<br>
+        <strong>Total loan cost:</strong> approximately $41,820 (principal + interest)<br><br>
+        <em>Extending to 84 months would lower the payment to ~$534/month but balloon total interest to ~$10,500 — costing $3,000 more over the life of the loan.</em>
+      </div>
+    </div>
+
+    <!-- WHAT RESULTS MEAN -->
+    <div class="card">
+      <h2>What Your Results Mean</h2>
+      <h3>Monthly Payment vs. Total Cost</h3>
+      <p>Many Canadians focus entirely on the monthly payment — this is exactly what dealers count on. A dealer who stretches your loan from 60 to 84 months drops your payment by roughly $160/month on a $35,000 loan, but adds over $3,000 in total interest. You also spend two extra years "underwater" — owing more than the car is worth.</p>
+      <h3>Being "Underwater" on a Loan</h3>
+      <p>In the first 24–36 months of a long-term loan, you typically owe more on the car than it is worth due to rapid early depreciation. If the car is written off or stolen, your insurance payout may not cover the loan balance. Gap insurance protects against this, but adds to your costs.</p>
+      <h3>Dealer Financing vs. Your Bank</h3>
+      <p>Dealers earn commission on financing. Their offered rate may be marked up from what you actually qualified for. Getting pre-approved at your bank or credit union before visiting a dealer gives you leverage and a known baseline rate to compare against.</p>
+    </div>
+
+    <!-- FAQs -->
+    <div class="card">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>What is a good car loan interest rate in Canada in 2026?</summary>
+        <div class="faq-body">For borrowers with excellent credit (750+), rates in 2026 typically range from 5.99% to 7.99% for new vehicles through major banks and credit unions. Buyers with good credit (700–749) can expect 7.99% to 10.99%. Subprime borrowers (below 650) may face rates of 12% to 29.99% through specialist lenders. New vehicles generally attract lower rates than used. Manufacturer captive finance arms (e.g., Toyota Financial, Ford Credit) sometimes offer promotional rates of 0%–3.99% on select models, but these deals often require forgoing cash rebates.</div>
+      </details>
+
+      <details>
+        <summary>Should I finance through the dealer or my bank?</summary>
+        <div class="faq-body">Always get pre-approved by your bank or credit union before visiting a dealership. This gives you a concrete rate to compare against dealer financing and prevents the dealer from knowing you have no backup plan. Dealer financing can sometimes beat bank rates (especially on promotional offers), but dealers earn a "finance reserve" — a markup — on the rate they offer you. If the dealer beats your bank rate, great. If not, you have your own financing ready to go. Credit unions in Canada frequently offer competitive auto loan rates and are worth checking.</div>
+      </details>
+
+      <details>
+        <summary>Does a longer loan term save money?</summary>
+        <div class="faq-body">No — a longer term saves you money each month but costs you more overall. On a $35,000 loan at 7.99%: a 48-month term costs roughly $6,200 in total interest; a 60-month term costs $7,700; and an 84-month term costs over $10,500. The total interest difference between a 4-year and 7-year loan on a typical Canadian vehicle purchase is often $3,000–$5,000. Additionally, longer loan terms increase the period where you owe more than the vehicle is worth (negative equity). Choose the shortest term you can comfortably afford.</div>
+      </details>
+
+      <details>
+        <summary>How does my trade-in affect my loan?</summary>
+        <div class="faq-body">Your trade-in vehicle reduces both the taxable amount (in most provinces) and the amount you need to finance. For example, in Ontario, a $5,000 trade-in saves you $650 in HST (13% × $5,000) in addition to reducing your loan principal by $5,000. This makes trade-ins particularly valuable in high-tax provinces. Be aware that dealers may undervalue your trade-in to preserve their margin. Check your vehicle's value on platforms like AutoTrader, CarGurus, or a dealership appraisal from a competing dealer before accepting an offer.</div>
+      </details>
+
+      <details>
+        <summary>Can I pay off a car loan early in Canada?</summary>
+        <div class="faq-body">Yes, and in most cases you should if you have the funds. Most Canadian auto loans do not have prepayment penalties (unlike mortgages). Paying extra principal each month — or making a lump-sum payment — directly reduces your total interest cost and shortens your loan. Check your loan agreement first, but the vast majority of standard bank and credit union auto loans in Canada permit early repayment without penalty. Even adding $50–$100 extra per month to your payment can save hundreds of dollars in interest.</div>
+      </details>
+
+      <details>
+        <summary>How does HST/GST apply to a used car purchase?</summary>
+        <div class="faq-body">For used vehicles purchased from a registered dealer, HST or GST/PST applies to the purchase price (minus trade-in value in most provinces), just as with new cars. For private sales (buying from an individual), Ontario, British Columbia, and Saskatchewan charge provincial sales tax based on the greater of the sale price or the Canadian Black Book value — this prevents buyers from declaring artificially low prices to reduce tax. Alberta charges GST on dealer sales but no provincial sales tax on private sales. Always confirm the tax treatment in your province before completing a private-sale transaction.</div>
+      </details>
+    </div>
+
+    <!-- TIPS -->
+    <div class="card">
+      <h2>5 Tips to Save Money on Your Car Loan</h2>
+      <div class="tip-box">
+        <strong>Tip 1: Put at least 20% down.</strong> A 20% down payment reduces your loan amount, eliminates or minimises the period where you're "underwater," and can help you qualify for a better rate. On a $40,000 vehicle, that's $8,000 down — meaningful savings over the life of the loan.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 2: Choose the shortest term you can comfortably afford.</strong> Run the numbers on a 48-month vs. 60-month term. The monthly difference is often smaller than you expect, but the interest savings are significant. Avoid 72- and 84-month loans unless absolutely necessary.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 3: Get pre-approved before visiting the dealer.</strong> Walk in with a pre-approval letter from your bank or credit union. This transforms you into a cash buyer in the dealer's eyes, giving you negotiating power on price — and a benchmark to evaluate any dealer financing offer.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 4: Always negotiate total price — not monthly payment.</strong> Dealers love to frame everything as "what can you afford per month?" This allows them to stretch terms or inflate add-ons while keeping your payment in range. Negotiate the vehicle price first, trade-in value separately, and financing separately. Never reveal your monthly budget target.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 5: Check your credit score before applying.</strong> In Canada, you can get your free credit report from Equifax and TransUnion. Even a 20-point improvement in your score could move you into a better rate tier, saving thousands over the loan. If your score is borderline, consider waiting 3–6 months to improve it before buying.
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div class="card">
+      <h2>Related Calculators</h2>
+      <div class="related-tools">
+        <a href="/lease-vs-buy-calculator.html" class="tool-chip">🔄 Lease vs Buy</a>
+        <a href="/car-affordability-calculator.html" class="tool-chip">💡 Car Affordability</a>
+        <a href="/hst-gst-calculator.html" class="tool-chip">🧾 HST / GST Calculator</a>
+        <a href="/car-depreciation-calculator.html" class="tool-chip">📉 Car Depreciation</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator provides estimates for informational purposes only. Results assume a fixed interest rate and do not include additional fees such as dealership administration fees, licensing, registration, or optional add-ons. Tax calculations are based on standard provincial rates and may not reflect all exemptions or special circumstances. Always confirm your final figures with your lender and dealership before signing any agreement.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+
+const PROV_TAX = {
+  ON:0.13, BC:0.12, AB:0.05, QC:0.14975, NS:0.15, NB:0.15,
+  MB:0.12, SK:0.11, NL:0.15, PE:0.15, YT:0.05, NT:0.05, NU:0.05
+};
+
+function fmt(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function fmtN(n){return '$'+Math.round(n).toLocaleString('en-CA');}
+
+function calcLoan(){
+  const vehiclePrice = parseFloat(document.getElementById('vehiclePrice').value)||0;
+  const downPayment  = parseFloat(document.getElementById('downPayment').value)||0;
+  const tradeIn      = parseFloat(document.getElementById('tradeIn').value)||0;
+  const province     = document.getElementById('province').value;
+  const annualRate   = parseFloat(document.getElementById('interestRate').value)||0;
+  const n            = parseInt(document.getElementById('loanTerm').value)||60;
+
+  if(vehiclePrice <= 0){alert('Please enter a vehicle price.');return;}
+
+  const taxRate = PROV_TAX[province]||0.05;
+  const taxableAmount = Math.max(0, vehiclePrice - tradeIn);
+  const tax = taxableAmount * taxRate;
+  const financed = Math.max(0, vehiclePrice + tax - downPayment - tradeIn);
+
+  const r = annualRate / 12 / 100;
+  let monthlyPayment;
+  if(r === 0){
+    monthlyPayment = financed / n;
+  } else {
+    monthlyPayment = financed * r * Math.pow(1+r, n) / (Math.pow(1+r, n) - 1);
+  }
+
+  const totalPaid = monthlyPayment * n;
+  const totalInterest = totalPaid - financed;
+  const totalCost = downPayment + tradeIn + totalPaid; // what you truly spent
+
+  document.getElementById('resMonthly').textContent  = fmt(monthlyPayment);
+  document.getElementById('resInterest').textContent = fmt(totalInterest);
+  document.getElementById('resTotal').textContent    = fmtN(totalPaid + downPayment);
+  document.getElementById('resFinanced').textContent = fmtN(financed);
+  document.getElementById('resTax').textContent      = fmt(tax);
+  document.getElementById('resTerm').textContent     = n + ' mo';
+  document.getElementById('taxNote').textContent     = 'Tax rate for ' + province + ': ' + (taxRate*100).toFixed(3).replace(/\.?0+$/,'') + '%. Taxable amount: ' + fmtN(taxableAmount) + ' (vehicle price minus trade-in). Tax added: ' + fmt(tax) + '.';
+
+  // Build amortisation schedule
+  const tbody = document.getElementById('amortBody');
+  tbody.innerHTML = '';
+  let balance = financed;
+  const showEvery = n > 24 ? 6 : 1;
+  const note = n > 24 ? 'Showing every 6th payment for readability.' : 'Showing all payments.';
+  document.getElementById('amortNote').textContent = note;
+
+  for(let i=1; i<=n; i++){
+    const intPmt  = balance * r;
+    const prinPmt = monthlyPayment - intPmt;
+    balance = Math.max(0, balance - prinPmt);
+
+    if(i % showEvery === 0 || i === 1 || i === n){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${i}</td><td>${fmt(monthlyPayment)}</td><td>${fmt(prinPmt)}</td><td>${fmt(intPmt)}</td><td>${fmt(balance)}</td>`;
+      tbody.appendChild(tr);
+    }
+  }
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

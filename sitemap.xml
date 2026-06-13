@@ -89,6 +89,32 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Auto calculator pages -->
+  <url>
+    <loc>https://northcalc.com/car-loan-calculator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northcalc.com/lease-vs-buy-calculator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northcalc.com/car-depreciation-calculator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://northcalc.com/car-affordability-calculator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://northcalc.com/blog/</loc>

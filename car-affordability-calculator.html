@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Affordability Calculator Canada 2026 | NorthCalc</title>
+  <meta name="description" content="How much car can you actually afford in Canada? Calculate your maximum vehicle budget based on your income, debts, and the 20/4/10 rule for smart car buying.">
+  <link rel="canonical" href="https://northcalc.com/car-affordability-calculator.html">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s;white-space:nowrap}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:210px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+    .dd-link.active{font-weight:700}
+    @media(max-width:760px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+    .page-hero-inner{max-width:860px;margin:0 auto}
+    .page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+    .page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+    .content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+    .card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .card h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+    .card h3{font-size:.97rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+    .card p{margin-bottom:.8rem;font-size:.93rem}
+    .card ul,.card ol{padding-left:1.4rem;margin-bottom:.8rem;font-size:.93rem}
+    .card li{margin-bottom:.35rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
+    .field input,.field select{width:100%;padding:.62rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-size:.93rem;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .15s}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--red)}
+    .field .hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+    .inp-prefix{position:relative}.inp-prefix span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-prefix input{padding-left:1.75rem}
+    .inp-suffix{position:relative}.inp-suffix span{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.93rem}
+    .inp-suffix input{padding-right:2.2rem}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
+    .btn{width:100%;padding:.8rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.5rem;transition:background .15s}
+    .btn:hover{background:var(--red-dark)}
+    .results{display:none}
+    .results.show{display:block}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+    @media(max-width:540px){.stat-row{grid-template-columns:1fr}}
+    .stat{background:var(--bg);border-radius:10px;padding:1rem 1.25rem;text-align:center}
+    .stat-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .stat-value{font-size:1.45rem;font-weight:800;color:var(--navy)}
+    .stat-value.red{color:var(--red)}
+    .stat-value.green{color:#059669}
+    .stat-value.amber{color:#d97706}
+    table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.75rem}
+    th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-weight:600;font-size:.78rem}
+    th:not(:first-child),td:not(:first-child){text-align:right}
+    td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#fafafa}
+    details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+    summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+    summary:hover{background:#fafafa}
+    summary::after{content:'＋';font-size:1.1rem;color:var(--muted)}
+    details[open] summary::after{content:'－'}
+    .faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+    .example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+    .tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+    .disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+    .related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.75rem;margin-top:1rem}
+    .tool-chip{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;background:var(--red-light);border-radius:8px;font-size:.82rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+    .tool-chip:hover{background:var(--red);color:var(--white)}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+    .budget-tier{border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;border:2px solid}
+    .budget-tier.conservative{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
+    .budget-tier.moderate{background:#fef9c3;border-color:#fde047;color:#713f12}
+    .budget-tier.maximum{background:#fee2e2;border-color:#fca5a5;color:#7f1d1d}
+    .budget-tier-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+    .budget-tier-title{font-size:1rem;font-weight:800}
+    .budget-tier-amount{font-size:1.5rem;font-weight:800}
+    .budget-tier-desc{font-size:.84rem;opacity:.85}
+    .warning-box{background:#fff1f2;border:1.5px solid var(--red-light);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:var(--red-dark)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a>
+          <a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a>
+          <a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a>
+          <a href="/car-affordability-calculator.html" class="dd-link active">💡 Car Affordability</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>💡 Car Affordability Calculator</h1>
+      <p>Find out exactly how much car you can afford — based on your income, existing debts, and the rules financial advisers actually use.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- INTRO -->
+    <div class="card">
+      <h2>How Much Car Can You Actually Afford?</h2>
+      <p>Most Canadians buy too much car. The average new vehicle transaction in Canada now exceeds $65,000 in 2026 — yet the financial rules that protect your long-term budget cap most people's sensible purchase well below that figure. Walking onto a dealer's lot without knowing your number puts you in a fundamentally weak negotiating position and risks committing 20–30% of your take-home pay to a depreciating asset.</p>
+      <p>This calculator applies three evidence-based rules to your income and debt situation: the classic 20/4/10 rule, the 15% take-home rule, and the lender's Total Debt Service (TDS) ratio. You'll see a conservative budget, a realistic moderate budget, and the maximum a lender might approve — so you know where the lines are before you ever talk to a dealer.</p>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div class="card">
+      <h2>💡 Car Affordability Calculator</h2>
+      <div class="grid2">
+        <div class="field">
+          <label for="grossIncome">Gross Monthly Income</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="grossIncome" placeholder="7500" min="0" step="100"></div>
+          <div class="hint">Your monthly income before tax — what you earn, not what you take home.</div>
+        </div>
+        <div class="field">
+          <label for="takeHome">Monthly Take-Home Pay</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="takeHome" placeholder="5500" min="0" step="100"></div>
+          <div class="hint">After-tax and deductions amount deposited to your bank each month.</div>
+        </div>
+        <div class="field">
+          <label for="existingDebt">Existing Monthly Debt Payments</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="existingDebt" placeholder="400" min="0" step="50" value="0"></div>
+          <div class="hint">Credit cards (minimum payments), student loans, personal loans, other car payments, etc. Do not include rent/mortgage here.</div>
+        </div>
+        <div class="field">
+          <label for="downPayment">Available Down Payment</label>
+          <div class="inp-prefix"><span>$</span><input type="number" id="downPayment" placeholder="8000" min="0" step="500" value="0"></div>
+        </div>
+        <div class="field">
+          <label for="loanTerm">Preferred Loan Term</label>
+          <select id="loanTerm">
+            <option value="36">36 months (3 years)</option>
+            <option value="48">48 months (4 years)</option>
+            <option value="60" selected>60 months (5 years)</option>
+            <option value="72">72 months (6 years)</option>
+            <option value="84">84 months (7 years)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rate">Expected Interest Rate</label>
+          <div class="inp-suffix"><span>%</span><input type="number" id="rate" value="7.99" min="0" max="40" step="0.01"></div>
+          <div class="hint">Your bank's pre-approved rate, or a realistic estimate based on your credit score.</div>
+        </div>
+      </div>
+      <button class="btn" onclick="calcAffordability()">Calculate My Car Budget</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="results">
+      <div class="card">
+        <h2>Your Car Budget Results</h2>
+
+        <div id="tier1" class="budget-tier conservative">
+          <div class="budget-tier-header">
+            <div class="budget-tier-title">Conservative Budget — 20/4/10 Rule</div>
+            <div class="budget-tier-amount" id="r1Price">—</div>
+          </div>
+          <div class="budget-tier-desc">Max 10% of gross income on all auto costs, 20% down, 4-year term. This is the financially safest choice.</div>
+        </div>
+
+        <div id="tier2" class="budget-tier moderate">
+          <div class="budget-tier-header">
+            <div class="budget-tier-title">Moderate Budget — 15% Take-Home Rule</div>
+            <div class="budget-tier-amount" id="r2Price">—</div>
+          </div>
+          <div class="budget-tier-desc">Max 15% of take-home pay on total auto costs (loan + estimated insurance + fuel). A realistic, sustainable budget for most Canadians.</div>
+        </div>
+
+        <div id="tier3" class="budget-tier maximum">
+          <div class="budget-tier-header">
+            <div class="budget-tier-title">Maximum — Lender's Limit (TDS 40%)</div>
+            <div class="budget-tier-amount" id="r3Price">—</div>
+          </div>
+          <div class="budget-tier-desc">The maximum a lender may approve based on a 40% Total Debt Service ratio. This is NOT a recommended spend — it is the ceiling, not the target.</div>
+        </div>
+
+        <div class="warning-box" id="warningBox" style="display:none"></div>
+
+        <h3 style="margin-top:1.25rem">Monthly Cost Breakdown</h3>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-label">Recommended Payment (Moderate)</div>
+            <div class="stat-value" id="resPmt">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Est. Insurance + Fuel</div>
+            <div class="stat-value amber" id="resRunning">~$350/mo</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Total Monthly Auto Cost</div>
+            <div class="stat-value red" id="resTotalMo">—</div>
+          </div>
+        </div>
+
+        <div class="stat-row" style="grid-template-columns:1fr 1fr">
+          <div class="stat">
+            <div class="stat-label">Annual Auto Cost Estimate</div>
+            <div class="stat-value red" id="resAnnual">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">% of Take-Home Used</div>
+            <div class="stat-value" id="resTakeHomePct">—</div>
+          </div>
+        </div>
+
+        <h3>Breakdown by Rule</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Max Monthly Payment</th>
+              <th>Max Loan Amount</th>
+              <th>Max Vehicle Price</th>
+            </tr>
+          </thead>
+          <tbody id="breakdownBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="card">
+      <h2>How to Use This Calculator</h2>
+      <ol>
+        <li><strong>Enter your gross monthly income</strong> — your salary before tax divided by 12. Includes all regular employment income. Do not include bonuses or irregular income for a conservative estimate.</li>
+        <li><strong>Enter your monthly take-home pay</strong> — the amount deposited to your account after income tax, CPP, EI, and other deductions.</li>
+        <li><strong>List your existing monthly debt payments</strong> — minimum credit card payments, student loans, personal loans, any other fixed debt obligations. This is critical: lenders look at total debt, not just the new car loan.</li>
+        <li><strong>Enter your available down payment</strong> — cash you have on hand for a down payment. A larger down payment increases your price ceiling under all three rules.</li>
+        <li><strong>Select your preferred term and expected rate</strong> — use your bank's pre-approved rate if you have one. The default 7.99% is representative for a buyer with good credit in 2026.</li>
+        <li><strong>Click Calculate</strong> — see three budget tiers, your recommended monthly payment, and the full cost breakdown.</li>
+      </ol>
+    </div>
+
+    <!-- EXAMPLE -->
+    <div class="card">
+      <h2>Canadian Example: Toronto Household, 2026</h2>
+      <div class="example-box">
+        <strong>Profile:</strong> Gross monthly income: $7,500 | Take-home: $5,500 | Existing debt payments: $400/mo | Available down payment: $8,000 | Rate: 7.99% | 60-month term<br><br>
+        <strong>Conservative (20/4/10 rule):</strong> Max 10% of $7,500 = $750/mo on all auto costs. Minus estimated insurance ($150) and fuel ($200) = $400/mo for loan payment. At 7.99% × 48 months, max loan ≈ $16,200. At 20% down: max vehicle price ≈ <strong>$28,200</strong>.<br><br>
+        <strong>Moderate (15% take-home):</strong> 15% of $5,500 = $825/mo auto budget. Minus $350 for insurance + fuel = $475/mo for loan. At 7.99% × 60 months, max loan ≈ $23,800. Plus $8,000 down: max vehicle ≈ <strong>$31,800</strong>.<br><br>
+        <strong>Lender maximum (TDS 40%):</strong> 40% of $7,500 gross = $3,000 max total debt. Minus $400 existing debts = $2,600 available for car. At 7.99% × 60 months, max loan ≈ $129,000 theoretical — but sensible lenders apply reality checks. Practically: ≈ <strong>$58,000</strong> ceiling for this profile.<br><br>
+        <em>"Just because a lender will approve $58,000 doesn't mean you should spend it. The moderate budget of ~$31,800 leaves breathing room for savings, emergencies, and everything else life costs."</em>
+      </div>
+    </div>
+
+    <!-- WHAT RESULTS MEAN -->
+    <div class="card">
+      <h2>What Your Results Mean</h2>
+      <h3>The Gap Between Approved and Wise</h3>
+      <p>Lenders assess your ability to service debt — they are not assessing whether spending that much on a car is wise for your overall financial picture. A lender who approves $60,000 is saying "you can probably make the payments." They are not saying you should sacrifice retirement savings, travel, or emergency funds to afford a vehicle payment.</p>
+      <h3>Insurance and Fuel Are Not in the Loan</h3>
+      <p>Many buyers look only at the monthly loan payment when budgeting. But a $700/month car loan on a newer SUV in Ontario also comes with approximately $150–$250/month in insurance (varies heavily by age, location, driving record, and vehicle), plus fuel costs of $150–$300/month depending on your driving distance and fuel prices. Your total monthly auto cost is typically $350–$600 more than your loan payment alone.</p>
+      <h3>Impact on a Mortgage Application</h3>
+      <p>If you plan to buy a home in the next 1–5 years, your car loan matters. Lenders use the Gross Debt Service (GDS) and Total Debt Service (TDS) ratios when qualifying you for a mortgage, and a large car payment directly reduces your qualifying mortgage amount. A $700/month car payment could reduce your qualifying mortgage amount by $100,000 or more, depending on your income and other debts.</p>
+      <h3>Interest Rates Vary by Credit Score</h3>
+      <p>The rates in this calculator are estimates. Buyers with excellent credit (750+) in 2026 can often secure rates of 5.99%–7.99%. Buyers with fair credit (650–699) may face 10%–15%. Subprime borrowers (below 620) may encounter rates of 15%–29.99% through specialist lenders — dramatically changing the affordable price ceiling. Check your credit score before applying, and consider ways to improve it before making a large purchase.</p>
+    </div>
+
+    <!-- FAQs -->
+    <div class="card">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>What is the 20/4/10 rule for buying a car?</summary>
+        <div class="faq-body">The 20/4/10 rule is a classic personal finance guideline that suggests: put at least 20% down on the vehicle, finance for no more than 4 years (48 months), and keep total monthly automotive costs (loan payment + insurance + fuel) at or below 10% of your gross monthly income. This rule was designed to prevent car payments from becoming a financial burden and to ensure you don't spend years underwater on your loan. It's conservative — many Canadians find it tight in 2026 given the high average vehicle prices — but it remains a useful ceiling to benchmark against.</div>
+      </details>
+
+      <details>
+        <summary>How much should I spend on a car based on my salary?</summary>
+        <div class="faq-body">A commonly cited guideline is that the purchase price of your vehicle should not exceed 35% of your annual gross income. So someone earning $80,000/year should spend no more than about $28,000 on a vehicle. Other advisers use take-home pay: spend no more than 15%–20% of your monthly after-tax income on total car costs. In practice, the "right" amount depends on your complete financial picture — housing costs, debt load, savings rate, and financial goals. Use this calculator to find your number based on your specific situation rather than a single rule of thumb.</div>
+      </details>
+
+      <details>
+        <summary>Does buying a car affect my mortgage application?</summary>
+        <div class="faq-body">Yes, significantly. When you apply for a mortgage in Canada, lenders calculate your Gross Debt Service (GDS) ratio and Total Debt Service (TDS) ratio. The TDS includes all debt payments: mortgage principal and interest, property taxes, heating costs, and all other debt payments including your car loan. The maximum TDS ratio most lenders allow is 44%. A $700/month car loan on a gross monthly income of $8,000 adds nearly 9% to your TDS ratio, reducing the mortgage principal you qualify for by a meaningful amount. If you're planning to buy a home, consider timing your car purchase carefully or keeping the vehicle price conservative.</div>
+      </details>
+
+      <details>
+        <summary>Should I put more money down on a car?</summary>
+        <div class="faq-body">Generally yes, for several reasons: a larger down payment reduces the loan principal, cutting total interest paid; it reduces or eliminates the "underwater" period where you owe more than the car is worth; and it may help you qualify for a better interest rate. The 20/4/10 rule specifically recommends 20% down. However, if your down payment comes at the cost of depleting your emergency fund — which should cover 3–6 months of expenses — the maths become less clear. Never put a down payment on a car by drawing down RRSP or TFSA savings with growing compound returns, unless your circumstances strongly warrant it.</div>
+      </details>
+
+      <details>
+        <summary>What credit score do I need for a good car loan rate in Canada?</summary>
+        <div class="faq-body">In Canada, Equifax and TransUnion score from 300–900. For the best auto loan rates in 2026, you generally want a score of 720 or above. Scores of 660–719 are considered "good" and will still access competitive rates, though not the absolute lowest. Scores of 560–659 are "fair" — you'll pay higher rates and may need a co-signer for better terms. Below 560, you're in subprime territory, with rates potentially exceeding 20%–25%. You can check your score for free through Borrowell or Credit Karma in Canada. If your score is below 700, spending 3–6 months improving it before buying could save you thousands of dollars in interest.</div>
+      </details>
+
+      <details>
+        <summary>Are car loan interest rates negotiable in Canada?</summary>
+        <div class="faq-body">Yes — to a degree. Dealer-arranged financing typically includes a markup (finance reserve) above the rate the lender actually quoted. This markup can be 1%–3% and represents profit for the dealership's finance office. Having a pre-approved rate from your bank or credit union in hand gives you leverage to negotiate the dealer's financing rate. If a dealer is offering 7.99% and your bank pre-approved you at 6.99%, use that to push back. The dealer's finance manager may reduce the rate to keep the deal — or may offer other incentives. Never disclose your pre-approved rate immediately; let them make their offer first.</div>
+      </details>
+    </div>
+
+    <!-- TIPS -->
+    <div class="card">
+      <h2>5 Tips to Stay Within Your Car Budget</h2>
+      <div class="tip-box">
+        <strong>Tip 1: Get pre-approved at your bank before visiting any dealer.</strong> A pre-approval letter from your bank or credit union means you arrive as a cash buyer, able to separate the vehicle price negotiation from the financing discussion entirely. It also protects you from inflated dealer financing rates and creates urgency: you have financing ready, so the dealer knows you're serious.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 2: Never tell a dealer your monthly budget target.</strong> If you say "I can afford $700 a month," the dealer will structure the deal to hit exactly $700 — by stretching the term, bundling in extras, or marking up the rate. Always negotiate the total vehicle price first, agree on trade-in value separately, and discuss financing last. These are three separate negotiations, not one.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 3: Budget an extra $300–$400/month beyond the loan payment.</strong> Your loan payment is not your total car cost. Add $150–$250 for insurance (varies significantly by province, age, and vehicle — get quotes first), $150–$200 for fuel based on your driving distance, and a maintenance reserve of $50–$100/month for tires, oil changes, and unexpected repairs. The true all-in cost of a vehicle is often $400–$600 more per month than the loan payment alone.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 4: Consider certified pre-owned instead of new.</strong> Manufacturer-certified pre-owned (CPO) vehicles combine the savings of buying used (typically 20–30% below new pricing) with the peace of mind of an extended manufacturer warranty, rigorous multi-point inspection, and often competitive financing rates. A 2-year-old CPO version of your target vehicle is almost always the best financial decision when comparing new vs used.
+      </div>
+      <div class="tip-box">
+        <strong>Tip 5: Factor in maintenance costs for the vehicle you're considering.</strong> Not all vehicles cost the same to maintain. European luxury brands typically cost 2–3 times as much to service as Japanese mainstream brands. Before falling in love with a specific model, look up typical repair costs, parts availability, and owner reviews for reliability. A vehicle that requires a $2,000 repair every two years costs $83/month in expected maintenance — a real number to include in your affordability calculation.
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div class="card">
+      <h2>Related Calculators</h2>
+      <div class="related-tools">
+        <a href="/car-loan-calculator.html" class="tool-chip">🚗 Car Loan Calculator</a>
+        <a href="/lease-vs-buy-calculator.html" class="tool-chip">🔄 Lease vs Buy</a>
+        <a href="/canadian-income-tax-calculator.html" class="tool-chip">📊 Income Tax</a>
+        <a href="/car-depreciation-calculator.html" class="tool-chip">📉 Car Depreciation</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator provides estimates for informational purposes only based on general financial guidelines. Actual loan approval, interest rates, and affordability depend on individual creditworthiness, lender policies, and other factors. Insurance estimates ($150/mo) and fuel estimates ($200/mo) are national averages — your actual costs will vary. This tool does not constitute financial, credit, or legal advice. Consult a qualified financial adviser before making major purchasing decisions.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+
+function fmt(n){return '$'+Math.round(Math.max(0,n)).toLocaleString('en-CA');}
+function fmtD(n){return '$'+Math.max(0,n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function fmtPct(n){return n.toFixed(1)+'%';}
+
+function pvFromPayment(pmt, r, n){
+  if(r === 0) return pmt * n;
+  return pmt * (1 - Math.pow(1+r, -n)) / r;
+}
+
+function monthlyPmt(pv, r, n){
+  if(r === 0) return pv / n;
+  return pv * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
+}
+
+const EST_INSURANCE = 150;
+const EST_FUEL      = 200;
+const EST_RUNNING   = EST_INSURANCE + EST_FUEL;
+
+function calcAffordability(){
+  const grossIncome  = parseFloat(document.getElementById('grossIncome').value)||0;
+  const takeHome     = parseFloat(document.getElementById('takeHome').value)||0;
+  const existingDebt = parseFloat(document.getElementById('existingDebt').value)||0;
+  const downPayment  = parseFloat(document.getElementById('downPayment').value)||0;
+  const n            = parseInt(document.getElementById('loanTerm').value)||60;
+  const annualRate   = parseFloat(document.getElementById('rate').value)||0;
+
+  if(grossIncome <= 0){alert('Please enter your gross monthly income.');return;}
+  if(takeHome <= 0){alert('Please enter your monthly take-home pay.');return;}
+
+  const r = annualRate / 12 / 100;
+
+  // --- Rule 1: 20/4/10 ---
+  const rule1MaxAutoCost = grossIncome * 0.10;
+  const rule1MaxPayment  = Math.max(0, rule1MaxAutoCost - EST_RUNNING);
+  const rule1MaxLoan     = pvFromPayment(rule1MaxPayment, r, 48); // 4-year term
+  const rule1VehiclePrice = rule1MaxLoan / 0.80; // assumes 20% down
+  const rule1WithDown     = rule1MaxLoan + downPayment;
+
+  // --- Rule 2: 15% take-home ---
+  const autoAllowance2   = takeHome * 0.15;
+  const maxPayment2      = Math.max(0, autoAllowance2 - EST_RUNNING);
+  const rule2MaxLoan     = pvFromPayment(maxPayment2, r, n);
+  const rule2VehiclePrice = rule2MaxLoan + downPayment;
+
+  // --- Rule 3: TDS lender limit (40% gross) ---
+  const maxAllDebt3     = grossIncome * 0.40;
+  const availableForCar = Math.max(0, maxAllDebt3 - existingDebt);
+  const rule3MaxLoan    = pvFromPayment(availableForCar, r, n);
+  const rule3VehiclePrice = rule3MaxLoan + downPayment;
+
+  // Display tiers
+  document.getElementById('r1Price').textContent = fmt(Math.max(0, rule1VehiclePrice));
+  document.getElementById('r2Price').textContent = fmt(Math.max(0, rule2VehiclePrice));
+  document.getElementById('r3Price').textContent = fmt(Math.max(0, rule3VehiclePrice));
+
+  // Recommended = moderate (rule 2)
+  const recMonthlyPmt = maxPayment2;
+  const totalMonthlyCost = recMonthlyPmt + EST_RUNNING;
+  const pctOfTakeHome = takeHome > 0 ? (totalMonthlyCost / takeHome) * 100 : 0;
+
+  document.getElementById('resPmt').textContent        = fmt(recMonthlyPmt) + '/mo';
+  document.getElementById('resRunning').textContent    = '~' + fmt(EST_RUNNING) + '/mo';
+  document.getElementById('resTotalMo').textContent    = fmt(totalMonthlyCost) + '/mo';
+  document.getElementById('resAnnual').textContent     = fmt(totalMonthlyCost * 12) + '/yr';
+  document.getElementById('resTakeHomePct').textContent = fmtPct(pctOfTakeHome) + ' of take-home';
+
+  // Warning
+  const warnBox = document.getElementById('warningBox');
+  if(rule3VehiclePrice < rule2VehiclePrice * 0.5 || availableForCar <= 0){
+    warnBox.style.display = 'block';
+    warnBox.innerHTML = '<strong>Warning:</strong> Your existing debt payments leave very little room for an additional car payment at current income levels. Consider paying down existing debt before purchasing a vehicle, or ensure you have a very modest vehicle budget.';
+  } else if(rule3VehiclePrice > rule2VehiclePrice * 3){
+    warnBox.style.display = 'block';
+    warnBox.innerHTML = '<strong>Note:</strong> The lender maximum is significantly higher than the moderate budget. Just because a lender will approve a large amount does not mean it is financially advisable to borrow it. Use the conservative or moderate figures as your real target.';
+  } else {
+    warnBox.style.display = 'none';
+  }
+
+  // Breakdown table
+  const tbody = document.getElementById('breakdownBody');
+  tbody.innerHTML = '';
+  const rows = [
+    {name:'20/4/10 Rule (Conservative)', pmt: rule1MaxPayment, loan: rule1MaxLoan, price: Math.max(0,rule1VehiclePrice)},
+    {name:'15% Take-Home Rule (Moderate)', pmt: maxPayment2, loan: rule2MaxLoan, price: Math.max(0,rule2VehiclePrice)},
+    {name:'TDS 40% Lender Limit (Maximum)', pmt: availableForCar, loan: rule3MaxLoan, price: Math.max(0,rule3VehiclePrice)}
+  ];
+  rows.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${row.name}</td><td>${fmt(row.pmt)}/mo</td><td>${fmt(row.loan)}</td><td><strong>${fmt(row.price)}</strong></td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
