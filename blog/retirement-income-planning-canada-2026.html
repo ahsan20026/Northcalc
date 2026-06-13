@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canadian Retirement Income Planning Guide 2026 | NorthCalc</title>
+  <meta name="description" content="How do you turn your RRSP, TFSA, CPP, and OAS into reliable monthly income? This guide walks through Canada's retirement income layers and how to optimise them.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    article{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    article h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    article h2:first-child{margin-top:0}
+    article h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    article p{margin-bottom:.9rem;font-size:.94rem}
+    article ul,article ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    article li{margin-bottom:.4rem}
+    article a{color:var(--red);text-decoration:underline}
+    article strong{font-weight:700}
+    article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    article th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    article td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    article tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .tip strong{display:block;margin-bottom:.3rem}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s;margin:.25rem}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link active">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta">
+        <span>📅 June 2026</span>
+        <span>⏱ 8 min read</span>
+        <span>🍁 Canadian Personal Finance</span>
+      </div>
+      <h1>How to Plan Your Retirement Income in Canada — A 2026 Guide</h1>
+      <p class="lead">Saving for retirement is one challenge. Turning that pile of savings into reliable monthly income that lasts 25–30 years is another. For Canadians, retirement income typically comes from four sources — and how you draw from each, and in what order, makes a surprisingly large difference to how much tax you pay.</p>
+    </div>
+  </div>
+
+  <div class="post-wrap">
+    <article>
+
+      <h2>Canada's Four Retirement Income Layers</h2>
+      <p>Most Canadians approaching retirement have access to some combination of four income sources. Understanding each one — and its tax treatment — is the foundation of any retirement income plan.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Source</th>
+            <th>Taxable?</th>
+            <th>Starts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>CPP (Canada Pension Plan)</td><td>Yes</td><td>60–70</td></tr>
+          <tr><td>2</td><td>OAS (Old Age Security)</td><td>Yes</td><td>65–70</td></tr>
+          <tr><td>3</td><td>RRSP / RRIF withdrawals</td><td>Yes</td><td>Anytime (RRIF by 71)</td></tr>
+          <tr><td>4</td><td>TFSA withdrawals</td><td>No</td><td>Anytime</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>CPP</strong> is a contributory pension based on your lifetime earnings and contributions. The maximum in 2026 is roughly $1,364/month at age 65, but most Canadians receive less. Taking CPP early (as young as 60) reduces the monthly amount permanently; delaying to 70 increases it significantly.</p>
+
+      <p><strong>OAS</strong> is a universal pension paid to most Canadians at 65. In 2026 it sits at approximately $698.60/month for those aged 65–74, and slightly more for those 75 and over. It's fully taxable and subject to a clawback if your income is too high.</p>
+
+      <p><strong>RRSP and RRIF</strong> withdrawals are fully taxable as ordinary income. Your RRSP must be converted to a RRIF (or annuity) by December 31 of the year you turn 71, at which point minimum annual withdrawals are required whether you need the money or not.</p>
+
+      <p><strong>TFSA</strong> withdrawals are completely tax-free and do not affect any income-tested government benefits. This makes TFSA money the most flexible retirement asset you have.</p>
+
+      <h2>The Sequence of Withdrawal Problem</h2>
+      <p>Here's what most Canadians don't realise: the <em>order</em> in which you draw from these accounts matters just as much as the total amount you've saved. Draw down the wrong accounts at the wrong time and you could pay tens of thousands of dollars in unnecessary tax over a 25-year retirement.</p>
+
+      <p>The core principle is this: <strong>delay CPP and OAS if you have other income sources in early retirement.</strong> By taking government benefits as late as possible (especially CPP, which increases by 8.4% per year of deferral from 65 to 70), you give yourself a larger, inflation-indexed income base for the rest of your life.</p>
+
+      <p>In your early retirement years — say, 60 to 65 — you have a window of lower income. This is your opportunity to draw down your RRSP/RRIF strategically, paying tax at lower marginal rates, before CPP and OAS arrive and push your income higher.</p>
+
+      <p>After 65, CPP and OAS together form a reliable taxable income base. From that point, you supplement with TFSA withdrawals, which are invisible to CRA and don't affect your OAS eligibility. The goal is to stay below the OAS clawback threshold — approximately $90,997 in 2026 — in every single year of retirement.</p>
+
+      <h2>The RRSP Meltdown Strategy</h2>
+      <p>If you've been a diligent saver, you may be heading into retirement with a large RRSP — and that's where the trouble starts. The mandatory RRIF minimum withdrawal rules at age 71 can force income on you that you didn't need and didn't plan for, potentially pushing you into a higher tax bracket and triggering OAS clawback.</p>
+
+      <p>The RRSP meltdown strategy addresses this directly: start drawing down your RRSP between ages 60 and 71, while your income from government sources is still low. Each dollar you withdraw voluntarily in that window is taxed at a lower rate than it would be if forced out later alongside your CPP, OAS, and other income.</p>
+
+      <p>Here's a simplified example to illustrate the difference. Suppose you have a $500,000 RRSP at age 60 and no other significant income. If you withdraw $40,000 per year from 60 to 71, you'd draw out $440,000 over that period at an effective rate of roughly 26% — paying around $114,000 in tax. If instead you leave the RRSP untouched until forced withdrawals begin, those same funds, now grown larger, may be taxed at 33% or more, and the clawback on OAS applies on top. The difference can easily exceed $50,000 in lifetime tax savings.</p>
+
+      <p>The strategy requires discipline — you're paying tax now to avoid paying more later — but the math is often compelling for Canadians with RRSP balances over $400,000.</p>
+
+      <h2>OAS Clawback — How to Avoid It</h2>
+      <p>The OAS clawback (formally called the OAS recovery tax) works like this: for every dollar of net income above approximately $90,997 in 2026, you repay 15 cents of OAS. Your full OAS is clawed back entirely once your income reaches roughly $148,000. At maximum OAS of about $8,380/year, that's real money to protect.</p>
+
+      <p>The primary tool for managing this is your TFSA. Because TFSA withdrawals are not included in your net income calculation, they are invisible to the OAS clawback formula. If you need $100,000 of spending money in a given year, you're far better off pulling $90,000 from taxable sources and $10,000 from your TFSA than pulling $100,000 from taxable sources and triggering the clawback.</p>
+
+      <p><strong>Pension income splitting</strong> is another highly effective tool. Married or common-law couples can split up to 50% of eligible pension income (including RRIF withdrawals) between their two tax returns. If one spouse has significantly more retirement income than the other, this can substantially reduce combined tax owing and keep both spouses below the clawback threshold.</p>
+
+      <h2>TFSA as the Ultimate Retirement Flex Account</h2>
+      <p>The TFSA is not just a savings account — in retirement, it becomes your most powerful planning tool. Because withdrawals generate zero taxable income, they don't affect your OAS, your Guaranteed Income Supplement (GIS) eligibility, your GST/HST credit, or any other income-tested benefit.</p>
+
+      <p>Think of your TFSA as the buffer layer: when you have a large one-time expense — a home repair, a family trip, a vehicle replacement — draw from the TFSA first rather than spiking your taxable income for the year. This keeps your tax bill and government benefit entitlements stable and predictable.</p>
+
+      <p>Asset placement matters too. Your highest-growth investments belong in the TFSA, because all growth there is permanently tax-free. At death, the TFSA passes to a surviving spouse through a "successor holder" designation with no tax implications and no loss of the survivor's own TFSA room — a clean, efficient transfer that often surprises people with its simplicity.</p>
+
+      <div class="tip">
+        <strong>Tip: Keep Contributing in Retirement</strong>
+        Open a TFSA and maximise it every year of retirement — even if you're drawing it down. Room restores each January 1 as you withdraw, giving you permanent flexibility throughout your retirement years.
+      </div>
+
+      <h2>A Realistic Retirement Income Plan — Example</h2>
+      <p>Let's put this together with a concrete example. Consider a married couple in Ontario, both aged 65, with a combined RRSP/RRIF of $600,000 and a TFSA of $200,000.</p>
+
+      <ul>
+        <li><strong>CPP (both spouses):</strong> $900 + $700 = $1,600/month combined ($19,200/year)</li>
+        <li><strong>OAS (both spouses):</strong> $698.60 + $698.60 = $1,397/month combined ($16,764/year)</li>
+        <li><strong>Government income base:</strong> $2,997/month = $35,964/year — all taxable</li>
+        <li><strong>RRIF withdrawal needed:</strong> approximately $20,000/year to cover living expenses</li>
+        <li><strong>TFSA top-up:</strong> $15,000/year, tax-free — stays well below OAS clawback threshold</li>
+        <li><strong>Total household spending:</strong> approximately $70,964/year</li>
+      </ul>
+
+      <p>In this scenario, total taxable income for the household is approximately $55,964 — split between two people, that's about $27,982 each. At that income level, the effective combined tax rate is around 15%, meaning the couple keeps roughly $47,000 after tax plus the $15,000 TFSA draw for a real spending power of $62,000. That's well-optimised retirement income planning in action.</p>
+
+      <div class="callout">
+        <strong>The Decumulation Gap</strong>
+        Many Canadians focus entirely on accumulating wealth and never plan the decumulation phase. The tax saved by drawing down intelligently can equal years of savings contributions — and it's money you've already earned.
+      </div>
+
+      <h2>CPP and OAS Timing Revisited</h2>
+      <p>In the context of a full retirement income plan, the timing of CPP and OAS isn't just about longevity insurance — it's a tax strategy. By delaying CPP from 65 to 70, you collect 42% more per month for the rest of your life. Combined with the RRSP meltdown strategy (drawing down the RRSP from 60 to 70), many Canadians can save $50,000–$100,000 in lifetime taxes.</p>
+
+      <p>The caveat: this strategy works best for those in good health who expect to live beyond 82 or 83, the typical breakeven point for CPP deferral. And it requires having enough non-CPP income to cover expenses in the early retirement years — which is exactly what a healthy RRSP and TFSA provide.</p>
+
+      <p>Run both scenarios — taking CPP at 65 versus deferring to 70 — before making a decision. A fee-only financial planner can model the numbers for your specific situation. Given the potential dollar impact, this is one of the most valuable conversations you can have in the years approaching retirement.</p>
+
+      <div class="cta-box">
+        <h3>Run the Numbers for Your Retirement</h3>
+        <p>Use our free Canadian retirement calculators to estimate your CPP and OAS income, model your RRSP growth, and check your TFSA contribution room.</p>
+        <a href="/cpp-oas-estimator.html" class="cta-btn">👴 CPP &amp; OAS Estimator</a>
+        <a href="/rrsp-calculator.html" class="cta-btn">📈 RRSP Calculator</a>
+        <a href="/tfsa-room-calculator.html" class="cta-btn">💰 TFSA Room Calculator</a>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This article is for general informational and educational purposes only. It does not constitute financial, tax, or legal advice. Retirement income planning is highly personal and depends on your individual circumstances. Please consult a qualified financial planner or tax professional before making decisions about your retirement income strategy.
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+  function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+  document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Home Savings Account (FHSA) Guide 2026 | NorthCalc</title>
+  <meta name="description" content="The FHSA is Canada's best new savings account for first-time home buyers. Contribute $8,000/year, get a tax deduction, and withdraw tax-free for your first home.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    article{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    article h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    article h2:first-child{margin-top:0}
+    article h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    article p{margin-bottom:.9rem;font-size:.94rem}
+    article ul,article ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    article li{margin-bottom:.4rem}
+    article a{color:var(--red);text-decoration:underline}
+    article strong{font-weight:700}
+    article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    article th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    article td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    article tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .tip strong{display:block;margin-bottom:.3rem}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s;margin:.25rem}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link active">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <div class="post-meta">📅 June 2026 · ⏱ 7 min read · 🍁 Personal Finance</div>
+    <h1>The FHSA: Canada's Best Account for First-Time Home Buyers (2026 Guide)</h1>
+    <p class="lead">In 2023, Canada introduced the First Home Savings Account — arguably the most generous savings account ever created for Canadians. It works like an RRSP and a TFSA at the same time, specifically for buying your first home. Here's how to make the most of it.</p>
+  </div>
+</div>
+
+<main>
+  <div class="post-wrap">
+    <article>
+
+      <h2>What Is the FHSA?</h2>
+      <p>The First Home Savings Account is a registered account that launched on April 1, 2023. It was designed specifically to help Canadians save for a first home by combining the two most valuable tax features available in the Canadian system: the <strong>upfront tax deduction</strong> of an RRSP, and the <strong>tax-free withdrawal</strong> of a TFSA.</p>
+      <p>The annual contribution limit is <strong>$8,000</strong>, and the lifetime maximum is <strong>$40,000</strong>. Unlike the RRSP, where unused room carries forward indefinitely, FHSA room carries forward only one year. So if you miss 2025, you can contribute up to $16,000 in 2026 — but that's as far as the carryforward goes.</p>
+      <p>The account expires after 15 years from the year it was opened, or the year you turn 71 — whichever comes first. This means there's a real clock running: if you open your FHSA and don't use it for a home within 15 years, you need to transfer the balance elsewhere (more on that below).</p>
+
+      <h2>Who Qualifies?</h2>
+      <p>The FHSA eligibility rules are straightforward. You need to be:</p>
+      <ul>
+        <li>A Canadian resident</li>
+        <li>Between 18 and 71 years old</li>
+        <li>A first-time home buyer — meaning neither you nor your spouse or common-law partner has owned and lived in a qualifying home during the current calendar year or at any point in the previous four calendar years</li>
+        <li>Holder of a valid Social Insurance Number (SIN)</li>
+      </ul>
+      <p>That last point on the four-year rule is important and often misunderstood. If you owned a home but sold it five or more years ago and have been renting since, you can qualify again as a first-time buyer. The FHSA is available to you. This makes the account relevant not just for young Canadians entering the market for the first time, but also for people who are re-entering homeownership after a gap.</p>
+
+      <h2>The Incredible Tax Math</h2>
+      <p>Let's put some real numbers to this. Say you earn $95,000 in Ontario — your marginal tax rate is approximately 43.4%. You contribute $8,000 to your FHSA. At tax time, that contribution reduces your taxable income by $8,000, generating a refund of roughly <strong>$3,472</strong>.</p>
+      <p>Now imagine doing that for five consecutive years, and investing your refund back into the account each time:</p>
+      <ul>
+        <li>Total contributed over 5 years: $40,000</li>
+        <li>Total tax refunds received: approximately $17,360</li>
+        <li>Effective out-of-pocket cost: roughly $22,640</li>
+        <li>Investment growth inside the account: entirely tax-free</li>
+        <li>Withdrawal for home purchase: completely tax-free</li>
+      </ul>
+      <p>That's a genuinely powerful outcome. You're saving $40,000 for your home while effectively paying only $22,640 for it — the government covers the rest through your refunds. And any investment gains on top of that come to you tax-free at withdrawal.</p>
+
+      <h2>FHSA vs RRSP vs TFSA — A True Comparison</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>FHSA</th>
+            <th>RRSP</th>
+            <th>TFSA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tax deduction on contributions</td><td>✅ Yes</td><td>✅ Yes</td><td>❌ No</td></tr>
+          <tr><td>Tax-free growth</td><td>✅ Yes</td><td>✅ Yes (deferred)</td><td>✅ Yes</td></tr>
+          <tr><td>Tax-free withdrawal</td><td>✅ For home only</td><td>❌ Taxed on withdrawal</td><td>✅ Always</td></tr>
+          <tr><td>Annual limit (2026)</td><td>$8,000</td><td>18% of income / $31,560</td><td>$7,000</td></tr>
+          <tr><td>Lifetime limit</td><td>$40,000</td><td>No limit</td><td>No limit</td></tr>
+          <tr><td>Unused room carryforward</td><td>1 year only</td><td>Indefinite</td><td>Indefinite</td></tr>
+          <tr><td>If unused for home</td><td>Transfer to RRSP penalty-free</td><td>N/A</td><td>Keep it</td></tr>
+        </tbody>
+      </table>
+
+      <p>The FHSA wins on every dimension for the specific purpose of buying a home. The key limitation — the one-year carryforward — means you need to stay disciplined about contributing annually rather than letting multiple years of room accumulate the way you can with a TFSA or RRSP.</p>
+
+      <div class="callout">
+        <strong>No Downside to Opening One</strong>
+        If you don't end up buying a home, your FHSA balance transfers to your RRSP — penalty-free and without affecting your existing RRSP contribution room. There is genuinely no downside to opening an FHSA as soon as you're eligible.
+      </div>
+
+      <h2>FHSA + Home Buyers' Plan — The Power Combo</h2>
+      <p>The FHSA can be combined with the Home Buyers' Plan (HBP), which allows first-time buyers to withdraw up to $35,000 from their RRSP tax-free for a qualifying home purchase. Using both together is one of the most effective down payment strategies available to Canadians.</p>
+      <p>Here's what the combination looks like in practice:</p>
+      <ul>
+        <li>FHSA: withdraw up to $40,000 (tax-free, no repayment required)</li>
+        <li>HBP from RRSP: withdraw up to $35,000 (tax-free, but must repay over 15 years)</li>
+        <li>Combined maximum: $75,000 per person — or $150,000 for two qualifying buyers purchasing together</li>
+      </ul>
+      <p>On a $500,000 home, $75,000 represents a 15% down payment. That means you still need CMHC mortgage insurance, but at the 2.80% tier rather than 4.00% — a savings of $6,000 in premium alone, plus the compounding interest savings over your amortisation. If you can push toward 20%, you eliminate CMHC insurance entirely.</p>
+
+      <h2>How to Open and Use an FHSA</h2>
+      <p>The account is now widely available. Most major Canadian banks (TD, RBC, BMO, Scotiabank, CIBC), credit unions, and online brokerages (Questrade, Wealthsimple) offer FHSAs. Opening one takes about 15 minutes online.</p>
+      <p>Here's the step-by-step process:</p>
+      <ol>
+        <li><strong>Open the account</strong> at any FHSA-eligible institution</li>
+        <li><strong>Contribute up to $8,000 in 2026</strong> — or up to $16,000 if you have unused room from 2025</li>
+        <li><strong>Invest the funds</strong> — ETFs, GICs, mutual funds, stocks are all eligible, same rules as a TFSA or RRSP</li>
+        <li><strong>Claim the deduction</strong> on your income tax return using Schedule 15</li>
+        <li><strong>At purchase:</strong> complete CRA Form RC969 to make a qualifying first home withdrawal</li>
+        <li><strong>No repayment required</strong> — unlike the HBP, FHSA withdrawals for a qualifying home are completely free and clear</li>
+      </ol>
+
+      <div class="tip">
+        <strong>Open Your FHSA Today — Room Starts When You Open It</strong>
+        Open an FHSA today even if you plan to rent for five more years. The $8,000 annual contribution room begins accumulating from the year you open the account, not the year you contribute. Waiting costs you real money.
+      </div>
+
+      <h2>Common FHSA Mistakes to Avoid</h2>
+      <p>The FHSA is simple in concept but easy to mismanage. Here are the mistakes we see most often:</p>
+      <ul>
+        <li><strong>Not opening one early enough</strong> — you lose room for every year you haven't opened the account. There's no retroactive credit.</li>
+        <li><strong>Over-contributing</strong> — contributions across all your FHSAs (you can hold accounts at multiple institutions) are capped at $8,000/year total. Exceeding this triggers a 1% monthly penalty tax on the excess amount.</li>
+        <li><strong>Misunderstanding the carryforward</strong> — only one year carries forward. If you skip 2025 and 2026, you can't catch up with a $24,000 contribution in 2027. You get $16,000 maximum in one year.</li>
+        <li><strong>Non-qualifying withdrawals</strong> — if you take money out for anything other than a qualifying home purchase, the full withdrawal is added to your taxable income. Treat this account as locked until you buy.</li>
+        <li><strong>Leaving it in cash</strong> — an FHSA sitting in a savings account earning 2–3% is a missed opportunity. Invest it in a low-cost diversified portfolio appropriate to your timeline.</li>
+      </ul>
+
+      <p>The FHSA is, without question, the most compelling savings account available to Canadians who are planning to buy a home. The combination of upfront tax relief and tax-free withdrawal is unprecedented in the Canadian registered account landscape. If you haven't opened one yet, today is the right day to start.</p>
+
+      <div class="cta-box">
+        <h3>Plan Your Home Buying Journey</h3>
+        <p>Use our free calculators to model your mortgage payments and see how much TFSA room you have alongside your FHSA contributions.</p>
+        <a href="/canadian-mortgage-calculator.html" class="cta-btn">🏠 Mortgage Calculator</a>
+        <a href="/tfsa-room-calculator.html" class="cta-btn">💰 TFSA Room Calculator</a>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This article is for general informational purposes only and does not constitute financial, tax, or legal advice. FHSA eligibility rules, contribution limits, and programme details are subject to change — always verify current information with the CRA and a qualified financial or tax professional before making decisions. All figures and examples are for illustrative purposes only.
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>

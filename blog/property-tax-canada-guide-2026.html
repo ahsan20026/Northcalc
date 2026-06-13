@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Tax in Canada by Province — 2026 Guide | NorthCalc</title>
+  <meta name="description" content="Property tax rates vary dramatically across Canadian cities. See average rates by province, how your bill is calculated, and how to appeal if you think you're paying too much.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    article{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    article h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    article h2:first-child{margin-top:0}
+    article h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    article p{margin-bottom:.9rem;font-size:.94rem}
+    article ul,article ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    article li{margin-bottom:.4rem}
+    article a{color:var(--red);text-decoration:underline}
+    article strong{font-weight:700}
+    article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    article th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    article td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    article tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .tip strong{display:block;margin-bottom:.3rem}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s;margin:.25rem}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop">
+        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown">
+          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
+          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
+          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
+          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
+          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
+          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
+          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
+          <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
+        </div>
+      </div>
+      <a href="/blog/" class="nav-link active">Blog</a>
+      <a href="/about.html" class="nav-link">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta">
+        <span>📅 June 2026</span>
+        <span>⏱ 7 min read</span>
+        <span>🏠 Canadian Real Estate</span>
+      </div>
+      <h1>Property Tax in Canada: What You Pay, Why It Varies, and How to Appeal</h1>
+      <p class="lead">Property tax is one of the largest ongoing costs of homeownership in Canada — yet most owners don't fully understand how it's calculated, why their city charges more than the next one, or that they have the right to appeal if they think they're being overcharged. Here's what you need to know.</p>
+    </div>
+  </div>
+
+  <div class="post-wrap">
+    <article>
+
+      <h2>How Property Tax Is Calculated</h2>
+      <p>Property tax is calculated using a straightforward formula, even if the inputs can be confusing:</p>
+
+      <p><strong>Assessed Value × Mill Rate = Annual Property Tax</strong></p>
+
+      <p>The <strong>assessed value</strong> is set by a provincial assessment authority — MPAC (Municipal Property Assessment Corporation) in Ontario, BC Assessment in British Columbia, and equivalent bodies in every other province. This value is supposed to reflect what your home would sell for on the open market, though the frequency of updates varies by province.</p>
+
+      <p>The <strong>mill rate</strong> (also called the tax rate or levy rate) is set annually by your municipality based on how much money the city needs to run itself — roads, transit, fire, police, schools, libraries, and everything else local government does. It's expressed as a percentage of assessed value or as dollars per $1,000 of value.</p>
+
+      <p>As a concrete example: a home assessed at $700,000 in Toronto with a residential mill rate of approximately 0.631% would generate an annual property tax bill of $4,417. Straightforward in principle — the complication is that both the assessed value and the mill rate can change from year to year, and not always in sync.</p>
+
+      <h2>Property Tax Rates by Major Canadian City (2026 Estimates)</h2>
+      <p>This is where things get interesting — and sometimes surprising. The range of residential property tax rates across Canadian cities is enormous.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Approx. Rate</th>
+            <th>Tax on $700K Home</th>
+            <th>Tax on $1M Home</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Vancouver, BC</td><td>0.27%</td><td>$1,890</td><td>$2,700</td></tr>
+          <tr><td>Toronto, ON</td><td>0.63%</td><td>$4,410</td><td>$6,300</td></tr>
+          <tr><td>Ottawa, ON</td><td>1.05%</td><td>$7,350</td><td>$10,500</td></tr>
+          <tr><td>Calgary, AB</td><td>0.64%</td><td>$4,480</td><td>$6,400</td></tr>
+          <tr><td>Edmonton, AB</td><td>0.87%</td><td>$6,090</td><td>$8,700</td></tr>
+          <tr><td>Winnipeg, MB</td><td>1.28%</td><td>$8,960</td><td>$12,800</td></tr>
+          <tr><td>Halifax, NS</td><td>1.14%</td><td>$7,980</td><td>$11,400</td></tr>
+          <tr><td>Saskatoon, SK</td><td>1.11%</td><td>$7,770</td><td>$11,100</td></tr>
+        </tbody>
+      </table>
+      <p><em>Note: rates are approximate residential rates for 2026 and change annually. Always verify with your municipality.</em></p>
+
+      <p>The gap between Vancouver and Winnipeg is striking — a $700,000 home in Vancouver generates less than $2,000 in annual property tax, while the same value home in Winnipeg generates nearly $9,000. That's a difference of over $7,000 per year, every year you own the home.</p>
+
+      <div class="tip">
+        <strong>Tip: Check the Specific Municipality, Not the Province</strong>
+        When budgeting for a home purchase, always look up the actual property tax rate for that specific municipality — not just the province average. Ottawa rates are 66% higher than Toronto's, and both are in Ontario.
+      </div>
+
+      <h2>Why Does Vancouver Pay So Little and Winnipeg So Much?</h2>
+      <p>The answer comes down to the relationship between home values and the cost of running a city. Municipal services — roads, transit, police, fire — cost roughly similar amounts per resident regardless of what homes are worth. A city needs to raise enough tax revenue to fund those services.</p>
+
+      <p>In Vancouver and Toronto, home values are so high that even a low mill rate generates substantial revenue per property. The city can set a lower rate and still collect enough money. In Winnipeg or Saskatoon, average home values are far lower, so the mill rate must be higher to generate the same revenue per dollar of city budget.</p>
+
+      <p>There's also a regional difference in reliance on property tax versus other revenue sources (development charges, provincial transfers, utilities). Prairies and Atlantic Canadian municipalities tend to depend more heavily on property tax, which keeps rates elevated compared to BC and Ontario urban centres.</p>
+
+      <p>The practical takeaway: when comparing cities for affordability, the property tax rate matters more than the sticker price of the home alone. A $600,000 home in Winnipeg carries more annual property tax than a $900,000 home in Vancouver.</p>
+
+      <h2>Assessment vs Market Value</h2>
+      <p>One of the most common points of confusion is the difference between your property's assessed value and its market value. These are related but not always identical.</p>
+
+      <p>In <strong>Ontario</strong>, MPAC conducts province-wide reassessments every four years, with assessments typically phased in over four years to prevent sudden spikes in bills. During the current reassessment cycle, your assessed value is fixed even if market prices are moving dramatically — which means assessments can lag well behind real market conditions.</p>
+
+      <p>In <strong>British Columbia</strong>, BC Assessment produces a new assessed value every January 1st that is supposed to reflect current market value. Assessment notices arrive in January, with the value based on the market as of July 1 of the prior year. BC assessments tend to track the market more closely than Ontario's four-year cycle.</p>
+
+      <p>In <strong>Alberta</strong>, municipalities conduct annual assessments intended to reflect current market value as of July 1 of the prior year. The system is more current than Ontario's but varies somewhat by municipality in how closely it tracks actual sales.</p>
+
+      <p>The key point: if your assessed value seems significantly higher than what you believe your home would actually sell for — or higher than recent sales of comparable homes in your neighbourhood — you may have grounds for an appeal.</p>
+
+      <h2>Property Tax and Your Mortgage</h2>
+      <p>Most Canadian lenders will collect property tax as part of your regular mortgage payment — typically adding one-twelfth of your estimated annual tax bill to each monthly payment, then remitting the funds directly to the municipality on your behalf. This is sometimes called a tax account or property tax holdback.</p>
+
+      <p>The benefit is convenience: you never have to worry about a lump-sum payment. The downside is that you're effectively prepaying the municipality and losing the interest float on that money. Some lenders allow you to opt out and pay your property taxes directly if you prefer — worth asking about, especially with larger balances.</p>
+
+      <p>For budgeting purposes, a commonly used rule of thumb is to budget approximately 1% of your home's value per year for property tax. That's a rough guide — it's too low for Winnipeg and too high for Vancouver — but it's a reasonable starting point when evaluating the true carrying costs of homeownership.</p>
+
+      <div class="callout">
+        <strong>Rates Can Rise Even If Your Home Value Doesn't</strong>
+        Property tax increases are often tied to municipal budget votes, not just your home's value. A city with growing infrastructure needs can raise your bill even if your home value hasn't changed. Check your local city budget news each year.
+      </div>
+
+      <h2>How to Appeal Your Property Tax Assessment</h2>
+      <p>If you believe your assessed value is too high relative to what your home would actually sell for, you have the right to appeal. The process varies by province, but the general structure is consistent across the country.</p>
+
+      <ol>
+        <li><strong>Do your homework first:</strong> Look up recent sales of comparable homes in your neighbourhood — same size, age, and condition. Most provincial assessment authorities have public databases where you can compare assessments. If similar homes sold for $650,000 but yours is assessed at $740,000, you have a reasonable case.</li>
+        <li><strong>Request for Reconsideration:</strong> File a formal request with your provincial assessment authority. In Ontario, this is called a Request for Reconsideration with MPAC. It's free and typically must be filed within 90 days of receiving your assessment notice. An assessor will review your evidence and respond.</li>
+        <li><strong>Formal Appeal:</strong> If the reconsideration doesn't produce a satisfactory result, you can file a formal appeal with the Assessment Review Board (in Ontario) or equivalent tribunal in your province. There is a small filing fee and the process is more formal, but you don't need a lawyer to navigate it.</li>
+        <li><strong>Property Tax Consultant:</strong> For higher-value properties, consider engaging a property tax consultant — firms that specialise in assessment appeals. They typically work on contingency, taking 30–50% of any tax savings they achieve. They're most effective for commercial properties but can be worthwhile for higher-value residential properties too.</li>
+      </ol>
+
+      <p>Success rates vary, but in Ontario approximately 30–40% of appeals result in a reduction in assessed value. The effort is most worthwhile when the potential annual tax saving is meaningful — generally when your assessed value appears to be off by more than 5–10%.</p>
+
+      <h2>Senior and Low-Income Property Tax Relief</h2>
+      <p>Many Canadians are unaware that provincial governments offer significant property tax relief programs for seniors and lower-income households. These programs are consistently underused, often because eligible homeowners simply don't know they exist.</p>
+
+      <p>In <strong>Ontario</strong>, the Senior Homeowners' Property Tax Grant provides up to $500 per year for qualifying seniors aged 64 and over. Applications are made through your provincial income tax return.</p>
+
+      <p>In <strong>British Columbia</strong>, the Property Tax Deferment Program allows qualifying homeowners (including seniors 55 and over) to defer their property taxes until they sell the home. The deferred taxes accumulate as a low-interest lien on the property — you pay the cost of the program but not the full bill each year.</p>
+
+      <p>In <strong>Alberta</strong>, the Seniors Property Tax Deferral Program offers a similar mechanism — a low-interest loan to cover property taxes for seniors 65 and older.</p>
+
+      <p>Most other provinces have comparable programs. Check your provincial government website for current eligibility and application requirements — this is genuinely free money that many qualifying homeowners leave on the table every year.</p>
+
+      <div class="cta-box">
+        <h3>Planning a Home Purchase? Run Your Full Cost Picture</h3>
+        <p>Property tax is just one of the carrying costs of homeownership. Use our free calculators to estimate your full mortgage payment and compare the true cost of buying vs renting.</p>
+        <a href="/canadian-mortgage-calculator.html" class="cta-btn">🏠 Mortgage Calculator</a>
+        <a href="/rent-vs-buy-calculator.html" class="cta-btn">🔑 Rent vs Buy Calculator</a>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> Property tax rates and assessment rules change annually and vary significantly by municipality. The rates shown in this article are estimates for general informational purposes only and should not be relied upon for financial or legal decisions. Always verify current rates and appeal deadlines directly with your municipality or provincial assessment authority.
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+  function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+  document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>
