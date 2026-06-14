@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Retirement Income Is Taxed in Ontario (2026 Guide) | NorthCalc</title>
+  <meta name="description" content="A complete guide to how CPP, OAS, pension income, RRIF withdrawals, and investment income are taxed in Ontario in 2026. Includes OAS clawback thresholds, age amount credits, and tax-saving strategies.">
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover{background:var(--red-light);color:var(--red)}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+.post-hero-inner{max-width:720px;margin:0 auto}
+.post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+.post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+.post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+.post-body{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.post-body h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+.post-body h2:first-child{margin-top:0}
+.post-body h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+.post-body p{margin-bottom:.9rem;font-size:.94rem}
+.post-body ul,.post-body ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+.post-body li{margin-bottom:.4rem}
+.post-body a{color:var(--red);text-decoration:underline}
+.post-body strong{font-weight:700}
+.post-body table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+.post-body th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+.post-body td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+.post-body tr:hover td{background:#fafafa}
+.callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+.callout strong{display:block;margin-bottom:.3rem}
+.tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+.cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+.cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+.cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s}
+.cta-btn:hover{background:var(--red-dark)}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP & OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" class="nav-link active">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta">
+        <span>📅 June 2026</span>
+        <span>💰 Retirement</span>
+        <span>⏱ 9 min read</span>
+      </div>
+      <h1>How Retirement Income Is Taxed in Ontario (2026 Guide)</h1>
+      <p class="lead">Ontario retirees face federal tax plus up to 13.16% provincial tax. Here's exactly how each income source is taxed — and what you can do to keep more.</p>
+    </div>
+  </div>
+
+  <div class="post-wrap">
+    <div class="post-body">
+
+      <h2>Introduction</h2>
+      <p>Ontario is home to more retirees than any other province — and for good reason. World-class healthcare, urban amenities, and a vast rural countryside make it one of Canada's most popular places to spend your golden years. But those golden years come with a tax bill that many Canadians underestimate.</p>
+      <p>Unlike employment income — where your employer handles withholding and your T4 tells you almost everything you need — retirement income arrives from multiple sources, each with its own tax rules, credits, and potential traps. CPP and OAS are taxable but only one triggers a clawback. RRIF withdrawals are fully taxable but eligible for a valuable pension income credit if you're over 65. TFSA withdrawals are completely tax-free and invisible to the CRA. Get the order and amounts right, and you could save thousands of dollars every year.</p>
+      <p>This guide breaks down every major retirement income source, how Ontario taxes it in 2026, which credits apply, and the most powerful strategies to legally reduce what you owe.</p>
+
+      <div class="cta-box">
+        <h3>See Your Actual Retirement Tax Bill</h3>
+        <p>Enter your CPP, OAS, pension, and RRIF amounts to calculate your combined federal + Ontario tax in seconds.</p>
+        <a href="/retirement-income-tax-calculator.html" class="cta-btn">Retirement Income Tax Calculator</a>
+      </div>
+
+      <h2>How Each Retirement Income Source Is Taxed</h2>
+
+      <h3>Canada Pension Plan (CPP) and QPP</h3>
+      <p>CPP retirement benefits are <strong>fully taxable as ordinary income</strong> at your marginal combined federal and Ontario rate. There is no special treatment, no inclusion rate, and no exemption. Every dollar of CPP appears on your T4A(P) slip and flows directly into your net income for tax purposes.</p>
+      <p>In 2026, the maximum CPP retirement benefit at age 65 is approximately <strong>$1,364 per month ($16,368/year)</strong> for those who contributed at the maximum rate throughout their working lives. Most retirees receive considerably less — the average monthly benefit is closer to $800–$900/month.</p>
+      <p>At a combined income of $80,000, your combined federal + Ontario marginal rate is approximately <strong>31.5%</strong>. That means a $16,368 CPP payment generates roughly $5,156 in combined income tax. If your total income sits between $51,446 and $102,894 (Ontario's second bracket), your Ontario portion alone is 9.15%.</p>
+      <div class="callout">
+        <strong>Important:</strong> Unlike QPP contributions made in Quebec, Ontario residents do not have the option to elect out of CPP contributions if still working. However, once you begin collecting CPP retirement benefits, you can still contribute to CPP if working — and those post-retirement contributions generate a CPP Post-Retirement Benefit that is also fully taxable.
+      </div>
+
+      <h3>Old Age Security (OAS)</h3>
+      <p>OAS is also <strong>fully taxable as ordinary income</strong>. In 2026, the maximum OAS payment for recipients aged 65–74 is approximately $700/month ($8,400/year), with a 10% top-up for recipients aged 75 and older.</p>
+      <p>What makes OAS unique is the <strong>OAS Recovery Tax (clawback)</strong>. If your net income before adjustments exceeds <strong>$90,997</strong> (2026 threshold), you must repay 15 cents of OAS for every dollar of net income above that threshold. OAS is fully clawed back once net income reaches approximately <strong>$148,000</strong>.</p>
+      <p>The clawback is calculated on your previous year's income and deducted from monthly OAS payments in the following July-to-June payment year — meaning poor income planning in one year can reduce your OAS for a full 12 months the following year.</p>
+
+      <div class="callout">
+        <strong>2026 OAS Clawback Quick Facts:</strong> Clawback starts at $90,997 net income · Rate: 15 cents per dollar above threshold · Full clawback at ~$148,000 · Calculated on Line 23400 of your T1 · Applied July to June of the following year
+      </div>
+
+      <h3>Defined Benefit (DB) Pension</h3>
+      <p>Monthly income from a defined benefit pension plan — whether from a government employer, a union plan, or a corporate pension — is <strong>fully taxable as ordinary income</strong>. It appears on a T4A slip and is added to your net income alongside CPP and OAS.</p>
+      <p>The key advantage of DB pension income is eligibility for the <strong>Pension Income Tax Credit</strong>. At the federal level, this credit covers the first $2,000 of eligible pension income and saves approximately <strong>$303 in federal tax</strong> (at the 15% federal rate). Ontario mirrors this with a provincial pension income credit on the first $1,598 of eligible pension income, saving approximately <strong>$81 in Ontario tax</strong>. Combined, the credit is worth approximately <strong>$702 per year</strong> for most Ontario retirees.</p>
+      <p>Eligible pension income for the purpose of this credit includes DB pension payments, RRIF withdrawals (if you are 65 or older), and certain annuity payments from an RRSP or DPSP.</p>
+
+      <h3>RRIF Withdrawals</h3>
+      <p>Once your RRSP is converted to a Registered Retirement Income Fund (RRIF) — which must happen by December 31 of the year you turn 71 — all withdrawals are <strong>fully taxable as ordinary income</strong>. Unlike an RRSP, a RRIF requires <strong>mandatory minimum withdrawals</strong> each year based on your age and the value of the plan at the start of the year.</p>
+      <p>Key minimum withdrawal rates for Ontario retirees in 2026:</p>
+      <ul>
+        <li><strong>Age 65:</strong> 4.00% of RRIF value</li>
+        <li><strong>Age 71:</strong> 5.28% of RRIF value (first year of mandatory minimum)</li>
+        <li><strong>Age 75:</strong> 5.82%</li>
+        <li><strong>Age 80:</strong> 6.82%</li>
+        <li><strong>Age 85:</strong> 8.51%</li>
+        <li><strong>Age 90:</strong> 11.92%</li>
+        <li><strong>Age 95+:</strong> 20.00%</li>
+      </ul>
+      <p>Withholding tax applies to RRIF withdrawals <strong>above the minimum</strong>: 10% on amounts up to $5,000, 20% on $5,001–$15,000, and 30% on amounts over $15,000. These are withholding amounts — your actual tax owing is determined at filing time based on your total income. If your marginal rate is higher than the withholding rate, you may owe additional tax.</p>
+      <div class="tip">
+        <strong>Good news for those 65+:</strong> RRIF withdrawals count as eligible pension income once you turn 65, making them eligible for the $2,000 pension income credit — even if you voluntarily convert your RRSP to a RRIF before age 71. Drawing a minimum of $2,000/year from a RRIF starting at age 65 can shelter that amount from tax via the pension income credit.
+      </div>
+
+      <h3>Investment Income in Non-Registered Accounts</h3>
+      <p>Many Ontario retirees hold investments in non-registered (taxable) accounts — GICs, dividend-paying stocks, bonds, or mutual funds. The tax treatment varies significantly by income type:</p>
+
+      <p><strong>Interest income</strong> (GICs, bonds, savings accounts, T-bills): 100% included in income and taxed at your full marginal rate. The least tax-efficient form of investment income.</p>
+
+      <p><strong>Canadian eligible dividends:</strong> Grossed up by 38% before being included in your income (so $1,000 of dividends becomes $1,380 on your return). You then claim the federal Dividend Tax Credit (DTC) of 15.02% of the grossed-up amount, plus Ontario's DTC of approximately 10% of the grossed-up amount. The net effect is that eligible dividends are taxed at a much lower effective rate than interest — roughly 25%–29% for Ontario retirees in the middle brackets — but the gross-up also increases net income, which can affect OAS clawback calculations.</p>
+
+      <p><strong>Capital gains:</strong> For dispositions in 2026, the first $250,000 of net capital gains uses a <strong>50% inclusion rate</strong> (only half the gain is taxed). Capital gains above $250,000 are subject to a <strong>2/3 (66.67%) inclusion rate</strong> following the 2024 federal budget changes. A $50,000 capital gain below the threshold adds $25,000 to your taxable income; a $400,000 capital gain adds $125,000 + $100,000 = $225,000 to taxable income.</p>
+
+      <p><strong>Return of capital (ROC):</strong> Not immediately taxable — it reduces your adjusted cost base and defers the tax until you sell the investment.</p>
+
+      <h3>TFSA Withdrawals</h3>
+      <p>Tax-Free Savings Account withdrawals are <strong>completely tax-free</strong> — they do not appear on your tax return, are not added to net income, and do not affect OAS clawback calculations whatsoever. This makes the TFSA arguably the most powerful tool an Ontario retiree has for managing their tax bill in retirement.</p>
+      <p>For 2026, Canadians who were 18+ in 2009 have a cumulative TFSA contribution room of approximately <strong>$102,000</strong> (depending on exact annual limits). A couple could have up to $204,000 in combined TFSA room — enough to hold a meaningful income-generating portfolio entirely outside the clawback calculation.</p>
+
+      <div class="cta-box">
+        <h3>How Much TFSA Room Do You Have?</h3>
+        <p>Calculate your exact TFSA contribution room based on your birth year and contribution history.</p>
+        <a href="/tfsa-room-calculator.html" class="cta-btn">TFSA Room Calculator</a>
+      </div>
+
+      <h2>Ontario Provincial Tax Rates 2026</h2>
+      <p>Ontario retirees pay both federal income tax and Ontario provincial income tax. The combined marginal rate is the sum of the two. Here are the 2026 Ontario provincial brackets:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Taxable Income (Ontario)</th>
+            <th>Ontario Rate</th>
+            <th>Combined Fed + ON Rate (approx.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$0 – $51,446</td><td>5.05%</td><td>~20.05%</td></tr>
+          <tr><td>$51,446 – $102,894</td><td>9.15%</td><td>~31.15%</td></tr>
+          <tr><td>$102,894 – $150,000</td><td>11.16%</td><td>~43.41%</td></tr>
+          <tr><td>$150,000 – $220,000</td><td>12.16%</td><td>~49.53%</td></tr>
+          <tr><td>$220,000+</td><td>13.16%</td><td>~53.53%</td></tr>
+        </tbody>
+      </table>
+
+      <p>In addition to the basic provincial tax, Ontario levies a <strong>provincial surtax</strong> on higher-income residents:</p>
+      <ul>
+        <li><strong>20% surtax</strong> on Ontario basic tax in excess of $5,315</li>
+        <li>An <strong>additional 36% surtax</strong> on Ontario basic tax in excess of $6,802</li>
+      </ul>
+      <p>The surtax kicks in at relatively modest Ontario income levels (roughly $75,000–$80,000 in taxable income), meaning many Ontario retirees with moderate incomes will encounter it. The surtax is what pushes Ontario's effective top marginal rate above 53% when combined with the federal rate.</p>
+
+      <div class="callout">
+        <strong>Key point for retirees:</strong> Ontario's surtax makes each additional dollar of income at mid-to-high income levels more expensive than it first appears. A retiree in the $102,894–$150,000 range faces an effective Ontario rate significantly higher than the headline 11.16% once the surtax is factored in.
+      </div>
+
+      <h2>Key Senior Tax Credits: Federal and Ontario</h2>
+      <p>Several non-refundable tax credits specifically benefit retirees aged 65 and older. These credits reduce the tax you owe (not just taxable income), making them highly valuable. Here's a summary of the most important ones for 2026:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Credit</th>
+            <th>Federal Amount</th>
+            <th>Ontario Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic Personal Amount</td><td>$16,129</td><td>$11,865</td></tr>
+          <tr><td>Age Amount (65+)</td><td>$8,790</td><td>$5,813</td></tr>
+          <tr><td>Pension Income Credit</td><td>$2,000</td><td>$1,598</td></tr>
+          <tr><td>CPP/EI Contributions (retired)</td><td>$0</td><td>$0</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Age Amount:</strong> Available to taxpayers 65 or older at the end of the tax year. At the federal level, the full $8,790 amount is available if your net income is <strong>$44,325 or less</strong> in 2026. It phases out at a rate of 15% of net income above $44,325, disappearing entirely at approximately $103,000 of net income. Ontario has a similar phase-out on the provincial age amount.</p>
+
+      <p>At the 15% federal rate, the full federal age amount credit is worth up to <strong>$1,319 in federal tax savings</strong>. Ontario's age amount credit saves up to approximately <strong>$294</strong> in Ontario tax. Combined, the full age amount can save an Ontario senior over <strong>$1,600 per year</strong> — but only if income stays below the phase-out threshold.</p>
+
+      <p><strong>Medical expense credit, disability tax credit, and caregiver credits</strong> are also available to Ontario retirees who qualify and can add further meaningful reductions to the tax bill.</p>
+
+      <h2>OAS Clawback: How to Avoid It</h2>
+      <p>For retirees with moderate-to-high incomes, OAS clawback is one of the most expensive and frustrating elements of the Canadian tax system. At its peak, you're losing 15 cents of OAS for every dollar of income above $90,997 — on top of paying marginal tax on that same dollar. The combined effective marginal rate in the clawback zone can exceed <strong>55%</strong> for Ontario retirees.</p>
+      <p>Here are the most effective strategies Ontario retirees use to reduce or eliminate OAS clawback:</p>
+
+      <h3>1. Draw from TFSA Instead of Registered Accounts</h3>
+      <p>TFSA withdrawals are invisible to the CRA for income-tested benefits purposes. If you need $20,000 in additional spending money and you take it from a TFSA rather than an RRIF, your net income — and thus your OAS clawback exposure — is completely unaffected. Prioritizing TFSA draws in years when your income is approaching the $90,997 threshold is one of the simplest and most effective clawback strategies.</p>
+
+      <h3>2. Pension Income Splitting</h3>
+      <p>If your spouse earns significantly less income than you, splitting eligible pension income (DB pension, RRIF age 65+) can move income from a high-income spouse to a lower-income spouse. This reduces the higher-income spouse's net income — potentially pulling it below the OAS clawback threshold — while keeping the combined household tax bill lower.</p>
+
+      <h3>3. Strategic RRSP/RRIF Timing</h3>
+      <p>Consider converting your RRSP to a RRIF and beginning withdrawals before age 71 — particularly in lower-income years in your mid-to-late 60s. By drawing down RRSP/RRIF assets while your income is lower, you can reduce the size of mandatory minimum withdrawals later (when income from all sources may be higher) and avoid being pushed over the clawback threshold at age 75+.</p>
+
+      <h3>4. Charitable Donations</h3>
+      <p>Charitable donations are claimed as credits, but a donation of publicly listed securities directly to a charity eliminates the capital gain entirely and generates a donation receipt at fair market value. Large donations, particularly of appreciated securities, can materially reduce your net income in a given year, reducing clawback exposure while also generating significant tax credits.</p>
+
+      <h3>5. Capital Loss Harvesting</h3>
+      <p>If you hold investments with unrealized capital losses in non-registered accounts, strategically realizing those losses in years when you have capital gains can reduce net capital gains — which in turn reduces net income and lowers clawback exposure. Losses can be carried back three years or forward indefinitely.</p>
+
+      <h2>Pension Income Splitting in Ontario</h2>
+      <p>Pension income splitting under the T1032 election is one of the most valuable tools for Ontario couples. It allows the higher-income spouse to allocate <strong>up to 50%</strong> of eligible pension income to the lower-income spouse, effectively transferring both the income and associated taxes to the lower bracket.</p>
+
+      <p><strong>What qualifies as eligible pension income for splitting:</strong></p>
+      <ul>
+        <li>Defined benefit (DB) pension payments (all ages)</li>
+        <li>RRIF withdrawals (age 65 and older only)</li>
+        <li>Annuity payments from an RRSP (age 65+)</li>
+        <li>Foreign pension income that qualifies under tax treaties</li>
+      </ul>
+
+      <p><strong>What does NOT qualify:</strong></p>
+      <ul>
+        <li>CPP/QPP retirement benefits</li>
+        <li>OAS benefits</li>
+        <li>RRIF withdrawals before age 65</li>
+        <li>DPSP annuity payments under 65</li>
+      </ul>
+
+      <p><strong>Example — the power of splitting:</strong> Suppose Spouse A has a DB pension of $90,000/year and Spouse B has $30,000/year in CPP and OAS. Without splitting, Spouse A pays tax at Ontario's higher rates on the full $90,000. With a 50% split, $45,000 moves to Spouse B, bringing Spouse B's total income to $75,000. The household saves both federal and Ontario tax on the amount shifted to the lower bracket, and Spouse A's net income drops below the OAS clawback threshold. In a typical scenario like this, optimal pension splitting saves approximately <strong>$4,200 per year</strong> in combined taxes.</p>
+
+      <p>Both spouses must agree to the split and file the T1032 form with their returns. The split applies only for tax purposes — no actual money changes hands.</p>
+
+      <div class="cta-box">
+        <h3>Model Your Pension Splitting Savings</h3>
+        <p>Enter both spouses' income to find the optimal split and see your combined tax savings.</p>
+        <a href="/income-splitting-calculator.html" class="cta-btn">Income Splitting Calculator</a>
+      </div>
+
+      <h2>Worked Example: Ontario Retired Couple</h2>
+      <p>Let's model a realistic Ontario couple, both aged 68, to illustrate the impact of pension splitting on their 2026 tax bill.</p>
+
+      <p><strong>Spouse A's income:</strong></p>
+      <ul>
+        <li>CPP: $900/month = $10,800/year</li>
+        <li>OAS: $700/month = $8,400/year</li>
+        <li>DB Pension: $3,000/month = $36,000/year</li>
+        <li>Total: $55,200/year</li>
+      </ul>
+
+      <p><strong>Spouse B's income:</strong></p>
+      <ul>
+        <li>CPP: $400/month = $4,800/year</li>
+        <li>OAS: $700/month = $8,400/year</li>
+        <li>Total: $13,200/year</li>
+      </ul>
+
+      <p><strong>Without pension splitting:</strong> Spouse A's total income of $55,200 falls mostly in Ontario's 9.15% bracket. After credits (basic personal, age amount, pension income credit), Spouse A's combined federal + Ontario tax is approximately $7,800. Spouse B with $13,200 pays virtually no income tax after credits. Combined household tax: approximately $7,800.</p>
+
+      <p><strong>With pension splitting (optimal ~$18,000 split):</strong> Spouse A transfers $18,000 of DB pension income to Spouse B. Spouse A's income falls to $37,200 — deeply into Ontario's lowest bracket and well below the age amount phase-out. Spouse B's income rises to $31,200. Both spouses now claim the age amount credit in full, the pension income credit is claimed by both (since Spouse B now receives allocated pension income), and the household total drops to approximately <strong>$3,600 in combined tax</strong>.</p>
+
+      <p>The pension splitting saves this couple roughly <strong>$4,200 per year</strong> — simply by filing a T1032 election. Over a 20-year retirement, that's over $84,000 in tax savings (before inflation).</p>
+
+      <div class="tip">
+        <strong>Tip:</strong> The optimal split amount is rarely exactly 50%. Use NorthCalc's Income Splitting Calculator to find the precise allocation that minimizes your household's combined tax. The optimal point shifts each year as income levels change.
+      </div>
+
+      <h2>RRIF Withdrawal Strategy: Minimizing Forced Income</h2>
+      <p>For many Ontario retirees, RRIF mandatory minimum withdrawals eventually become the largest source of taxable income — and the hardest to control. Careful pre-retirement and early-retirement planning can significantly reduce the amount you're forced to withdraw at higher income levels.</p>
+
+      <h3>Start RRSP Withdrawals Before Age 71</h3>
+      <p>The most powerful RRIF strategy begins before you even have a RRIF. Consider making voluntary RRSP withdrawals in your late 60s — particularly in years when your other income (CPP, OAS, pension) is lower than it will be once all sources are in payment. Drawing down RRSP assets at a 20%–25% combined rate in your mid-60s is far preferable to withdrawing them at 35%–45% in your 80s when the RRIF minimum has become substantial.</p>
+      <p>Even better: in years between retirement and age 65 when CPP and OAS haven't yet started, you may have very low income. These are ideal years to accelerate RRSP withdrawals at minimal tax rates — possibly even in the first federal bracket at 15%.</p>
+
+      <h3>Spousal RRSP Contributions</h3>
+      <p>If one spouse has a significantly larger RRSP than the other, spousal RRSP contributions made before age 71 can equalize the eventual RRIF balances between spouses. This smooths out income splitting in retirement without requiring a T1032 election, and also reduces the mandatory minimums that either spouse faces at older ages. Spousal RRSP contributions are claimed by the contributing spouse as a deduction but taxed in the hands of the annuitant spouse when withdrawn (subject to the three-year attribution rule).</p>
+
+      <h3>Consider Meltdown Scenarios Carefully</h3>
+      <p>An "RRSP meltdown" strategy — aggressively drawing down RRSP/RRIF assets while offsetting the income with other deductions — can be effective in specific situations but requires careful modelling. The goal is to avoid large RRIF balances at age 71+ that generate massive mandatory taxable income at high marginal rates. Work with a qualified financial planner to model the ideal annual withdrawal path based on your specific income sources, age, and estate goals.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>Is CPP income taxed in Ontario?</h3>
+      <p>Yes. CPP retirement benefits are fully taxable as ordinary income in Ontario (and across all of Canada). Your CPP is reported on a T4A(P) slip and added to your total income on your T1 return, where it is taxed at your combined federal + Ontario marginal rate. There is no special deduction or exemption for CPP income. You can request that Service Canada withhold income tax at source from your monthly CPP payment to avoid a large balance owing at filing time.</p>
+
+      <h3>What is the OAS clawback threshold for 2026?</h3>
+      <p>For the 2026 tax year, the OAS clawback begins at a net income of <strong>$90,997</strong>. Above that threshold, 15 cents of OAS is repaid for each dollar of net income. OAS is fully clawed back at net income of approximately $148,000. The threshold is indexed to inflation each year, so it may be slightly higher in future years. Note that this clawback is calculated based on the prior tax year's income and is typically applied to monthly OAS payments from July of the following year.</p>
+
+      <h3>Do I pay Ontario surtax as a retiree?</h3>
+      <p>You pay Ontario surtax if your Ontario basic tax liability exceeds $5,315. This threshold is reached at a taxable income of roughly $75,000–$80,000 for most Ontario retirees. Many Ontarians with combined CPP, OAS, and pension income in that range will be subject to the surtax, which adds 20% to Ontario basic tax above $5,315 and an additional 36% above $6,802. The surtax can significantly increase your effective Ontario tax rate and is one reason Ontario's top combined rate exceeds 53%.</p>
+
+      <h3>Can I split my RRIF income with my spouse?</h3>
+      <p>Yes, but only if you are <strong>65 or older</strong>. RRIF withdrawals made by a taxpayer who is 65 or older qualify as eligible pension income and can be split with a spouse using the T1032 form. If you are under 65 and receiving RRIF income (for example, if you converted your RRSP early due to financial hardship), those withdrawals do not qualify for pension income splitting. Once you reach 65, all RRIF withdrawals — including the mandatory minimum — become eligible for the pension income credit and pension splitting.</p>
+
+      <h3>Is TFSA income taxed in Ontario?</h3>
+      <p>No. All income earned inside a TFSA — interest, dividends, capital gains — accumulates completely tax-free, and withdrawals from a TFSA are not taxable at any level. TFSA withdrawals do not appear on your tax return, do not count as net income, and have absolutely no effect on income-tested benefits like OAS, GIS, or the age amount credit. This tax-free treatment makes the TFSA the most efficient account to draw from when you are trying to manage your tax bracket or avoid the OAS clawback.</p>
+
+      <h2>Related Calculators</h2>
+      <p>Use these free NorthCalc tools to model your retirement tax situation with your actual numbers:</p>
+
+      <div class="cta-box">
+        <h3>Senior Income Tax Calculator</h3>
+        <p>Calculate combined federal + Ontario tax on CPP, OAS, pension, and other retirement income. Includes age amount and pension income credits.</p>
+        <a href="/senior-income-tax-calculator.html" class="cta-btn">Calculate Senior Tax</a>
+      </div>
+
+      <div class="cta-box">
+        <h3>Retirement Income Tax Calculator</h3>
+        <p>Model your full retirement income mix — RRIF, pension, investment income — and see your total 2026 tax bill.</p>
+        <a href="/retirement-income-tax-calculator.html" class="cta-btn">Retirement Tax Calculator</a>
+      </div>
+
+      <div class="cta-box">
+        <h3>Income Splitting Calculator</h3>
+        <p>Find the optimal pension income split between you and your spouse to minimize your combined Ontario tax.</p>
+        <a href="/income-splitting-calculator.html" class="cta-btn">Income Splitting Calculator</a>
+      </div>
+
+      <div class="cta-box">
+        <h3>CPP &amp; OAS Estimator</h3>
+        <p>Estimate your CPP retirement benefit and OAS eligibility based on your age and contribution history.</p>
+        <a href="/cpp-oas-estimator.html" class="cta-btn">CPP &amp; OAS Estimator</a>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong>Disclaimer:</strong> The information in this article is for general educational purposes only and reflects tax rules and thresholds as understood for the 2026 tax year. Tax laws change frequently and individual circumstances vary significantly. The figures in this guide are estimates and should not be relied upon as professional tax advice. Always consult a qualified tax professional, financial planner, or accountant for advice tailored to your specific situation. NorthCalc calculators are estimates only and do not constitute financial, tax, or legal advice.
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-brand">🍁 North<em>Calc</em></div><p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected.</p></div>
+    <div class="footer-links"><a href="/about.html">About Us</a><a href="/blog/">Blog</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms-of-service.html">Terms of Service</a><a href="/disclaimer.html">Disclaimer</a><a href="/contact.html">Contact</a></div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — Calculations are estimates only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+<script>
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

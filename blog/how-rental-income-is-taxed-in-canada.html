@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Rental Income Is Taxed in Canada (2026 Complete Guide) | NorthCalc</title>
+  <meta name="description" content="Everything Canadian landlords need to know about rental income tax. Deductible expenses, CCA depreciation, GST/HST on rentals, short-term Airbnb rules, and the non-resident withholding tax.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    article{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    article h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    article h2:first-child{margin-top:0}
+    article h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    article p{margin-bottom:.9rem;font-size:.94rem}
+    article ul,article ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    article li{margin-bottom:.4rem}
+    article a{color:var(--red);text-decoration:underline}
+    article strong{font-weight:700}
+    article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    article th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    article td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    article tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .tip strong{display:block;margin-bottom:.3rem}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s;margin:.25rem}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+    .footer-brand em{font-style:normal;color:var(--red)}
+    .footer-desc{font-size:.82rem;max-width:320px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+    .faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+    .faq-q{font-weight:700;font-size:.94rem;padding:.85rem 1.1rem;background:#fafafa;color:var(--navy)}
+    .faq-a{padding:.75rem 1.1rem;font-size:.9rem;border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP & OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" class="nav-link active">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <div class="post-meta">
+        <span>📅 June 2026</span>
+        <span>🏠 Real Estate</span>
+        <span>⏱ 10 min read</span>
+      </div>
+      <h1>How Rental Income Is Taxed in Canada (2026 Complete Guide)</h1>
+      <p class="lead">Rental income is fully taxable in Canada — but landlords can deduct a surprisingly wide range of expenses. Here's exactly how it works, what you can deduct, and what traps to avoid.</p>
+    </div>
+  </div>
+
+  <div class="post-wrap">
+    <article>
+
+      <h2>Introduction: Rental Income and Your Marginal Rate</h2>
+      <p>Canada taxes rental income as regular income at your marginal rate. Unlike capital gains, there is no 50% inclusion — every dollar of net rental profit is added to your other income and taxed accordingly. If you earn $90,000 from employment and $10,000 in net rental income, your combined $100,000 is taxed at your marginal rate for the top slice of income.</p>
+
+      <p>That might sound harsh — but the flip side is that allowable deductions can substantially reduce the taxable amount. The key is understanding exactly what the Canada Revenue Agency (CRA) allows you to deduct, and what it does not. Get it right, and the tax hit on your rental operation can be far smaller than many landlords expect.</p>
+
+      <p>This guide covers everything: deductible expenses, Capital Cost Allowance (CCA) depreciation, GST/HST treatment, short-term rental rules, non-resident obligations, and how to actually report it all on your T1 return.</p>
+
+      <h2>What Counts as Rental Income</h2>
+      <p>Before you can calculate deductions, you need to know what income you must report. Rental income is broader than just monthly rent cheques. The CRA requires you to include all of the following:</p>
+
+      <ul>
+        <li><strong>Rent from long-term tenants</strong> — Any payments under a lease or tenancy agreement, whether monthly, quarterly, or annual.</li>
+        <li><strong>Short-term rentals</strong> — Income from platforms like Airbnb and VRBO is rental income (with additional rules discussed below).</li>
+        <li><strong>Subletting part of your home</strong> — If you rent out a basement suite, spare bedroom, or part of your principal residence, that rental income must be reported.</li>
+        <li><strong>Parking, laundry, and other services</strong> — If you charge tenants separately for parking spots, coin laundry machines, or storage lockers, those payments are part of your rental income.</li>
+        <li><strong>Forfeited security deposits</strong> — A security deposit is not income when you receive it. It only becomes income if you keep it — for example, because a tenant damages the unit and you don't return the deposit.</li>
+      </ul>
+
+      <div class="tip">
+        <strong>Security Deposits: Don't Report Them Upfront</strong>
+        A common landlord mistake is reporting a security deposit as income in the year received. It is not income unless and until it is forfeited. Keep it in a separate account and track it carefully.
+      </div>
+
+      <h2>Deductible Rental Expenses — The Full List</h2>
+      <p>This is where landlords can recover significant ground. The CRA allows a generous list of operating expenses to be deducted against rental income. The guiding principle is that the expense must be incurred to earn rental income — personal expenses don't qualify.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Expense</th>
+            <th>Deductible?</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mortgage interest</td><td>✅ Yes</td><td>Interest only — NOT the principal portion of your payment</td></tr>
+          <tr><td>Property taxes</td><td>✅ Yes</td><td>Full amount of municipal property taxes</td></tr>
+          <tr><td>Insurance premiums</td><td>✅ Yes</td><td>Landlord / rental property insurance policy</td></tr>
+          <tr><td>Repairs and maintenance</td><td>✅ Yes</td><td>Must be repairs to existing condition, not improvements</td></tr>
+          <tr><td>Property management fees</td><td>✅ Yes</td><td>Fees paid to a property management company</td></tr>
+          <tr><td>Advertising (finding tenants)</td><td>✅ Yes</td><td>Online listings, for-rent signs, newspaper ads</td></tr>
+          <tr><td>Professional fees (accounting, legal)</td><td>✅ Yes</td><td>Preparing leases, filing taxes, eviction costs</td></tr>
+          <tr><td>Utilities (if landlord pays)</td><td>✅ Yes</td><td>Hydro, gas, water — only if included in rent</td></tr>
+          <tr><td>Landscaping and snow removal</td><td>✅ Yes</td><td>Contracted or out-of-pocket costs</td></tr>
+          <tr><td>Travel expenses (to inspect/manage property)</td><td>✅ Sometimes</td><td>Must be reasonable and well-documented; CRA scrutinises heavily</td></tr>
+          <tr><td>Mortgage principal</td><td>❌ No</td><td>Principal repayment is not a deductible expense</td></tr>
+          <tr><td>Personal use portion</td><td>❌ No</td><td>Must prorate all expenses for mixed-use properties</td></tr>
+          <tr><td>Capital improvements</td><td>❌ No (directly)</td><td>Added to Adjusted Cost Base (ACB) or claimed via CCA over time</td></tr>
+          <tr><td>Land value</td><td>❌ No</td><td>Only the building depreciates — land cannot be claimed as CCA</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Repairs vs. Capital Improvements — A Critical Distinction</h3>
+      <p>One of the most important distinctions in rental tax is between a <strong>repair</strong> and a <strong>capital improvement</strong>. Repairs restore something to its original condition and are fully deductible in the year incurred. Capital improvements extend the useful life of the property or add something new — and they are not immediately deductible. Instead, they increase your property's Adjusted Cost Base (ACB) or are added to your CCA pool for depreciation over time.</p>
+
+      <p>Examples: replacing a broken furnace with an equivalent unit is a repair. Upgrading to a high-efficiency furnace that represents a significant improvement is a capital expenditure. Patching a leaking roof is a repair. Replacing the entire roof is capital. The line is sometimes blurry — when in doubt, document your reasoning and consult a tax professional.</p>
+
+      <div class="callout">
+        <strong>Keep Every Receipt for Six Years</strong>
+        The CRA can audit your rental returns for up to six years after the date of filing. Maintain organised records of all rental income and expenses — receipts, bank statements, invoices, and lease agreements — for that full period.
+      </div>
+
+      <h2>CCA (Capital Cost Allowance) — Depreciation on Your Rental Property</h2>
+      <p>Capital Cost Allowance is the CRA's system for deducting the cost of depreciable assets over time. For rental property, this primarily means the building itself (not land) and any furniture, appliances, or equipment you provide.</p>
+
+      <h3>CCA Classes for Rental Property</h3>
+      <ul>
+        <li><strong>Class 1 (4% declining balance)</strong> — Most rental buildings, including concrete or brick residential properties built after 1987.</li>
+        <li><strong>Class 6 (10% declining balance)</strong> — Frame or log buildings, or structures acquired before 1988.</li>
+        <li><strong>Class 8 (20% declining balance)</strong> — Miscellaneous fixtures, appliances, and equipment not included in another class.</li>
+        <li><strong>Class 10 (30% declining balance)</strong> — Furniture and certain appliances provided to tenants.</li>
+      </ul>
+
+      <h3>Half-Year Rule</h3>
+      <p>In the year you acquire a depreciable asset, you can only claim <strong>50% of the normal CCA</strong>. This is known as the half-year rule (or the "available for use" rule). If you buy a rental property in August and would normally claim 4% CCA on the building, you can only claim 2% in year one. The full 4% applies from year two onward on the remaining balance.</p>
+
+      <h3>CCA Is Optional — Use It Strategically</h3>
+      <p>A critical point that many landlords miss: <strong>CCA is optional, not mandatory</strong>. You can claim anywhere from zero to the maximum CCA in any given year. More importantly, CCA cannot be used to create or increase a rental loss — it can only reduce net rental income to zero.</p>
+
+      <p>This makes CCA a planning tool. If you have high rental income in a particular year, you might claim maximum CCA to reduce it. In a year where your rental income is already low, claiming CCA provides no benefit and unnecessarily shrinks your CCA pool for future years.</p>
+
+      <h3>CCA Recapture on Sale</h3>
+      <p>Here is where many landlords are caught off guard. When you sell a rental property, the CRA "recaptures" all the CCA you claimed over the years. If your original building cost was $400,000 and you claimed $80,000 in CCA over the years, leaving an undepreciated capital cost (UCC) of $320,000, and you sell for $450,000, you will have $80,000 of CCA recapture — taxed as ordinary income, not as a capital gain. The capital gain calculation is separate and based on the original cost and proceeds. Recapture is fully includable in income, making large CCA claims a tax deferral, not a permanent saving.</p>
+
+      <h2>Rental Losses</h2>
+      <p>If your rental expenses exceed your rental income in a given year, you have a <strong>net rental loss</strong>. Generally, you can deduct this loss against your other sources of income — employment income, business income, investment income — reducing your overall tax payable.</p>
+
+      <p>However, the CRA will deny a rental loss if the rental arrangement lacks a reasonable expectation of profit. The most common scenario is renting to family members at below-market rates. If you charge your adult child 30% of market rent, the CRA may take the position that the arrangement is not commercial in nature and disallow the resulting loss. Renting at or close to fair market value is essential if you wish to claim losses.</p>
+
+      <div class="tip">
+        <strong>Charge Market Rent to Family Members</strong>
+        If you rent to a relative, document the fair market rent for comparable units in the area and charge at or near that rate. CRA has the authority to deem your rental income to be market rate even if you charge less — but only when it disallows losses, not when it could increase income. Keeping the arrangement commercial protects your ability to deduct losses.
+      </div>
+
+      <h2>GST/HST on Rental Income</h2>
+      <p>The GST/HST treatment of rental income depends critically on the type of rental. The rules differ significantly between long-term and short-term rentals.</p>
+
+      <h3>Long-Term Residential Rentals — GST/HST Exempt</h3>
+      <p>Renting a residential unit to an individual for use as their primary place of residence, on a continuous basis for <strong>more than one month</strong>, is an exempt supply under the Excise Tax Act. This means you do <strong>not</strong> charge GST/HST to your tenant, you do <strong>not</strong> register for GST/HST (for this activity), and you cannot claim Input Tax Credits (ITCs) on expenses related to the rental. The GST you pay on repairs, management fees, and other expenses is simply a cost of the rental operation with no GST recovery available.</p>
+
+      <h3>Short-Term Rentals — GST/HST Taxable</h3>
+      <p>Renting out a property for periods of <strong>less than 30 consecutive days</strong> — Airbnb, VRBO, cottage rentals — is a <strong>taxable supply</strong>. This means:</p>
+      <ul>
+        <li>If your total short-term rental revenue exceeds <strong>$30,000</strong> in any 12-month period, you must register for GST/HST.</li>
+        <li>You must charge GST/HST to guests on top of the rental price.</li>
+        <li>You must file GST/HST returns and remit the collected tax.</li>
+        <li>On the positive side, you can claim Input Tax Credits on GST/HST paid for expenses related to the short-term rental (cleaning, supplies, maintenance).</li>
+      </ul>
+
+      <p>Note that Airbnb and other platforms are required to collect and remit GST/HST on behalf of hosts in many situations following recent legislative changes. However, this does not eliminate your obligation to register if you exceed the threshold independently — and it does not affect your ability to claim ITCs, which requires your own GST/HST registration.</p>
+
+      <h3>New Residential Rental Properties</h3>
+      <p>If you are a builder renting out newly constructed or substantially renovated residential property, the first supply is generally a taxable transaction subject to GST/HST. However, the <strong>GST/HST New Residential Rental Property (NRRP) Rebate</strong> allows landlords to recover a portion of the GST/HST paid on the purchase or construction. This rebate is significant and often overlooked — if you have recently purchased a new condo or built a rental property, speak with a tax advisor about whether you qualify.</p>
+
+      <h2>Short-Term Rentals (Airbnb/VRBO) — Special Rules from 2024 Onward</h2>
+      <p>The 2023 Fall Economic Statement introduced a significant change that took effect in 2024 and continues into 2026: <strong>short-term rental operators who are not compliant with local municipal licensing and zoning requirements may lose the ability to deduct rental expenses</strong> against their rental income.</p>
+
+      <p>The practical effect: if your municipality prohibits short-term rentals without a licence, and you operate without one, CRA will deny all deductions — mortgage interest, property taxes, insurance, management fees, everything. You will pay tax on your gross rental revenue, not net income. This is a severe penalty for non-compliance.</p>
+
+      <p>Municipalities with active short-term rental bylaws and licensing requirements include Toronto, Vancouver, Ottawa, Calgary, Montreal, Halifax, and many smaller cities and resort communities. The list is expanding rapidly as municipalities struggle with housing supply concerns.</p>
+
+      <div class="callout">
+        <strong>Check Your Municipality Before Operating a Short-Term Rental</strong>
+        Before listing your property on Airbnb or VRBO, confirm that short-term rentals are permitted in your zoning area and that you have obtained any required licence. Operating without compliance can cost you all deductions — making your rental far more expensive to run than you anticipated.
+      </div>
+
+      <h2>Renting Part of Your Home</h2>
+      <p>Many Canadians rent out a basement suite, a secondary unit, or spare rooms within their principal residence. This is a common and perfectly legitimate arrangement — but the tax rules require some care.</p>
+
+      <h3>Proration of Expenses</h3>
+      <p>When a property serves both as your personal home and as a rental unit, you must allocate all expenses between the personal portion and the rental portion. The most common and CRA-accepted method is by rentable floor area. If you rent out 30% of your home's floor area as a basement suite, you can deduct 30% of property taxes, insurance, mortgage interest, maintenance, and utilities. You cannot deduct 100% of those costs simply because the property earns rental income.</p>
+
+      <h3>Principal Residence Exemption — A Critical Trap</h3>
+      <p>Claiming CCA on a property that you also use as your principal residence can have serious consequences. If you claim CCA on the building portion of your home, the CRA considers this a "change in use" of the property. This can affect — or eliminate — your principal residence exemption for the portion of the home used for rental purposes.</p>
+
+      <p>The practical recommendation: if you rent part of your principal residence, <strong>do not claim CCA on the building</strong>. You can still claim CCA on furniture and appliances in the rental unit (Class 10 or Class 8), but avoid Class 1 CCA on the structure itself. The tax deferral benefit of building CCA is rarely worth the potential loss of the principal residence capital gains exemption, which could save tens of thousands of dollars when you eventually sell.</p>
+
+      <div class="tip">
+        <strong>Best Practice for Basement Suite Landlords</strong>
+        Deduct all eligible operating expenses (prorated by floor area), claim CCA on appliances and furniture in the suite, but skip CCA on the building. This preserves your principal residence exemption and typically saves far more tax over the long run than the annual CCA deduction would provide.
+      </div>
+
+      <h2>Non-Resident Rental Income</h2>
+      <p>If you are a <strong>non-resident of Canada</strong> who owns Canadian rental property, different withholding rules apply under Part XIII of the Income Tax Act.</p>
+
+      <h3>Standard Withholding: 25% on Gross Rent</h3>
+      <p>By default, the tenant or property manager collecting rent on behalf of a non-resident landlord must withhold and remit <strong>25% of the gross rent</strong> to the CRA on the 15th of the month following each rental payment. This withholding is a flat rate on gross income — no deductions for expenses.</p>
+
+      <h3>NR6 Election: Pay on Net Income</h3>
+      <p>Non-residents can file Form NR6 with the CRA before the first rental payment of the year. This allows withholding to be calculated on <strong>estimated net rental income</strong> rather than gross rent. For a property with large deductible expenses, this can significantly reduce the monthly withholding burden and improve cash flow.</p>
+
+      <h3>Section 216 Return</h3>
+      <p>Even if you have paid withholding tax throughout the year, you must file a Section 216 income tax return for that year — even if no further tax is owing. The Section 216 return lets you claim actual expenses against your rental income and potentially recover excess withholding that was remitted during the year. The deadline is two years after the end of the calendar year for which the return is filed.</p>
+
+      <p>Non-resident landlords must also appoint a <strong>Canadian agent</strong> to collect rents, withhold tax, and remit to the CRA. A Canadian tenant who pays rent directly to a non-resident landlord without withholding is technically liable for the non-withheld amount — making proper agent arrangements important for both parties.</p>
+
+      <h2>Reporting Rental Income — Form T776</h2>
+      <p>All rental income and expenses for Canadian residents are reported on <strong>Form T776 (Statement of Real Estate Rentals)</strong>, which is filed as part of your annual T1 personal income tax return.</p>
+
+      <ul>
+        <li>A <strong>separate T776</strong> must be filed for each rental property you own.</li>
+        <li>If you co-own the property, each owner files their own T776 for their share of the income and expenses.</li>
+        <li>CCA is claimed on Schedule 8 (Capital Cost Allowance) and reported on the T776.</li>
+        <li>The T776 is due by <strong>April 30</strong> of the following year (or June 15 if you or your spouse are self-employed — but any balance owing is still due April 30).</li>
+        <li>Retain all rental records, receipts, and lease agreements for a minimum of <strong>six years</strong> following the filing date.</li>
+      </ul>
+
+      <h2>Worked Example: Toronto Condo Rental</h2>
+      <p>Let's walk through a realistic example to illustrate how rental income taxation works in practice.</p>
+
+      <p><strong>Scenario:</strong> A one-bedroom condo in Toronto is rented on a long-term lease at $2,200 per month. The landlord pays for no utilities. The landlord's marginal tax rate is 33%.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gross rental income (12 × $2,200)</td><td>$26,400</td></tr>
+          <tr><td>Mortgage interest</td><td>($14,000)</td></tr>
+          <tr><td>Property taxes</td><td>($3,600)</td></tr>
+          <tr><td>Insurance</td><td>($1,200)</td></tr>
+          <tr><td>Repairs and maintenance</td><td>($800)</td></tr>
+          <tr><td>Advertising</td><td>($200)</td></tr>
+          <tr><td>Property management fees (5%)</td><td>($1,320)</td></tr>
+          <tr><td><strong>Total deductible expenses</strong></td><td><strong>($21,120)</strong></td></tr>
+          <tr><td><strong>Net rental income</strong></td><td><strong>$5,280</strong></td></tr>
+          <tr><td>Additional income tax at 33% marginal rate</td><td><strong>≈ $1,742</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p>The landlord earns $26,400 in gross rent but pays income tax on only $5,280 — less than 20% of gross receipts. This illustrates how deductions dramatically reduce the effective tax burden on rental operations. If the landlord had also claimed CCA on appliances in the unit, net income could be reduced further.</p>
+
+      <div class="cta-box">
+        <h3>Calculate Your Land Transfer Tax Before Buying a Rental Property</h3>
+        <p>Buying a rental property? Don't forget the land transfer tax — and check if you qualify for any rebates. Use our free calculator to see exactly what you'll owe at closing.</p>
+        <a href="/land-transfer-tax-calculator.html" class="cta-btn">🏛 Land Transfer Tax Calculator</a>
+        <a href="/canadian-mortgage-calculator.html" class="cta-btn">🏠 Mortgage Calculator</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I have to charge HST on my Airbnb?</div>
+        <div class="faq-a">Yes, if your total short-term rental revenue exceeds $30,000 in any rolling 12-month period, you are required to register for GST/HST and charge it to guests. Short-term rentals (under 30 consecutive days) are taxable supplies under the Excise Tax Act. Note that many platforms now collect and remit GST/HST on behalf of hosts automatically — but you should still confirm your own registration obligations if you exceed the threshold.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I claim a rental loss against my salary?</div>
+        <div class="faq-a">Yes — in most cases. If your deductible rental expenses exceed your rental income, the resulting net rental loss can be applied against your employment income, business income, or other sources, reducing your total taxable income for the year. The main exception is if the rental arrangement lacks a reasonable expectation of profit — for example, renting to a family member at a token rate. The CRA may deny the loss in that situation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens to CCA when I sell the rental property?</div>
+        <div class="faq-a">When you sell a rental property, any CCA you have claimed is "recaptured" and added back to your income in the year of sale. For example, if you originally had a $300,000 building and claimed $60,000 in CCA over the years, leaving an undepreciated capital cost (UCC) of $240,000, and you sell the building component for $350,000, you will have $60,000 of recapture taxed as ordinary income. Any additional gain above your original cost is a capital gain subject to the capital gains inclusion rate. Recapture is always taxed at full marginal rates — it is never treated as a capital gain.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does renting part of my home affect my principal residence exemption?</div>
+        <div class="faq-a">Simply renting part of your home does not itself affect the principal residence exemption — as long as the main purpose of the property remains your personal residence. However, claiming CCA on the building portion of your home does trigger a "change in use" for the rented portion, which can reduce the exemption. The safest approach is to not claim CCA on the building when renting part of your principal residence. Consult a tax advisor before making CCA elections on your home.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I report rental income if I co-own the property?</div>
+        <div class="faq-a">Each co-owner reports their proportionate share of rental income and expenses on their own T776. If you and your spouse each own 50% of the rental property, each of you files a separate T776 reporting 50% of the income and 50% of the expenses. If the ownership is structured as a partnership, different reporting rules apply and a partnership information return (T5013) may be required. Note that co-owners cannot arbitrarily split income in a ratio different from their ownership percentage — the split must reflect actual ownership.</div>
+      </div>
+
+      <div class="cta-box">
+        <h3>Estimate Your Rental Income Tax</h3>
+        <p>Use our Canadian income tax calculator to estimate how much additional tax you will owe on your net rental income this year.</p>
+        <a href="/canadian-income-tax-calculator.html" class="cta-btn">📊 Income Tax Calculator</a>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This article is for general informational purposes only and does not constitute tax, legal, or financial advice. Canadian tax rules are complex and change frequently. The information above reflects general rules as of 2026 but may not apply to your specific situation. Always consult a qualified Canadian tax professional or accountant before making decisions about rental income, CCA elections, GST/HST registration, or non-resident tax obligations. NorthCalc.com assumes no liability for decisions made in reliance on information provided on this website.
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+</footer>
+
+<script>
+  function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+  document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Understanding Alternative Minimum Tax in Canada (2026 Guide) | NorthCalc</title>
+  <meta name="description" content="Learn how Canada's Alternative Minimum Tax (AMT) works after the 2024 federal budget changes. New 20.5% rate, $173,205 exemption, and how capital gains, stock options, and donations trigger AMT.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+    .logo em{font-style:normal;color:var(--red)}
+    .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+    .nav-link:hover,.nav-link.active{color:var(--red);background:var(--red-light)}
+    .nav-drop{position:relative}
+    .nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+    .nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+    .nav-chevron{transition:transform .2s}
+    .nav-drop.open .nav-chevron{transform:rotate(180deg)}
+    .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+    .nav-drop.open .dropdown{display:block}
+    .dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+    .dd-link:hover{background:var(--red-light);color:var(--red)}
+    @media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+    main{flex:1}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:2.5rem 1.5rem 2rem}
+    .post-hero-inner{max-width:720px;margin:0 auto}
+    .post-meta{font-size:.8rem;opacity:.7;margin-bottom:.75rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .post-hero h1{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.2}
+    .post-hero .lead{font-size:1rem;opacity:.85;max-width:600px;line-height:1.6}
+    .post-wrap{max-width:720px;margin:2rem auto;padding:0 1.5rem}
+    .post-body{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2.25rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .post-body h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin:1.75rem 0 .65rem;padding-bottom:.5rem;border-bottom:2px solid var(--red-light)}
+    .post-body h2:first-child{margin-top:0}
+    .post-body h3{font-size:1rem;font-weight:700;color:var(--navy);margin:1.25rem 0 .4rem}
+    .post-body p{margin-bottom:.9rem;font-size:.94rem}
+    .post-body ul,.post-body ol{padding-left:1.4rem;margin-bottom:.9rem;font-size:.94rem}
+    .post-body li{margin-bottom:.4rem}
+    .post-body a{color:var(--red);text-decoration:underline}
+    .post-body strong{font-weight:700}
+    .post-body table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    .post-body th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+    .post-body td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+    .post-body tr:hover td{background:#fafafa}
+    .callout{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7f1d1d}
+    .callout strong{display:block;margin-bottom:.3rem}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#166534}
+    .cta-box{background:var(--navy);border-radius:var(--radius);padding:1.75rem;text-align:center;margin:1.5rem 0;color:var(--white)}
+    .cta-box h3{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+    .cta-box p{font-size:.88rem;opacity:.85;margin-bottom:1rem}
+    .cta-btn{display:inline-block;padding:.65rem 1.4rem;background:var(--red);color:var(--white);border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:background .15s}
+    .cta-btn:hover{background:var(--red-dark)}
+    .disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1rem 1.25rem;font-size:.8rem;color:#92400e;margin-top:1.5rem}
+    footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+    .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .footer-brand em{color:var(--red);font-style:normal}
+    .footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+    .footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+    .footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
+      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <nav id="mainNav">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+        <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+        <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+        <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <a href="/about.html" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="post-hero">
+      <div class="post-hero-inner">
+        <div class="post-meta">
+          <span>📅 June 2026</span>
+          <span>🧾 Tax</span>
+          <span>⏱ 8 min read</span>
+        </div>
+        <h1>Understanding Alternative Minimum Tax in Canada (2026 Guide)</h1>
+        <p class="lead">Most Canadians never pay AMT. But if you sold a cottage, exercised stock options, or made a large donation in 2024 or later, you may owe it — and the rules changed dramatically.</p>
+      </div>
+    </div>
+
+    <div class="post-wrap">
+      <div class="post-body">
+
+        <h2>What Is the Alternative Minimum Tax?</h2>
+
+        <p>The Alternative Minimum Tax (AMT) is a parallel tax calculation that runs alongside your regular income tax each year. While your regular tax uses the standard bracket system with its full suite of deductions and credits, the AMT uses a separate, broader income base — one that adds back preferential tax treatments like capital gains deductions and stock option benefits. The government then compares the two results: if your AMT exceeds your regular federal tax, you pay the higher AMT amount instead.</p>
+
+        <p>The intent behind AMT is straightforward: to ensure that high-income Canadians who benefit significantly from deductions, preferential income inclusion rates, or tax credits still pay a meaningful minimum level of federal income tax. It's not a penalty — it's a floor. In many ways, it's also a signal from Ottawa that certain tax planning strategies have gone further than policymakers intended.</p>
+
+        <p>For most Canadians — those earning employment income with ordinary deductions — AMT never comes into play. But for those with large one-time income events, particularly involving capital gains, stock options, or major charitable gifts, the AMT calculation must be completed and compared to your regular tax each filing year.</p>
+
+        <div class="callout">
+          <strong>Key AMT Concept</strong>
+          You never pay both regular tax and AMT simultaneously. You pay whichever is higher. If AMT exceeds your regular tax, the difference is an "AMT top-up" — not an entirely separate tax bill.
+        </div>
+
+        <h2>The 2024 Federal Budget Changes (This Is the Big One)</h2>
+
+        <p>Canada's AMT rules hadn't been meaningfully updated since 1986 — nearly four decades. The 2024 federal budget changed that dramatically, introducing the most significant AMT overhaul in a generation. The changes took effect for tax years beginning on or after January 1, 2024, meaning they're now fully in force for your 2024, 2025, and 2026 returns.</p>
+
+        <p>Here's a side-by-side comparison of what changed:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Old Rules (pre-2024)</th>
+              <th>New Rules (2024+)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AMT Rate</strong></td>
+              <td>15%</td>
+              <td>20.5%</td>
+            </tr>
+            <tr>
+              <td><strong>Basic Exemption</strong></td>
+              <td>$40,000 (not indexed)</td>
+              <td>$173,205 (indexed to inflation)</td>
+            </tr>
+            <tr>
+              <td><strong>Capital Gains Inclusion</strong></td>
+              <td>80% of taxable capital gain</td>
+              <td>100% of capital gain</td>
+            </tr>
+            <tr>
+              <td><strong>Stock Option Benefit Inclusion</strong></td>
+              <td>80%</td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td><strong>Charitable Donation Deduction</strong></td>
+              <td>100% allowed</td>
+              <td>50% allowed</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Refundable Tax Credits</strong></td>
+              <td>100% allowed</td>
+              <td>30% allowed</td>
+            </tr>
+            <tr>
+              <td><strong>Carrying Charges on Investments</strong></td>
+              <td>50% added back</td>
+              <td>50% added back (unchanged)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The higher exemption ($173,205 vs. the old $40,000) is the most important change for most Canadians. It means someone with a moderate capital gain or a small stock option exercise will be far less likely to trigger AMT than under the old rules. However, those with large one-time events — a $300,000 cottage gain, a $500,000 stock option windfall — face a meaningfully higher AMT rate and a broader income base. The net effect is that AMT hits harder at the top, but touches fewer people in the middle.</p>
+
+        <div class="tip">
+          <strong>Inflation Indexing is New</strong>
+          The old $40,000 exemption was never indexed to inflation — it sat unchanged from 1986 to 2023. The new $173,205 exemption is indexed annually to the CPI, so it will increase modestly each year in line with the cost of living.
+        </div>
+
+        <h2>Who Actually Pays AMT in Canada?</h2>
+
+        <p>AMT is not a concern for the average salaried employee. It's specifically triggered by income types and deductions that fall outside ordinary employment income. Based on the current rules, AMT is most likely to affect:</p>
+
+        <ul>
+          <li><strong>Cottage and investment property owners</strong> who sell and realize a large capital gain. The full capital gain (not just 50%) is included in the AMT income base.</li>
+          <li><strong>Business owners selling shares</strong>, especially if they're using the Lifetime Capital Gains Exemption (LCGE) to shelter the gain. Under the new rules, only 30% of the LCGE deduction is allowed for AMT purposes — so a large LCGE claim can dramatically increase your AMT income.</li>
+          <li><strong>Employees with employee stock options (ESOs)</strong>. Under regular tax, only 50% of the stock option benefit is included in income (after the 50% deduction). For AMT purposes, 100% of the benefit is now included.</li>
+          <li><strong>Large charitable donors</strong>, particularly those donating flow-through shares or appreciated publicly traded securities. The donation deduction reduces regular tax aggressively, but AMT only allows 50% of that deduction.</li>
+          <li><strong>Investors with large carrying charges</strong> on money borrowed to invest. The interest deduction is added back at 50% for AMT purposes.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Principal Residence: You're Safe</strong>
+          The Principal Residence Exemption (PRE) is not affected by AMT. If you sell your primary home and the entire gain is sheltered by the PRE, you will not trigger AMT. AMT only enters the picture when capital gains are actually taxable — not when they're fully exempt.
+        </div>
+
+        <h2>Step-by-Step AMT Calculation</h2>
+
+        <p>Understanding how the calculation works is the best way to understand your exposure. The CRA effectively asks you to compute two numbers — your regular federal tax and your tentative AMT — and pay whichever is larger.</p>
+
+        <ol>
+          <li><strong>Calculate your regular federal tax</strong> using normal income brackets, credits, and deductions. This is the figure on your T1 return as always.</li>
+          <li><strong>Build your AMT Adjusted Income:</strong>
+            <ul>
+              <li>Start with your net income from your regular return</li>
+              <li>Add back 50% of capital gains not otherwise included (to reach 100% inclusion in AMT base)</li>
+              <li>Add back 50% of stock option benefit (to reach 100%)</li>
+              <li>Add back 50% of any charitable donation deduction claimed</li>
+              <li>Add back 50% of carrying charges on investment loans</li>
+              <li>Add back 70% of any Lifetime Capital Gains Exemption claimed (only 30% is allowed)</li>
+            </ul>
+          </li>
+          <li><strong>Subtract the AMT exemption:</strong> $173,205 (2024 base, indexed for later years)</li>
+          <li><strong>Multiply by the AMT rate:</strong> 20.5%</li>
+          <li><strong>Subtract 30% of your non-refundable tax credits</strong> (basic personal amount credit, spousal credit, etc.)</li>
+          <li><strong>Result = Tentative Minimum Tax (TMT)</strong></li>
+          <li><strong>If TMT &gt; Regular Federal Tax</strong> → You owe AMT. The difference is the AMT top-up you must pay.</li>
+        </ol>
+
+        <div class="tip">
+          <strong>Provincial AMT applies on top</strong>
+          Several provinces — including Ontario and BC — calculate their own AMT as a percentage of the federal AMT. This means your total AMT liability (federal + provincial) is higher than the federal calculation alone. More on this below.
+        </div>
+
+        <h2>Worked Example: Selling a Cottage in Ontario</h2>
+
+        <p>Let's walk through a realistic scenario to see whether AMT actually applies.</p>
+
+        <h3>The Scenario</h3>
+        <p>You have employment income of <strong>$80,000</strong>. In 2024, you sell a cottage in Ontario with a <strong>capital gain of $400,000</strong>. You have no other special deductions and claim the standard Basic Personal Amount credit (~$2,419 at 15% credit rate for 2024).</p>
+
+        <h3>Regular Federal Tax Calculation</h3>
+        <p>Under regular rules, only 50% of a capital gain is included in taxable income (capital gains inclusion rate for most taxpayers in 2024).</p>
+        <ul>
+          <li>Employment income: $80,000</li>
+          <li>Taxable capital gain (50% inclusion): $200,000</li>
+          <li>Total taxable income: <strong>$280,000</strong></li>
+          <li>Federal tax on $280,000 (approximate, using 2024 brackets): ~$69,000</li>
+        </ul>
+
+        <h3>AMT Calculation</h3>
+        <ul>
+          <li>Start with net income: $80,000</li>
+          <li>Add back remaining 50% of capital gain: +$200,000 (to reach 100% inclusion)</li>
+          <li>AMT adjusted income: $280,000</li>
+          <li>Less AMT exemption: −$173,205</li>
+          <li>AMT base: $106,795</li>
+          <li>Multiply by 20.5%: $21,893</li>
+          <li>Less 30% of non-refundable credits (30% × ~$2,419 BPA credit): −$726</li>
+          <li><strong>Tentative Minimum Tax: ~$21,167</strong></li>
+        </ul>
+
+        <p>Compare: Regular federal tax (~$69,000) is <strong>much greater</strong> than AMT (~$21,167). No AMT owed.</p>
+
+        <div class="callout">
+          <strong>Why doesn't AMT apply here?</strong>
+          Even with a $400,000 capital gain, the regular federal tax on $280,000 of taxable income ($69,000) is substantially higher than the AMT calculated on the broader base. AMT is designed to catch situations where aggressive deductions bring regular tax far below the AMT floor — not situations where a taxpayer is already paying significant tax.
+        </div>
+
+        <h3>When Does AMT Kick In? The Lower-Income Version</h3>
+        <p>Now change one variable: employment income drops to <strong>$30,000</strong>, with the same $400,000 capital gain.</p>
+        <ul>
+          <li>Regular taxable income: $30,000 + $200,000 = $230,000</li>
+          <li>Regular federal tax (approximate): ~$52,000</li>
+          <li>AMT adjusted income: $30,000 + $400,000 = $430,000</li>
+          <li>Less exemption: −$173,205 = $256,795</li>
+          <li>AMT: $256,795 × 20.5% = $52,643 − $726 credits = <strong>~$51,917</strong></li>
+        </ul>
+        <p>Here, AMT (~$51,917) slightly exceeds regular tax (~$52,000 — close call). In scenarios with even lower employment income or larger capital gains, the AMT will more clearly exceed regular tax, triggering an AMT top-up payment.</p>
+
+        <div class="tip">
+          <strong>AMT is most likely when:</strong> You have a very large one-time gain (capital gain, stock option exercise) combined with relatively low ongoing employment income — because regular tax on a lower income base may not reach the AMT floor calculated on the full 100% income inclusion.
+        </div>
+
+        <h2>AMT and Charitable Donations</h2>
+
+        <p>Before the 2024 changes, large charitable donation strategies — particularly those involving flow-through shares or appreciated publicly traded securities — were extremely tax-efficient. Donors could eliminate virtually all federal tax on significant income through the donation deduction, and AMT was rarely triggered because the charitable donation deduction was 100% allowed for AMT purposes.</p>
+
+        <p>The new rules change this significantly:</p>
+
+        <ul>
+          <li><strong>Standard charitable donations:</strong> Only 50% of the charitable donation deduction is allowed when computing AMT income. The other 50% is added back to the AMT base.</li>
+          <li><strong>Flow-through share donations:</strong> These are subject to even stricter treatment. The deduction related to flow-through share donations is only 30% allowed for AMT purposes.</li>
+          <li><strong>Donations of publicly traded securities:</strong> The capital gain exemption on donations of appreciated securities is also subject to the 50% donation deduction rule for AMT.</li>
+        </ul>
+
+        <p>In practical terms, this means the "donate-and-pay-almost-no-tax" strategies that worked under the old AMT are now much more likely to trigger AMT. Anyone planning a large donation strategy in 2024 or later should model the AMT impact carefully before proceeding.</p>
+
+        <div class="cta-box">
+          <h3>⚖️ Find Out If You Owe AMT</h3>
+          <p>Use our free AMT Calculator to run the numbers for your specific situation — capital gains, stock options, donations, and all.</p>
+          <a href="/amt-calculator-canada.html" class="cta-btn">Try the AMT Calculator</a>
+        </div>
+
+        <h2>The 7-Year AMT Carry-Forward Credit</h2>
+
+        <p>Paying AMT is not necessarily a permanent tax cost. Any AMT you pay in excess of your regular tax becomes an <strong>AMT credit</strong> that you can carry forward for up to seven years. In any future year where your regular federal tax exceeds your tentative AMT, you can apply the carried-forward AMT credit to reduce your regular tax owing — dollar for dollar — until the credit is exhausted.</p>
+
+        <p>This is particularly relevant for people who experience a one-time AMT-triggering event (such as selling a cottage) and then return to normal employment income in subsequent years. In those following years, the regular tax calculation typically produces a higher number than AMT, and the credit can be applied to reduce what you owe.</p>
+
+        <p>Example: You pay $8,000 of AMT in 2024. In 2025 and 2026 you have no special income events. Your regular tax in those years exceeds your tentative AMT, so you can apply the $8,000 AMT credit against your regular tax in those years (subject to the 7-year limit and available credit balance).</p>
+
+        <div class="callout">
+          <strong>Important: The credit is not refundable</strong>
+          The AMT carry-forward credit can only reduce your regular tax — it cannot reduce your tax below zero, and it cannot be paid out as a refund. If you never have future years where regular tax exceeds AMT (for example, you remain retired with low income), the credit may expire unused after 7 years.
+        </div>
+
+        <h2>Provincial AMT: The Often-Overlooked Layer</h2>
+
+        <p>Federal AMT is only half the picture. Several provinces calculate their own provincial AMT, typically expressed as a percentage of the federal AMT amount. This means your total AMT exposure is larger than the federal calculation alone.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Province</th>
+              <th>Provincial AMT Treatment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ontario</strong></td>
+              <td>Provincial AMT = Federal AMT × 33.67%</td>
+            </tr>
+            <tr>
+              <td><strong>British Columbia</strong></td>
+              <td>Provincial AMT ≈ Federal AMT × 38%</td>
+            </tr>
+            <tr>
+              <td><strong>Quebec</strong></td>
+              <td>Has its own separate provincial AMT calculation, independent of the federal system</td>
+            </tr>
+            <tr>
+              <td><strong>Alberta, Saskatchewan, Manitoba, Atlantic provinces</strong></td>
+              <td>Generally follow the federal AMT structure; check your provincial return for specifics</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>In Ontario, for example, a federal AMT top-up of $10,000 would also trigger approximately $3,367 in additional provincial tax — for a total AMT impact of ~$13,367. This makes AMT planning a combined federal-provincial exercise, not just a federal one.</p>
+
+        <p>Quebec residents should note that Quebec runs a fully separate provincial AMT with its own rates, exemptions, and income adjustments. Quebec filers should consult the provincial T1 equivalent (TP-1) and its AMT schedule for precise calculations.</p>
+
+        <h2>Planning Strategies to Minimize AMT Exposure</h2>
+
+        <p>While AMT cannot always be avoided, there are several legitimate strategies that can reduce or defer your exposure:</p>
+
+        <h3>1. Spread Capital Gains Across Multiple Years</h3>
+        <p>If you're selling an investment property, farm, or business shares, consider whether an installment sale structure is feasible. By receiving proceeds (and recognizing the capital gain) over two or more tax years, you may stay below the AMT threshold in each individual year, even though the total gain is the same. This requires careful structuring and legal documentation — not appropriate for all transactions, but worth discussing with your accountant.</p>
+
+        <h3>2. Use the Principal Residence Exemption Strategically</h3>
+        <p>If you own two properties and one qualifies as a principal residence for part of the ownership period, designating it appropriately can shelter some or all of the capital gain. Since PRE-sheltered gains don't enter the AMT calculation, maximizing the PRE designation on the right property reduces AMT exposure. Work with a tax advisor to determine the optimal allocation of PRE years.</p>
+
+        <h3>3. Re-think the Timing and Size of Charitable Donations</h3>
+        <p>A single large donation in one year that wipes out your regular tax may now trigger AMT. Consider spreading major donations across multiple years or structuring them through a donor-advised fund. Smaller annual donations are far less likely to trigger AMT than a single massive gift in one year.</p>
+
+        <h3>4. Plan Stock Option Exercises Carefully</h3>
+        <p>Employees with large unexercised stock option grants should model the AMT impact before exercising. Under the new rules, 100% of the stock option benefit enters the AMT income base. Exercising options in smaller tranches across multiple years — rather than all at once — may reduce or eliminate AMT in any single year while still allowing you to access the benefit.</p>
+
+        <h3>5. Consider the AMT Carry-Forward When Planning Future Income</h3>
+        <p>If you've paid AMT in a prior year, that credit is available for seven years. In planning future years, consider whether you can structure income in a way that generates enough regular tax to use up the credit — rather than letting it expire. This might influence timing decisions for RRSP withdrawals, investment dispositions, or other income events.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Does selling my house trigger AMT?</h3>
+        <p>No — if your home qualifies for the Principal Residence Exemption and the gain is fully sheltered, AMT does not apply. The PRE is completely outside the AMT calculation. AMT only applies to taxable capital gains — gains that aren't fully exempted. If only part of your gain is covered by the PRE (for example, you used the property as a rental for some years), the taxable portion could trigger AMT.</p>
+
+        <h3>Is AMT refundable?</h3>
+        <p>The AMT itself is not refundable. However, AMT you pay in excess of your regular tax generates a carry-forward credit that you can apply against future regular tax over the next 7 years. This effectively makes the excess AMT recoverable — but only if you have sufficient regular tax in future years to absorb the credit. It expires unused after 7 years if not applied.</p>
+
+        <h3>Do I have to file separately for AMT?</h3>
+        <p>No. AMT is calculated on Schedule 12 of your regular T1 personal income tax return. You don't file a separate AMT return. The CRA processes both calculations simultaneously as part of your normal annual filing. If AMT applies, the T1 will automatically reflect the higher amount owing.</p>
+
+        <h3>Are there provinces with no AMT?</h3>
+        <p>The federal AMT applies to all Canadian residents regardless of province — there's no opting out at the provincial level. However, provincial AMT (the add-on to federal AMT) varies by province. Some smaller provinces have minimal or no additional provincial AMT layer. Alberta, for instance, has no provincial income tax AMT surtax (though federal AMT still applies). Quebec operates its own separate system entirely.</p>
+
+        <h3>Did the 2024 budget AMT changes apply retroactively?</h3>
+        <p>No. The new AMT rules — the higher rate, higher exemption, broader income base — apply to tax years beginning on or after January 1, 2024. They are not retroactive. If you had an AMT-triggering event in 2023 or earlier, those returns are governed by the old rules: 15% rate, $40,000 exemption, 80% capital gains inclusion. Carry-forward AMT credits generated under the old rules can still be applied against current-year regular tax under the normal 7-year window.</p>
+
+        <div class="cta-box">
+          <h3>Run Your Numbers</h3>
+          <p>Not sure if AMT applies to your situation? Use our calculators to get a clearer picture of your federal tax and AMT exposure.</p>
+          <a href="/amt-calculator-canada.html" class="cta-btn" style="margin-right:.75rem">⚖️ AMT Calculator</a>
+          <a href="/canadian-income-tax-calculator.html" class="cta-btn">📊 Income Tax Calculator</a>
+        </div>
+
+        <div class="disclaimer-box">
+          <strong>Disclaimer:</strong> This article is for general informational purposes only and does not constitute tax, legal, or financial advice. Tax rules are complex and individual circumstances vary. The calculations shown are illustrative approximations only. Please consult a qualified Canadian tax professional (CPA or tax advisor) before making any tax planning decisions. NorthCalc is not responsible for actions taken based on the information provided here.
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators for tax, mortgage, savings, and more. Built for Canadians, by Canadians.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/canadian-mortgage-calculator.html">Mortgage</a>
+        <a href="/canadian-income-tax-calculator.html">Income Tax</a>
+        <a href="/amt-calculator-canada.html">AMT Calculator</a>
+        <a href="/tfsa-room-calculator.html">TFSA</a>
+        <a href="/rrsp-calculator.html">RRSP</a>
+        <a href="/hst-gst-calculator.html">HST/GST</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com · For informational purposes only · Not financial advice</div>
+  </footer>
+
+  <script>
+    function navToggle(btn) {
+      const drop = btn.closest('.nav-drop');
+      const isOpen = drop.classList.contains('open');
+      document.querySelectorAll('.nav-drop.open').forEach(d => d.classList.remove('open'));
+      if (!isOpen) drop.classList.add('open');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-drop')) {
+        document.querySelectorAll('.nav-drop.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+  </script>
+
+</body>
+</html>
