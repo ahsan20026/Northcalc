@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMT Calculator Canada 2026 | Alternative Minimum Tax</title>
+<meta name="description" content="Calculate Canadian Alternative Minimum Tax (AMT). 2024 budget changes: 20.5% rate, $173,205 exemption. See if you owe AMT on capital gains, stock options, or donations.">
+<meta name="keywords" content="AMT calculator Canada, alternative minimum tax Canada, Canadian AMT 2024, capital gains AMT, stock options AMT, AMT exemption Canada, federal budget 2024 AMT">
+<link rel="canonical" href="https://northcalc.com/amt-calculator-canada.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.calc-section h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.field-group{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+@media(max-width:600px){.field-group{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field label{font-weight:600;font-size:.87rem;color:var(--text)}
+.field .hint{font-size:.77rem;color:var(--muted);margin-top:.15rem}
+.input-wrap{position:relative}
+.input-wrap .prefix{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.9rem}
+.input-wrap input,.input-wrap select{width:100%;padding:.65rem .875rem .65rem 1.85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;background:var(--white);color:var(--text);transition:border-color .15s;font-family:inherit}
+.input-wrap select{padding-left:.875rem}
+.input-wrap input:focus,.input-wrap select:focus{outline:none;border-color:var(--red)}
+.input-wrap.no-prefix input{padding-left:.875rem}
+.calc-btn{width:100%;padding:.9rem;background:var(--red);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;margin-top:.5rem}
+.calc-btn:hover{background:var(--red-dark)}
+.results-wrap{display:none}
+.result-hero{border-radius:var(--radius);padding:1.75rem 2rem;text-align:center;margin-bottom:1.5rem}
+.result-hero.owe{background:linear-gradient(135deg,#fff1f2,#ffe4e6);border:2px solid #fca5a5}
+.result-hero.no-owe{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:2px solid #bbf7d0}
+.result-hero .label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.result-hero.owe .label{color:#9f1239}
+.result-hero.no-owe .label{color:#166534}
+.result-hero .amount{font-size:2.8rem;font-weight:800;line-height:1;margin-bottom:.4rem}
+.result-hero.owe .amount{color:#be123c}
+.result-hero.no-owe .amount{color:#065f46}
+.result-hero .sublabel{font-size:.9rem}
+.result-hero.owe .sublabel{color:#9f1239}
+.result-hero.no-owe .sublabel{color:#166534}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:560px){.result-grid{grid-template-columns:1fr}}
+.result-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem}
+.result-card .rc-label{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.25rem}
+.result-card .rc-value{font-size:1.25rem;font-weight:800;color:var(--navy)}
+.result-card .rc-note{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.breakdown-table{width:100%;border-collapse:collapse;font-size:.87rem;margin:1rem 0}
+.breakdown-table th{background:var(--navy);color:var(--white);padding:.5rem .8rem;text-align:left;font-size:.8rem}
+.breakdown-table td{padding:.5rem .8rem;border-bottom:1px solid var(--border)}
+.breakdown-table tr:last-child td{border-bottom:none;font-weight:700;background:#fafafa}
+.breakdown-table tr.highlight td{background:var(--red-light);color:var(--red);font-weight:700}
+.breakdown-table tr:hover td{background:#fafafa}
+.carryforward-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:1.1rem 1.4rem;margin-top:1rem;font-size:.88rem;color:#1d4ed8}
+.carryforward-box strong{display:block;margin-bottom:.35rem;font-size:.92rem}
+.province-note{background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:1rem 1.25rem;margin-top:1rem;font-size:.87rem;color:#92400e}
+.province-note strong{display:block;margin-bottom:.3rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.example-box .ex-row{display:flex;justify-content:space-between;padding:.2rem 0;border-bottom:1px solid #e0f2fe;font-size:.87rem}
+.example-box .ex-row:last-child{border-bottom:none;font-weight:700;font-size:.92rem;color:#075985}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.warning-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#9a3412}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+.step-list{counter-reset:steps;list-style:none;padding:0}
+.step-list li{counter-increment:steps;padding:.6rem 0 .6rem 2.5rem;position:relative;border-bottom:1px solid var(--border);font-size:.92rem}
+.step-list li:last-child{border-bottom:none}
+.step-list li::before{content:counter(steps);position:absolute;left:0;top:.55rem;width:1.6rem;height:1.6rem;background:var(--red);color:#fff;border-radius:50%;font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;line-height:1}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link active">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian Alternative Minimum Tax (AMT) Calculator</h1>
+    <p>Find out if you owe AMT under the 2024 federal budget rules — the biggest AMT overhaul in 40 years. Applies to capital gains, stock options, and large donations.</p>
+  </div>
+</div>
+
+<main>
+  <div class="content-wrap">
+
+    <!-- Calculator -->
+    <div class="calc-section">
+      <h2>Calculate Your AMT (2024 &amp; Later)</h2>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="empIncome">Employment / Business Income</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="empIncome" placeholder="100,000" min="0" step="1000">
+          </div>
+          <span class="hint">Salary, self-employment, rental, pension income</span>
+        </div>
+        <div class="field">
+          <label for="otherIncome">Other Income</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="otherIncome" placeholder="0" min="0" step="500">
+          </div>
+          <span class="hint">Interest, dividends, RRSP withdrawals, etc.</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="capitalGains">Capital Gains (actual gains amount)</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="capitalGains" placeholder="0" min="0" step="1000" oninput="updateCGNote()">
+          </div>
+          <span class="hint">Enter the actual gain — not the taxable portion. E.g., if you sold a property for $300K profit, enter $300,000.</span>
+          <div id="cgNote" style="display:none;margin-top:.4rem;padding:.5rem .75rem;background:#fff7ed;border:1px solid #fed7aa;border-radius:7px;font-size:.77rem;color:#92400e">
+            <strong>Over $250,000 in capital gains:</strong> The regular tax inclusion rate is 2/3 on the excess above $250,000 (since June 25, 2024). AMT uses 100% inclusion on the full amount.
+          </div>
+        </div>
+        <div class="field">
+          <label for="stockOptions">Employee Stock Options Benefit</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="stockOptions" placeholder="0" min="0" step="1000">
+          </div>
+          <span class="hint">The employment benefit reported from exercising employee stock options (box 38 of T4)</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="donations">Charitable Donations</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="donations" placeholder="0" min="0" step="500">
+          </div>
+          <span class="hint">Total eligible charitable donation receipts claimed as a deduction</span>
+        </div>
+        <div class="field">
+          <label for="carryingCharges">Investment Loan Interest / Carrying Charges</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="carryingCharges" placeholder="0" min="0" step="500">
+          </div>
+          <span class="hint">Interest on money borrowed to earn investment income (line 22100)</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="nrtcCredits">Non-Refundable Tax Credits (NRTCs) — dollar value</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="nrtcCredits" placeholder="2,000" min="0" step="100">
+          </div>
+          <span class="hint">The actual credit value (not income amount). Basic personal credit ~$2,356. Include all federal NRTCs.</span>
+        </div>
+        <div class="field">
+          <label for="province">Province / Territory</label>
+          <div class="input-wrap no-prefix">
+            <select id="province">
+              <option value="ON">Ontario</option>
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="QC">Quebec</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="MB">Manitoba</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="NB">New Brunswick</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="NL">Newfoundland &amp; Labrador</option>
+              <option value="YT">Yukon</option>
+              <option value="NT">Northwest Territories</option>
+              <option value="NU">Nunavut</option>
+            </select>
+          </div>
+          <span class="hint">Used for provincial AMT guidance</span>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculateAMT()">Calculate My AMT</button>
+      <div style="font-size:.75rem;color:var(--muted);margin-top:.85rem;line-height:1.5">
+        Uses 2024 federal AMT rules: 20.5% rate, $173,205 exemption. Regular tax uses 2024 federal brackets. This is an estimate — actual results depend on your full tax return.
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-wrap" id="resultsWrap">
+
+      <div class="result-hero" id="resultHero">
+        <div class="label" id="heroLabel"></div>
+        <div class="amount" id="heroAmount"></div>
+        <div class="sublabel" id="heroSublabel"></div>
+      </div>
+
+      <div class="content-section">
+        <h2>AMT Calculation Breakdown</h2>
+
+        <table class="breakdown-table">
+          <thead>
+            <tr><th>Step</th><th>Item</th><th>Amount</th></tr>
+          </thead>
+          <tbody id="breakdownBody"></tbody>
+        </table>
+
+        <div id="carryforwardNote" style="display:none" class="carryforward-box">
+          <strong>7-Year AMT Carry-Forward</strong>
+          The additional AMT you pay this year (<span id="cfAmount"></span>) can be carried forward for up to 7 years. In future years where your regular federal tax exceeds your AMT, you can apply this credit to reduce the regular tax you owe — up to the amount of AMT paid in excess.
+        </div>
+
+        <div id="noAmtNote" style="display:none" class="tip-box">
+          <strong>No AMT Owing</strong> — Your regular federal tax is greater than or equal to your tentative AMT. You do not owe any Alternative Minimum Tax for this tax year. You're in the clear!
+        </div>
+
+        <div id="provinceAMTNote" class="province-note" style="display:none">
+          <strong id="provinceAMTTitle"></strong>
+          <span id="provinceAMTText"></span>
+        </div>
+
+      </div>
+
+      <div class="content-section">
+        <h2>Your Numbers at a Glance</h2>
+        <div class="result-grid" id="summaryCards"></div>
+      </div>
+
+    </div>
+    <!-- /Results -->
+
+    <!-- What is AMT -->
+    <div class="content-section">
+      <h2>What Is the Alternative Minimum Tax (AMT)?</h2>
+      <p>The Alternative Minimum Tax is a parallel tax calculation that exists alongside the regular income tax system. Its purpose is straightforward: to ensure that high-income Canadians who benefit from large tax preferences — such as capital gains exemptions, stock option deductions, or charitable donation credits — still pay a <strong>minimum level of federal tax</strong>.</p>
+      <p>Here is how it works in practice: every year, you calculate your regular federal income tax the normal way. Then you calculate your tentative AMT separately using the AMT rules, which add back many of the deductions and credits the regular system allows. If your <strong>tentative AMT is higher than your regular tax</strong>, you pay the difference as additional tax. If your regular tax is already higher, AMT simply does not apply.</p>
+      <p>Most Canadians — the vast majority — will never pay AMT. It is specifically designed to capture situations where someone reports very low regular taxable income but actually received large economic gains during the year. A person who sells a business or cottage for a $2 million gain, for example, might otherwise pay relatively little tax due to the capital gains deduction. AMT prevents that outcome.</p>
+
+      <h3>The Parallel Tax System</h3>
+      <p>Think of AMT as a floor on your tax bill. The CRA essentially runs two calculations:</p>
+      <ul>
+        <li><strong>Regular federal tax:</strong> Using taxable income, deductions, and credits in the normal way</li>
+        <li><strong>Tentative AMT:</strong> Using AMT-adjusted income, the $173,205 exemption, and the 20.5% flat rate</li>
+      </ul>
+      <p>You pay whichever is higher. If AMT is higher, the excess becomes your AMT amount — and that excess can be recovered in future years (more on that below).</p>
+    </div>
+
+    <!-- 2024 Changes -->
+    <div class="content-section">
+      <h2>The 2024 Federal Budget AMT Overhaul</h2>
+      <p>The 2024 federal budget introduced the most significant changes to Canada's AMT rules since the system was created in 1986. These changes came into effect for the 2024 tax year onward and dramatically expanded the reach of AMT. Here are the key changes:</p>
+
+      <h3>Higher AMT Rate: 15% → 20.5%</h3>
+      <p>The federal AMT rate was increased from 15% to <strong>20.5%</strong>. This brings the rate much closer to the top regular federal tax bracket of 33%, making AMT significantly more impactful for high earners.</p>
+
+      <h3>Higher Exemption: $40,000 → $173,205</h3>
+      <p>The AMT basic exemption was dramatically increased from $40,000 to <strong>$173,205</strong> (indexed to inflation). This change was specifically designed to protect middle-income Canadians and ensure that AMT only applies to those with very high incomes or large tax preferences. The higher exemption means the combination of the higher rate and higher exemption together targets a very specific wealthy population.</p>
+
+      <h3>Capital Gains Inclusion: 80% → 100%</h3>
+      <p>For AMT purposes, <strong>100% of capital gains</strong> must be included in AMT adjusted income — up from 80% under the old rules. The regular tax system still uses a 50% inclusion rate for gains up to $250,000 (and 2/3 for the excess above $250,000 since June 2024). This creates a large "add-back" for taxpayers with significant capital gains.</p>
+
+      <h3>Stock Options: 80% → 100%</h3>
+      <p>Employee stock option benefits are now included at <strong>100%</strong> for AMT purposes (previously 80%). This particularly affects executives and tech employees who exercise large option grants.</p>
+
+      <h3>Charitable Donations: Only 50% of Deduction Allowed</h3>
+      <p>Previously, the full charitable donation deduction was allowed for AMT purposes. Under the new rules, <strong>only 50%</strong> of the charitable donation deduction is permitted in calculating AMT income. This limits the tax benefit of large donations for high-income individuals.</p>
+
+      <h3>AMT Credits Reduced to 30%</h3>
+      <p>Most non-refundable tax credits (NRTCs) can only be applied at <strong>30%</strong> of their face value when calculating the final AMT. Under the old rules, 100% of most credits applied. This means credits like the basic personal amount, age amount, disability, and others are far less effective at reducing AMT.</p>
+    </div>
+
+    <!-- How AMT is Calculated -->
+    <div class="content-section">
+      <h2>How AMT Is Calculated — Step by Step</h2>
+      <ol class="step-list">
+        <li><strong>Start with regular net income</strong> — all income sources combined before deductions</li>
+        <li><strong>Add back AMT adjustments:</strong> Include 100% of capital gains (vs. 50%/67% normally), 100% of stock option benefits (vs. 50%), add back 50% of carrying charges on investment loans, and disallow half the charitable donation deduction</li>
+        <li><strong>Subtract the AMT exemption</strong> — $173,205 for 2024 (indexed to inflation annually)</li>
+        <li><strong>Apply the 20.5% AMT rate</strong> to get your gross tentative AMT</li>
+        <li><strong>Subtract AMT credits</strong> — 30% of most non-refundable federal tax credits</li>
+        <li><strong>Compare to regular tax:</strong> If tentative AMT &gt; regular federal tax, you owe the difference</li>
+      </ol>
+    </div>
+
+    <!-- Who Pays AMT -->
+    <div class="content-section">
+      <h2>Who Typically Pays AMT?</h2>
+      <p>The 2024 budget changes were explicitly designed to target the wealthiest Canadians. The government estimated at the time that roughly 70,000 Canadians per year would be affected, with the vast majority having incomes above $300,000. Here are the most common situations that trigger AMT:</p>
+
+      <h3>Large Capital Gains Events</h3>
+      <p>The most common AMT trigger. Selling a rental property, vacation home (that's not a principal residence), business, or a large investment portfolio can create a one-time capital gain large enough to trigger AMT. Even after the $173,205 exemption, gains above roughly $500,000–$600,000 in a single year frequently trigger AMT because the regular tax inclusion rules leave a large gap versus the AMT's 100% inclusion.</p>
+
+      <h3>Employee Stock Option Exercises</h3>
+      <p>Employees of public companies or startups who exercise large option grants may find AMT applies. The employment benefit from stock options is normally eligible for a 50% deduction; AMT removes that deduction entirely, creating a higher AMT adjusted income.</p>
+
+      <h3>Large Charitable Donations</h3>
+      <p>Wealthy individuals who make major donations — particularly donations of appreciated securities, which generate both a capital gain and a donation receipt — can face AMT. The 50% restriction on the charitable donation deduction, combined with the capital gain inclusion, can create a significant AMT bill even when the taxpayer expected the donation to eliminate most of their regular tax.</p>
+
+      <h3>Investment Leveraging Strategies</h3>
+      <p>Some investors borrow to invest and deduct the interest costs. Under AMT, only 50% of these carrying charges are allowed, reducing the deduction and increasing AMT adjusted income.</p>
+    </div>
+
+    <!-- Examples -->
+    <div class="content-section">
+      <h2>Real-World AMT Scenarios</h2>
+
+      <h3>Scenario 1: Cottage Sale</h3>
+      <div class="example-box">
+        <strong>Maria sells her cottage for a $600,000 capital gain — Ontario resident, $120,000 employment income</strong>
+        <div class="ex-row"><span>Regular taxable income (50% inclusion on first $250K, 2/3 on excess $350K)</span><span>$120,000 + $125,000 + $233,333 = $478,333</span></div>
+        <div class="ex-row"><span>Estimated regular federal tax (after BPA)</span><span>~$120,500</span></div>
+        <div class="ex-row"><span>AMT adjusted income (100% capital gains)</span><span>$120,000 + $600,000 = $720,000</span></div>
+        <div class="ex-row"><span>Less AMT exemption</span><span>− $173,205</span></div>
+        <div class="ex-row"><span>AMT base</span><span>$546,795</span></div>
+        <div class="ex-row"><span>Tentative AMT (× 20.5%)</span><span>$112,093</span></div>
+        <div class="ex-row"><span>Less AMT credits (30% × ~$2,356)</span><span>− $707</span></div>
+        <div class="ex-row"><span>Net tentative AMT</span><span>$111,386</span></div>
+        <div class="ex-row"><span>Regular federal tax</span><span>$120,500</span></div>
+        <div class="ex-row"><span>AMT owing (regular tax is higher — no AMT)</span><span>$0</span></div>
+      </div>
+      <p style="font-size:.87rem;color:var(--muted)">In this case, the regular tax is actually higher than the AMT because of the combined income pushing into high brackets. Use the calculator above to test your specific numbers.</p>
+
+      <h3>Scenario 2: Large Charitable Donation of Securities</h3>
+      <div class="example-box">
+        <strong>James donates publicly-traded securities with $500,000 of accrued gains — $150,000 employment income</strong>
+        <div class="ex-row"><span>Regular net income</span><span>$150,000</span></div>
+        <div class="ex-row"><span>Capital gain on donated securities (0% inclusion for gifts to charity)</span><span>$0 for regular tax</span></div>
+        <div class="ex-row"><span>Donation deduction (reduces regular taxable income to near zero)</span><span>− $500,000 deduction</span></div>
+        <div class="ex-row"><span>AMT: Add back 100% capital gain</span><span>+ $500,000</span></div>
+        <div class="ex-row"><span>AMT: Disallow 50% of donation deduction</span><span>+ $250,000 added back</span></div>
+        <div class="ex-row"><span>AMT adjusted income</span><span>~$900,000</span></div>
+        <div class="ex-row"><span>Less AMT exemption</span><span>− $173,205</span></div>
+        <div class="ex-row"><span>Tentative AMT (× 20.5%, less credits)</span><span>~$149,000</span></div>
+        <div class="ex-row"><span>Regular federal tax (very low after donation)</span><span>~$0</span></div>
+        <div class="ex-row"><span>AMT owing</span><span>~$149,000</span></div>
+      </div>
+      <div class="warning-box">Large charitable donations that would otherwise reduce regular tax to near zero are now heavily exposed to AMT under the 2024 rules. Always model AMT before making a major donation of appreciated securities.</div>
+
+      <h3>Scenario 3: Stock Option Exercise</h3>
+      <div class="example-box">
+        <strong>Aisha exercises $800,000 in stock options at a public tech company — $200,000 base salary</strong>
+        <div class="ex-row"><span>Regular taxable income ($800K benefit × 50% deduction + salary)</span><span>$200,000 + $400,000 = $600,000</span></div>
+        <div class="ex-row"><span>Estimated regular federal tax (after BPA)</span><span>~$169,000</span></div>
+        <div class="ex-row"><span>AMT adjusted income (100% of options, no deduction)</span><span>$200,000 + $800,000 = $1,000,000</span></div>
+        <div class="ex-row"><span>Less AMT exemption</span><span>− $173,205</span></div>
+        <div class="ex-row"><span>Tentative AMT (× 20.5%, less credits)</span><span>~$168,000</span></div>
+        <div class="ex-row"><span>AMT owing (regular tax is slightly higher)</span><span>~$0 (close call)</span></div>
+      </div>
+    </div>
+
+    <!-- 7-year carryforward -->
+    <div class="content-section">
+      <h2>The 7-Year AMT Carry-Forward</h2>
+      <p>One of the most important features of AMT is that it is not a permanent extra tax — it is more like a prepayment of future tax. When you pay AMT in a given year because your tentative AMT exceeds your regular tax, the excess amount becomes an <strong>AMT credit that can be carried forward for up to 7 years</strong>.</p>
+      <p>In any future year where your regular federal tax exceeds your tentative AMT, you can use the carry-forward credit to reduce the amount of regular tax you owe — down to your tentative AMT floor in that year. This means:</p>
+      <ul>
+        <li>If you pay $30,000 in AMT this year due to a one-time capital gain, and</li>
+        <li>In future years you have no large capital events, so your regular tax exceeds your AMT,</li>
+        <li>You can recover that $30,000 over the next 7 years.</li>
+      </ul>
+      <p>However, if your income stays high and you continue to have large gains or donations year after year, you may not fully recover the carry-forward before it expires. The 7-year window is a use-it-or-lose-it provision.</p>
+      <div class="tip-box">Keep detailed records of any AMT paid. Your accountant or tax software should track the carry-forward automatically on Schedule 12, but it's worth verifying each year.</div>
+    </div>
+
+    <!-- Provincial AMT -->
+    <div class="content-section">
+      <h2>Provincial AMT — An Often-Overlooked Layer</h2>
+      <p>In addition to federal AMT, several provinces have their <strong>own provincial AMT</strong> calculations. These are separate from the federal AMT and use different rates and rules. The result is that affected taxpayers may owe both federal and provincial AMT simultaneously.</p>
+
+      <h3>Ontario</h3>
+      <p>Ontario imposes a provincial AMT at roughly <strong>33.67% of federal basic AMT</strong>. This means Ontario residents who trigger federal AMT typically face an additional provincial AMT on top. Ontario's AMT also has a carry-forward provision.</p>
+
+      <h3>British Columbia</h3>
+      <p>BC levies provincial AMT at approximately <strong>33.7% of the federal AMT base</strong>. Like Ontario, BC residents who trigger federal AMT will almost always trigger provincial AMT as well.</p>
+
+      <h3>Quebec</h3>
+      <p>Quebec has its own minimum tax calculation within its provincial tax return, administered separately. Quebec residents should consult Revenu Québec rules, which differ materially from federal AMT rules.</p>
+
+      <h3>Other Provinces</h3>
+      <p>Most other provinces use a percentage-of-federal-tax approach to compute provincial tax and do not have a standalone provincial AMT. However, because their regular provincial tax rises with the federal AMT (through the income adjustments), residents in all provinces can see higher combined tax bills when AMT applies.</p>
+
+      <p>This calculator provides federal AMT only. For your provincial AMT exposure, speak with a tax professional or use provincial-specific software.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>Does AMT apply to RRSP withdrawals?</summary>
+        <div class="faq-body">
+          <p>No. RRSP withdrawals are fully included in regular income and taxed at your marginal rate. They are not a "tax preference" under AMT rules — you are paying full tax on RRSP income. AMT targets situations where deductions or inclusions create a gap between economic income and taxable income. RRSP income is straightforward employment-substitute income and does not create that gap.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I sold my principal residence — does AMT apply?</summary>
+        <div class="faq-body">
+          <p>No. The principal residence exemption eliminates the capital gain entirely for both regular tax and AMT purposes. If the gain on your home sale is fully sheltered by the principal residence exemption, there is no capital gain to include in the AMT calculation. Only gains on secondary properties (cottages, rental properties, investment real estate) that are not fully sheltered would flow into the AMT calculation.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can AMT be affected by RRSP contributions?</summary>
+        <div class="faq-body">
+          <p>Yes — RRSP contributions are deducted from regular net income before the AMT calculation begins. This means a large RRSP contribution reduces the starting income figure for both regular tax and AMT. However, for AMT purposes you then add back capital gains, stock option benefits, and other AMT adjustments on top of that reduced income. So RRSP contributions can help reduce AMT somewhat, but they cannot offset the AMT adjustments that come from capital gains or stock options. It depends entirely on your specific numbers.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What happens if I cannot afford to pay the AMT owing?</summary>
+        <div class="faq-body">
+          <p>AMT is a tax obligation like any other — it is due when you file your return (generally by April 30). The CRA can charge interest and potentially penalties if not paid on time. If you sold a property or exercised options, you should set aside funds for both regular tax and the possibility of AMT. If you are unable to pay, the CRA has taxpayer relief provisions and installment arrangements available, but interest continues to accrue. The best practice is to do AMT planning before the triggering event, not after.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>My accountant says I owe AMT but this calculator says I don't — why?</summary>
+        <div class="faq-body">
+          <p>This calculator is a simplified estimate using federal brackets and a limited set of inputs. Your actual AMT calculation involves dozens of additional line items: foreign tax credits, resource deductions, losses carried forward, pension income splitting, the lifetime capital gains exemption, and many others. Your accountant is working from your complete tax picture. Use this calculator for planning and awareness — always defer to a qualified tax professional for your actual filing.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer-box">
+      <strong style="display:block;margin-bottom:.4rem">Disclaimer</strong>
+      This calculator provides estimates for educational purposes only. It uses simplified 2024 federal tax brackets and AMT rules and does not account for all deductions, credits, provincial variations, or individual circumstances. The results are not tax advice. Consult a qualified Canadian tax professional (CPA) before making financial decisions based on AMT calculations.
+    </div>
+
+    <!-- Related Tools -->
+    <div class="content-section">
+      <h2>Related Calculators</h2>
+      <div class="related-tools">
+        <a href="/canadian-income-tax-calculator.html" class="tool-chip">📊 Income Tax</a>
+        <a href="/tfsa-room-calculator.html" class="tool-chip">💰 TFSA Room</a>
+        <a href="/rrsp-calculator.html" class="tool-chip">📈 RRSP Calculator</a>
+        <a href="/capital-gains-calculator.html" class="tool-chip">📈 Capital Gains</a>
+        <a href="/income-splitting-calculator.html" class="tool-chip">💑 Income Splitting</a>
+        <a href="/land-transfer-tax-calculator.html" class="tool-chip">🏛 Land Transfer Tax</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <div class="footer-desc">Free Canadian financial calculators. Always free. No sign-up required.</div>
+    </div>
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — For informational purposes only. Not tax or financial advice.</div>
+</footer>
+
+<script>
+// Nav toggle
+function navToggle(btn) {
+  const drop = btn.closest('.nav-drop');
+  const isOpen = drop.classList.contains('open');
+  document.querySelectorAll('.nav-drop.open').forEach(d => d.classList.remove('open'));
+  if (!isOpen) drop.classList.add('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-drop')) {
+    document.querySelectorAll('.nav-drop.open').forEach(d => d.classList.remove('open'));
+  }
+});
+
+// Show capital gains note when over 250K
+function updateCGNote() {
+  const cg = parseFloat(document.getElementById('capitalGains').value) || 0;
+  document.getElementById('cgNote').style.display = cg > 250000 ? 'block' : 'none';
+}
+
+// Format currency
+function fmt(n) {
+  if (isNaN(n)) return '$0';
+  const abs = Math.abs(n);
+  const sign = n < 0 ? '−$' : '$';
+  return sign + abs.toLocaleString('en-CA', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+}
+
+// 2024 Federal tax brackets
+function calcRegularFederalTax(taxableIncome) {
+  // 2024 federal brackets (approximated, BPA applied separately)
+  const brackets = [
+    {min: 0, max: 55867, rate: 0.15},
+    {min: 55867, max: 111733, rate: 0.205},
+    {min: 111733, max: 154906, rate: 0.26},
+    {min: 154906, max: 220000, rate: 0.29},
+    {min: 220000, max: Infinity, rate: 0.33}
+  ];
+  let tax = 0;
+  for (const b of brackets) {
+    if (taxableIncome <= b.min) break;
+    const top = Math.min(taxableIncome, b.max);
+    tax += (top - b.min) * b.rate;
+  }
+  return Math.max(0, tax);
+}
+
+// Calculate regular taxable income
+function calcRegularTaxableIncome(empIncome, otherIncome, capitalGains, stockOptions, donations, carryingCharges) {
+  // Regular capital gains inclusion:
+  // 50% on first $250,000; 2/3 on excess (post-June 2024 budget)
+  let cgInclusion = 0;
+  if (capitalGains <= 250000) {
+    cgInclusion = capitalGains * 0.50;
+  } else {
+    cgInclusion = 250000 * 0.50 + (capitalGains - 250000) * (2/3);
+  }
+
+  // Stock options: 50% deduction allowed (standard employee stock option deduction)
+  const soInclusion = stockOptions * 0.50;
+
+  // Total regular net income
+  const regularNetIncome = empIncome + otherIncome + cgInclusion + soInclusion;
+
+  // Charitable donation deduction (100% allowed in regular tax, reduces taxable income)
+  const donationDeduction = Math.min(donations, regularNetIncome * 0.75); // 75% net income limit
+
+  // Carrying charges fully deductible for regular tax
+  const ccDeduction = carryingCharges;
+
+  const taxableIncome = Math.max(0, regularNetIncome - donationDeduction - ccDeduction);
+  return {
+    regularNetIncome,
+    cgInclusion,
+    soInclusion,
+    donationDeduction,
+    ccDeduction,
+    taxableIncome
+  };
+}
+
+// Provincial AMT note
+function getProvinceAMTInfo(province) {
+  const notes = {
+    ON: {
+      title: 'Ontario: Provincial AMT Applies',
+      text: 'Ontario levies a provincial AMT at approximately 33.67% of your federal basic AMT. If you owe federal AMT, expect to also owe Ontario AMT. Both carry-forwards apply independently.'
+    },
+    BC: {
+      title: 'British Columbia: Provincial AMT Applies',
+      text: 'BC has its own provincial AMT calculated at approximately 33.7% of the federal AMT base. BC residents who trigger federal AMT will almost always trigger BC AMT as well. A 7-year carry-forward also applies provincially.'
+    },
+    QC: {
+      title: 'Quebec: Separate Provincial Minimum Tax',
+      text: 'Quebec operates its own provincial minimum tax through Revenu Québec, which is calculated separately from federal AMT with different rules and rates. Quebec residents should consult a tax professional familiar with both federal and Quebec tax rules.'
+    },
+    AB: {
+      title: 'Alberta: No Separate Provincial AMT',
+      text: 'Alberta does not have a standalone provincial AMT. However, your provincial tax is based on your income, which may still be elevated if AMT adjustments increase the income base used for Alberta tax purposes.'
+    },
+    default: {
+      title: 'Provincial AMT',
+      text: 'Your province does not have a standalone provincial AMT. Federal AMT rules govern. Your provincial income tax is calculated on a percentage-of-federal or flat-rate basis and is not directly affected by the AMT calculation beyond any income adjustments.'
+    }
+  };
+  return notes[province] || notes.default;
+}
+
+function calculateAMT() {
+  // Get inputs
+  const empIncome = parseFloat(document.getElementById('empIncome').value) || 0;
+  const otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+  const capitalGains = parseFloat(document.getElementById('capitalGains').value) || 0;
+  const stockOptions = parseFloat(document.getElementById('stockOptions').value) || 0;
+  const donations = parseFloat(document.getElementById('donations').value) || 0;
+  const carryingCharges = parseFloat(document.getElementById('carryingCharges').value) || 0;
+  const nrtcCredits = parseFloat(document.getElementById('nrtcCredits').value) || 2356; // default BPA credit
+  const province = document.getElementById('province').value;
+
+  // ---- Regular Tax Calculation ----
+  const reg = calcRegularTaxableIncome(empIncome, otherIncome, capitalGains, stockOptions, donations, carryingCharges);
+  const grossRegularTax = calcRegularFederalTax(reg.taxableIncome);
+  // Apply full NRTCs to regular tax
+  const regularTax = Math.max(0, grossRegularTax - nrtcCredits);
+
+  // ---- AMT Calculation ----
+  // AMT starts with regular net income (employment + other + full capital gains + full stock options)
+  const amtNetIncome = empIncome + otherIncome + capitalGains + stockOptions;
+
+  // AMT adjustments (add-backs vs. regular)
+  // 1. Capital gains add-back: AMT wants 100% inclusion, regular used 50%/67%
+  const cgAddBack = capitalGains - reg.cgInclusion; // difference = amount added back
+
+  // 2. Stock options add-back: AMT wants 100%, regular used 50%
+  const soAddBack = stockOptions - reg.soInclusion;
+
+  // 3. Charitable donations: AMT allows only 50%; regular allowed 100%
+  //    We already had donationDeduction in regular tax. AMT restricts this to 50%.
+  const amtDonationDeduction = reg.donationDeduction * 0.50;
+  const donationAddBack = reg.donationDeduction - amtDonationDeduction;
+
+  // 4. Carrying charges: AMT allows only 50%
+  const amtCCDeduction = carryingCharges * 0.50;
+  const ccAddBack = carryingCharges - amtCCDeduction;
+
+  // AMT adjusted income
+  const amtAdjustedIncome = reg.regularNetIncome + cgAddBack + soAddBack + donationAddBack + ccAddBack;
+
+  // AMT exemption 2024
+  const amtExemption = 173205;
+
+  // AMT base
+  const amtBase = Math.max(0, amtAdjustedIncome - amtExemption);
+
+  // Gross tentative AMT
+  const grossTentativeAMT = amtBase * 0.205;
+
+  // AMT credits: 30% of NRTCs
+  const amtCredits = nrtcCredits * 0.30;
+
+  // Net tentative AMT
+  const tentativeAMT = Math.max(0, grossTentativeAMT - amtCredits);
+
+  // AMT owing
+  const amtOwing = Math.max(0, tentativeAMT - regularTax);
+
+  // ---- Render Results ----
+  const resultsWrap = document.getElementById('resultsWrap');
+  resultsWrap.style.display = 'block';
+  resultsWrap.scrollIntoView({behavior: 'smooth', block: 'start'});
+
+  // Hero
+  const hero = document.getElementById('resultHero');
+  const heroLabel = document.getElementById('heroLabel');
+  const heroAmount = document.getElementById('heroAmount');
+  const heroSublabel = document.getElementById('heroSublabel');
+
+  if (amtOwing > 0) {
+    hero.className = 'result-hero owe';
+    heroLabel.textContent = 'Estimated AMT Owing';
+    heroAmount.textContent = fmt(amtOwing);
+    heroSublabel.textContent = 'Additional federal tax above your regular tax. This amount can be carried forward 7 years.';
+  } else {
+    hero.className = 'result-hero no-owe';
+    heroLabel.textContent = 'No AMT Owing';
+    heroAmount.textContent = '$0';
+    heroSublabel.textContent = 'Your regular federal tax (' + fmt(regularTax) + ') equals or exceeds your tentative AMT (' + fmt(tentativeAMT) + '). You are in the clear!';
+  }
+
+  // Breakdown table
+  const rows = [
+    ['1', 'Regular net income (employment + other + capital gains + options)', fmt(reg.regularNetIncome), false],
+    ['', '+ Capital gains add-back (AMT: 100% inclusion vs. regular partial inclusion)', fmt(cgAddBack), false],
+    ['', '+ Stock option add-back (AMT: 100% vs. 50% deduction removed)', fmt(soAddBack), false],
+    ['', '+ Charitable donation add-back (AMT: only 50% of deduction allowed)', fmt(donationAddBack), false],
+    ['', '+ Carrying charges add-back (AMT: only 50% deductible)', fmt(ccAddBack), false],
+    ['2', 'AMT Adjusted Income', fmt(amtAdjustedIncome), false],
+    ['3', '− AMT Exemption (2024)', fmt(amtExemption), false],
+    ['4', 'AMT Base', fmt(amtBase), false],
+    ['5', '× AMT Rate (20.5%)', '', false],
+    ['', 'Gross Tentative AMT', fmt(grossTentativeAMT), false],
+    ['6', '− AMT Credits (30% of NRTCs: ' + fmt(nrtcCredits) + ')', fmt(amtCredits), false],
+    ['7', 'Net Tentative AMT', fmt(tentativeAMT), false],
+    ['8', 'Regular Federal Tax (after NRTCs)', fmt(regularTax), false],
+    ['9', amtOwing > 0 ? 'AMT Owing (Tentative AMT − Regular Tax)' : 'AMT Owing (none — regular tax ≥ tentative AMT)', fmt(amtOwing), true],
+  ];
+
+  const tbody = document.getElementById('breakdownBody');
+  tbody.innerHTML = rows.map(([step, item, amount, highlight]) =>
+    `<tr${highlight ? ' class="highlight"' : ''}>
+      <td>${step}</td>
+      <td>${item}</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums">${amount}</td>
+    </tr>`
+  ).join('');
+
+  // Carry-forward note
+  const cfNote = document.getElementById('carryforwardNote');
+  const noAmtNote = document.getElementById('noAmtNote');
+  if (amtOwing > 0) {
+    cfNote.style.display = 'block';
+    noAmtNote.style.display = 'none';
+    document.getElementById('cfAmount').textContent = fmt(amtOwing);
+  } else {
+    cfNote.style.display = 'none';
+    noAmtNote.style.display = 'block';
+  }
+
+  // Province note
+  const provInfo = getProvinceAMTInfo(province);
+  const provNote = document.getElementById('provinceAMTNote');
+  provNote.style.display = 'block';
+  document.getElementById('provinceAMTTitle').textContent = provInfo.title;
+  document.getElementById('provinceAMTText').textContent = provInfo.text;
+
+  // Summary cards
+  const cards = [
+    {label: 'Regular Taxable Income', value: fmt(reg.taxableIncome), note: 'After regular deductions'},
+    {label: 'Regular Federal Tax', value: fmt(regularTax), note: 'After NRTCs'},
+    {label: 'AMT Adjusted Income', value: fmt(amtAdjustedIncome), note: 'Including all add-backs'},
+    {label: 'AMT Base', value: fmt(amtBase), note: 'After $173,205 exemption'},
+    {label: 'Gross Tentative AMT', value: fmt(grossTentativeAMT), note: '20.5% × AMT base'},
+    {label: 'AMT Credits Applied', value: fmt(amtCredits), note: '30% of your NRTCs'},
+    {label: 'Net Tentative AMT', value: fmt(tentativeAMT), note: 'After AMT credits'},
+    {label: amtOwing > 0 ? 'AMT Owing' : 'AMT Owing', value: fmt(amtOwing), note: amtOwing > 0 ? '7-year carry-forward applies' : 'None — regular tax is higher'},
+  ];
+
+  document.getElementById('summaryCards').innerHTML = cards.map(c =>
+    `<div class="result-card">
+      <div class="rc-label">${c.label}</div>
+      <div class="rc-value">${c.value}</div>
+      <div class="rc-note">${c.note}</div>
+    </div>`
+  ).join('');
+}
+</script>
+
+</body>
+</html>

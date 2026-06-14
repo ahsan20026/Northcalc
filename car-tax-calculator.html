@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Tax Calculator Canada 2026 | Provincial Vehicle Tax</title>
+<meta name="description" content="Calculate how much tax you'll pay when buying a car in any Canadian province. HST, PST, GST rates for new and used vehicles including BC luxury surtax.">
+<link rel="canonical" href="https://northcalc.com/car-tax-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09);--green:#059669;--green-light:#ecfdf5;--blue-light:#eff6ff}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.tip-box strong{display:block;margin-bottom:.35rem}
+.warn-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#92400e}
+.warn-box strong{display:block;margin-bottom:.35rem}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+.card-title{font-size:1.05rem;font-weight:800;color:var(--navy);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--red-light);display:flex;align-items:center;gap:.5rem}
+.toggle-group{display:grid;gap:3px;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:3px;margin-bottom:1.25rem}
+.toggle-group.two{grid-template-columns:1fr 1fr}
+.toggle-group.four{grid-template-columns:repeat(4,1fr)}
+.tgl-btn{padding:.55rem .75rem;border:none;border-radius:6px;font-size:.84rem;font-weight:600;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;font-family:inherit;text-align:center;white-space:nowrap}
+.tgl-btn.active{background:var(--white);color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem}
+.field{margin-bottom:1.25rem}
+label{display:block;font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.05em}
+.input-wrap{position:relative}
+.pfx{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;font-weight:500}
+input,select{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9375rem;color:var(--text);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none;font-family:inherit}
+.has-pfx input{padding-left:1.85rem}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,30,58,.1)}
+.hint{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.rate-info{background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:1rem 1.25rem;font-size:.82rem;color:#1e40af;margin:0 0 1.25rem}
+.rate-info strong{display:block;margin-bottom:.3rem;font-size:.88rem}
+.rate-detail{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
+.rate-pill{background:#dbeafe;color:#1e40af;border-radius:20px;padding:.2rem .65rem;font-size:.75rem;font-weight:600}
+.rate-pill.warn{background:#fef3c7;color:#92400e}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit;margin-top:.25rem}
+.btn:hover{background:var(--red-dark)}
+#results{display:none;margin-top:1.5rem}
+.result-big{text-align:center;padding:2rem;background:var(--green-light);border:2px solid #6ee7b7;border-radius:var(--radius);margin-bottom:1.25rem}
+.rb-label{font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+.rb-value{font-size:2.75rem;font-weight:800;color:#065f46;line-height:1}
+.rb-sub{font-size:.85rem;color:var(--green);margin-top:.4rem}
+.breakdown-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}
+.bc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;box-shadow:var(--shadow);text-align:center}
+.bc.tax{border-top:3px solid #C41E3A}
+.bc.price{border-top:3px solid var(--green)}
+.bc.total{border-top:3px solid #1d4ed8}
+.bc-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.bc-value{font-size:1.35rem;font-weight:800;color:var(--navy)}
+.bc-rate{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+table.comp-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:1rem}
+.comp-table thead th{background:var(--bg);padding:.6rem 1rem;text-align:left;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+.comp-table thead th:not(:first-child){text-align:right}
+.comp-table tbody td{padding:.55rem 1rem;border-bottom:1px solid var(--border);color:var(--text)}
+.comp-table tbody td:not(:first-child){text-align:right}
+.comp-table tbody tr:last-child td{border-bottom:none}
+.comp-table tbody tr:hover td{background:var(--bg)}
+.comp-table tbody tr.highlight-row td{background:#f0fdf4;font-weight:700}
+.comp-table tbody tr.cheapest td{color:#065f46}
+.tax-badge{display:inline-flex;font-size:.68rem;font-weight:600;padding:.15rem .45rem;border-radius:10px;margin-left:.3rem;vertical-align:middle}
+.tax-badge.hst{background:#fce8ec;color:#C41E3A}
+.tax-badge.gst{background:#ecfdf5;color:#059669}
+.tax-badge.mix{background:#eff6ff;color:#1d4ed8}
+.tax-badge.lux{background:#fef3c7;color:#92400e}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}.breakdown-grid{grid-template-columns:1fr}.rb-value{font-size:2.2rem}.toggle-group.four{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link active">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian Car Tax Calculator</h1>
+    <p>Find out exactly how much provincial sales tax you'll pay when buying a vehicle — new or used, dealer or private sale — in any Canadian province or territory.</p>
+  </div>
+</div>
+
+<main class="content-wrap">
+
+  <!-- CALCULATOR -->
+  <div class="calc-section">
+    <div class="card-title">🚗 Vehicle Tax Calculator</div>
+
+    <div class="field">
+      <label for="price">Vehicle Price</label>
+      <div class="input-wrap has-pfx">
+        <span class="pfx">$</span>
+        <input type="number" id="price" value="35000" min="0" step="100" oninput="onInputChange()">
+      </div>
+      <div class="hint">Enter the purchase price of the vehicle (before tax)</div>
+    </div>
+
+    <div class="form-grid">
+      <div class="field" style="margin-bottom:0">
+        <label for="province">Province / Territory</label>
+        <select id="province" onchange="onInputChange()">
+          <option value="ON">Ontario</option>
+          <option value="BC">British Columbia</option>
+          <option value="AB">Alberta</option>
+          <option value="QC">Quebec</option>
+          <option value="NS">Nova Scotia</option>
+          <option value="NB">New Brunswick</option>
+          <option value="MB">Manitoba</option>
+          <option value="SK">Saskatchewan</option>
+          <option value="NL">Newfoundland &amp; Labrador</option>
+          <option value="PE">Prince Edward Island</option>
+          <option value="YT">Yukon</option>
+          <option value="NT">Northwest Territories</option>
+          <option value="NU">Nunavut</option>
+        </select>
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <label>Vehicle Condition</label>
+        <div class="toggle-group two">
+          <button class="tgl-btn active" id="btnNew" onclick="setCondition('new')">🆕 New</button>
+          <button class="tgl-btn" id="btnUsed" onclick="setCondition('used')">🔄 Used</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom:1.25rem">
+      <label>Sale Type</label>
+      <div class="toggle-group two">
+        <button class="tgl-btn active" id="btnDealer" onclick="setSaleType('dealer')">🏪 Dealer / Retailer</button>
+        <button class="tgl-btn" id="btnPrivate" onclick="setSaleType('private')">🤝 Private Sale</button>
+      </div>
+    </div>
+
+    <div class="rate-info" id="rateInfo"></div>
+
+    <button class="btn" onclick="calculate()">Calculate Vehicle Tax</button>
+
+    <div id="results">
+      <div class="result-big">
+        <div class="rb-label">Tax Amount</div>
+        <div class="rb-value" id="resTaxAmount">$0</div>
+        <div class="rb-sub" id="resTaxRate">Rate: 0%</div>
+      </div>
+      <div class="breakdown-grid">
+        <div class="bc price">
+          <div class="bc-label">Vehicle Price</div>
+          <div class="bc-value" id="resPrice">$0</div>
+          <div class="bc-rate">Before tax</div>
+        </div>
+        <div class="bc tax">
+          <div class="bc-label">Total Tax</div>
+          <div class="bc-value" id="resTax">$0</div>
+          <div class="bc-rate" id="resTaxBreakdown">—</div>
+        </div>
+        <div class="bc total">
+          <div class="bc-label">Total Price</div>
+          <div class="bc-value" id="resTotal">$0</div>
+          <div class="bc-rate">Drive-away cost</div>
+        </div>
+      </div>
+      <div id="resNote" style="font-size:.82rem;color:var(--muted);margin-top:.5rem;padding:.75rem 1rem;background:var(--bg);border-radius:8px;display:none"></div>
+    </div>
+  </div>
+
+  <!-- PROVINCE COMPARISON TABLE -->
+  <div class="content-section">
+    <h2>Province-by-Province Comparison</h2>
+    <p>See what the same vehicle would cost in every Canadian province at your entered price. <strong id="compPrice">Enter a price above</strong> and click Calculate to update this table.</p>
+    <div style="overflow-x:auto">
+      <table class="comp-table" id="compTable">
+        <thead>
+          <tr>
+            <th>Province / Territory</th>
+            <th>Tax System</th>
+            <th>Rate</th>
+            <th>Tax Amount</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody id="compBody">
+          <tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--muted);font-size:.88rem">Enter your vehicle price above and click Calculate to see the comparison.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- EDUCATIONAL CONTENT -->
+  <div class="content-section">
+    <h2>Why Car Taxes Vary Across Canada</h2>
+    <p>Canada's decentralized tax system means vehicle buyers face vastly different tax bills depending on where they register their purchase. While the federal Goods and Services Tax (GST) of 5% applies uniformly coast to coast, provincial governments layer on their own taxes — each with different rates, structures, and special rules for used vehicles.</p>
+    <p>The result is dramatic: buying a $50,000 vehicle in Alberta costs $2,500 in tax (GST only), while the same vehicle purchased in Nova Scotia or Prince Edward Island carries a $7,500 tax bill (15% HST). That $5,000 difference is purely provincial policy — the car is identical.</p>
+    <p>For used vehicles, the calculus becomes even more complex. Several provinces assess tax not on the sale price, but on an independently determined book value — protecting tax revenue from artificially low declared prices between related parties. Understanding these rules before you buy can save you from unpleasant surprises at the motor vehicle registry.</p>
+
+    <h3>HST Provinces (One Simple Rate)</h3>
+    <p>Ontario, Nova Scotia, New Brunswick, Newfoundland &amp; Labrador, and Prince Edward Island have harmonized their federal and provincial taxes into a single Harmonised Sales Tax (HST). This simplifies administration — buyers pay one rate, dealers remit one amount, and there's no separate federal/provincial calculation. Rates range from Ontario's 13% to 15% in the Atlantic provinces.</p>
+
+    <h3>GST + PST Provinces</h3>
+    <p>British Columbia, Manitoba, and Saskatchewan collect GST and Provincial Sales Tax (PST) separately. The federal GST goes to Ottawa; the PST stays in the province. For vehicle buyers, this means two line items on your purchase agreement. Manitoba charges 7% PST, Saskatchewan 6% PST, and BC 7% PST — all on top of the 5% GST — for combined rates of 12%, 11%, and 12% respectively.</p>
+
+    <h3>Quebec's Unique QST System</h3>
+    <p>Quebec does not use PST — instead it has the Quebec Sales Tax (QST) at 9.975%, collected by Revenu Québec alongside the federal GST. The combined rate of 14.975% is the highest vehicle tax rate of any province on dealer sales. Importantly, QST is calculated on the price inclusive of GST when purchased from a dealer (making the effective rate slightly higher in practice).</p>
+    <p>For private vehicle sales in Quebec, the QST is assessed on the <strong>higher</strong> of the declared sale price or an estimated value from Revenu Québec's standardized estimation table. This prevents buyers and sellers from declaring artificially low prices to reduce tax.</p>
+
+    <h3>Alberta and the Territories: GST Only</h3>
+    <p>Alberta has no provincial sales tax — a point of considerable provincial pride. Vehicle buyers pay only the 5% federal GST, making Alberta the most tax-efficient province for buying cars. The three territories (Yukon, Northwest Territories, and Nunavut) also have no territorial sales tax, so buyers there also pay just 5% GST.</p>
+
+    <h3>British Columbia's Luxury Vehicle Surtax</h3>
+    <p>BC applies a sliding-scale PST surcharge on higher-priced vehicles. Vehicles priced between $125,000 and $149,999 attract 15% PST (instead of the standard 7%), and vehicles $150,000 and above face 20% PST. Combined with the 5% GST, a $200,000 luxury vehicle in BC carries a total tax rate of 25% — some of the highest vehicle taxation in North America.</p>
+    <p>This luxury surtax applies to both new and used vehicles purchased through a dealer, and to private sales where the vehicle's market value exceeds the threshold. The BC government introduced and expanded these thresholds as a revenue measure targeting high-end vehicle imports.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Private Sales: Special Tax Rules</h2>
+    <p>Buying a car from a private seller (not a dealership) has different tax implications than a dealer purchase. Here's what you need to know in each province:</p>
+    <ul>
+      <li><strong>Ontario:</strong> 13% RST (Retail Sales Tax, which is essentially HST equivalent) applies on the greater of the purchase price or the Canadian Red Book wholesale value. The tax is collected at ServiceOntario when you register the vehicle — not at the point of sale.</li>
+      <li><strong>British Columbia:</strong> PST applies on the greater of the declared purchase price or the NADA book value. The 7% standard rate applies (or the luxury rate if the vehicle value exceeds the threshold). Tax is paid at an ICBC Autoplan broker when transferring the registration.</li>
+      <li><strong>Quebec:</strong> QST is assessed on the higher of the sale price or Revenu Québec's estimated value from the ARQ estimation table. Private sale GST does not apply (only QST at 9.975%). Tax is paid at the SAAQ at the time of registration transfer.</li>
+      <li><strong>Saskatchewan:</strong> PST (6%) applies on the higher of the actual sale price or the VCRS (Vehicle Certified Reference System) book value. Paid at SGI when registering.</li>
+      <li><strong>Manitoba, Alberta, Atlantic Provinces, and Territories:</strong> Tax is generally assessed on the declared purchase price for private sales, with no mandatory book-value minimum (though grossly undervalued transactions may be reviewed).</li>
+    </ul>
+    <div class="warn-box">
+      <strong>⚠️ Important: Tax is paid at registration, not at sale</strong>
+      In most provinces, private-sale vehicle tax is not collected by the seller — it's paid by the buyer when they go to register/transfer the vehicle at the provincial motor vehicle registry. Budget for this cost upfront; you cannot drive the car legally without completing the registration.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Do I pay GST on a used car from a private seller?</summary>
+      <div class="faq-body">
+        Generally no — GST is not charged on private-sale used vehicles in most provinces. Private individuals are not registered GST collectors (unless they're a business selling a vehicle used in commercial activities). You will, however, still pay provincial sales tax (PST, RST, or QST) in most provinces at the time of vehicle registration. Alberta, Yukon, NWT, and Nunavut residents pay no tax on private sales since there is no provincial tax and GST doesn't apply to private sales.
+      </div>
+    </details>
+
+    <details>
+      <summary>Why does BC have higher taxes on expensive cars?</summary>
+      <div class="faq-body">
+        British Columbia introduced a tiered luxury vehicle PST to generate additional revenue from high-priced vehicle purchases, which are disproportionately concentrated in the Lower Mainland. The rates are: 7% PST for vehicles under $125,000; 15% PST for $125,000–$149,999; and 20% PST for $150,000 and over — all in addition to the standard 5% federal GST. This means a $200,000 vehicle in BC carries $50,000 in PST alone. The luxury threshold has not been indexed to inflation, so more vehicles are gradually captured by the higher tiers over time.
+      </div>
+    </details>
+
+    <details>
+      <summary>Can I avoid taxes by buying a car in Alberta and bringing it to my province?</summary>
+      <div class="faq-body">
+        No. Vehicle taxes are assessed at the time of registration in your home province, not at the point of purchase. When you register a vehicle in Ontario, BC, Quebec, or any other province, you pay that province's applicable tax regardless of where you bought the vehicle. The only exception is if you can demonstrate you were a resident of another province at the time of purchase and are relocating — but this is subject to strict rules and documentation requirements. Attempting to fraudulently avoid provincial tax is a serious offence.
+      </div>
+    </details>
+
+    <details>
+      <summary>Is there tax on electric vehicles (EVs) in Canada?</summary>
+      <div class="faq-body">
+        Yes — provincial vehicle sales taxes apply equally to electric vehicles as to conventional vehicles. The federal government's iZEV (Incentive for Zero-Emission Vehicles) rebate of up to $5,000 is applied before tax, so you pay tax on the post-rebate price if buying from a dealer. Some provinces also offer additional EV incentives. BC's Clean Energy Vehicle rebate (up to $3,000) and Quebec's Roulez Vert program (up to $7,000) are applied as point-of-sale reductions, which also reduce the taxable amount.
+      </div>
+    </details>
+
+    <details>
+      <summary>Do I pay tax on a trade-in vehicle in Canada?</summary>
+      <div class="faq-body">
+        In most provinces, a trade-in value reduces the taxable amount of your new vehicle purchase. For example, if you buy a $40,000 car and trade in a vehicle worth $15,000, you pay tax only on the $25,000 difference. This is called a "trade-in credit" or "trade-in deduction." However, the rules vary: Ontario allows trade-in deductions; Quebec has specific rules around traded vehicles. Always confirm with your dealer how trade-ins affect your tax calculation before finalizing the deal.
+      </div>
+    </details>
+
+    <details>
+      <summary>What is the difference between RST and PST for vehicles?</summary>
+      <div class="faq-body">
+        RST (Retail Sales Tax) is the older term used in Ontario for the provincial sales tax component before HST was introduced in 2010. Today, Ontario uses a single 13% HST. In common usage for vehicle purchases, you may still see "RST" referenced in older documents or when discussing private vehicle sales in Ontario (which are subject to a similar calculation). Practically speaking, for 2026 vehicle purchases in Ontario, the applicable tax is simply 13% HST on dealer sales and 13% RST on private sales, calculated the same way.
+      </div>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <div class="related-tools">
+      <a href="/car-loan-calculator.html" class="tool-chip">🚗 Car Loan Calculator</a>
+      <a href="/lease-vs-buy-calculator.html" class="tool-chip">🔄 Lease vs Buy</a>
+      <a href="/car-affordability-calculator.html" class="tool-chip">💡 Car Affordability</a>
+      <a href="/car-depreciation-calculator.html" class="tool-chip">📉 Car Depreciation</a>
+      <a href="/hst-gst-calculator.html" class="tool-chip">🧾 HST / GST Calculator</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> Tax rates shown are based on publicly available 2026 provincial legislation and CRA guidelines. Private-sale rules are complex and vary — always verify current rates with your provincial motor vehicle registry or a licensed tax professional before completing a purchase. NorthCalc.com calculations are estimates only and do not constitute tax or legal advice.
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-brand">🍁 North<em>Calc</em></div><p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p></div>
+    <div class="footer-links"><a href="/about.html">About Us</a><a href="/blog/">Blog</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms-of-service.html">Terms of Service</a><a href="/disclaimer.html">Disclaimer</a><a href="/contact.html">Contact</a></div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — Calculations are estimates only and do not constitute financial, tax, or legal advice. Always consult a licensed professional.</div>
+</footer>
+
+<script>
+var condition = 'new';
+var saleType = 'dealer';
+
+var PROVINCES = [
+  {code:'ON', name:'Ontario', system:'HST'},
+  {code:'BC', name:'British Columbia', system:'PST+GST'},
+  {code:'AB', name:'Alberta', system:'GST only'},
+  {code:'QC', name:'Quebec', system:'GST+QST'},
+  {code:'NS', name:'Nova Scotia', system:'HST'},
+  {code:'NB', name:'New Brunswick', system:'HST'},
+  {code:'MB', name:'Manitoba', system:'GST+RST'},
+  {code:'SK', name:'Saskatchewan', system:'GST+PST'},
+  {code:'NL', name:'Newfoundland & Labrador', system:'HST'},
+  {code:'PE', name:'Prince Edward Island', system:'HST'},
+  {code:'YT', name:'Yukon', system:'GST only'},
+  {code:'NT', name:'Northwest Territories', system:'GST only'},
+  {code:'NU', name:'Nunavut', system:'GST only'}
+];
+
+function getTaxInfo(prov, price, cond, sale) {
+  var gst = 0.05;
+  var pst = 0;
+  var hst = 0;
+  var label = '';
+  var note = '';
+  var systemLabel = '';
+  var isPrivate = (sale === 'private');
+
+  switch(prov) {
+    case 'ON':
+      hst = 0.13;
+      label = '13% HST';
+      systemLabel = 'HST';
+      if (isPrivate) note = 'Private sale: 13% RST applies on the higher of purchase price or Canadian Red Book value, collected at ServiceOntario at registration.';
+      break;
+    case 'BC':
+      var bcPst;
+      if (price < 125000) { bcPst = 0.07; label = '12% (5% GST + 7% PST)'; }
+      else if (price < 150000) { bcPst = 0.15; label = '20% (5% GST + 15% PST luxury)'; }
+      else { bcPst = 0.20; label = '25% (5% GST + 20% PST luxury)'; }
+      pst = bcPst;
+      systemLabel = 'PST+GST';
+      if (price >= 125000) { note = 'BC luxury vehicle surtax applies: PST is ' + Math.round(bcPst*100) + '% on vehicles over $125,000.'; }
+      if (isPrivate) note = (note ? note + ' ' : '') + 'Private sale: PST assessed on the higher of purchase price or NADA book value, paid at ICBC Autoplan broker.';
+      break;
+    case 'AB':
+      label = '5% GST only';
+      systemLabel = 'GST only';
+      if (isPrivate) note = 'Private sale: No provincial tax. Only 5% GST applies if seller is a GST registrant. Most private sales between individuals attract no GST.';
+      break;
+    case 'QC':
+      if (isPrivate) {
+        pst = 0.09975;
+        label = '9.975% QST (private — no GST)';
+        systemLabel = 'QST only';
+        note = 'Quebec private sale: QST (9.975%) applies on the higher of purchase price or ARQ estimated value. GST is not charged on private sales. Tax paid at SAAQ at registration.';
+      } else {
+        pst = 0.09975;
+        label = '14.975% (5% GST + 9.975% QST)';
+        systemLabel = 'GST+QST';
+      }
+      break;
+    case 'NS': hst = 0.15; label = '15% HST'; systemLabel = 'HST'; break;
+    case 'NB': hst = 0.15; label = '15% HST'; systemLabel = 'HST'; break;
+    case 'MB':
+      pst = 0.07;
+      label = '12% (5% GST + 7% RST)';
+      systemLabel = 'GST+RST';
+      break;
+    case 'SK':
+      pst = 0.06;
+      label = '11% (5% GST + 6% PST)';
+      systemLabel = 'GST+PST';
+      if (isPrivate && cond === 'used') note = 'Saskatchewan private used vehicle sale: 6% PST assessed on higher of sale price or VCRS book value, collected at SGI at registration.';
+      break;
+    case 'NL': hst = 0.15; label = '15% HST'; systemLabel = 'HST'; break;
+    case 'PE': hst = 0.15; label = '15% HST'; systemLabel = 'HST'; break;
+    case 'YT': label = '5% GST only'; systemLabel = 'GST only'; break;
+    case 'NT': label = '5% GST only'; systemLabel = 'GST only'; break;
+    case 'NU': label = '5% GST only'; systemLabel = 'GST only'; break;
+  }
+
+  var totalRate, taxAmount, gstAmount = 0, pstAmount = 0, hstAmount = 0;
+
+  if (hst > 0) {
+    hstAmount = price * hst;
+    taxAmount = hstAmount;
+    totalRate = hst;
+  } else if (prov === 'QC' && isPrivate) {
+    pstAmount = price * pst;
+    taxAmount = pstAmount;
+    totalRate = pst;
+  } else {
+    gstAmount = price * gst;
+    pstAmount = price * pst;
+    taxAmount = gstAmount + pstAmount;
+    totalRate = gst + pst;
+  }
+
+  var breakdown = '';
+  if (hst > 0) {
+    breakdown = Math.round(hst*100) + '% HST';
+  } else if (prov === 'QC' && isPrivate) {
+    breakdown = '9.975% QST (no GST)';
+  } else if (pst > 0) {
+    breakdown = '5% GST + ' + (pst*100).toFixed(pst === 0.09975 ? 3 : 0) + '% ' + (prov === 'MB' ? 'RST' : prov === 'QC' ? 'QST' : 'PST');
+  } else {
+    breakdown = '5% GST';
+  }
+
+  return {
+    rate: totalRate,
+    taxAmount: taxAmount,
+    total: price + taxAmount,
+    label: label,
+    breakdown: breakdown,
+    note: note,
+    systemLabel: systemLabel,
+    gstAmount: gstAmount,
+    pstAmount: pstAmount,
+    hstAmount: hstAmount
+  };
+}
+
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('en-CA');
+}
+
+function fmtPct(r) {
+  var p = r * 100;
+  if (p === Math.floor(p)) return p.toFixed(0) + '%';
+  if (Math.round(p * 10) === Math.floor(p * 10) * 10 + Math.round((p - Math.floor(p)) * 10)) return p.toFixed(1) + '%';
+  return p.toFixed(3).replace(/\.?0+$/, '') + '%';
+}
+
+function setCondition(c) {
+  condition = c;
+  document.getElementById('btnNew').classList.toggle('active', c === 'new');
+  document.getElementById('btnUsed').classList.toggle('active', c === 'used');
+  updateRateInfo();
+}
+
+function setSaleType(s) {
+  saleType = s;
+  document.getElementById('btnDealer').classList.toggle('active', s === 'dealer');
+  document.getElementById('btnPrivate').classList.toggle('active', s === 'private');
+  updateRateInfo();
+}
+
+function onInputChange() {
+  updateRateInfo();
+}
+
+function updateRateInfo() {
+  var price = parseFloat(document.getElementById('price').value) || 35000;
+  var prov = document.getElementById('province').value;
+  var info = getTaxInfo(prov, price, condition, saleType);
+  var ri = document.getElementById('rateInfo');
+  var badgeClass = info.systemLabel === 'HST' ? 'hst' : (info.systemLabel === 'GST only' ? 'gst' : 'mix');
+  var isLux = (prov === 'BC' && price >= 125000);
+  ri.innerHTML = '<strong>📍 ' + getProvName(prov) + ' — ' + info.label + '</strong>'
+    + '<div class="rate-detail">'
+    + '<span class="rate-pill ' + badgeClass + '">' + info.systemLabel + '</span>'
+    + '<span class="rate-pill">Rate: ' + fmtPct(info.rate) + '</span>'
+    + (isLux ? '<span class="rate-pill warn">⚠️ Luxury Surtax</span>' : '')
+    + (saleType === 'private' ? '<span class="rate-pill warn">Private Sale Rules Apply</span>' : '')
+    + '</div>';
+}
+
+function getProvName(code) {
+  for (var i = 0; i < PROVINCES.length; i++) {
+    if (PROVINCES[i].code === code) return PROVINCES[i].name;
+  }
+  return code;
+}
+
+function calculate() {
+  var price = parseFloat(document.getElementById('price').value);
+  if (!price || price < 0) { alert('Please enter a valid vehicle price.'); return; }
+
+  var prov = document.getElementById('province').value;
+  var info = getTaxInfo(prov, price, condition, saleType);
+
+  document.getElementById('resTaxAmount').textContent = fmt(info.taxAmount);
+  document.getElementById('resTaxRate').textContent = 'Rate: ' + fmtPct(info.rate) + ' — ' + info.breakdown;
+  document.getElementById('resPrice').textContent = fmt(price);
+  document.getElementById('resTax').textContent = fmt(info.taxAmount);
+  document.getElementById('resTaxBreakdown').textContent = info.breakdown;
+  document.getElementById('resTotal').textContent = fmt(info.total);
+
+  var noteEl = document.getElementById('resNote');
+  if (info.note) {
+    noteEl.textContent = '📌 ' + info.note;
+    noteEl.style.display = 'block';
+  } else {
+    noteEl.style.display = 'none';
+  }
+
+  document.getElementById('results').style.display = 'block';
+
+  // Update comparison table
+  document.getElementById('compPrice').textContent = 'Comparing at ' + fmt(price) + ' vehicle price (' + (condition === 'new' ? 'new' : 'used') + ', ' + (saleType === 'dealer' ? 'dealer' : 'private') + ' sale)';
+  buildCompTable(price);
+}
+
+function buildCompTable(price) {
+  var rows = '';
+  var selectedProv = document.getElementById('province').value;
+  var results = [];
+
+  for (var i = 0; i < PROVINCES.length; i++) {
+    var p = PROVINCES[i];
+    var info = getTaxInfo(p.code, price, condition, saleType);
+    results.push({
+      code: p.code,
+      name: p.name,
+      system: p.system,
+      rate: info.rate,
+      taxAmount: info.taxAmount,
+      total: info.total,
+      systemLabel: info.systemLabel
+    });
+  }
+
+  // Find min total for highlighting
+  var minTotal = Math.min.apply(null, results.map(function(r){return r.total;}));
+
+  for (var j = 0; j < results.length; j++) {
+    var r = results[j];
+    var isSelected = (r.code === selectedProv);
+    var isCheapest = (r.total === minTotal);
+    var badgeClass = r.systemLabel === 'HST' ? 'hst' : (r.systemLabel === 'GST only' ? 'gst' : 'mix');
+    var isLux = (r.code === 'BC' && price >= 125000);
+    rows += '<tr class="' + (isSelected ? 'highlight-row' : '') + (isCheapest && !isSelected ? ' cheapest' : '') + '">'
+      + '<td>' + r.name + (isSelected ? ' ✓' : '') + (isCheapest ? ' 🏆' : '') + '</td>'
+      + '<td>' + r.systemLabel + '<span class="tax-badge ' + badgeClass + '">' + badgeClass.toUpperCase() + '</span>' + (isLux ? '<span class="tax-badge lux">LUX</span>' : '') + '</td>'
+      + '<td>' + fmtPct(r.rate) + '</td>'
+      + '<td>' + fmt(r.taxAmount) + '</td>'
+      + '<td><strong>' + fmt(r.total) + '</strong></td>'
+      + '</tr>';
+  }
+
+  document.getElementById('compBody').innerHTML = rows;
+}
+
+// Initialize rate info on page load
+window.addEventListener('DOMContentLoaded', function() {
+  updateRateInfo();
+});
+
+function navToggle(b){var d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(function(x){x.classList.remove('open')});if(!w)d.classList.add('open')}
+document.addEventListener('click',function(e){if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(function(d){d.classList.remove('open')})});
+</script>
+</body>
+</html>

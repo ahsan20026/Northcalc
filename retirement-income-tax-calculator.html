@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Income Tax Calculator Canada 2026 | RRIF CPP OAS Tax</title>
+<meta name="description" content="Calculate your total Canadian retirement income tax including RRIF, CPP, OAS, pension, and investment income. 2026 federal and provincial tax rates.">
+<meta name="keywords" content="retirement income tax calculator Canada, RRIF tax, CPP OAS tax, Canadian retirement tax 2026, pension income tax, capital gains retirement, OAS clawback">
+<link rel="canonical" href="https://northcalc.com/retirement-income-tax-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:660px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.calc-section h2{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:.35rem}
+.form-group label{font-size:.83rem;font-weight:600;color:var(--text)}
+.form-group label span{font-size:.76rem;color:var(--muted);font-weight:400}
+.form-group input,.form-group select{padding:.6rem .85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.93rem;color:var(--text);background:var(--white);transition:border .15s;font-family:inherit}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--red)}
+.form-group .hint{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+.section-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red);margin:1.5rem 0 .75rem;padding-bottom:.3rem;border-bottom:1px solid var(--red-light)}
+.calc-btn{background:var(--red);color:var(--white);border:none;padding:.85rem 2.5rem;border-radius:9px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:1.5rem;transition:background .15s;font-family:inherit}
+.calc-btn:hover{background:var(--red-dark)}
+.results-panel{display:none;margin-top:1.5rem}
+.results-panel.show{display:block}
+.results-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem}
+.res-card{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;text-align:center}
+.res-card.highlight{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.res-card.highlight .res-label{color:#9ca3af}
+.res-card.red{background:var(--red);border-color:var(--red);color:var(--white)}
+.res-card.red .res-label{color:#fca5a5}
+.res-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.35rem}
+.res-value{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.res-card.highlight .res-value,.res-card.red .res-value{color:var(--white)}
+.res-sub{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+.res-card.highlight .res-sub{color:#9ca3af}
+.res-card.red .res-sub{color:#fca5a5}
+.clawback-banner{background:#fff7ed;border:1.5px solid #f59e0b;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:none}
+.clawback-banner.show{display:block}
+.clawback-banner strong{color:#b45309;display:block;font-size:.9rem;margin-bottom:.25rem}
+.clawback-banner p{font-size:.82rem;color:#92400e;margin:0}
+.income-table-wrap{margin-bottom:1.25rem}
+.income-table-wrap h3{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.05em}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.78rem;font-weight:600}
+th:last-child{text-align:right}
+td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+td:last-child{text-align:right;font-weight:600}
+tr:last-child td{border-bottom:none}
+tr.total-row td{background:var(--bg);font-weight:700;border-top:2px solid var(--border)}
+tr.highlight-row td{background:var(--red-light);color:var(--red);font-weight:700}
+.bracket-row td:first-child{padding-left:1.25rem;color:var(--muted)}
+.credits-row td{color:#059669}
+.credits-row td:first-child{padding-left:1.25rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.info-box{background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#6b21a8}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+.rrif-table{background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:.75rem 0}
+.rrif-table th{background:#374151;font-size:.78rem}
+.rrif-table td{font-size:.82rem}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.faq-body p{margin-bottom:.6rem}
+.faq-body p:last-child{margin-bottom:0}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+.rrif-hint{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:.75rem 1rem;font-size:.8rem;color:#92400e;margin-top:.4rem;display:none}
+.rrif-hint.show{display:block}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link active">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian Retirement Income Tax Calculator</h1>
+    <p>Calculate your total 2026 income tax across all retirement income sources — CPP, OAS, RRIF, pension, dividends, capital gains — and see your true net retirement income.</p>
+  </div>
+</div>
+
+<main>
+<div class="content-wrap">
+
+  <!-- CALCULATOR -->
+  <div class="calc-section">
+    <h2>Enter Your Retirement Income Sources</h2>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Province / Territory</label>
+        <select id="province">
+          <option value="ON">Ontario</option>
+          <option value="BC">British Columbia</option>
+          <option value="AB">Alberta</option>
+          <option value="QC">Quebec</option>
+          <option value="NS">Nova Scotia</option>
+          <option value="NB">New Brunswick</option>
+          <option value="MB">Manitoba</option>
+          <option value="SK">Saskatchewan</option>
+          <option value="NL">Newfoundland &amp; Labrador</option>
+          <option value="PE">Prince Edward Island</option>
+          <option value="YT">Yukon</option>
+          <option value="NT">Northwest Territories</option>
+          <option value="NU">Nunavut</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Age <span>(affects RRIF minimum display)</span></label>
+        <input type="number" id="age" value="70" min="55" max="100" step="1">
+      </div>
+    </div>
+
+    <div class="section-label">Government Benefits</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>CPP / QPP Monthly Benefit ($)</label>
+        <input type="number" id="cppMonthly" value="0" min="0" placeholder="0.00">
+        <div class="hint">Max CPP in 2026: ~$1,364/mo. Enter 0 if not yet receiving.</div>
+      </div>
+      <div class="form-group">
+        <label>OAS Monthly Benefit ($)</label>
+        <input type="number" id="oasMonthly" value="0" min="0" placeholder="0.00">
+        <div class="hint">2026 max OAS (age 65–74): ~$727/mo; age 75+: ~$800/mo.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Registered Income</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Defined Benefit Pension — Annual ($)</label>
+        <input type="number" id="dbPension" value="0" min="0" placeholder="0.00">
+        <div class="hint">Eligible for $2,000 pension income credit.</div>
+      </div>
+      <div class="form-group">
+        <label>RRIF Annual Withdrawal ($)</label>
+        <input type="number" id="rrifWithdrawal" value="0" min="0" placeholder="0.00" oninput="updateRrifHint()">
+        <div id="rrifHint" class="rrif-hint"></div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>RRIF Account Value ($) <span>(for minimum withdrawal info)</span></label>
+        <input type="number" id="rrifBalance" value="0" min="0" placeholder="0.00" oninput="updateRrifHint()">
+      </div>
+      <div class="form-group" style="align-self:end">
+        <div id="rrifMinDisplay" class="rrif-hint" style="display:none;margin-top:0"></div>
+      </div>
+    </div>
+
+    <div class="section-label">Non-Registered Investment Income</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Interest / Bond Income ($)</label>
+        <input type="number" id="interestIncome" value="0" min="0" placeholder="0.00">
+        <div class="hint">Fully taxable at marginal rate.</div>
+      </div>
+      <div class="form-group">
+        <label>Canadian Eligible Dividends ($) <span>(actual amount received)</span></label>
+        <input type="number" id="dividends" value="0" min="0" placeholder="0.00">
+        <div class="hint">Calculator applies 38% gross-up automatically.</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Capital Gains Realized ($) <span>(total gain, not proceeds)</span></label>
+        <input type="number" id="capitalGains" value="0" min="0" placeholder="0.00">
+        <div class="hint">50% inclusion applies for gains ≤$250K; 2/3 for excess (2026 rules).</div>
+      </div>
+      <div class="form-group">
+        <label>TFSA Withdrawals ($) <span>(tax-free — for net income display only)</span></label>
+        <input type="number" id="tfsaWithdrawals" value="0" min="0" placeholder="0.00">
+        <div class="hint">Not included in any tax calculation.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Other Income</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Other Taxable Income ($) <span>(part-time work, rental, etc.)</span></label>
+        <input type="number" id="otherIncome" value="0" min="0" placeholder="0.00">
+      </div>
+    </div>
+
+    <button class="calc-btn" onclick="calculate()">Calculate Retirement Tax</button>
+
+    <!-- RESULTS -->
+    <div class="results-panel" id="resultsPanel">
+
+      <div class="clawback-banner" id="clawbackBanner">
+        <strong>⚠️ OAS Clawback Triggered</strong>
+        <p id="clawbackMsg"></p>
+      </div>
+
+      <div class="results-hero" id="heroCards"></div>
+
+      <!-- Income Summary -->
+      <div class="income-table-wrap">
+        <h3>Income Summary</h3>
+        <table id="incomeSummaryTable">
+          <thead><tr><th>Income Source</th><th>Gross Amount</th><th style="text-align:right">Taxable Amount</th></tr></thead>
+          <tbody id="incomeSummaryBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Federal Tax Detail -->
+      <div class="income-table-wrap">
+        <h3>Federal Tax Calculation</h3>
+        <table id="fedTaxTable">
+          <thead><tr><th>Item</th><th style="text-align:right">Amount</th></tr></thead>
+          <tbody id="fedTaxBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Provincial Tax -->
+      <div class="income-table-wrap">
+        <h3>Provincial / Territorial Tax</h3>
+        <table>
+          <thead><tr><th>Item</th><th style="text-align:right">Amount</th></tr></thead>
+          <tbody id="provTaxBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Final Summary -->
+      <div class="income-table-wrap">
+        <h3>Net Income Summary</h3>
+        <table>
+          <thead><tr><th>Item</th><th style="text-align:right">Amount</th></tr></thead>
+          <tbody id="finalSummaryBody"></tbody>
+        </table>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong>Estimate Only.</strong> This calculator uses simplified federal and provincial rates for planning purposes. It does not account for all deductions, credits, surtaxes (e.g., Ontario surtax), or pension income splitting. Consult a tax professional or use CRA-certified software for your actual tax filing.
+      </div>
+    </div>
+  </div>
+
+  <!-- RRIF GUIDE -->
+  <div class="content-section">
+    <h2>RRIF Minimum Withdrawal Guide</h2>
+    <p>A Registered Retirement Income Fund (RRIF) requires a minimum annual withdrawal starting the year after you convert your RRSP — typically at age 71 or earlier by choice. These withdrawals are fully included in your taxable income at your marginal rate, making RRIF tax planning one of the most impactful retirement decisions you can make.</p>
+    <p>Many retirees benefit from beginning small RRIF withdrawals before age 71 to gradually "melt down" the RRSP/RRIF balance at lower tax rates, reducing future forced withdrawals that could push them into a higher bracket or trigger the OAS clawback.</p>
+    <table class="rrif-table">
+      <thead><tr><th>Age</th><th>Minimum Rate</th><th>Example: $500,000 RRIF</th></tr></thead>
+      <tbody>
+        <tr><td>65</td><td>4.00%</td><td>$20,000</td></tr>
+        <tr><td>70</td><td>5.00%</td><td>$25,000</td></tr>
+        <tr><td>71</td><td>5.28%</td><td>$26,400</td></tr>
+        <tr><td>75</td><td>5.82%</td><td>$29,100</td></tr>
+        <tr><td>80</td><td>6.82%</td><td>$34,100</td></tr>
+        <tr><td>85</td><td>8.51%</td><td>$42,550</td></tr>
+        <tr><td>90</td><td>11.92%</td><td>$59,600</td></tr>
+        <tr><td>95+</td><td>20.00%</td><td>$100,000</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <strong>Spousal RRIF Strategy:</strong> If your spouse is younger, you can use their age to calculate RRIF minimums — reducing mandatory withdrawals and keeping more money sheltered longer.
+    </div>
+    <h3>RRIF vs Annuity vs TFSA: Which First?</h3>
+    <p>Most retirees should prioritize spending from taxable non-registered accounts first, then RRIF/RRSP (to reduce future forced withdrawals), and leave TFSA funds last since they grow and can be withdrawn completely tax-free. However, the optimal order depends on your current bracket, projected estate value, and provincial tax rules.</p>
+  </div>
+
+  <!-- CAPITAL GAINS IN RETIREMENT -->
+  <div class="content-section">
+    <h2>How Capital Gains Are Taxed in Retirement</h2>
+    <p>Capital gains receive preferential tax treatment in Canada compared to regular income. In 2026, only 50% of capital gains up to $250,000 annually are included in taxable income — meaning a $50,000 gain adds only $25,000 to your taxable income.</p>
+    <p>For capital gains <em>above</em> $250,000 in a single year, the inclusion rate increases to two-thirds (66.67%) on the excess amount. This higher rate was legislated for 2024 and carries forward into 2026 for large gains.</p>
+    <div class="example-box">
+      <strong>Example: $80,000 Capital Gain</strong>
+      Gross capital gain: $80,000<br>
+      Inclusion rate (under $250K threshold): 50%<br>
+      Taxable capital gain added to income: <strong>$40,000</strong><br>
+      At a 26% marginal federal rate + ~9% provincial = effective capital gains rate of ~17.5%
+    </div>
+    <h3>Strategies to Manage Capital Gains in Retirement</h3>
+    <ul>
+      <li><strong>Spread realizations over multiple years</strong> to stay under the $250,000 threshold and in a lower bracket.</li>
+      <li><strong>Use capital losses</strong> accumulated in prior years to offset gains — losses can be carried back 3 years or forward indefinitely.</li>
+      <li><strong>Donate appreciated securities</strong> directly to charity — no capital gains tax applies and you get a full donation receipt.</li>
+      <li><strong>Hold growth assets in TFSA</strong> where all gains are permanently sheltered from tax.</li>
+    </ul>
+  </div>
+
+  <!-- OAS CLAWBACK -->
+  <div class="content-section">
+    <h2>OAS Clawback Planning Strategies</h2>
+    <p>The OAS Recovery Tax (commonly called the "clawback") reduces your Old Age Security benefit by 15 cents for every dollar of net income above $90,997 (2026). Your OAS benefit is fully clawed back at approximately $148,179 of net income.</p>
+    <p>This means retirees with income in the $91,000–$148,000 range effectively face a marginal tax rate that is 15 percentage points higher than their stated bracket — a significant but often overlooked tax cost.</p>
+    <div class="info-box">
+      <strong>2026 OAS Clawback Thresholds:</strong><br>
+      Clawback begins: $90,997 net income<br>
+      OAS fully eliminated at approximately: $148,179 net income (based on max OAS ~$8,700/yr)<br>
+      Effective clawback rate: 15% of income above threshold
+    </div>
+    <h3>Five Ways to Reduce the OAS Clawback</h3>
+    <ol>
+      <li><strong>Income split with your spouse.</strong> Pension income splitting can transfer up to 50% of eligible pension income to a lower-income spouse, reducing both spouses' net income below the clawback threshold.</li>
+      <li><strong>Crystallize RRIF withdrawals earlier.</strong> Taking larger RRIF withdrawals in years before age 65 (when OAS starts) reduces the future RRIF balance and lowers mandatory minimums during OAS years.</li>
+      <li><strong>Maximize TFSA withdrawals.</strong> TFSA withdrawals are not included in net income and do not affect the OAS clawback calculation. Shifting investment income to TFSA is one of the most effective long-term strategies.</li>
+      <li><strong>Defer capital gains realizations.</strong> Timing large capital gain events (e.g., selling a rental property) to years when other income is lower can prevent temporary clawback triggers.</li>
+      <li><strong>Charitable giving.</strong> Qualified charitable donations reduce net income through the donation tax credit and can offset the clawback on a dollar-for-dollar basis above threshold.</li>
+    </ol>
+  </div>
+
+  <!-- PENSION INCOME SPLITTING -->
+  <div class="content-section">
+    <h2>Pension Income Splitting in Retirement</h2>
+    <p>Pension income splitting is one of the most powerful — and underused — tax strategies available to Canadian retirees. Under the rules, you and your spouse or common-law partner can elect to split up to 50% of eligible pension income on your tax returns each year.</p>
+    <h3>What Income Qualifies for Splitting?</h3>
+    <ul>
+      <li>Defined benefit pension payments (any age)</li>
+      <li>RRIF withdrawals (age 65 and older)</li>
+      <li>Life annuity payments from an RRSP or DPSP (age 65+)</li>
+      <li>CPP/QPP does <em>not</em> qualify for pension income splitting (but has its own sharing program)</li>
+    </ul>
+    <h3>The Tax Benefit</h3>
+    <p>If one spouse has $90,000 of pension income and the other has $20,000, splitting $35,000 to the lower-income spouse (bringing their income to $55,000 each) can save thousands in combined federal and provincial tax annually. Both spouses also gain access to the $2,000 pension income tax credit.</p>
+    <div class="tip-box">
+      <strong>File Form T1032:</strong> Pension income splitting is not automatic — both spouses must jointly elect it by filing Form T1032 with their tax returns. The election can be made each year based on what is most advantageous.
+    </div>
+    <p>This calculator does not apply pension income splitting automatically. To model the benefit, run the calculation twice — once with the full pension income on the higher-income spouse, and once with amounts after the split — and compare the combined tax results.</p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Is CPP/OAS income taxable in Canada?</summary>
+      <div class="faq-body">
+        <p>Yes, both Canada Pension Plan (CPP) and Old Age Security (OAS) benefits are fully taxable as regular income. They are included in your net income for all purposes, including the OAS clawback calculation. Service Canada can withhold income tax from these payments at source — you set your preferred withholding amount when you apply.</p>
+        <p>One exception: the Guaranteed Income Supplement (GIS) is <em>not</em> taxable, but it is also not modelled in this calculator as it applies only to low-income retirees.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Are RRIF withdrawals taxed as regular income?</summary>
+      <div class="faq-body">
+        <p>Yes. Every dollar withdrawn from a RRIF is fully included in taxable income in the year of withdrawal, at your marginal tax rate. There is no preferential treatment — unlike capital gains or eligible dividends. Your financial institution withholds tax at source: 10% on withdrawals up to $5,000, 20% on $5,001–$15,000, and 30% on amounts above $15,000 (for most provinces).</p>
+        <p>RRIF withdrawals <em>are</em> eligible for the $2,000 pension income credit once you turn 65, which provides a modest federal tax saving of approximately $300.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What is the OAS clawback and how is it calculated?</summary>
+      <div class="faq-body">
+        <p>The OAS Recovery Tax (clawback) is applied when your net income exceeds $90,997 in 2026. For every dollar above this threshold, 15 cents of OAS benefit is repaid to the government. The clawback is calculated on your <em>net income before adjustments</em> (line 23400 of your tax return).</p>
+        <p>Practically, if you receive $8,000/year in OAS and your net income is $100,000, the clawback is 15% × ($100,000 − $90,997) = $1,350. Your net OAS would be $8,000 − $1,350 = $6,650. You repay this amount the following year through either CRA's instalment program or a deduction from your OAS cheques.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How are Canadian eligible dividends taxed in retirement?</summary>
+      <div class="faq-body">
+        <p>Eligible dividends from Canadian corporations receive a two-step tax preference. First, the actual dividend is <em>grossed up</em> by 38% — so a $1,000 dividend is reported as $1,380 of income. Then, a federal dividend tax credit of approximately 15.02% of the grossed-up amount ($207) is applied against your tax owing, bringing the effective federal tax down significantly.</p>
+        <p>For retirees in lower brackets, eligible dividends can actually be received nearly tax-free or with a very low effective rate. However, the grossed-up amount is included in your net income and <em>can affect the OAS clawback</em> calculation — a factor many retirees overlook when relying heavily on dividend income.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Should I take RRIF withdrawals before I have to at age 71?</summary>
+      <div class="faq-body">
+        <p>In many cases, yes — voluntary early RRIF withdrawals (sometimes called "RRSP meltdown" or "RRIF conversion strategy") can reduce your lifetime tax. If your current income puts you in the 20.5% federal bracket and your projected retirement income from CPP, OAS, and a pension would eventually push you into the 26% bracket, paying 20.5% today is better than 26% later.</p>
+        <p>You should also consider: your RRIF balance may grow faster than your mandatory withdrawals early on, meaning the total taxable balance actually increases. Starting withdrawals at age 65 gives you six years of voluntary withdrawals before the mandatory minimum kicks in. Use the calculator above to model your projected income at age 71 and beyond to determine if early draws make sense for your situation.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- RELATED TOOLS -->
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <p>Use these NorthCalc tools alongside the Retirement Income Tax Calculator to build a complete retirement plan.</p>
+    <div class="related-tools">
+      <a href="/senior-income-tax-calculator.html" class="tool-chip">👵 Senior Tax Calculator</a>
+      <a href="/cpp-oas-estimator.html" class="tool-chip">👴 CPP &amp; OAS Estimator</a>
+      <a href="/canadian-income-tax-calculator.html" class="tool-chip">📊 Income Tax Calculator</a>
+      <a href="/rrsp-calculator.html" class="tool-chip">📈 RRSP Calculator</a>
+      <a href="/tfsa-room-calculator.html" class="tool-chip">💰 TFSA Room Calculator</a>
+      <a href="/income-splitting-calculator.html" class="tool-chip">💑 Income Splitting</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> NorthCalc calculators are for informational and planning purposes only. Tax rules change frequently and vary based on individual circumstances. This calculator does not constitute tax, financial, or legal advice. Always consult a qualified tax professional or CRA-certified tax software for your actual tax filing. NorthCalc assumes no liability for decisions made based on these estimates.
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <div class="footer-desc">Free Canadian financial calculators. Accurate, fast, and built for Canadians.</div>
+    </div>
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — Free Canadian Financial Calculators. Not financial advice.</div>
+</footer>
+
+<script>
+// Nav toggle
+function navToggle(btn){
+  const drop=btn.closest('.nav-drop');
+  document.querySelectorAll('.nav-drop.open').forEach(d=>{if(d!==drop)d.classList.remove('open')});
+  drop.classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-drop'))document.querySelectorAll('.nav-drop.open').forEach(d=>d.classList.remove('open'));
+});
+
+// RRIF minimum rates table
+const rrifRates={
+  55:2.86,56:2.94,57:3.03,58:3.13,59:3.23,60:3.33,61:3.45,62:3.57,63:3.70,64:3.85,
+  65:4.00,66:4.17,67:4.35,68:4.55,69:4.76,70:5.00,71:5.28,72:5.40,73:5.53,74:5.67,
+  75:5.82,76:5.98,77:6.17,78:6.36,79:6.58,80:6.82,81:7.08,82:7.38,83:7.71,84:8.08,
+  85:8.51,86:8.99,87:9.55,88:10.21,89:10.99,90:11.92,91:13.06,92:14.49,93:16.34,
+  94:18.79,95:20.00
+};
+
+function getRrifRate(age){
+  if(age<=55)return rrifRates[55];
+  if(age>=95)return rrifRates[95];
+  return rrifRates[age]||rrifRates[Math.min(95,Math.max(55,age))];
+}
+
+function updateRrifHint(){
+  const age=parseInt(document.getElementById('age').value)||70;
+  const balance=parseFloat(document.getElementById('rrifBalance').value)||0;
+  const withdrawal=parseFloat(document.getElementById('rrifWithdrawal').value)||0;
+  const minDiv=document.getElementById('rrifMinDisplay');
+  const hintDiv=document.getElementById('rrifHint');
+
+  if(balance>0){
+    const rate=getRrifRate(age);
+    const minWithdrawal=balance*rate/100;
+    minDiv.style.display='block';
+    minDiv.innerHTML=`<strong>RRIF Minimum for age ${age}:</strong> ${rate.toFixed(2)}% = ${fmt(minWithdrawal)}/yr`;
+    if(withdrawal>0&&withdrawal<minWithdrawal){
+      hintDiv.classList.add('show');
+      hintDiv.innerHTML=`⚠️ Your withdrawal of ${fmt(withdrawal)} is below the required minimum of ${fmt(minWithdrawal)}. CRA requires at least ${fmt(minWithdrawal)}.`;
+    } else {
+      hintDiv.classList.remove('show');
+    }
+  } else {
+    minDiv.style.display='none';
+    hintDiv.classList.remove('show');
+  }
+}
+
+document.getElementById('age').addEventListener('input',updateRrifHint);
+
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-CA');}
+function fmtDec(n,d=2){return '$'+n.toLocaleString('en-CA',{minimumFractionDigits:d,maximumFractionDigits:d});}
+function pct(n){return (n*100).toFixed(2)+'%';}
+
+// Provincial effective rates (simplified flat rate applied to taxable income)
+const provRates={
+  ON:0.0915,BC:0.077,AB:0.10,QC:0.14,NS:0.10,NB:0.094,
+  MB:0.108,SK:0.105,NL:0.10,PE:0.0965,YT:0.064,NT:0.059,NU:0.04
+};
+const provNames={
+  ON:'Ontario',BC:'British Columbia',AB:'Alberta',QC:'Quebec',NS:'Nova Scotia',
+  NB:'New Brunswick',MB:'Manitoba',SK:'Saskatchewan',NL:'Newfoundland & Labrador',
+  PE:'Prince Edward Island',YT:'Yukon',NT:'Northwest Territories',NU:'Nunavut'
+};
+
+// 2026 Federal brackets
+const fedBrackets=[
+  {limit:57375,rate:0.15},
+  {limit:114750,rate:0.205},
+  {limit:158519,rate:0.26},
+  {limit:220000,rate:0.29},
+  {limit:Infinity,rate:0.33}
+];
+
+function calcFedTax(taxableIncome){
+  let tax=0;
+  let prev=0;
+  const breakdown=[];
+  for(const b of fedBrackets){
+    if(taxableIncome<=prev)break;
+    const chunk=Math.min(taxableIncome,b.limit)-prev;
+    const t=chunk*b.rate;
+    if(chunk>0)breakdown.push({from:prev,to:Math.min(taxableIncome,b.limit),rate:b.rate,tax:t,income:chunk});
+    tax+=t;
+    prev=b.limit;
+  }
+  return{tax,breakdown};
+}
+
+function getMarginalRate(taxableIncome, province){
+  let fedRate=0.33;
+  for(const b of fedBrackets){
+    if(taxableIncome<=b.limit){fedRate=b.rate;break;}
+  }
+  const provRate=provRates[province]||0.10;
+  return fedRate+provRate;
+}
+
+function calculate(){
+  const province=document.getElementById('province').value;
+  const age=parseInt(document.getElementById('age').value)||70;
+  const cppMonthly=parseFloat(document.getElementById('cppMonthly').value)||0;
+  const oasMonthly=parseFloat(document.getElementById('oasMonthly').value)||0;
+  const dbPension=parseFloat(document.getElementById('dbPension').value)||0;
+  const rrifWithdrawal=parseFloat(document.getElementById('rrifWithdrawal').value)||0;
+  const interestIncome=parseFloat(document.getElementById('interestIncome').value)||0;
+  const dividends=parseFloat(document.getElementById('dividends').value)||0;
+  const capitalGains=parseFloat(document.getElementById('capitalGains').value)||0;
+  const tfsaWithdrawals=parseFloat(document.getElementById('tfsaWithdrawals').value)||0;
+  const otherIncome=parseFloat(document.getElementById('otherIncome').value)||0;
+
+  // Annualize CPP and OAS
+  const cppAnnual=cppMonthly*12;
+  const oasAnnual=oasMonthly*12;
+
+  // Capital gains inclusion
+  const cgThreshold=250000;
+  let taxableCapGain=0;
+  if(capitalGains<=cgThreshold){
+    taxableCapGain=capitalGains*0.5;
+  } else {
+    taxableCapGain=cgThreshold*0.5+(capitalGains-cgThreshold)*(2/3);
+  }
+
+  // Dividend gross-up
+  const dividendGrossUp=dividends*1.38;
+
+  // Taxable income before OAS clawback
+  const taxableIncome=cppAnnual+oasAnnual+dbPension+rrifWithdrawal+interestIncome+dividendGrossUp+taxableCapGain+otherIncome;
+
+  // OAS Clawback
+  const OAS_CLAWBACK_THRESHOLD=90997;
+  let oasClawback=0;
+  let clawbackTriggered=false;
+  if(taxableIncome>OAS_CLAWBACK_THRESHOLD && oasAnnual>0){
+    oasClawback=Math.min(oasAnnual, (taxableIncome-OAS_CLAWBACK_THRESHOLD)*0.15);
+    clawbackTriggered=true;
+  }
+
+  // Adjusted income after clawback (OAS clawback is deducted from net income for tax calc? No — clawback is repaid separately)
+  // Federal taxable income = same as taxable income (clawback repaid separately)
+  const fedTaxableIncome=taxableIncome;
+
+  // Federal tax
+  const {tax:fedTaxBefore, breakdown:fedBreakdown}=calcFedTax(fedTaxableIncome);
+
+  // Credits
+  const BPA=16129;
+  const bpaCredit=BPA*0.15;
+
+  // Age amount
+  const AGE_AMOUNT=8790;
+  const AGE_PHASE_START=44325;
+  let ageAmount=AGE_AMOUNT;
+  if(fedTaxableIncome>AGE_PHASE_START){
+    ageAmount=Math.max(0,AGE_AMOUNT-(fedTaxableIncome-AGE_PHASE_START)*0.15);
+  }
+  const ageCredit=ageAmount*0.15;
+
+  // Pension income credit (eligible: DB pension, RRIF if 65+, CPP/OAS do NOT qualify for this credit)
+  let eligiblePensionIncome=0;
+  if(dbPension>0)eligiblePensionIncome+=dbPension;
+  if(age>=65&&rrifWithdrawal>0)eligiblePensionIncome+=rrifWithdrawal;
+  const pensionCreditBase=Math.min(2000,eligiblePensionIncome);
+  const pensionCredit=pensionCreditBase*0.15;
+
+  // Dividend tax credit (federal: 15.0198% of grossed-up dividend)
+  const divTaxCredit=dividends>0 ? dividendGrossUp*0.150198 : 0;
+
+  const totalCredits=bpaCredit+ageCredit+pensionCredit+divTaxCredit;
+  const fedTaxOwing=Math.max(0,fedTaxBefore-totalCredits);
+
+  // Provincial tax (simplified effective rate applied to same taxable income)
+  const provRate=provRates[province]||0.10;
+  const provTax=Math.max(0,fedTaxableIncome*provRate - BPA*provRate);
+
+  // Total tax + clawback
+  const totalTax=fedTaxOwing+provTax+oasClawback;
+
+  // Gross income (before any inclusion adjustments)
+  const grossIncome=cppAnnual+oasAnnual+dbPension+rrifWithdrawal+interestIncome+dividends+capitalGains+tfsaWithdrawals+otherIncome;
+
+  // Net after-tax income (TFSA included as it's real cash received)
+  const netAnnual=grossIncome-totalTax;
+  const netMonthly=netAnnual/12;
+
+  // Effective rate on taxable income
+  const effectiveRate=fedTaxableIncome>0?(totalTax/fedTaxableIncome):0;
+
+  // Marginal rate
+  const marginalRate=getMarginalRate(fedTaxableIncome,province);
+
+  // ---------- RENDER RESULTS ----------
+
+  // Hero cards
+  document.getElementById('heroCards').innerHTML=`
+    <div class="res-card highlight">
+      <div class="res-label">Net Annual Income</div>
+      <div class="res-value">${fmt(netAnnual)}</div>
+      <div class="res-sub">After all tax &amp; clawback</div>
+    </div>
+    <div class="res-card highlight">
+      <div class="res-label">Net Monthly Income</div>
+      <div class="res-value">${fmt(netMonthly)}</div>
+      <div class="res-sub">Including TFSA withdrawals</div>
+    </div>
+    <div class="res-card red">
+      <div class="res-label">Total Tax Owing</div>
+      <div class="res-value">${fmt(totalTax)}</div>
+      <div class="res-sub">Federal + Provincial${oasClawback>0?' + OAS Clawback':''}</div>
+    </div>
+    <div class="res-card">
+      <div class="res-label">Effective Tax Rate</div>
+      <div class="res-value">${pct(effectiveRate)}</div>
+      <div class="res-sub">On taxable income</div>
+    </div>
+    <div class="res-card">
+      <div class="res-label">Marginal Rate</div>
+      <div class="res-value">${pct(marginalRate)}</div>
+      <div class="res-sub">Next $1 of income</div>
+    </div>
+  `;
+
+  // OAS Clawback banner
+  const banner=document.getElementById('clawbackBanner');
+  if(clawbackTriggered){
+    banner.classList.add('show');
+    document.getElementById('clawbackMsg').textContent=
+      `Your net income of ${fmt(taxableIncome)} exceeds the $90,997 OAS clawback threshold by ${fmt(taxableIncome-OAS_CLAWBACK_THRESHOLD)}. Your OAS benefit is reduced by ${fmt(oasClawback)} this year. Consider income-splitting, TFSA withdrawals, or timing capital gains to reduce net income below the threshold.`;
+  } else {
+    banner.classList.remove('show');
+  }
+
+  // Income Summary table
+  const incomeRows=[];
+  if(cppAnnual>0)incomeRows.push({label:'CPP / QPP Annual Benefit',gross:cppAnnual,taxable:cppAnnual,note:'Fully taxable'});
+  if(oasAnnual>0)incomeRows.push({label:'Old Age Security (OAS)',gross:oasAnnual,taxable:oasAnnual,note:'Fully taxable'});
+  if(dbPension>0)incomeRows.push({label:'Defined Benefit Pension',gross:dbPension,taxable:dbPension,note:'Eligible for pension credit'});
+  if(rrifWithdrawal>0)incomeRows.push({label:'RRIF Withdrawal',gross:rrifWithdrawal,taxable:rrifWithdrawal,note:'Fully taxable'});
+  if(interestIncome>0)incomeRows.push({label:'Interest / Bond Income',gross:interestIncome,taxable:interestIncome,note:'Fully taxable'});
+  if(dividends>0)incomeRows.push({label:'Canadian Eligible Dividends',gross:dividends,taxable:dividendGrossUp,note:`Grossed-up 38% (${fmt(dividends)} actual)`});
+  if(capitalGains>0)incomeRows.push({label:'Capital Gains',gross:capitalGains,taxable:taxableCapGain,note:capitalGains<=cgThreshold?'50% inclusion rate':'50% to $250K, 2/3 above'});
+  if(tfsaWithdrawals>0)incomeRows.push({label:'TFSA Withdrawals',gross:tfsaWithdrawals,taxable:0,note:'Tax-free — not included in tax calc'});
+  if(otherIncome>0)incomeRows.push({label:'Other Taxable Income',gross:otherIncome,taxable:otherIncome,note:'Fully taxable'});
+
+  let incomeTbody='';
+  let totalGross=0,totalTaxable=0;
+  for(const r of incomeRows){
+    incomeTbody+=`<tr><td>${r.label}<br><small style="color:var(--muted)">${r.note}</small></td><td>${fmt(r.gross)}</td><td>${r.taxable===0?'<span style="color:#059669">Tax-Free</span>':fmt(r.taxable)}</td></tr>`;
+    totalGross+=r.gross;
+    totalTaxable+=r.taxable;
+  }
+  incomeTbody+=`<tr class="total-row"><td><strong>Totals</strong></td><td><strong>${fmt(totalGross+tfsaWithdrawals)}</strong></td><td><strong>${fmt(totalTaxable)}</strong></td></tr>`;
+  document.getElementById('incomeSummaryBody').innerHTML=incomeTbody;
+
+  // Federal Tax table
+  let fedTbody=`<tr><td><strong>Federal Taxable Income</strong></td><td><strong>${fmt(fedTaxableIncome)}</strong></td></tr>`;
+  fedTbody+=`<tr><td colspan="2" style="font-size:.78rem;font-weight:700;color:var(--muted);padding-top:.75rem">Bracket Breakdown</td></tr>`;
+  for(const b of fedBreakdown){
+    fedTbody+=`<tr class="bracket-row"><td>${fmt(b.from+1)} – ${b.to===Infinity?'above':fmt(b.to)} @ ${(b.rate*100).toFixed(1)}%</td><td>${fmt(b.tax)}</td></tr>`;
+  }
+  fedTbody+=`<tr class="total-row"><td>Federal Tax Before Credits</td><td>${fmt(fedTaxBefore)}</td></tr>`;
+  fedTbody+=`<tr><td colspan="2" style="font-size:.78rem;font-weight:700;color:#059669;padding-top:.75rem">Credits Applied</td></tr>`;
+  fedTbody+=`<tr class="credits-row"><td>Basic Personal Amount ($${BPA.toLocaleString()} × 15%)</td><td>−${fmt(bpaCredit)}</td></tr>`;
+  if(ageCredit>0)fedTbody+=`<tr class="credits-row"><td>Age Amount (${fmt(ageAmount)} × 15%)</td><td>−${fmt(ageCredit)}</td></tr>`;
+  if(pensionCredit>0)fedTbody+=`<tr class="credits-row"><td>Pension Income Credit (${fmt(pensionCreditBase)} × 15%)</td><td>−${fmt(pensionCredit)}</td></tr>`;
+  if(divTaxCredit>0)fedTbody+=`<tr class="credits-row"><td>Dividend Tax Credit (15.02% of grossed-up divs)</td><td>−${fmt(divTaxCredit)}</td></tr>`;
+  fedTbody+=`<tr class="total-row highlight-row"><td><strong>Federal Tax Owing</strong></td><td><strong>${fmt(fedTaxOwing)}</strong></td></tr>`;
+  if(oasClawback>0)fedTbody+=`<tr><td style="color:#b45309">⚠️ OAS Recovery Tax (Clawback)</td><td style="color:#b45309">${fmt(oasClawback)}</td></tr>`;
+  document.getElementById('fedTaxBody').innerHTML=fedTbody;
+
+  // Provincial Tax table
+  let provTbody=`<tr><td>Province / Territory</td><td>${provNames[province]}</td></tr>`;
+  provTbody+=`<tr><td>Simplified Effective Provincial Rate</td><td>${(provRate*100).toFixed(2)}%</td></tr>`;
+  provTbody+=`<tr><td>Provincial Tax on Taxable Income</td><td>${fmt(fedTaxableIncome*provRate)}</td></tr>`;
+  provTbody+=`<tr class="credits-row"><td>Provincial BPA Credit (approx.)</td><td>−${fmt(BPA*provRate)}</td></tr>`;
+  provTbody+=`<tr class="total-row highlight-row"><td><strong>Provincial Tax Owing (Estimated)</strong></td><td><strong>${fmt(provTax)}</strong></td></tr>`;
+  provTbody+=`<tr><td colspan="2" style="font-size:.76rem;color:var(--muted);padding-top:.5rem">Note: Provincial rates are simplified. Actual provincial tax involves progressive brackets, surtaxes, and additional credits not modelled here.</td></tr>`;
+  document.getElementById('provTaxBody').innerHTML=provTbody;
+
+  // Final Summary
+  let finalTbody=`<tr><td>Total Gross Income (all sources)</td><td>${fmt(grossIncome)}</td></tr>`;
+  finalTbody+=`<tr><td>Federal Tax Owing</td><td>−${fmt(fedTaxOwing)}</td></tr>`;
+  if(oasClawback>0)finalTbody+=`<tr><td>OAS Recovery Tax (Clawback)</td><td>−${fmt(oasClawback)}</td></tr>`;
+  finalTbody+=`<tr><td>Provincial Tax Owing (Estimated)</td><td>−${fmt(provTax)}</td></tr>`;
+  finalTbody+=`<tr class="total-row"><td><strong>Total Tax &amp; Clawback</strong></td><td><strong>−${fmt(totalTax)}</strong></td></tr>`;
+  finalTbody+=`<tr class="highlight-row"><td><strong>Net After-Tax Annual Income</strong></td><td><strong>${fmt(netAnnual)}</strong></td></tr>`;
+  finalTbody+=`<tr><td>Net Monthly Income</td><td>${fmt(netMonthly)}</td></tr>`;
+  finalTbody+=`<tr><td>Effective Tax Rate (on taxable income)</td><td>${pct(effectiveRate)}</td></tr>`;
+  finalTbody+=`<tr><td>Marginal Rate on Next $1 (Fed + Prov)</td><td>${pct(marginalRate)}</td></tr>`;
+  document.getElementById('finalSummaryBody').innerHTML=finalTbody;
+
+  document.getElementById('resultsPanel').classList.add('show');
+  document.getElementById('resultsPanel').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

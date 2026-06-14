@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income Splitting Calculator Canada 2026 | Pension Splitting Tax Savings</title>
+<meta name="description" content="Calculate how much tax Canadian couples save with pension income splitting. Shows optimal split percentage for maximum combined tax savings. Free 2026 Canadian tax calculator.">
+<meta name="keywords" content="income splitting calculator Canada, pension income splitting, spousal RRSP, Canadian couple tax savings, pension splitting 2026, ITA section 60.03">
+<link rel="canonical" href="https://northcalc.com/income-splitting-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.warning-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#92400e}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+tr:hover td{background:#fafafa}
+tr.highlight-row td{background:#fef2f2;font-weight:700;color:var(--red)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:.35rem}
+.form-group label{font-size:.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em}
+.form-group input,.form-group select{width:100%;padding:.6rem .85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.95rem;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .15s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--red)}
+.form-hint{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+.btn-primary{background:var(--red);color:var(--white);border:none;border-radius:8px;padding:.75rem 1.75rem;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;width:100%}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-secondary{background:var(--white);color:var(--red);border:2px solid var(--red);border-radius:8px;padding:.65rem 1.5rem;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn-secondary:hover{background:var(--red-light)}
+.slider-wrap{display:flex;align-items:center;gap:1rem;margin-top:.35rem}
+.slider-wrap input[type=range]{flex:1;accent-color:var(--red)}
+.slider-val{font-size:1rem;font-weight:800;color:var(--red);min-width:45px;text-align:right}
+#results{display:none}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem}
+@media(max-width:580px){.results-grid{grid-template-columns:1fr}}
+.result-col{background:#f9fafb;border:1.5px solid var(--border);border-radius:10px;padding:1.25rem}
+.result-col h3{font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.85rem;padding-bottom:.5rem;border-bottom:2px solid var(--border)}
+.result-col.with-split{border-color:#bbf7d0;background:#f0fdf4}
+.result-col.with-split h3{color:#166534;border-color:#bbf7d0}
+.result-line{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;font-size:.88rem;border-bottom:1px solid var(--border)}
+.result-line:last-child{border-bottom:none}
+.result-line span:first-child{color:var(--muted)}
+.result-line span:last-child{font-weight:600;color:var(--navy)}
+.result-line.total{font-weight:700}
+.result-line.total span:first-child{color:var(--navy)}
+.result-line.total span:last-child{color:var(--red);font-size:1.05rem}
+.savings-banner{background:linear-gradient(135deg,var(--navy),#2d2d4e);border-radius:12px;padding:1.75rem;text-align:center;margin-bottom:1.5rem;color:var(--white)}
+.savings-banner .label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.7;margin-bottom:.35rem}
+.savings-banner .big-number{font-size:2.8rem;font-weight:900;letter-spacing:-.03em;line-height:1}
+.savings-banner .big-number.positive{color:#4ade80}
+.savings-banner .big-number.neutral{color:#94a3b8}
+.savings-banner .sub{font-size:.85rem;opacity:.7;margin-top:.4rem}
+.savings-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+@media(max-width:560px){.savings-cards{grid-template-columns:1fr}}
+.savings-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+.savings-card .sc-label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+.savings-card .sc-val{font-size:1.3rem;font-weight:800;color:var(--navy)}
+.savings-card .sc-sub{font-size:.72rem;color:var(--muted);margin-top:.15rem}
+.spousal-note{font-size:.8rem;color:#166534;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:.6rem .9rem;margin-top:.5rem}
+.split-table-wrap{overflow-x:auto;margin-top:1rem}
+.calc-section h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1.25rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/index.html" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link active">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP & OAS</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Canadian Income Splitting Calculator for Couples</h1>
+    <p>See exactly how much tax you and your spouse save through pension income splitting — and find the optimal split percentage automatically.</p>
+  </div>
+</div>
+
+<main>
+  <div class="content-wrap">
+
+    <!-- CALCULATOR -->
+    <div class="calc-section">
+      <h2>Calculate Your Tax Savings</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="province">Province / Territory</label>
+          <select id="province">
+            <option value="ON">Ontario (ON)</option>
+            <option value="BC">British Columbia (BC)</option>
+            <option value="AB">Alberta (AB)</option>
+            <option value="QC">Quebec (QC)</option>
+            <option value="NS">Nova Scotia (NS)</option>
+            <option value="NB">New Brunswick (NB)</option>
+            <option value="MB">Manitoba (MB)</option>
+            <option value="SK">Saskatchewan (SK)</option>
+            <option value="NL">Newfoundland &amp; Labrador (NL)</option>
+            <option value="PE">Prince Edward Island (PE)</option>
+            <option value="YT">Yukon (YT)</option>
+            <option value="NT">Northwest Territories (NT)</option>
+            <option value="NU">Nunavut (NU)</option>
+          </select>
+        </div>
+        <div style="display:flex;align-items:flex-end">
+          <div style="background:var(--red-light);border-radius:8px;padding:.75rem 1rem;font-size:.82rem;color:var(--red);width:100%">
+            <strong style="display:block;font-size:.78rem;color:var(--red-dark);margin-bottom:.2rem">Provincial rates are simplified</strong>
+            Provincial tax uses a blended effective rate. Federal tax uses full 2026 brackets.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="s1income">Spouse 1 — Total Income ($)</label>
+          <input type="number" id="s1income" value="80000" min="0" max="2000000" step="1000" placeholder="e.g. 80000">
+          <div class="form-hint">Employment + pension + investment income combined</div>
+        </div>
+        <div class="form-group">
+          <label for="s2income">Spouse 2 — Total Income ($)</label>
+          <input type="number" id="s2income" value="20000" min="0" max="2000000" step="1000" placeholder="e.g. 20000">
+          <div class="form-hint">Employment + pension + investment income combined</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="pensionIncome">Spouse 1 — Eligible Pension Income ($)</label>
+          <input type="number" id="pensionIncome" value="80000" min="0" max="2000000" step="1000" placeholder="e.g. 80000">
+          <div class="form-hint">DB pension + RRIF (age 65+) + eligible annuities. Not CPP or OAS.</div>
+        </div>
+        <div class="form-group" style="justify-content:flex-end">
+          <div class="tip-box" style="margin:0">
+            <strong style="display:block;margin-bottom:.3rem;font-size:.82rem">What qualifies?</strong>
+            Defined benefit pension, RRIF withdrawals (age 65+), and eligible annuity payments. CPP and OAS do <em>not</em> qualify for pension income splitting.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:1.5rem">
+        <label for="splitSlider">Pension Split Percentage (0% to 50% of eligible pension income)</label>
+        <div class="slider-wrap">
+          <input type="range" id="splitSlider" min="0" max="50" value="25" step="1" oninput="updateSlider(this.value)">
+          <span class="slider-val" id="sliderDisplay">25%</span>
+        </div>
+        <div class="form-hint">Amount transferred to Spouse 2: <strong id="splitDollar">$20,000</strong></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+        <button class="btn-secondary" onclick="findOptimal()">🔍 Find Optimal Split</button>
+        <button class="btn-primary" onclick="calculate()">Calculate Tax Savings</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results">
+
+      <div class="savings-banner">
+        <div class="label">Annual Tax Savings with Splitting</div>
+        <div class="big-number" id="bigSavings">$0</div>
+        <div class="sub" id="bigSavingsSub">at 25% split</div>
+      </div>
+
+      <div class="savings-cards">
+        <div class="savings-card">
+          <div class="sc-label">Monthly Savings</div>
+          <div class="sc-val" id="monthlySavings">$0</div>
+          <div class="sc-sub">per month</div>
+        </div>
+        <div class="savings-card">
+          <div class="sc-label">20-Year Savings</div>
+          <div class="sc-val" id="twentyYearSavings">$0</div>
+          <div class="sc-sub">not inflation-adjusted</div>
+        </div>
+        <div class="savings-card">
+          <div class="sc-label">Optimal Split</div>
+          <div class="sc-val" id="optimalPct">—</div>
+          <div class="sc-sub">for max savings</div>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-col">
+          <h3>Without Splitting</h3>
+          <div class="result-line"><span>Spouse 1 Tax</span><span id="noS1Tax">—</span></div>
+          <div class="result-line"><span>Spouse 2 Tax</span><span id="noS2Tax">—</span></div>
+          <div class="result-line"><span>Spousal Amount Credit</span><span id="noSpousalCredit">—</span></div>
+          <div class="result-line total"><span>Combined Federal Tax</span><span id="noCombined">—</span></div>
+          <div class="result-line"><span>Effective Rate (S1)</span><span id="noS1Rate">—</span></div>
+          <div class="result-line"><span>Effective Rate (S2)</span><span id="noS2Rate">—</span></div>
+        </div>
+        <div class="result-col with-split">
+          <h3>With Splitting</h3>
+          <div class="result-line"><span>Pension Amount Transferred</span><span id="splitAmount">—</span></div>
+          <div class="result-line"><span>Spouse 1 Tax (after transfer)</span><span id="yesS1Tax">—</span></div>
+          <div class="result-line"><span>Spouse 2 Tax (after receiving)</span><span id="yesS2Tax">—</span></div>
+          <div class="result-line"><span>Spousal Amount Credit</span><span id="yesSpousalCredit">—</span></div>
+          <div class="result-line total"><span>Combined Federal Tax</span><span id="yesCombined">—</span></div>
+          <div class="result-line"><span>Effective Rate (S1)</span><span id="yesS1Rate">—</span></div>
+          <div class="result-line"><span>Effective Rate (S2)</span><span id="yesS2Rate">—</span></div>
+        </div>
+      </div>
+
+      <div id="spousalNoteWrap" style="display:none">
+        <div class="spousal-note" id="spousalNote"></div>
+      </div>
+
+      <!-- SPLIT TABLE -->
+      <div class="calc-section" style="margin-top:1.5rem">
+        <h2>Split % Analysis — Combined Federal Tax at Each Level</h2>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem">The row highlighted in red shows the optimal split percentage for your situation.</p>
+        <div class="split-table-wrap">
+          <table id="splitTable">
+            <thead>
+              <tr>
+                <th>Split %</th>
+                <th>Pension Transferred</th>
+                <th>Spouse 1 Tax</th>
+                <th>Spouse 2 Tax</th>
+                <th>Spousal Credit</th>
+                <th>Combined Tax</th>
+                <th>Savings vs 0%</th>
+              </tr>
+            </thead>
+            <tbody id="splitTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /results -->
+
+    <!-- HOW IT WORKS -->
+    <div class="content-section">
+      <h2>How Pension Income Splitting Works in Canada</h2>
+      <p>Pension income splitting is one of the most powerful tax strategies available to Canadian retirees. Introduced in the 2007 federal budget and governed by <strong>ITA Section 60.03</strong>, it allows a higher-income spouse to allocate up to <strong>50% of their eligible pension income</strong> to their lower-income spouse for tax purposes. No money actually changes hands — it is purely a tax reporting election made when both spouses file their returns.</p>
+
+      <p>The concept exploits Canada's progressive tax system. Because federal tax rates climb from 15% to 33% as income rises, a couple where one spouse earns $120,000 and the other earns $20,000 pays far more combined tax than a couple where each earns $70,000. By notionally splitting pension income, you move dollars from the high-earning spouse's top bracket down into the lower-earning spouse's lower bracket — potentially saving thousands of dollars annually.</p>
+
+      <h3>How to Elect Pension Income Splitting</h3>
+      <p>Both spouses must file a <strong>T1032 — Joint Election to Split Pension Income</strong> form with their annual tax returns. The election is made year by year — you are not locked in, and you can choose a different split percentage each year based on what produces the best outcome. The CRA processes the forms automatically when both returns are filed.</p>
+
+      <h3>What Income Is Eligible?</h3>
+      <ul>
+        <li><strong>Defined benefit (DB) pension income</strong> — employer pensions, military pensions, public service pensions. Eligible at any age.</li>
+        <li><strong>RRIF withdrawals at age 65 or older</strong> — if you convert your RRSP to a RRIF after turning 65, your minimum and excess withdrawals both qualify.</li>
+        <li><strong>Eligible annuity payments</strong> — annuities arising from an RRSP, DPSP, or similar registered plan (age 65+ requirement applies to annuities from RRSPs).</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>CPP and OAS are NOT eligible for pension income splitting.</strong> CPP has its own separate splitting mechanism (CPP credit splitting — Form ISP1901), which is involuntary upon separation and handled differently. OAS cannot be split at all. Neither CPP nor OAS goes on the T1032 form.
+      </div>
+
+      <h3>What Income Is NOT Eligible?</h3>
+      <ul>
+        <li>Employment income (T4 wages and salaries)</li>
+        <li>Self-employment or business income</li>
+        <li>CPP and OAS benefits</li>
+        <li>RRSP withdrawals (before being converted to a RRIF, or before age 65)</li>
+        <li>Investment income (dividends, capital gains, interest)</li>
+        <li>Rental income</li>
+      </ul>
+    </div>
+
+    <!-- WORKED EXAMPLE -->
+    <div class="content-section">
+      <h2>Worked Example: $80K Pension + $20K Employment</h2>
+
+      <div class="example-box">
+        <strong>Scenario: Ontario couple, 2026 tax year</strong>
+        Spouse 1 receives an $80,000 DB pension. Spouse 2 earns $20,000 in part-time employment. Both are over 65.
+      </div>
+
+      <h3>Without Splitting</h3>
+      <p>Spouse 1 pays federal tax on $80,000 gross (less $16,129 BPA = $63,871 taxable). Federal tax: approximately $12,679. Spouse 2 pays federal tax on $20,000 (less $16,129 BPA = $3,871 taxable). Federal tax: approximately $581. Combined federal tax: <strong>$13,260</strong>.</p>
+      <p>Additionally, because Spouse 2's net income ($20,000) exceeds the $16,129 basic personal amount, Spouse 1 cannot claim the full spousal amount credit. The credit phases out dollar for dollar as Spouse 2's income rises above $16,129 — so at $20,000, the spousal credit is eliminated entirely.</p>
+
+      <h3>With 50% Pension Split (Optimal)</h3>
+      <p>Spouse 1 transfers $40,000 (50% of $80,000 eligible pension) to Spouse 2. Now: Spouse 1 has $40,000 income (taxable: $23,871). Federal tax: ~$3,581. Spouse 2 has $60,000 income ($20,000 employment + $40,000 pension received, taxable: $43,871). Federal tax: ~$8,247. Combined federal tax: <strong>$11,828</strong>.</p>
+      <p>Annual federal tax savings: approximately <strong>$1,432</strong>. When provincial tax (Ontario 9.15% blended rate) is factored in, total savings across federal and provincial levels are often 40–60% higher — potentially $2,000–$2,500 for this example.</p>
+
+      <div class="tip-box">
+        <strong>Pro tip:</strong> The optimal split is rarely exactly 50%. If Spouse 2 earns moderate income, transferring too much can push them into a higher bracket, reducing savings. Use the "Find Optimal Split" button above to pinpoint the exact percentage that minimizes your combined tax bill.
+      </div>
+    </div>
+
+    <!-- SPOUSAL RRSP -->
+    <div class="content-section">
+      <h2>Spousal RRSP — the Long-Term Income Splitting Strategy</h2>
+      <p>A spousal RRSP (Registered Retirement Savings Plan) is the pre-retirement version of income splitting. The higher-earning spouse contributes to an RRSP held in the lower-earning spouse's name. The contributor claims the tax deduction at their higher marginal rate, but the money ultimately belongs to the lower-earning spouse — who withdraws it in retirement at a lower marginal rate.</p>
+      <p>The long-term benefit is that the lower-income spouse can draw down the spousal RRSP in retirement, keeping both spouses in lower tax brackets simultaneously. Combined with pension income splitting on a DB pension or RRIF, a well-funded spousal RRSP can nearly equalize retirement incomes between spouses — producing massive lifetime tax savings.</p>
+
+      <h3>Attribution Rules — Watch the 3-Year Rule</h3>
+      <p>The CRA's <strong>attribution rules</strong> under ITA Section 146(8.3) state that if money is withdrawn from a spousal RRSP within <strong>three calendar years</strong> of the last contribution by the contributing spouse, the withdrawal is attributed back to the contributor — taxed in their hands, not the annuitant's. To avoid this trap, ensure at least three years pass between the last spousal RRSP contribution and any withdrawals. After three years, withdrawals are fully taxed in the annuitant's hands.</p>
+
+      <h3>Spousal Amount Credit</h3>
+      <p>If your spouse or common-law partner has net income below the basic personal amount ($16,129 for 2026), you can claim a non-refundable federal tax credit equal to $16,129 × 15% = <strong>$2,419</strong>. This credit phases out dollar for dollar as your spouse's net income rises from $0 to $16,129. Once their income reaches $16,129, the credit is zero. Pension income splitting can sometimes push a spouse over this threshold — the calculator above factors this in automatically.
+      </p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>Does pension income splitting affect my CPP or OAS benefits?</summary>
+        <div class="faq-body">No. Pension income splitting is a tax-reporting election only — it does not change the actual payment of CPP or OAS. Your CPP and OAS continue to be paid to you individually as normal. The T1032 election only affects how you report income on your tax return. Note that CPP and OAS themselves cannot be split using the T1032; CPP has its own credit-splitting mechanism.</div>
+      </details>
+
+      <details>
+        <summary>Can we split income if we are common-law partners?</summary>
+        <div class="faq-body">Yes. The pension income splitting rules apply equally to married couples and common-law partners, provided they were living together as of December 31 of the tax year. The T1032 form requires both spouses or partners to sign and both returns must be filed. Separated or divorced couples cannot use pension income splitting for the year of separation onward.</div>
+      </details>
+
+      <details>
+        <summary>What if we choose different split percentages each year?</summary>
+        <div class="faq-body">That is perfectly allowed and often advisable. Your incomes may fluctuate from year to year — a large RRIF withdrawal in one year, for example, might warrant a higher split percentage that year. Since the T1032 election is made annually when you file, you can optimize the percentage independently each tax year. There is no requirement to be consistent.</div>
+      </details>
+
+      <details>
+        <summary>Do provincial taxes also decrease when we split pension income?</summary>
+        <div class="faq-body">Yes — most provinces calculate provincial tax based on the income amounts reported on your federal return after the pension income splitting election. When Spouse 1 reports lower income and Spouse 2 reports higher income, provincial tax is recalculated accordingly for both. This is why total (federal + provincial) tax savings are typically 40–60% higher than federal savings alone. Quebec has its own provincial tax return where the provincial pension income splitting rules may differ slightly.</div>
+      </details>
+
+      <details>
+        <summary>Should we always split the maximum 50%?</summary>
+        <div class="faq-body">Not necessarily. The optimal split depends on both spouses' incomes and tax brackets. Splitting too much can push Spouse 2 into a higher bracket, reducing the benefit. The sweet spot is usually where the marginal rates of both spouses are equalized — but other factors like OAS clawback (income over $90,997 in 2026 triggers a 15% OAS repayment), age amount eligibility, and provincial surtaxes can shift the optimal percentage. Use the "Find Optimal Split" button to calculate your specific optimal percentage.</div>
+      </details>
+    </div>
+
+    <!-- RELATED CALCULATORS -->
+    <div class="content-section">
+      <h2>Related Calculators</h2>
+      <p>Use these tools together with income splitting to fully optimize your Canadian retirement tax picture.</p>
+      <div class="related-tools">
+        <a href="/senior-income-tax-calculator.html" class="tool-chip">👵 Senior Income Tax</a>
+        <a href="/retirement-income-tax-calculator.html" class="tool-chip">🏖️ Retirement Income Tax</a>
+        <a href="/cpp-oas-estimator.html" class="tool-chip">👴 CPP &amp; OAS Estimator</a>
+        <a href="/rrsp-calculator.html" class="tool-chip">📈 RRSP Calculator</a>
+        <a href="/canadian-income-tax-calculator.html" class="tool-chip">📊 Income Tax Calculator</a>
+        <a href="/tfsa-room-calculator.html" class="tool-chip">💰 TFSA Room Calculator</a>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> This calculator is for educational purposes only. It uses simplified provincial effective tax rates and does not account for all possible tax credits, deductions, surtaxes, or clawbacks (such as OAS GIS clawback, provincial surtaxes, or AMT). The federal calculations use the 2026 bracket rates and basic personal amount. Always consult a qualified tax professional or financial advisor before making tax-planning decisions. NorthCalc.com accepts no liability for decisions made based on these calculations.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">🍁 North<em>Calc</em></div>
+      <div class="footer-desc">Free Canadian financial calculators. Built for Canadians, updated for 2026 tax rules.</div>
+    </div>
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/">Blog</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 NorthCalc.com — Free Canadian Financial Calculators. Not financial advice.</div>
+</footer>
+
+<script>
+// ── Constants ──────────────────────────────────────────────────────────────
+const BPA = 16129;
+const FED_BRACKETS = [
+  {limit: 57375,  rate: 0.15},
+  {limit: 114750, rate: 0.205},
+  {limit: 158519, rate: 0.26},
+  {limit: 220000, rate: 0.29},
+  {limit: Infinity, rate: 0.33}
+];
+const PROV_RATES = {
+  ON:0.0915, BC:0.077, AB:0.10, QC:0.14, NS:0.10, NB:0.094,
+  MB:0.108, SK:0.105, NL:0.10, PE:0.0965, YT:0.064, NT:0.059, NU:0.04
+};
+const PROV_NAMES = {
+  ON:'Ontario', BC:'British Columbia', AB:'Alberta', QC:'Quebec',
+  NS:'Nova Scotia', NB:'New Brunswick', MB:'Manitoba', SK:'Saskatchewan',
+  NL:'Newfoundland & Labrador', PE:'Prince Edward Island',
+  YT:'Yukon', NT:'Northwest Territories', NU:'Nunavut'
+};
+
+// ── Tax math ───────────────────────────────────────────────────────────────
+function fedTax(income) {
+  const taxable = Math.max(0, income - BPA);
+  let tax = 0, prev = 0;
+  for (const b of FED_BRACKETS) {
+    if (taxable <= prev) break;
+    const slice = Math.min(taxable, b.limit) - prev;
+    tax += slice * b.rate;
+    prev = b.limit;
+    if (b.limit === Infinity) break;
+  }
+  return Math.max(0, tax);
+}
+
+function provTax(income, prov) {
+  const taxable = Math.max(0, income - BPA);
+  return taxable * (PROV_RATES[prov] || 0.09);
+}
+
+function totalTax(income, prov) {
+  return fedTax(income) + provTax(income, prov);
+}
+
+// Spousal amount credit: $16,129 × 15% phased out dollar-for-dollar as spouse earns over $0
+// Credit = max(0, (BPA - spouseNet) * 0.15)  when spouseNet < BPA, else 0
+function spousalCredit(spouseNet) {
+  if (spouseNet >= BPA) return 0;
+  return (BPA - spouseNet) * 0.15;
+}
+
+function calcCouple(s1income, s2income, pensionSplitAmt, prov) {
+  // Without splitting
+  const noS1Fed = fedTax(s1income);
+  const noS2Fed = fedTax(s2income);
+  const noS1Prov = provTax(s1income, prov);
+  const noS2Prov = provTax(s2income, prov);
+  const noSpousal = spousalCredit(s2income);
+  const noS1Tax = noS1Fed + noS1Prov - noSpousal; // spousal credit reduces S1 tax
+  const noS2Tax = noS2Fed + noS2Prov;
+  const noCombined = noS1Tax + noS2Tax;
+
+  // With splitting
+  const s1After = s1income - pensionSplitAmt;
+  const s2After = s2income + pensionSplitAmt;
+  const yesS1Fed = fedTax(s1After);
+  const yesS2Fed = fedTax(s2After);
+  const yesS1Prov = provTax(s1After, prov);
+  const yesS2Prov = provTax(s2After, prov);
+  const yesSpousal = spousalCredit(s2After);
+  const yesS1Tax = yesS1Fed + yesS1Prov - yesSpousal;
+  const yesS2Tax = yesS2Fed + yesS2Prov;
+  const yesCombined = yesS1Tax + yesS2Tax;
+
+  const savings = noCombined - yesCombined;
+
+  return {
+    noS1Tax, noS2Tax, noCombined, noSpousal,
+    noS1Fed, noS2Fed,
+    yesS1Tax, yesS2Tax, yesCombined, yesSpousal,
+    yesS1Fed, yesS2Fed,
+    savings,
+    s1After, s2After
+  };
+}
+
+// ── Formatting ─────────────────────────────────────────────────────────────
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('en-CA');
+}
+function fmtPct(r) {
+  return (r * 100).toFixed(1) + '%';
+}
+
+// ── Slider ─────────────────────────────────────────────────────────────────
+function updateSlider(val) {
+  document.getElementById('sliderDisplay').textContent = val + '%';
+  const pension = parseFloat(document.getElementById('pensionIncome').value) || 0;
+  const maxSplit = pension * 0.5;
+  const splitAmt = pension * (val / 100);
+  document.getElementById('splitDollar').textContent = fmt(Math.min(splitAmt, maxSplit));
+}
+
+// ── Find Optimal ───────────────────────────────────────────────────────────
+function findOptimal() {
+  const s1 = parseFloat(document.getElementById('s1income').value) || 0;
+  const s2 = parseFloat(document.getElementById('s2income').value) || 0;
+  const pension = parseFloat(document.getElementById('pensionIncome').value) || 0;
+  const prov = document.getElementById('province').value;
+  const maxSplit = Math.min(pension, pension * 0.5);
+
+  let bestPct = 0, bestTax = Infinity;
+  for (let pct = 0; pct <= 50; pct++) {
+    const splitAmt = pension * (pct / 100);
+    if (s1 - splitAmt < 0) break;
+    const r = calcCouple(s1, s2, splitAmt, prov);
+    if (r.yesCombined < bestTax) {
+      bestTax = r.yesCombined;
+      bestPct = pct;
+    }
+  }
+  document.getElementById('splitSlider').value = bestPct;
+  updateSlider(bestPct);
+  calculate();
+}
+
+// ── Main calculate ─────────────────────────────────────────────────────────
+function calculate() {
+  const s1 = parseFloat(document.getElementById('s1income').value) || 0;
+  const s2 = parseFloat(document.getElementById('s2income').value) || 0;
+  const pension = parseFloat(document.getElementById('pensionIncome').value) || 0;
+  const prov = document.getElementById('province').value;
+  const sliderPct = parseInt(document.getElementById('splitSlider').value);
+
+  const maxEligible = pension * 0.5;
+  const splitAmt = Math.min(pension * (sliderPct / 100), maxEligible);
+
+  if (pension > s1) {
+    alert('Eligible pension income cannot exceed Spouse 1 total income.');
+    return;
+  }
+  if (s1 < splitAmt) {
+    alert('Split amount exceeds Spouse 1 income. Please check your inputs.');
+    return;
+  }
+
+  const r = calcCouple(s1, s2, splitAmt, prov);
+
+  // Find optimal for display
+  let bestPct = 0, bestTax = Infinity;
+  for (let pct = 0; pct <= 50; pct++) {
+    const sa = pension * (pct / 100);
+    if (s1 - sa < 0) break;
+    const rr = calcCouple(s1, s2, sa, prov);
+    if (rr.yesCombined < bestTax) { bestTax = rr.yesCombined; bestPct = pct; }
+  }
+
+  // Banner
+  const bigEl = document.getElementById('bigSavings');
+  bigEl.textContent = fmt(r.savings);
+  bigEl.className = 'big-number ' + (r.savings > 0 ? 'positive' : 'neutral');
+  document.getElementById('bigSavingsSub').textContent =
+    'at ' + sliderPct + '% split (' + fmt(splitAmt) + ' transferred) · federal + provincial';
+
+  // Summary cards
+  document.getElementById('monthlySavings').textContent = fmt(r.savings / 12);
+  document.getElementById('twentyYearSavings').textContent = fmt(r.savings * 20);
+  document.getElementById('optimalPct').textContent = bestPct + '%';
+
+  // Without split column
+  document.getElementById('noS1Tax').textContent = fmt(r.noS1Tax);
+  document.getElementById('noS2Tax').textContent = fmt(r.noS2Tax);
+  document.getElementById('noSpousalCredit').textContent = r.noSpousal > 0 ? '−' + fmt(r.noSpousal) : '$0';
+  document.getElementById('noCombined').textContent = fmt(r.noCombined);
+  document.getElementById('noS1Rate').textContent = s1 > 0 ? fmtPct(r.noS1Tax / s1) : '—';
+  document.getElementById('noS2Rate').textContent = s2 > 0 ? fmtPct(r.noS2Tax / s2) : '—';
+
+  // With split column
+  document.getElementById('splitAmount').textContent = fmt(splitAmt);
+  document.getElementById('yesS1Tax').textContent = fmt(r.yesS1Tax);
+  document.getElementById('yesS2Tax').textContent = fmt(r.yesS2Tax);
+  document.getElementById('yesSpousalCredit').textContent = r.yesSpousal > 0 ? '−' + fmt(r.yesSpousal) : '$0';
+  document.getElementById('yesCombined').textContent = fmt(r.yesCombined);
+  document.getElementById('yesS1Rate').textContent = r.s1After > 0 ? fmtPct(r.yesS1Tax / r.s1After) : '—';
+  document.getElementById('yesS2Rate').textContent = r.s2After > 0 ? fmtPct(r.yesS2Tax / r.s2After) : '—';
+
+  // Spousal note
+  const noteWrap = document.getElementById('spousalNoteWrap');
+  const noteEl = document.getElementById('spousalNote');
+  if (r.noSpousal > 0 && r.yesSpousal === 0) {
+    noteEl.textContent = 'Note: Splitting pension income pushes Spouse 2\'s income above $' + BPA.toLocaleString('en-CA') + ', eliminating the $' + Math.round(r.noSpousal).toLocaleString('en-CA') + ' spousal amount credit. This is factored into the savings shown above.';
+    noteWrap.style.display = 'block';
+  } else if (r.noSpousal === 0 && r.yesSpousal > 0) {
+    noteEl.textContent = 'After splitting, Spouse 2\'s income drops below $' + BPA.toLocaleString('en-CA') + ', allowing a $' + Math.round(r.yesSpousal).toLocaleString('en-CA') + ' spousal amount credit — this increases total savings.';
+    noteWrap.style.display = 'block';
+  } else {
+    noteWrap.style.display = 'none';
+  }
+
+  // Build split table
+  buildSplitTable(s1, s2, pension, prov, sliderPct, bestPct);
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+
+function buildSplitTable(s1, s2, pension, prov, currentPct, bestPct) {
+  const baseResult = calcCouple(s1, s2, 0, prov);
+  const body = document.getElementById('splitTableBody');
+  let html = '';
+  for (let pct = 0; pct <= 50; pct += 5) {
+    const splitAmt = pension * (pct / 100);
+    if (s1 - splitAmt < 0) break;
+    const r = calcCouple(s1, s2, splitAmt, prov);
+    const savings = baseResult.noCombined - r.yesCombined;
+    const isOptimal = pct === bestPct;
+    const isCurrent = pct === Math.round(currentPct / 5) * 5 && !isOptimal;
+    const rowClass = isOptimal ? ' class="highlight-row"' : '';
+    const optLabel = isOptimal ? ' ★ Optimal' : '';
+    html += `<tr${rowClass}>
+      <td>${pct}%${optLabel}</td>
+      <td>${fmt(splitAmt)}</td>
+      <td>${fmt(r.yesS1Tax)}</td>
+      <td>${fmt(r.yesS2Tax)}</td>
+      <td>${r.yesSpousal > 0 ? fmt(r.yesSpousal) : '—'}</td>
+      <td>${fmt(r.yesCombined)}</td>
+      <td>${savings >= 0 ? '+' + fmt(savings) : fmt(savings)}</td>
+    </tr>`;
+  }
+  body.innerHTML = html;
+}
+
+// ── Nav ────────────────────────────────────────────────────────────────────
+function navToggle(b) {
+  const d = b.parentElement, w = d.classList.contains('open');
+  document.querySelectorAll('.nav-drop').forEach(x => x.classList.remove('open'));
+  if (!w) d.classList.add('open');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-drop') && !e.target.closest('#hamburger'))
+    document.querySelectorAll('.nav-drop').forEach(d => d.classList.remove('open'));
+});
+
+// ── Init ───────────────────────────────────────────────────────────────────
+updateSlider(25);
+</script>
+
+</body>
+</html>
