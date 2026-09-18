@@ -449,18 +449,9 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
 
 <script>
 // ── Constants ──────────────────────────────────────────────────────────────
-const BPA = 16129;
-const FED_BRACKETS = [
-  {limit: 57375,  rate: 0.15},
-  {limit: 114750, rate: 0.205},
-  {limit: 158519, rate: 0.26},
-  {limit: 220000, rate: 0.29},
-  {limit: Infinity, rate: 0.33}
-];
-const PROV_RATES = {
-  ON:0.0915, BC:0.077, AB:0.10, QC:0.14, NS:0.10, NB:0.094,
-  MB:0.108, SK:0.105, NL:0.10, PE:0.0965, YT:0.064, NT:0.059, NU:0.04
-};
+const BPA = 16452;
+const FED_BRACKETS = [ {limit: 58523, rate: 0.14}, {limit: 117045, rate: 0.205}, {limit: 181440, rate: 0.26}, {limit: 258482, rate: 0.29}, {limit: Infinity, rate: 0.33} ];
+const PROV_RATES = {ON:0.0505,BC:0.056,AB:0.08,QC:0.14,NS:0.0879,NB:0.094,MB:0.108,SK:0.105,NL:0.087,PE:0.095,YT:0.064,NT:0.059,NU:0.04};
 const PROV_NAMES = {
   ON:'Ontario', BC:'British Columbia', AB:'Alberta', QC:'Quebec',
   NS:'Nova Scotia', NB:'New Brunswick', MB:'Manitoba', SK:'Saskatchewan',

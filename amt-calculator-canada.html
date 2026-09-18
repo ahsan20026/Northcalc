@@ -557,10 +557,10 @@ function fmt(n) {
 function calcRegularFederalTax(taxableIncome) {
   // 2024 federal brackets (approximated, BPA applied separately)
   const brackets = [
-    {min: 0, max: 55867, rate: 0.15},
-    {min: 55867, max: 111733, rate: 0.205},
-    {min: 111733, max: 154906, rate: 0.26},
-    {min: 154906, max: 220000, rate: 0.29},
+    {min: 0, max: 58523, rate: 0.14},
+    {min: 58523, max: 117045, rate: 0.205},
+    {min: 117045, max: 181440, rate: 0.26},
+    {min: 181440, max: 258482, rate: 0.29},
     {min: 220000, max: Infinity, rate: 0.33}
   ];
   let tax = 0;
