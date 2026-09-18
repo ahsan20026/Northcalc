@@ -543,10 +543,7 @@ function fmtDec(n,d=2){return '$'+n.toLocaleString('en-CA',{minimumFractionDigit
 function pct(n){return (n*100).toFixed(2)+'%';}
 
 // Provincial effective rates (simplified flat rate applied to taxable income)
-const provRates={
-  ON:0.0915,BC:0.077,AB:0.10,QC:0.14,NS:0.10,NB:0.094,
-  MB:0.108,SK:0.105,NL:0.10,PE:0.0965,YT:0.064,NT:0.059,NU:0.04
-};
+const provRates={ON:0.0505,BC:0.056,AB:0.08,QC:0.14,NS:0.0879,NB:0.094,MB:0.108,SK:0.105,NL:0.087,PE:0.095,YT:0.064,NT:0.059,NU:0.04};
 const provNames={
   ON:'Ontario',BC:'British Columbia',AB:'Alberta',QC:'Quebec',NS:'Nova Scotia',
   NB:'New Brunswick',MB:'Manitoba',SK:'Saskatchewan',NL:'Newfoundland & Labrador',
