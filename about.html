@@ -58,36 +58,23 @@
     .footer-links a:hover{color:var(--white)}
     .footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
   </style>
+  <link rel="canonical" href="https://northcalc.com/about.html">
 </head>
 <body>
   <header>
-    <div class="header-inner">
-      <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
-      <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-      <nav id="mainNav">
-        <a href="/index.html" class="nav-link">Home</a>
-        <div class="nav-drop">
-          <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown">
-            <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
-            <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
-            <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
-            <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
-            <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
-            <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
-            <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
-            <a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP &amp; OAS</a>
-          </div>
-        </div>
-        <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
-
-        <a href="/blog/" class="nav-link">Blog</a>
-        <a href="/about.html" class="nav-link active">About</a>
-      </nav>
-    </div>
-  </header>
+  <div class="header-inner">
+    <a href="/" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP / OAS Estimator</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">Blog</a>
+      <a href="/about.html" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">About Us</a>
+    </nav>
+  </div>
+</header>
 
   <main>
     <div class="page-hero">

@@ -76,29 +76,15 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
 
 <header>
   <div class="header-inner">
-    <a href="/index.html" class="logo">🍁 North<em>Calc</em></a>
-    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+    <a href="/" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <nav id="mainNav">
-      <a href="/index.html" class="nav-link">Home</a>
-      <div class="nav-drop">
-        <button class="nav-btn" onclick="navToggle(this)">Calculators <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dropdown">
-          <a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a>
-          <a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a>
-          <a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a>
-          <a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST</a>
-          <a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a>
-          <a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a>
-          <a href="/rrsp-calculator.html" class="dd-link">📈 RRSP</a>
-          <a href="/cpp-oas-estimator.html" class="dd-link active">👴 CPP &amp; OAS</a>
-        </div>
-      </div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP / OAS Estimator</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
       <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
-
-      <a href="/blog/" class="nav-link">Blog</a>
-      <a href="/about.html" class="nav-link">About</a>
+      <a href="/blog/" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">Blog</a>
+      <a href="/about.html" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">About Us</a>
     </nav>
   </div>
 </header>
@@ -198,16 +184,16 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
       <p>Canada's retirement income system has two main pillars: the <strong>Canada Pension Plan (CPP)</strong> and <strong>Old Age Security (OAS)</strong>. Together, they provide a foundation for retirement income for Canadians.</p>
 
       <h3>Canada Pension Plan (CPP)</h3>
-      <p>CPP is a <strong>contributory pension</strong>. You and your employer contribute throughout your working life (employee rate: 5.95% + 4% CPP2 top-up on earnings between $68,500–$73,200). Your CPP benefit is based on the contributions you made and the years you contributed. Benefits can start as early as age 60 or be deferred up to age 70.</p>
+      <p>CPP is a <strong>contributory pension</strong>. You and your employer contribute throughout your working life (employee rate: 5.95% on pensionable earnings up to $74,600 in 2026, plus 4% CPP2 on earnings above that first ceiling). Your CPP benefit is based on the contributions you made and the years you contributed. Benefits can start as early as age 60 or be deferred up to age 70.</p>
 
       <h3>Old Age Security (OAS)</h3>
-      <p>OAS is a <strong>residency-based benefit</strong> paid from general government tax revenue. You don't need to have contributed anything—you only need to have been a Canadian resident for 40 years after age 18. OAS normally starts at age 65 but can be deferred up to age 70 for a higher amount. It's subject to a "clawback" if your income exceeds approximately $90,997.</p>
+      <p>OAS is a <strong>residency-based benefit</strong> paid from general government tax revenue. You don't need to have contributed anything—you only need to have been a Canadian resident for 40 years after age 18. OAS normally starts at age 65 but can be deferred up to age 70 for a higher amount. It's subject to a "clawback" if your income exceeds approximately $93,454.</p>
 
       <h3>2026 Maximum Benefits</h3>
       <ul>
         <li><strong>CPP at 65:</strong> Maximum $1,364.60/month (assumes 39 years of maximum contributions)</li>
         <li><strong>OAS at 65:</strong> Maximum $698.60/month (full amount for those with 40+ years residency)</li>
-        <li><strong>Combined maximum:</strong> Approximately $2,063/month (before clawback)</li>
+        <li><strong>Combined maximum:</strong> Approximately $2,259.62/month (before clawback)</li>
       </ul>
       <p>These amounts are indexed annually to inflation (CPI).</p>
     </div>
@@ -278,7 +264,7 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
       <details>
         <summary>What is the OAS clawback and how does it work?</summary>
         <div class="faq-body">
-          OAS has an income clawback: if your net income exceeds approximately $90,997 (2026, indexed annually), you must repay 15¢ of OAS for every dollar above that threshold. For example, if you have $120,000 in income, you'd repay $4,350.45 in OAS (15% × $29,003). High-income retirees can lose all their OAS if income exceeds approximately $147,000. This makes income-splitting strategies (spousal RRSPs, spousal pensions) valuable for high-income households.
+          OAS has an income clawback: if your net income exceeds approximately $93,454 (2026, indexed annually), you must repay 15¢ of OAS for every dollar above that threshold. For example, if you have $120,000 in income, you'd repay $3,981.90 in OAS (15% × $26,546). High-income retirees can lose all their OAS if income exceeds approximately $147,000. This makes income-splitting strategies (spousal RRSPs, spousal pensions) valuable for high-income households.
         </div>
       </details>
 
@@ -346,46 +332,46 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
     </div>
 
     <div class="disclaimer-box">
-      <strong>Disclaimer:</strong> This calculator is for educational and estimation purposes only. Actual CPP and OAS benefits depend on your complete contribution history (for CPP) or residency history (for OAS). The real benefit is calculated by Service Canada. For your exact projected benefit, log into My Service Canada Account at canada.ca. This information does not constitute financial or retirement planning advice. Consult a financial adviser or Service Canada for your specific situation.
+      <strong>Disclaimer:</strong> This calculator is for educational and estimation purposes only. Actual CPP and OAS benefits depend on your complete contribution history (for CPP) or residency history (for OAS). The CPP estimate assumes a full contributory career (the maximum 39 credited years) - if you have gaps in your contribution history your actual pension will be lower. Figures used are the January 2026 maximum CPP at 65 ($1,507.65) and the July-September 2026 maximum OAS ($751.97). The real benefit is calculated by Service Canada. For your exact projected benefit, log into My Service Canada Account at canada.ca. This information does not constitute financial or retirement planning advice. Consult a financial adviser or Service Canada for your specific situation.
     </div>
 
   </div>
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">🍁 North<em>Calc</em></div>
-      <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
-    </div>
-    <div>
-      <div class="footer-links">
-        <a href="/about.html">About</a>
-        <a href="/blog/">Blog</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/terms-of-service.html">Terms of Service</a>
-        <a href="/disclaimer.html">Disclaimer</a>
-        <a href="/contact.html">Contact</a>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/contact.html">Contact</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
-</footer>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
 
 <script>
-const CPP_MAX_2026 = 1364.60;
-const CPP_MAX_EARNINGS_2026 = 71300;
-const OAS_FULL_2026 = 698.60;
+const CPP_MAX_2026 = 1507.65;
+const CPP_MAX_EARNINGS_2026 = 74600;
+const OAS_FULL_2026 = 751.97;
 const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
 const fmtK = n => '$' + Math.round(n).toLocaleString('en-CA');
 
 function calcCPP(currentAge, startAge, avgIncome){
-  const retireAge = 65;
-  const yearsWorked = Math.max(0, retireAge - startAge);
-  const contributingYears = Math.min(yearsWorked, 39);
+  // CPP uses your contributory period (age 18 to pension start), less the
+  // 8-year dropout for lowest-earnings years, capped at 39 years credited.
+  // This assumes a full contributory career, so the ratio is earnings-driven.
+  const contributingYears = Math.min(39, Math.max(0, startAge - 18));
   const earningsRatio = Math.min(avgIncome, CPP_MAX_EARNINGS_2026) / CPP_MAX_EARNINGS_2026;
-  const baseCPP = earningsRatio * (contributingYears / 39) * CPP_MAX_2026;
-  return baseCPP;
+  return earningsRatio * (contributingYears / 39) * CPP_MAX_2026;
 }
 
 function calculate(){
@@ -395,6 +381,7 @@ function calculate(){
   const residencyYears = parseInt(document.getElementById('residencyYears').value);
 
   if(!currentAge || !avgIncome){ alert('Please fill in all fields.'); return; }
+  if(startAge < 60 || startAge > 70){ alert('CPP can start any month between age 60 and 70.'); return; }
 
   const cppAt65 = calcCPP(currentAge, startAge, avgIncome);
   const monthsBefore65_at60 = 60;
@@ -422,7 +409,7 @@ function calculate(){
       <div style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">${s.label}</div>
       <div style="font-size:1.5rem;font-weight:800;color:${s.best?'#059669':'var(--navy)'}">${fmt(s.cpp)}<span style="font-size:.85rem;font-weight:500">/mo</span></div>
       <div style="font-size:.75rem;color:var(--muted);margin-top:.2rem">${fmtK(s.cpp*12)}/year</div>
-      ${s.adj!=='Baseline'?`<div style="font-size:.72rem;font-weight:600;margin-top:.4rem;padding:.2rem .5rem;border-radius:20px;display:inline-block;background:${s.adjClass==='up'?'#d1fae5':'#fee2e2'};color:${s.adjClass==='up'?'#065f46':'#991b1b'}">${s.adj} vs age 65</div>`:`<div style="font-size:.72rem;font-weight:600;margin-top:.4rem;padding:.2rem .5rem;border-radius:20px;display:inline-block;background:var(--red-light);color:var(--red)">Reference point</div>'}
+      ${s.adj!=='Baseline'?`<div style="font-size:.72rem;font-weight:600;margin-top:.4rem;padding:.2rem .5rem;border-radius:20px;display:inline-block;background:${s.adjClass==='up'?'#d1fae5':'#fee2e2'};color:${s.adjClass==='up'?'#065f46':'#991b1b'}">${s.adj} vs age 65</div>`:`<div style="font-size:.72rem;font-weight:600;margin-top:.4rem;padding:.2rem .5rem;border-radius:20px;display:inline-block;background:var(--red-light);color:var(--red)">Reference point</div>`}
     </div>`).join('');
 
   document.getElementById('combinedGrid').innerHTML = scenarios.map(s => `
