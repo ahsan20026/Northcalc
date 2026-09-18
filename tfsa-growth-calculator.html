@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TFSA Growth Calculator 2026 | Project Your Tax-Free Savings</title>
+<meta name="description" content="Project how much your TFSA could be worth. Enter a starting balance, monthly contributions, expected return and time horizon to see contributions vs tax-free growth.">
+  <meta name="keywords" content="TFSA growth calculator, TFSA calculator 2026, tax free savings account growth, TFSA compound interest calculator, TFSA projection">
+  <link rel="canonical" href="https://northcalc.com/tfsa-growth-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.page-hero .badge-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.hero-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:.25rem .75rem;font-size:.78rem;font-weight:600}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.calc-section h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1.5rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem}
+@media(max-width:620px){.input-grid{grid-template-columns:1fr}}
+.input-group{display:flex;flex-direction:column;gap:.4rem}
+.input-group label{font-size:.84rem;font-weight:700;color:var(--navy)}
+.input-group .sublabel{font-size:.75rem;color:var(--muted);margin-top:-.2rem}
+.input-wrap{position:relative}
+.input-prefix{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.9rem}
+.input-wrap input{width:100%;padding:.65rem .875rem .65rem 1.85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit;transition:border-color .15s}
+.input-wrap input:focus{outline:none;border-color:var(--red)}
+select.full{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit;background:var(--white);transition:border-color .15s}
+select.full:focus{outline:none;border-color:var(--red)}
+.tfsa-note{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:.7rem 1rem;font-size:.8rem;color:#166534;margin-top:.5rem}
+.calc-btn{width:100%;padding:.9rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;letter-spacing:.01em}
+.calc-btn:hover{background:var(--red-dark)}
+.calc-note{font-size:.75rem;color:var(--muted);margin-top:.9rem;text-align:center}
+/* Results */
+#results{display:none}
+.result-hero{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1.5px solid #bbf7d0;border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;text-align:center}
+.result-hero .label{font-size:.78rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.result-hero .big-num{font-size:2.8rem;font-weight:800;color:#065f46;line-height:1;margin-bottom:.3rem}
+.result-hero .sub{font-size:.92rem;color:#166534}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:520px){.result-grid{grid-template-columns:1fr}}
+.result-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+.result-card .rc-label{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.3rem}
+.result-card .rc-val{font-size:1.35rem;font-weight:800;color:var(--navy)}
+.result-card .rc-sub{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+.result-card.warning{background:#fff7ed;border-color:#fed7aa}
+.result-card.warning .rc-label{color:#92400e}
+.result-card.warning .rc-val{color:#c2410c}
+.result-card.warning .rc-sub{color:#b45309}
+.result-card.good{background:#f0fdf4;border-color:#bbf7d0}
+.result-card.good .rc-label{color:#166534}
+.result-card.good .rc-val{color:#065f46}
+.oas-warning{background:#fff7ed;border:2px solid #f97316;border-radius:10px;padding:1.1rem 1.25rem;margin-bottom:1.25rem}
+.oas-warning .oas-title{font-weight:800;color:#c2410c;font-size:.95rem;margin-bottom:.35rem}
+.oas-warning p{font-size:.84rem;color:#92400e}
+.breakdown-table{width:100%;border-collapse:collapse;font-size:.87rem;margin:1rem 0}
+.breakdown-table th{background:var(--navy);color:var(--white);padding:.55rem .85rem;text-align:left;font-size:.8rem;font-weight:700}
+.breakdown-table td{padding:.5rem .85rem;border-bottom:1px solid var(--border)}
+.breakdown-table tr:hover td{background:#fafafa}
+.breakdown-table tr.subtotal td{font-weight:700;background:#f9fafb}
+.breakdown-table tr.total-row td{font-weight:800;color:var(--navy);background:var(--red-light);font-size:.95rem}
+.breakdown-table tr.credit td{color:#065f46}
+.bar-track{height:22px;background:#f3f4f6;border-radius:11px;overflow:hidden;display:flex;margin:1rem 0 .35rem}
+.bar-seg{height:100%;transition:width .4s ease;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;overflow:hidden;white-space:nowrap}
+.bar-legend{display:flex;flex-wrap:wrap;gap:.5rem .75rem;font-size:.77rem;margin-bottom:1rem}
+.bar-legend span{display:flex;align-items:center;gap:.35rem}
+.bl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+/* Content sections */
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media(max-width:560px){.info-grid{grid-template-columns:1fr}}
+.info-card{background:#f8f9fa;border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+.info-card .ic-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.04em}
+.info-card p{font-size:.84rem;color:var(--text);margin:0}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.warning-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#92400e}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+table.info-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+table.info-table th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+table.info-table td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+table.info-table tr:hover td{background:#fafafa}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.faq-body p{margin-bottom:.6rem}
+.faq-body p:last-child{margin:0}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/tfsa-growth-calculator.html" class="dd-link">📈 TFSA Growth</a><a href="/tfsa-withdrawal-calculator.html" class="dd-link">🔁 TFSA Withdrawal</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="/rrsp-withdrawal-tax-calculator.html" class="dd-link">🏦 RRSP Withdrawal Tax</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP / OAS Estimator</a><a href="/oas-calculator.html" class="dd-link">🍁 OAS Calculator</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">Blog</a>
+      <a href="/about.html" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">About Us</a>
+    </nav>
+  </div>
+</header>
+<div class="content-wrap">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="hero-badge">Tax-Free Savings Account</span>
+      <h1>TFSA Growth Calculator 2026</h1>
+      <p>See how much your TFSA could be worth over time. All growth and withdrawals are tax-free, so what you see here is what you keep.</p>
+    </div>
+  </section>
+
+  <div class="content-section calc-section">
+    <h2>Your Plan</h2>
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="startBalance">Starting balance</label>
+        <input type="number" id="startBalance" value="10000" min="0" step="500">
+      </div>
+      <div class="input-group">
+        <label for="monthly">Monthly contribution</label>
+        <input type="number" id="monthly" value="500" min="0" step="25">
+      </div>
+      <div class="input-group">
+        <label for="rate">Expected annual return (%)</label>
+        <input type="number" id="rate" value="6" min="0" max="20" step="0.1">
+      </div>
+      <div class="input-group">
+        <label for="years">Years</label>
+        <input type="number" id="years" value="20" min="1" max="60">
+      </div>
+      <div class="input-group">
+        <label for="lumpSum">One-time top-up now (optional)</label>
+        <input type="number" id="lumpSum" value="0" min="0" step="500">
+      </div>
+      <div class="input-group">
+        <label for="inflation">Inflation for real value (%)</label>
+        <input type="number" id="inflation" value="2" min="0" max="10" step="0.1">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate Growth</button>
+    <p class="calc-note">Assumes contributions are made at the end of each month and returns compound monthly. Real return is shown in today's dollars.</p>
+  </div>
+
+  <div id="results" style="display:none">
+    <div class="result-hero">
+      <div class="label">Projected TFSA balance</div>
+      <div class="big-num" id="finalBalance">&mdash;</div>
+      <div class="rc-sub" id="finalSub"></div>
+    </div>
+    <div class="result-grid">
+      <div class="result-card"><div class="rc-label">Total contributed</div><div class="rc-val" id="totalContrib">&mdash;</div><div class="rc-sub">Your own money in</div></div>
+      <div class="result-card"><div class="rc-label">Investment growth</div><div class="rc-val" id="totalGrowth">&mdash;</div><div class="rc-sub">Tax-free</div></div>
+      <div class="result-card"><div class="rc-label">Growth as % of balance</div><div class="rc-val" id="growthPct">&mdash;</div><div class="rc-sub">Compounding share</div></div>
+      <div class="result-card"><div class="rc-label">Value in today's dollars</div><div class="rc-val" id="realValue">&mdash;</div><div class="rc-sub">After inflation</div></div>
+    </div>
+    <div class="content-section">
+      <h2>Year-by-Year Projection</h2>
+      <table class="breakdown-table">
+        <thead><tr><th>Year</th><th>Contributed</th><th>Growth</th><th>Balance</th></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Why TFSA Growth Compounds So Effectively</h2>
+    <p>A TFSA has three features that compound on each other: you pay no tax on interest, dividends or capital gains inside the account; you pay no tax when you withdraw; and withdrawals do not reduce your contribution room permanently &mdash; the amount comes back the following January.</p>
+    <p>Because nothing is taxed along the way, the full return is reinvested every year. Over a long horizon the difference is substantial: keeping an extra 20% of your annual return working for 25 years adds up to far more than 20% of the final balance.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Can I contribute more than the annual limit if I have unused room?</summary>
+      <div class="faq-body"><p>Yes. The annual limit is not a cap on what you can put in this year &mdash; it is how much <em>new</em> room you gain each January 1. If you have accumulated unused room from earlier years, you can contribute that plus the current year's limit. For 2026 the limit is $7,000, and anyone eligible since 2009 has $109,000 of cumulative room.</p></div>
+    </details>
+    <details>
+      <summary>What return should I assume?</summary>
+      <div class="faq-body"><p>It depends entirely on your asset mix. A balanced portfolio has historically returned roughly 5&ndash;7% a year over long periods, a bond-heavy portfolio less, and an all-equity portfolio more but with much larger swings. Use a range and plan around the low end. No calculator can predict markets, so treat any single figure as one scenario rather than a forecast.</p></div>
+    </details>
+    <details>
+      <summary>Does a TFSA affect my taxes or government benefits?</summary>
+      <div class="faq-body"><p>No. TFSA withdrawals are not taxable income and are not reported on your tax return, so they do not affect your marginal tax rate or income-tested benefits such as the GIS, the Canada Child Benefit, or the OAS recovery tax. That is one of the main advantages of a TFSA over an RRSP.</p></div>
+    </details>
+    <details>
+      <summary>What happens to my room if my investments lose value?</summary>
+      <div class="faq-body"><p>Contribution room is tracked in contributions and withdrawals, not in market value, so investment losses do not reduce your room and gains do not increase it. If you contribute $10,000 and it falls to $6,000, you can still only withdraw $6,000 &mdash; and only that $6,000 is added back to your room the following year.</p></div>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <div class="related-tools">
+      <a href="/tfsa-room-calculator.html" class="tool-chip">TFSA Contribution Room</a>
+      <a href="/tfsa-withdrawal-calculator.html" class="tool-chip">TFSA Withdrawal &amp; Re-contribution</a>
+      <a href="/rrsp-calculator.html" class="tool-chip">RRSP Calculator</a>
+      <a href="/rrsp-withdrawal-tax-calculator.html" class="tool-chip">RRSP Withdrawal Tax</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> This is a compound-growth projection, not a forecast. Real returns vary and can be negative in any given year. Figures are for illustration only and are not financial advice.
+  </div>
+</div>
+<footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+<script>
+const money = n => '$' + Math.round(n).toLocaleString('en-CA');
+const pct   = n => (n * 100).toFixed(1) + '%';
+
+function calculate(){
+  const start     = parseFloat(document.getElementById('startBalance').value) || 0;
+  const lump      = parseFloat(document.getElementById('lumpSum').value) || 0;
+  const monthly   = parseFloat(document.getElementById('monthly').value) || 0;
+  const ratePct   = parseFloat(document.getElementById('rate').value) || 0;
+  const years     = parseInt(document.getElementById('years').value) || 0;
+  const infPct    = parseFloat(document.getElementById('inflation').value) || 0;
+
+  if (!years || years < 1) { alert('Please enter a number of years.'); return; }
+
+  const monthlyRate = ratePct / 100 / 12;
+  const months = years * 12;
+
+  let balance = start + lump;
+  const contributedUpFront = start + lump;
+  let contributed = contributedUpFront;
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+
+  let yearContrib = contributedUpFront;
+  let totalGrowth = 0;
+
+  for (let y = 1; y <= years; y++){
+    let growthThisYear = 0;
+    for (let m = 0; m < 12; m++){
+      const g = balance * monthlyRate;
+      growthThisYear += g;
+      balance += g + monthly;
+      contributed += monthly;
+    }
+    totalGrowth += growthThisYear;
+    yearContrib += monthly * 12;
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + y + '</td><td>' + money(yearContrib) + '</td><td>' + money(totalGrowth) +
+                   '</td><td><strong>' + money(balance) + '</strong></td>';
+    tbody.appendChild(tr);
+  }
+
+  const realValue = balance / Math.pow(1 + infPct / 100, years);
+
+  document.getElementById('finalBalance').textContent = money(balance);
+  document.getElementById('finalSub').textContent = 'After ' + years + ' years at ' + ratePct + '%';
+  document.getElementById('totalContrib').textContent = money(contributed);
+  document.getElementById('totalGrowth').textContent = money(totalGrowth);
+  document.getElementById('growthPct').textContent = balance > 0 ? pct(totalGrowth / balance) : '0%';
+  document.getElementById('realValue').textContent = money(realValue);
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>

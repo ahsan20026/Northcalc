@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RRSP Withdrawal Tax Calculator 2026 | Withholding Tax &amp; Net Cash</title>
+<meta name="description" content="Calculate the withholding tax on an RRSP withdrawal for 2026, the cash you receive, and the extra tax you may owe at filing once it is taxed at your marginal rate.">
+  <meta name="keywords" content="RRSP withdrawal tax calculator, RRSP withholding tax 2026, how much tax on RRSP withdrawal, RRSP withdrawal calculator Canada">
+  <link rel="canonical" href="https://northcalc.com/rrsp-withdrawal-tax-calculator.html">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C41E3A;--red-dark:#a01830;--red-light:#fce8ec;--navy:#1a1a2e;--bg:#f8f9fa;--white:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 6px 20px rgba(0,0,0,.09)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-inner{max-width:1140px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:.35rem;letter-spacing:-.02em;text-decoration:none}
+.logo em{font-style:normal;color:var(--red)}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:7px;padding:.4rem .5rem;cursor:pointer;color:var(--navy)}
+nav{display:flex;gap:.1rem;align-items:center}
+.nav-link{font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;text-decoration:none;transition:all .15s}
+.nav-link:hover{color:var(--red);background:var(--red-light)}
+.nav-drop{position:relative}
+.nav-btn{background:none;border:none;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .15s}
+.nav-btn:hover,.nav-drop.open .nav-btn{color:var(--red);background:var(--red-light)}
+.nav-chevron{transition:transform .2s}
+.nav-drop.open .nav-chevron{transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px;z-index:200;padding:4px}
+.nav-drop.open .dropdown{display:block}
+.dd-link{display:flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:7px;font-size:.84rem;color:var(--text);text-decoration:none;transition:all .15s;font-weight:500;white-space:nowrap}
+.dd-link:hover,.dd-link.active{background:var(--red-light);color:var(--red)}
+.dd-link.active{font-weight:700}
+@media(max-width:720px){.hamburger{display:flex}nav{display:none;position:fixed;top:62px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);padding:.75rem 1rem;flex-direction:column;align-items:stretch;gap:.25rem;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99;max-height:80vh;overflow-y:auto}nav.open{display:flex}.nav-drop{width:100%}.nav-btn{width:100%;justify-content:space-between}.dropdown{position:static;transform:none;box-shadow:none;border:1px solid var(--border);margin-top:4px;min-width:auto;background:#fafafa}}
+main{flex:1}
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d2d4e 100%);color:var(--white);padding:3rem 1.5rem}
+.page-hero-inner{max-width:860px;margin:0 auto}
+.page-hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:640px}
+.page-hero .badge-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.hero-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:.25rem .75rem;font-size:.78rem;font-weight:600}
+.content-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.calc-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+.calc-section h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:1.5rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem}
+@media(max-width:620px){.input-grid{grid-template-columns:1fr}}
+.input-group{display:flex;flex-direction:column;gap:.4rem}
+.input-group label{font-size:.84rem;font-weight:700;color:var(--navy)}
+.input-group .sublabel{font-size:.75rem;color:var(--muted);margin-top:-.2rem}
+.input-wrap{position:relative}
+.input-prefix{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.9rem}
+.input-wrap input{width:100%;padding:.65rem .875rem .65rem 1.85rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit;transition:border-color .15s}
+.input-wrap input:focus{outline:none;border-color:var(--red)}
+select.full{width:100%;padding:.65rem .875rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit;background:var(--white);transition:border-color .15s}
+select.full:focus{outline:none;border-color:var(--red)}
+.tfsa-note{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:.7rem 1rem;font-size:.8rem;color:#166534;margin-top:.5rem}
+.calc-btn{width:100%;padding:.9rem;background:var(--red);color:var(--white);border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;letter-spacing:.01em}
+.calc-btn:hover{background:var(--red-dark)}
+.calc-note{font-size:.75rem;color:var(--muted);margin-top:.9rem;text-align:center}
+/* Results */
+#results{display:none}
+.result-hero{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1.5px solid #bbf7d0;border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;text-align:center}
+.result-hero .label{font-size:.78rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.result-hero .big-num{font-size:2.8rem;font-weight:800;color:#065f46;line-height:1;margin-bottom:.3rem}
+.result-hero .sub{font-size:.92rem;color:#166534}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:520px){.result-grid{grid-template-columns:1fr}}
+.result-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+.result-card .rc-label{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.3rem}
+.result-card .rc-val{font-size:1.35rem;font-weight:800;color:var(--navy)}
+.result-card .rc-sub{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+.result-card.warning{background:#fff7ed;border-color:#fed7aa}
+.result-card.warning .rc-label{color:#92400e}
+.result-card.warning .rc-val{color:#c2410c}
+.result-card.warning .rc-sub{color:#b45309}
+.result-card.good{background:#f0fdf4;border-color:#bbf7d0}
+.result-card.good .rc-label{color:#166534}
+.result-card.good .rc-val{color:#065f46}
+.oas-warning{background:#fff7ed;border:2px solid #f97316;border-radius:10px;padding:1.1rem 1.25rem;margin-bottom:1.25rem}
+.oas-warning .oas-title{font-weight:800;color:#c2410c;font-size:.95rem;margin-bottom:.35rem}
+.oas-warning p{font-size:.84rem;color:#92400e}
+.breakdown-table{width:100%;border-collapse:collapse;font-size:.87rem;margin:1rem 0}
+.breakdown-table th{background:var(--navy);color:var(--white);padding:.55rem .85rem;text-align:left;font-size:.8rem;font-weight:700}
+.breakdown-table td{padding:.5rem .85rem;border-bottom:1px solid var(--border)}
+.breakdown-table tr:hover td{background:#fafafa}
+.breakdown-table tr.subtotal td{font-weight:700;background:#f9fafb}
+.breakdown-table tr.total-row td{font-weight:800;color:var(--navy);background:var(--red-light);font-size:.95rem}
+.breakdown-table tr.credit td{color:#065f46}
+.bar-track{height:22px;background:#f3f4f6;border-radius:11px;overflow:hidden;display:flex;margin:1rem 0 .35rem}
+.bar-seg{height:100%;transition:width .4s ease;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;overflow:hidden;white-space:nowrap}
+.bar-legend{display:flex;flex-wrap:wrap;gap:.5rem .75rem;font-size:.77rem;margin-bottom:1rem}
+.bar-legend span{display:flex;align-items:center;gap:.35rem}
+.bl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+/* Content sections */
+.content-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.content-section h2{font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--red-light)}
+.content-section h3{font-size:1rem;font-weight:700;color:var(--navy);margin:.9rem 0 .35rem}
+.content-section p{margin-bottom:.85rem;font-size:.93rem}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{padding-left:1.4rem;margin-bottom:.85rem;font-size:.93rem}
+.content-section li{margin-bottom:.4rem}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media(max-width:560px){.info-grid{grid-template-columns:1fr}}
+.info-card{background:#f8f9fa;border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+.info-card .ic-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.04em}
+.info-card p{font-size:.84rem;color:var(--text);margin:0}
+.example-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem;color:#0369a1}
+.example-box strong{color:#075985;display:block;margin-bottom:.5rem;font-size:.95rem}
+.warning-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#92400e}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#166534}
+.disclaimer-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;font-size:.82rem;color:#92400e}
+table.info-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+table.info-table th{background:var(--navy);color:var(--white);padding:.55rem .75rem;text-align:left;font-size:.8rem}
+table.info-table td{padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+table.info-table tr:hover td{background:#fafafa}
+details{border:1px solid var(--border);border-radius:9px;margin-bottom:.6rem;overflow:hidden}
+summary{padding:.9rem 1.1rem;font-weight:600;font-size:.9rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+summary:hover{background:#fafafa}
+summary::after{content:'＋';font-size:1.1rem;color:var(--muted);flex-shrink:0}
+details[open] summary::after{content:'－'}
+.faq-body{padding:.9rem 1.1rem;border-top:1px solid var(--border);font-size:.88rem;background:#fafafa;line-height:1.65}
+.faq-body p{margin-bottom:.6rem}
+.faq-body p:last-child{margin:0}
+.related-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.tool-chip{display:flex;align-items:center;gap:.5rem;padding:.65rem .9rem;background:var(--red-light);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--red);text-decoration:none;transition:all .15s;border:1px solid #f5c6cc}
+.tool-chip:hover{background:var(--red);color:var(--white)}
+footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:auto}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+.footer-brand em{color:var(--red);font-style:normal}
+.footer-desc{font-size:.82rem;max-width:340px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem}
+.footer-links a{color:#9ca3af;text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{max-width:1140px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid #374151;font-size:.78rem;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo"><span>🍁</span>North<em>Calc</em></a>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav id="mainNav">
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🏠 Property <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/canadian-mortgage-calculator.html" class="dd-link">🏠 Mortgage Calculator</a><a href="/land-transfer-tax-calculator.html" class="dd-link">🏛 Land Transfer Tax</a><a href="/rent-vs-buy-calculator.html" class="dd-link">🔑 Rent vs Buy</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🧾 Tax <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/hst-gst-calculator.html" class="dd-link">🧾 HST / GST Calculator</a><a href="/canadian-income-tax-calculator.html" class="dd-link">📊 Income Tax</a><a href="/amt-calculator-canada.html" class="dd-link">⚖️ AMT Calculator</a><a href="/car-tax-calculator.html" class="dd-link">🚗 Car Tax Calculator</a><a href="/income-splitting-calculator.html" class="dd-link">💑 Income Splitting</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">💰 Savings <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/tfsa-room-calculator.html" class="dd-link">💰 TFSA Room</a><a href="/tfsa-growth-calculator.html" class="dd-link">📈 TFSA Growth</a><a href="/tfsa-withdrawal-calculator.html" class="dd-link">🔁 TFSA Withdrawal</a><a href="/rrsp-calculator.html" class="dd-link">📈 RRSP Calculator</a><a href="/rrsp-withdrawal-tax-calculator.html" class="dd-link">🏦 RRSP Withdrawal Tax</a><a href="/cpp-oas-estimator.html" class="dd-link">👴 CPP / OAS Estimator</a><a href="/oas-calculator.html" class="dd-link">🍁 OAS Calculator</a><a href="/senior-income-tax-calculator.html" class="dd-link">👵 Senior Tax</a><a href="/retirement-income-tax-calculator.html" class="dd-link">🏖️ Retirement Tax</a></div></div>
+      <div class="nav-drop"><button class="nav-btn" onclick="navToggle(this)">🚗 Auto <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button><div class="dropdown"><a href="/car-loan-calculator.html" class="dd-link">🚗 Car Loan Calculator</a><a href="/lease-vs-buy-calculator.html" class="dd-link">🔄 Lease vs Buy</a><a href="/car-depreciation-calculator.html" class="dd-link">📉 Car Depreciation</a><a href="/car-affordability-calculator.html" class="dd-link">💡 Car Affordability</a></div></div>
+      <a href="/blog/" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">Blog</a>
+      <a href="/about.html" style="font-size:.83rem;font-weight:600;color:var(--muted);padding:.4rem .75rem;border-radius:7px;transition:all .15s;text-decoration:none" onmouseover="this.style.color='#C41E3A';this.style.background='#fce8ec'" onmouseout="this.style.color='';this.style.background=''">About Us</a>
+    </nav>
+  </div>
+</header>
+<div class="content-wrap">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="hero-badge">RRSP</span>
+      <h1>RRSP Withdrawal Tax Calculator 2026</h1>
+      <p>See how much tax is withheld when you withdraw from your RRSP &mdash; and why the withheld amount is often not the tax you actually owe.</p>
+    </div>
+  </section>
+
+  <div class="content-section calc-section">
+    <h2>Your Withdrawal</h2>
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="amount">Amount withdrawn</label>
+        <input type="number" id="amount" value="20000" min="0" step="500">
+      </div>
+      <div class="input-group">
+        <label for="province">Province of the plan</label>
+        <select id="province" class="full">
+          <option value="fed" selected>Outside Quebec</option>
+          <option value="qc">Quebec</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="marginal">Your marginal tax rate (%)</label>
+        <input type="number" id="marginal" value="30" min="0" max="60" step="0.5">
+      </div>
+      <div class="input-group">
+        <label for="otherIncome">Other taxable income this year</label>
+        <input type="number" id="otherIncome" value="60000" min="0" step="1000">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate Withholding</button>
+    <p class="calc-note">Withholding rates are set by the CRA and apply to the whole withdrawal amount, not in tiers.</p>
+  </div>
+
+  <div id="results" style="display:none">
+    <div class="result-hero">
+      <div class="label">Cash you receive</div>
+      <div class="big-num" id="netCash">&mdash;</div>
+      <div class="rc-sub" id="netCashSub"></div>
+    </div>
+    <div class="result-grid">
+      <div class="result-card"><div class="rc-label">Withholding tax</div><div class="rc-val" id="withheld">&mdash;</div><div class="rc-sub" id="withheldSub"></div></div>
+      <div class="result-card"><div class="rc-label">Estimated actual tax</div><div class="rc-val" id="actualTax">&mdash;</div><div class="rc-sub">At your marginal rate</div></div>
+      <div class="result-card"><div class="rc-label">Extra tax owed at filing</div><div class="rc-val" id="shortfall">&mdash;</div><div class="rc-sub" id="shortfallSub"></div></div>
+      <div class="result-card"><div class="rc-label">Total income this year</div><div class="rc-val" id="totalIncome">&mdash;</div><div class="rc-sub">Withdrawal + other income</div></div>
+    </div>
+    <div class="content-section">
+      <h2>How the Withholding Is Calculated</h2>
+      <table class="breakdown-table">
+        <tbody>
+          <tr><td>Withdrawal amount</td><td id="tAmount">&mdash;</td></tr>
+          <tr><td>Withholding rate applied</td><td id="tRate">&mdash;</td></tr>
+          <tr class="subtotal"><td>Tax withheld at source</td><td id="tWithheld">&mdash;</td></tr>
+          <tr><td>Cash received</td><td id="tCash">&mdash;</td></tr>
+          <tr><td>Estimated tax at your marginal rate</td><td id="tActual">&mdash;</td></tr>
+          <tr class="total-row"><td>Difference owing at tax time</td><td id="tDiff">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Withholding Is Not the Tax You Owe</h2>
+    <p>This is the most important thing to understand about RRSP withdrawals. The amount your institution withholds is a <strong>prepayment</strong>, set at a flat rate by the CRA. Your actual tax is determined when you file, based on your total income for the year and your marginal rate.</p>
+    <p>Those two numbers often disagree. If you withdraw $20,000 on top of a $60,000 salary, the withholding is 30% ($6,000), but that $20,000 sits in your top bracket, which could be over 43% depending on your province. The gap arrives as a tax bill the following April.</p>
+    <div class="tip-box">
+      <strong>Planning note:</strong> withholding rates ignore your province and your income level entirely. Before making a large withdrawal, work out the real marginal cost &mdash; or set aside the difference deliberately. Withdrawing in a year when your other income is low is one of the few genuinely effective ways to reduce the tax on RRSP money.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Withholding Rates for 2026</h2>
+    <table class="breakdown-table">
+      <thead><tr><th>Amount withdrawn</th><th>Outside Quebec</th><th>Quebec</th></tr></thead>
+      <tbody>
+        <tr><td>Up to $5,000</td><td>10%</td><td>5%</td></tr>
+        <tr><td>$5,000.01 to $15,000</td><td>20%</td><td>10%</td></tr>
+        <tr><td>Over $15,000</td><td>30%</td><td>15%</td></tr>
+      </tbody>
+    </table>
+    <p class="calc-note">Quebec figures are the federal portion only &mdash; provincial tax is withheld on top by Revenu Qu&eacute;bec. Non-residents of Canada face 25% withholding unless reduced by a tax treaty.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Is the withholding rate applied in tiers like income tax?</summary>
+      <div class="faq-body"><p>No. Withholding is applied to the entire withdrawal at a single rate. Withdrawing $15,000 costs 20% ($3,000), but withdrawing $15,001 costs 30% on the whole amount ($4,500.30) &mdash; nearly $1,500 more for one extra dollar. If you are near a threshold, withdrawing slightly less can leave you meaningfully better off in the short term.</p></div>
+    </details>
+    <details>
+      <summary>Will I get the withheld tax back?</summary>
+      <div class="faq-body"><p>Only if the withholding turns out to be more than your actual tax. Because RRSP withdrawals are taxed at your marginal rate and withholding is a flat, bracket-based rate, low-income years and small withdrawals can produce a refund, while large withdrawals on top of a decent salary usually produce a bill.</p></div>
+    </details>
+    <details>
+      <summary>Does an RRSP withdrawal affect my OAS or other benefits?</summary>
+      <div class="faq-body"><p>Yes. Unlike a TFSA, an RRSP withdrawal counts as taxable income. It raises your net income for the year, which can trigger the OAS recovery tax, reduce the Guaranteed Income Supplement, and affect income-tested benefits such as the Canada Child Benefit. A large one-off withdrawal can have knock-on effects well beyond the tax on the withdrawal itself.</p></div>
+    </details>
+    <details>
+      <summary>Should I withdraw from my RRSP or my TFSA?</summary>
+      <div class="faq-body"><p>In general, spend TFSA money first if you want to keep your taxable income low, because TFSA withdrawals do not affect benefit clawbacks. RRSP withdrawals are more attractive in a year when your other income is unusually low. The right answer depends on your bracket now versus your expected bracket later.</p></div>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Calculators</h2>
+    <div class="related-tools">
+      <a href="/rrsp-calculator.html" class="tool-chip">RRSP Calculator</a>
+      <a href="/tfsa-growth-calculator.html" class="tool-chip">TFSA Growth Calculator</a>
+      <a href="/retirement-income-tax-calculator.html" class="tool-chip">Retirement Income Tax</a>
+      <a href="/oas-calculator.html" class="tool-chip">OAS Calculator</a>
+      <a href="/senior-income-tax-calculator.html" class="tool-chip">Senior Income Tax</a>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Disclaimer:</strong> Withholding rates are set by the CRA. Your actual tax depends on your total income, province and credits, and is calculated when you file. This is an estimate for planning, not tax advice.
+  </div>
+</div>
+<footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">🍁 North<em>Calc</em></div>
+        <p class="footer-desc">Free Canadian financial calculators. Made for Canadians, by Canadians. No sign-up, no data collected, no nonsense.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 NorthCalc.com — All calculations are estimates for informational purposes only and do not constitute financial, tax, or legal advice.</div>
+  </footer>
+<script>
+const money = n => '$' + Math.round(n).toLocaleString('en-CA');
+
+/* CRA withholding rates. Applied to the WHOLE amount, not in tiers. */
+function withholdingRate(amount, isQuebec){
+  if (amount <= 5000)  return isQuebec ? 0.05 : 0.10;
+  if (amount <= 15000) return isQuebec ? 0.10 : 0.20;
+  return isQuebec ? 0.15 : 0.30;
+}
+
+function calculate(){
+  const amount      = parseFloat(document.getElementById('amount').value) || 0;
+  const isQuebec    = document.getElementById('province').value === 'qc';
+  const marginal    = (parseFloat(document.getElementById('marginal').value) || 0) / 100;
+  const otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+
+  if (amount <= 0) { alert('Please enter a withdrawal amount.'); return; }
+
+  const rate       = withholdingRate(amount, isQuebec);
+  const withheld   = amount * rate;
+  const netCash    = amount - withheld;
+  const actualTax  = amount * marginal;
+  const diff       = actualTax - withheld;
+  const totalIncome = amount + otherIncome;
+
+  document.getElementById('netCash').textContent = money(netCash);
+  document.getElementById('netCashSub').textContent =
+    'After ' + money(withheld) + ' withheld at source (' + (rate * 100).toFixed(0) + '%)';
+
+  document.getElementById('withheld').textContent = money(withheld);
+  document.getElementById('withheldSub').textContent =
+    (rate * 100).toFixed(0) + '% of the full amount' + (isQuebec ? ' (federal portion)' : '');
+
+  document.getElementById('actualTax').textContent = money(actualTax);
+  document.getElementById('shortfall').textContent = money(Math.abs(diff));
+  document.getElementById('shortfallSub').textContent = diff > 0
+    ? 'You will owe this at filing'
+    : (diff < 0 ? 'Refund expected at filing' : 'Withholding matches your tax');
+
+  document.getElementById('totalIncome').textContent = money(totalIncome);
+
+  document.getElementById('tAmount').textContent   = money(amount);
+  document.getElementById('tRate').textContent     = (rate * 100).toFixed(0) + '%';
+  document.getElementById('tWithheld').textContent = '-' + money(withheld);
+  document.getElementById('tCash').textContent     = money(netCash);
+  document.getElementById('tActual').textContent   = money(actualTax);
+  document.getElementById('tDiff').textContent     = diff > 0
+    ? 'Owe ' + money(diff)
+    : (diff < 0 ? 'Refund ' + money(Math.abs(diff)) : money(0));
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function navToggle(b){const d=b.parentElement,w=d.classList.contains('open');document.querySelectorAll('.nav-drop').forEach(x=>x.classList.remove('open'));if(!w)d.classList.add('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-drop')&&!e.target.closest('#hamburger'))document.querySelectorAll('.nav-drop').forEach(d=>d.classList.remove('open'))});
+</script>
+</body>
+</html>
