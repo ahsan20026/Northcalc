@@ -178,7 +178,7 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
           </div>
           <span class="hint">Enter the actual gain — not the taxable portion. E.g., if you sold a property for $300K profit, enter $300,000.</span>
           <div id="cgNote" style="display:none;margin-top:.4rem;padding:.5rem .75rem;background:#fff7ed;border:1px solid #fed7aa;border-radius:7px;font-size:.77rem;color:#92400e">
-            <strong>Over $250,000 in capital gains:</strong> The regular tax inclusion rate is 2/3 on the excess above $250,000 (since June 25, 2024). AMT uses 100% inclusion on the full amount.
+            <strong>Capital gains and AMT:</strong> For AMT purposes 100% of a capital gain is included in adjusted income, while the regular system includes only 50%. Under the old AMT rules this figure was 80%.
           </div>
         </div>
         <div class="field">
@@ -319,7 +319,7 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
       <p>The AMT basic exemption was dramatically increased from $40,000 to <strong>$173,205</strong> (indexed to inflation). This change was specifically designed to protect middle-income Canadians and ensure that AMT only applies to those with very high incomes or large tax preferences. The higher exemption means the combination of the higher rate and higher exemption together targets a very specific wealthy population.</p>
 
       <h3>Capital Gains Inclusion: 80% → 100%</h3>
-      <p>For AMT purposes, <strong>100% of capital gains</strong> must be included in AMT adjusted income — up from 80% under the old rules. The regular tax system still uses a 50% inclusion rate for gains up to $250,000 (and 2/3 for the excess above $250,000 since June 2024). This creates a large "add-back" for taxpayers with significant capital gains.</p>
+      <p>For AMT purposes, <strong>100% of capital gains</strong> must be included in AMT adjusted income — up from 80% under the old rules. The regular tax system still uses a flat 50% inclusion rate on all capital gains &mdash; the proposed 2/3 rate above $250,000 was cancelled. This creates a large "add-back" for taxpayers with significant capital gains.</p>
 
       <h3>Stock Options: 80% → 100%</h3>
       <p>Employee stock option benefits are now included at <strong>100%</strong> for AMT purposes (previously 80%). This particularly affects executives and tech employees who exercise large option grants.</p>
@@ -369,8 +369,8 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
       <h3>Scenario 1: Cottage Sale</h3>
       <div class="example-box">
         <strong>Maria sells her cottage for a $600,000 capital gain — Ontario resident, $120,000 employment income</strong>
-        <div class="ex-row"><span>Regular taxable income (50% inclusion on first $250K, 2/3 on excess $350K)</span><span>$120,000 + $125,000 + $233,333 = $478,333</span></div>
-        <div class="ex-row"><span>Estimated regular federal tax (after BPA)</span><span>~$120,500</span></div>
+        <div class="ex-row"><span>Regular taxable income (50% inclusion on the full gain)</span><span>$120,000 + $300,000 = $420,000</span></div>
+        <div class="ex-row"><span>Estimated regular federal tax (after BPA)</span><span>~$110,500</span></div>
         <div class="ex-row"><span>AMT adjusted income (100% capital gains)</span><span>$120,000 + $600,000 = $720,000</span></div>
         <div class="ex-row"><span>Less AMT exemption</span><span>− $173,205</span></div>
         <div class="ex-row"><span>AMT base</span><span>$546,795</span></div>
@@ -542,7 +542,7 @@ document.addEventListener('click', function(e) {
 // Show capital gains note when over 250K
 function updateCGNote() {
   const cg = parseFloat(document.getElementById('capitalGains').value) || 0;
-  document.getElementById('cgNote').style.display = cg > 250000 ? 'block' : 'none';
+  document.getElementById('cgNote').style.display = 'none'; // cancelled rule - never shown
 }
 
 // Format currency
@@ -574,14 +574,10 @@ function calcRegularFederalTax(taxableIncome) {
 
 // Calculate regular taxable income
 function calcRegularTaxableIncome(empIncome, otherIncome, capitalGains, stockOptions, donations, carryingCharges) {
-  // Regular capital gains inclusion:
-  // 50% on first $250,000; 2/3 on excess (post-June 2024 budget)
-  let cgInclusion = 0;
-  if (capitalGains <= 250000) {
-    cgInclusion = capitalGains * 0.50;
-  } else {
-    cgInclusion = 250000 * 0.50 + (capitalGains - 250000) * (2/3);
-  }
+  // Capital gains inclusion: 50% for ALL gains. The proposed 2/3 rate
+  // above $250,000 was cancelled and never took effect, so no tiering applies.
+  const cgInclusion = capitalGains * 0.50;
+  
 
   // Stock options: 50% deduction allowed (standard employee stock option deduction)
   const soInclusion = stockOptions * 0.50;

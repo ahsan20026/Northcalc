@@ -229,7 +229,7 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
       <div class="form-group">
         <label>Capital Gains Realized ($) <span>(total gain, not proceeds)</span></label>
         <input type="number" id="capitalGains" value="0" min="0" placeholder="0.00">
-        <div class="hint">50% inclusion applies for gains ≤$250K; 2/3 for excess (2026 rules).</div>
+        <div class="hint">50% inclusion rate applies to all capital gains. The proposed 2/3 rate above $250,000 was cancelled.</div>
       </div>
       <div class="form-group">
         <label>TFSA Withdrawals ($) <span>(tax-free — for net income display only)</span></label>
@@ -343,7 +343,7 @@ footer{background:var(--navy);color:#9ca3af;padding:2.5rem 1.5rem;margin-top:aut
   <div class="content-section">
     <h2>How Capital Gains Are Taxed in Retirement</h2>
     <p>Capital gains receive preferential tax treatment in Canada compared to regular income. In 2026, only 50% of capital gains up to $250,000 annually are included in taxable income — meaning a $50,000 gain adds only $25,000 to your taxable income.</p>
-    <p>For capital gains <em>above</em> $250,000 in a single year, the inclusion rate increases to two-thirds (66.67%) on the excess amount. This higher rate was legislated for 2024 and carries forward into 2026 for large gains.</p>
+    <p>Only <strong>50%</strong> of a capital gain is included in taxable income, at any amount. The 2024 federal budget proposed raising the inclusion rate to two-thirds on gains above $250,000, but <strong>that change was cancelled</strong> and never took effect &mdash; so there is no higher tier to plan around.</p>
     <div class="example-box">
       <strong>Example: $80,000 Capital Gain</strong>
       Gross capital gain: $80,000<br>
@@ -602,12 +602,9 @@ function calculate(){
 
   // Capital gains inclusion
   const cgThreshold=250000;
-  let taxableCapGain=0;
-  if(capitalGains<=cgThreshold){
-    taxableCapGain=capitalGains*0.5;
-  } else {
-    taxableCapGain=cgThreshold*0.5+(capitalGains-cgThreshold)*(2/3);
-  }
+  // 50% inclusion rate applies to ALL capital gains. The proposed 2/3 rate
+  // for gains above $250,000 was cancelled and never took effect.
+  const taxableCapGain=capitalGains*0.5;
 
   // Dividend gross-up
   const dividendGrossUp=dividends*1.38;
@@ -726,7 +723,7 @@ function calculate(){
   if(rrifWithdrawal>0)incomeRows.push({label:'RRIF Withdrawal',gross:rrifWithdrawal,taxable:rrifWithdrawal,note:'Fully taxable'});
   if(interestIncome>0)incomeRows.push({label:'Interest / Bond Income',gross:interestIncome,taxable:interestIncome,note:'Fully taxable'});
   if(dividends>0)incomeRows.push({label:'Canadian Eligible Dividends',gross:dividends,taxable:dividendGrossUp,note:`Grossed-up 38% (${fmt(dividends)} actual)`});
-  if(capitalGains>0)incomeRows.push({label:'Capital Gains',gross:capitalGains,taxable:taxableCapGain,note:capitalGains<=cgThreshold?'50% inclusion rate':'50% to $250K, 2/3 above'});
+  if(capitalGains>0)incomeRows.push({label:'Capital Gains',gross:capitalGains,taxable:taxableCapGain,note:'50% inclusion rate'});
   if(tfsaWithdrawals>0)incomeRows.push({label:'TFSA Withdrawals',gross:tfsaWithdrawals,taxable:0,note:'Tax-free — not included in tax calc'});
   if(otherIncome>0)incomeRows.push({label:'Other Taxable Income',gross:otherIncome,taxable:otherIncome,note:'Fully taxable'});
 
