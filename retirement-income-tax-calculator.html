@@ -555,10 +555,10 @@ const provNames={
 
 // 2026 Federal brackets
 const fedBrackets=[
-  {limit:57375,rate:0.15},
-  {limit:114750,rate:0.205},
-  {limit:158519,rate:0.26},
-  {limit:220000,rate:0.29},
+  {limit:58523,rate:0.14},
+  {limit:117045,rate:0.205},
+  {limit:181440,rate:0.26},
+  {limit:258482,rate:0.29},
   {limit:Infinity,rate:0.33}
 ];
 
@@ -619,7 +619,7 @@ function calculate(){
   const taxableIncome=cppAnnual+oasAnnual+dbPension+rrifWithdrawal+interestIncome+dividendGrossUp+taxableCapGain+otherIncome;
 
   // OAS Clawback
-  const OAS_CLAWBACK_THRESHOLD=90997;
+  const OAS_CLAWBACK_THRESHOLD=95323;
   let oasClawback=0;
   let clawbackTriggered=false;
   if(taxableIncome>OAS_CLAWBACK_THRESHOLD && oasAnnual>0){
@@ -635,8 +635,8 @@ function calculate(){
   const {tax:fedTaxBefore, breakdown:fedBreakdown}=calcFedTax(fedTaxableIncome);
 
   // Credits
-  const BPA=16129;
-  const bpaCredit=BPA*0.15;
+  const BPA=16452;
+  const bpaCredit=BPA*0.14;
 
   // Age amount
   const AGE_AMOUNT=8790;
@@ -645,14 +645,14 @@ function calculate(){
   if(fedTaxableIncome>AGE_PHASE_START){
     ageAmount=Math.max(0,AGE_AMOUNT-(fedTaxableIncome-AGE_PHASE_START)*0.15);
   }
-  const ageCredit=ageAmount*0.15;
+  const ageCredit=ageAmount*0.14;
 
   // Pension income credit (eligible: DB pension, RRIF if 65+, CPP/OAS do NOT qualify for this credit)
   let eligiblePensionIncome=0;
   if(dbPension>0)eligiblePensionIncome+=dbPension;
   if(age>=65&&rrifWithdrawal>0)eligiblePensionIncome+=rrifWithdrawal;
   const pensionCreditBase=Math.min(2000,eligiblePensionIncome);
-  const pensionCredit=pensionCreditBase*0.15;
+  const pensionCredit=pensionCreditBase*0.14;
 
   // Dividend tax credit (federal: 15.0198% of grossed-up dividend)
   const divTaxCredit=dividends>0 ? dividendGrossUp*0.150198 : 0;
